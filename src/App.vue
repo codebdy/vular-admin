@@ -13,7 +13,7 @@
 
       >
       <div style="width: 100%;height: 100%;display: flex;flex-flow: column;">
-          <v-toolbar color="primary darken-1" dark style="flex: 0">
+          <v-toolbar color="primary darken-1" style="flex: 0">
             <img src="images/logo.png" :height="primaryDrawer.mini ? 26 : 36" alt="Vular Amazing Framework" />
             <v-toolbar-title class="ml-0 pl-3">
               <span class="hidden-sm-and-down">Vular</span>
@@ -72,11 +72,11 @@
                   dot
                   v-if="primaryDrawer.mini"
                 >
-                  <v-icon v-html="item.action"></v-icon>
+                  <v-icon v-text="item.action"></v-icon>
                 </v-badge>
                 <v-icon
                   v-else
-                v-html="item.action"></v-icon>
+                v-text="item.action"></v-icon>
               </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title v-text="item.title"></v-list-item-title>
@@ -89,7 +89,6 @@
                 <div>
                   <v-chip
                     color="pink"
-                    dark
                   >6</v-chip>
                 </div>
              </v-list-item>
@@ -121,7 +120,6 @@
       <v-app-bar
         :clipped-left="primaryDrawer.clipped"
         color="primary"
-        dark
         app
 
       >
