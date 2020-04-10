@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer
-    :miniVariant = "mini"
+    :miniVariant.sync = "mini"
     :bottom = "bottom"
     :clipped = 'clipped'
     :disableRouteWatcher = 'disableRouteWatcher'
@@ -19,8 +19,131 @@
     :dark = 'dark'
     :light = 'light'
     v-model="model"
+    overflow
+  >
+    <div style="width: 100%;height: 100%;display: flex;flex-flow: column;">
+      <v-toolbar color="primary darken-1" style="flex: 0">
+        <img src="images/logo.png" :height="mini ? 26 : 36" alt="Vular Amazing Framework" />
+        <v-toolbar-title class="ml-0 pl-3">
+          <span class="hidden-sm-and-down">Vular</span>
+        </v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-btn icon class="hidden-xs-only" 
+          @click.stop="mini = !mini"
+        >
+          <v-icon>chevron_left</v-icon>
+        </v-btn>
+      </v-toolbar>
+
+      <v-list style="flex: 1;overflow-y: auto; overflow-x:hidden;">
+        <v-list-item link>
+          <v-list-item-icon>
+            <v-icon>dashboard</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-title>仪表盘</v-list-item-title>
+        </v-list-item>
+        <v-list-item link>
+          <v-list-item-icon>
+            <v-badge
+            color="pink"
+            dot
+            v-if="mini"
+            >
+            <v-icon>mail</v-icon>
+          </v-badge>
+          <v-icon
+          v-else
+          >mail</v-icon>
+        </v-list-item-icon>
+        <v-list-item-title>
+          询盘
+
+        </v-list-item-title>
+        <div>
+          <v-chip
+          color="pink"
+          dark
+          >6</v-chip>
+        </div>
+      </v-list-item>
+      <v-list-group
+      v-for="item in items"
+      :key="item.title"
+      v-model="item.active"
+      no-action
+      >
+
+      <template v-slot:activator>
+        <v-list-item-icon>
+          <v-badge
+          color="pink"
+          dot
+          v-if="mini"
+          >
+          <v-icon v-text="item.action"></v-icon>
+        </v-badge>
+        <v-icon
+        v-else
+        v-text="item.action"></v-icon>
+      </v-list-item-icon>
+      <v-list-item-content>
+        <v-list-item-title v-text="item.title"></v-list-item-title>
+      </v-list-item-content>
+    </template>
+    <v-list-item >
+      <v-list-item-icon>
+        <v-icon>mail</v-icon>
+      </v-list-item-icon>
+      <v-list-item-content>
+        <v-list-item-title>Test</v-list-item-title>
+      </v-list-item-content>
+      <div>
+        <v-chip
+        color="pink"
+        >6</v-chip>
+      </div>
+    </v-list-item>
+
+    <v-list-item >
+      <v-list-item-icon>
+        <v-icon>mail</v-icon>
+      </v-list-item-icon>
+      <v-list-item-content>
+        <v-list-item-title>Test2</v-list-item-title>
+      </v-list-item-content>
+      <v-list-item-icon>
+        <v-icon>mail</v-icon>
+      </v-list-item-icon>
+      <div>
+        <v-chip
+        color="pink"
+        >3</v-chip>
+      </div>
+    </v-list-item>
+
+    <v-list-item
+    v-for="subItem in item.items"
+    :key="subItem.title"
+    @click=""
     >
-    <slot></slot>
+      <v-list-item-content>
+        <v-list-item-title v-text="subItem.title"></v-list-item-title>
+      </v-list-item-content>
+    </v-list-item>
+    </v-list-group>
+    <v-list-item link>
+      <v-list-item-icon>
+        <v-icon>settings</v-icon>
+      </v-list-item-icon>
+
+      <v-list-item-title>设置</v-list-item-title>
+    </v-list-item>
+
+
+    </v-list>
+
+    </div>
 
   </v-navigation-drawer>
 </template>
@@ -40,7 +163,7 @@ export default {
     miniVariant: Boolean,
     miniVariantWidth: {
       type: [Number, String],
-      default: 80
+      default: 56
     },
     mobileBreakPoint: {
       type: [Number, String],
@@ -76,6 +199,46 @@ export default {
     return{
       mini: this.miniVariant,
       model: true,
+      items: [
+        {
+          action: 'local_activity',
+          title: 'Attractions',
+          items: [
+          { title: 'List Item' },
+          ],
+        },
+        {
+          action: 'restaurant',
+          title: 'Dining',
+          active: true,
+          items: [
+          { title: 'Breakfast & brunch' },
+          { title: 'New American' },
+          { title: 'Sushi' },
+          ],
+        },
+        {
+          action: 'school',
+          title: 'Education',
+          items: [
+          { title: 'List Item' },
+          ],
+        },
+        {
+          action: 'directions_run',
+          title: 'Family',
+          items: [
+          { title: 'List Item' },
+          ],
+        },
+        {
+          action: 'healing',
+          title: 'Health',
+          items: [
+          { title: 'List Item' },
+          ],
+        },
+      ],
     }    
   },
   
@@ -84,17 +247,6 @@ export default {
   },
 
   created () {
-    const self = this;
-    $bus.$on('changeDrawerMini', function () {
-      self.mini = !self.mini;
-      $bus.$emit('miniChanged', self.mini);
-    })
-
-    $bus.$on('vularAction', function (event) {
-      if(event.action == 'hideOrShowDrawer'){
-        self.model = !self.model;
-      }
-    })
   },
   
 };
