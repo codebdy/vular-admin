@@ -36,6 +36,7 @@
       </v-toolbar>
 
       <v-list style="flex: 1;overflow-y: auto; overflow-x:hidden;">
+
         <v-list-item link>
           <v-list-item-icon>
             <v-icon>dashboard</v-icon>
@@ -67,6 +68,7 @@
           >6</v-chip>
         </div>
       </v-list-item>
+      <v-subheader  v-if="!mini">外贸管理</v-subheader>
       <v-list-group
       v-for="item in items"
       :key="item.title"
@@ -91,7 +93,7 @@
         <v-list-item-title v-text="item.title"></v-list-item-title>
       </v-list-item-content>
     </template>
-    <v-list-item >
+    <v-list-item link>
       <v-list-item-icon>
         <v-icon>mail</v-icon>
       </v-list-item-icon>
@@ -100,8 +102,10 @@
       </v-list-item-content>
       <div>
         <v-chip
-        color="pink"
-        >6</v-chip>
+        color="blue"
+        x-small
+        dark
+        >new</v-chip>
       </div>
     </v-list-item>
 
@@ -132,6 +136,7 @@
       </v-list-item-content>
     </v-list-item>
     </v-list-group>
+    <v-subheader v-if="!mini">系统设置</v-subheader>
     <v-list-item link>
       <v-list-item-icon>
         <v-icon>settings</v-icon>
