@@ -18,12 +18,13 @@
     :app = 'app'
     :dark = 'dark'
     :light = 'light'
+    color="#1b1b28"
     v-model="model"
     overflow
   >
     <div class="drawer-content">
-      <v-toolbar color="primary darken-1 flex-0">
-        <img src="images/logo.png" :height="mini ? 26 : 36" alt="Vular Amazing Framework" />
+      <v-toolbar  class="flex-0" color="#1a1a27">
+        <img src="images/logo.png" :height="36" alt="Vular Amazing Framework" />
         <v-toolbar-title class="ml-0 pl-3">
           <span class="hidden-sm-and-down">Vular</span>
         </v-toolbar-title>
@@ -153,7 +154,7 @@
 </template>
 <script>
 export default {
-  name: 'vular-drawer',
+  name: 'vular-app-drawer',
   props: {
     bottom: Boolean,
     clipped: Boolean,
@@ -167,7 +168,7 @@ export default {
     miniVariant: Boolean,
     miniVariantWidth: {
       type: [Number, String],
-      default: 56
+      default: 70
     },
     mobileBreakPoint: {
       type: [Number, String],

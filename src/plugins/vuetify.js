@@ -4,6 +4,8 @@ import Vue from 'vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import colors from 'vuetify/lib/util/colors'
+import "../sass/variables.scss"
+
 Vue.use(Vuetify)
 
 const opts = {
@@ -12,15 +14,6 @@ const opts = {
   },
   theme: {
     themes: {
-      light: {
-        primary: '#BBDEFB',
-        secondary: '#b0bec5',
-        accent: '#8c9eff',
-        error: '#b71c1c',
-      },
-      dark: {
-        primary: colors.blue.lighten3,
-      },
     },
   }
 }

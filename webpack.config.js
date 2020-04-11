@@ -38,6 +38,10 @@ module.exports = {
         }
       },
       {
+        test: /\.styl$/,
+        loader: ['css-loader', 'stylus-loader']
+      },
+      {
         test: /\.s(c|a)ss$/,
         use: [
           'vue-style-loader',
