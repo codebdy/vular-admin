@@ -21,8 +21,8 @@
     v-model="model"
     overflow
   >
-    <div style="width: 100%;height: 100%;display: flex;flex-flow: column;">
-      <v-toolbar color="primary darken-1" style="flex: 0">
+    <div class="drawer-content">
+      <v-toolbar color="primary darken-1 flex-0">
         <img src="images/logo.png" :height="mini ? 26 : 36" alt="Vular Amazing Framework" />
         <v-toolbar-title class="ml-0 pl-3">
           <span class="hidden-sm-and-down">Vular</span>
@@ -35,8 +35,7 @@
         </v-btn>
       </v-toolbar>
 
-      <v-list style="flex: 1;overflow-y: auto; overflow-x:hidden;">
-
+      <v-list class="drawer-list">
         <v-list-item link>
           <v-list-item-icon>
             <v-icon>dashboard</v-icon>
@@ -68,7 +67,7 @@
           >6</v-chip>
         </div>
       </v-list-item>
-      <v-subheader  v-if="!mini">外贸管理</v-subheader>
+      <v-subheader v-if="!mini">外贸管理</v-subheader>
       <v-list-group
       v-for="item in items"
       :key="item.title"
@@ -253,6 +252,52 @@ export default {
 
   created () {
   },
-  
+
+  watch:{
+    mini(val){
+      if(val){
+        this.items.forEach(item=>{
+          this.$set(item, 'active', false)
+        })
+      }
+    }
+  }
+
 };
 </script>
+
+<style>
+  .drawer-content ::-webkit-scrollbar {
+    width: 0.2rem;
+    height: 0.2rem;
+  }
+  .drawer-content ::-webkit-scrollbar-track {
+    border-radius: 0;
+  }
+  .drawer-content ::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background: #ccc;
+    transition: all .2s;
+  }
+  .drawer-content ::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa;
+  }
+
+  .drawer-content ::-webkit-scrollbar-corner{
+    background: transparent;
+  }
+
+  .drawer-content{
+    width: 100%;height: 100%;display: flex;flex-flow: column;
+  }
+
+  .flex-0{
+    flex: 0;
+  }
+
+  .drawer-list{
+    flex: 1;
+    overflow-y: auto; 
+    overflow-x:hidden;
+  }
+</style>

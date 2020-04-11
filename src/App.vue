@@ -12,7 +12,7 @@
       >
       </vular-drawer>
 
-        <v-app-bar
+      <v-app-bar
         :clipped-left="primaryDrawer.clipped"
         color="primary"
         app
@@ -25,7 +25,16 @@
         <v-toolbar-title>
           Title          
         </v-toolbar-title>
-        </v-app-bar>
+        <v-spacer></v-spacer>
+        <v-btn icon>
+          <v-icon>cards-heart</v-icon>
+        </v-btn>
+
+        <v-btn icon>
+          <v-icon>account_circle</v-icon>
+        </v-btn>
+
+      </v-app-bar>
 
 <v-content>
   <v-container fluid>
