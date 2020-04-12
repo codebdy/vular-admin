@@ -10,6 +10,16 @@ const opts = {
   icons: {
     iconfont: 'md' ||'fa',
   },
+  theme: {
+    themes: {
+      light: {
+        primary: "#5d78ff",
+      },
+      dark: {
+        primary: "#5d78ff",
+      },
+    },
+  },
 }
 
 export default new Vuetify(opts)
