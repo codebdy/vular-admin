@@ -11,13 +11,13 @@
           </v-avatar>
         </v-btn>
       </template>
-      <v-list style="padding:10px;">
+      <v-card style="padding:10px;">
         <v-color-picker flat show-swatches swatches-max-height="200px" v-model="color"></v-color-picker>
         <div class="text-center my-2">
           <v-btn class="ma-2" tile @click="onCancel">取消</v-btn>
           <v-btn class="ma-2" tile color="primary" @click="onConfirm">确定</v-btn>
         </div>
-      </v-list>
+      </v-card>
     </v-menu>
   </v-text-field>
 </template>
