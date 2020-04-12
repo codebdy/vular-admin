@@ -40,6 +40,9 @@
       <v-toolbar-title v-if="vularApp.appbar.showLogo" class="ml-0 pl-3">
         <span class="hidden-sm-and-down">{{vularApp.logo.title}}</span>
       </v-toolbar-title>
+      <v-btn icon>
+        <v-icon color="red">mdi-ladybug</v-icon>
+      </v-btn>
       <v-spacer></v-spacer>
       <v-btn icon>
         <v-icon medium>mdi-magnify</v-icon>
@@ -84,7 +87,7 @@
 </template>
 
 <script>
-  import VularAppDrawer from "./VularAppDrawer.vue"
+  import VularAppDrawer from "./drawer/VularAppDrawer.vue"
   import VularAppbarProfile from "./VularAppbarProfile"
   import VularNotifications from "./VularNotifications"
   import ThemeSettings from "./pages/ThemeSettings"
@@ -107,10 +110,6 @@
           showLogo: true,
           color: "#1b1b28",
           src:"",
-          fontSize: "0.825rem",
-          textColor:"#8c8da0",
-          subheaderColor:"#494b74",
-          fontSize:"0.825rem",
           dark:true,
           light:false,
           model: null,

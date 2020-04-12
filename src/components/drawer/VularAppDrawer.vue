@@ -21,38 +21,14 @@
       </v-toolbar>
 
       <v-list class="drawer-list">
-        <v-list-item link class="menu-item">
-          <v-list-item-icon>
-            <v-icon>dashboard</v-icon>
-          </v-list-item-icon>
-
-          <v-list-item-title>仪表盘</v-list-item-title>
-        </v-list-item>
-        <v-list-item link>
-          <v-list-item-icon>
-            <v-badge
-            color="pink"
-            dot
-            v-if="inputValue.mini"
-            >
-            <v-icon>mail</v-icon>
-          </v-badge>
-          <v-icon
-          v-else
-          >mail</v-icon>
-        </v-list-item-icon>
-        <v-list-item-title>
-          询盘
-
-        </v-list-item-title>
-        <div>
-          <v-chip
-          color="pink"
-          dark
-          >6</v-chip>
-        </div>
-      </v-list-item>
-      <v-subheader v-if="!inputValue.mini">外贸管理</v-subheader>
+      <component     
+        v-for="schema in items2"
+        :key="schema.title"
+        :is="schema.name" 
+        :schema="schema"
+        :drawer="inputValue"
+      >
+      </component>
       <v-list-group
       v-for="item in items"
       :key="item.title"
@@ -67,11 +43,11 @@
           dot
           v-if="inputValue.mini"
           >
-          <v-icon v-text="item.action"></v-icon>
+          <v-icon v-text="item.icon"></v-icon>
         </v-badge>
         <v-icon
         v-else
-        v-text="item.action"></v-icon>
+        v-text="item.icon"></v-icon>
       </v-list-item-icon>
       <v-list-item-content>
         <v-list-item-title v-text="item.title"></v-list-item-title>
@@ -135,8 +111,16 @@
     </div>
 </template>
 <script>
+import VularMenuItem from "./VularMenuItem"
+import VularMenuItemGroup from "./VularMenuItemGroup"
+import VularSubheader from "./VularSubheader"
 export default {
   name: 'vular-app-drawer',
+    components: {
+      VularMenuItem,
+      VularMenuItemGroup,
+      VularSubheader,
+    },
   props: {
     value:{default:()=>{return {}}},
     logo:{default:()=>{return {}}},
@@ -144,16 +128,92 @@ export default {
   },
   data: function () {
     return{
+      items2:[
+        {
+          name:"vular-menu-item",
+          prependIcon:'mdi-speedometer',
+          title:'仪表盘',
+        },
+        {
+          name:"vular-menu-item",
+          prependIcon: 'mail',
+          title:'询盘',
+          badge:{
+            title:'6',
+            props:{
+              dark:true,
+              color:'red',
+              small:false,
+            }
+          },
+          chip:{
+            title:'New',
+            props:{
+              dark:true,
+              color:'red',
+              small:false,
+            }
+          }
+        },
+        {
+          name:"vular-menu-item",
+          prependIcon: 'home',
+          title:'测试',
+          appendIcon: 'home',
+          badge:{
+            title:'6',
+            props:{
+              dark:true,
+              color:'red',
+              small:false,
+            }
+          },
+          chip:{
+            title:'New',
+            props:{
+              dark:true,
+              color:'red',
+              small:false,
+            }
+          }
+        },
+        {
+          name:"vular-subheader",
+          title:"外贸管理"
+        },
+        {
+          name:"vular-menu-item-group",
+          icon:'mail',
+          title:'订单管理',
+          appendIcon: 'home',
+          badge:{
+            title:'6',
+            props:{
+              dark:true,
+              color:'red',
+              small:false,
+            }
+          },
+          chip:{
+            title:'New',
+            props:{
+              dark:true,
+              color:'red',
+              small:false,
+            }
+          }
+        },
+      ],
       items: [
         {
-          action: 'local_activity',
+          icon: 'local_activity',
           title: 'Attractions',
           items: [
           { title: 'List Item' },
           ],
         },
         {
-          action: 'restaurant',
+          icon: 'restaurant',
           title: 'Dining',
           active: false,
           items: [
@@ -163,21 +223,21 @@ export default {
           ],
         },
         {
-          action: 'school',
+          icon: 'school',
           title: 'Education',
           items: [
           { title: 'List Item' },
           ],
         },
         {
-          action: 'directions_run',
+          icon: 'directions_run',
           title: 'Family',
           items: [
           { title: 'List Item' },
           ],
         },
         {
-          action: 'healing',
+          icon: 'healing',
           title: 'Health',
           items: [
           { title: 'List Item' },
