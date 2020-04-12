@@ -1,5 +1,5 @@
 <template>
-  <v-app id="admin-app">
+  <v-app id="admin-app" :style="{'font-family': vularApp.fontFamily}">
     <v-navigation-drawer
       v-model="vularApp.drawer.model"
       :clipped="vularApp.drawer.clipped"
@@ -52,9 +52,13 @@
     </v-app-bar>
 
     <v-content 
-      :style="{background: vularApp.content.color + ' url(' + vularApp.content.src +')'}"
+      :style="{
+        background: vularApp.content.color + ' url(' + vularApp.content.src +')',
+        'font-family': vularApp.content.fontFamily
+      }"
     >
       <v-container fluid>
+        <h1><v-icon>mdi-layers-triple</v-icon> 主题设置</h1>
         <v-row
           align="center"
           justify="center"
@@ -93,14 +97,13 @@
     },
     data: () => ({
       vularApp:{
-        fontFamily:"",
+        fontFamily:"Microsoft YaHei",
         logo: {
           src: "images/logo.png",
           title:"Vular",
           alt: "An amazing framework",
         },
         drawer: {
-          fontFamily:"",
           showLogo: true,
           color: "#1b1b28",
           src:"",
@@ -126,7 +129,6 @@
           },
         },
         appbar:{
-          fontFamily:"",
           showLogo: false,
           dark: false,
           light: false,
@@ -136,8 +138,7 @@
           style:"border-bottom:#dbdfef solid 1px;"
         },
         footer: {
-          fontFamily:"",
-          inset: false,
+          inset: true,
           color:"",
           dark:false,
           light:false,

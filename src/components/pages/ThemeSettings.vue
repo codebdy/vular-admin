@@ -2,7 +2,28 @@
     <v-card :flat="inputValue.content.flat" :color="inputValue.content.cardColor">
       <v-card-text>
         <v-row>
-          <v-col>
+          <v-col
+            cols="12"
+            md="3"
+          >
+            ddd
+          </v-col>
+          <v-col
+            cols="12"
+            md="3"
+          >
+            ddd
+          </v-col>
+          <v-col
+            cols="12"
+            md="3"
+          >
+            ddd
+          </v-col>
+          <v-col
+            cols="12"
+            md="3"
+          >
             ddd
           </v-col>
         </v-row>
@@ -130,9 +151,6 @@
               primary
               label="Light"
             />
-            <v-text-field label="字体" 
-              v-model="inputValue.drawer.fontFamily">
-            </v-text-field>
             <VularBackgrounInput v-model="inputValue.drawer"></VularBackgrounInput>                    
             <v-select
               :items="inputValue.drawers"
@@ -199,9 +217,6 @@
             class="px-12"
           >
             <b>工具栏</b>
-            <v-text-field label="字体" 
-              v-model="inputValue.appbar.fontFamily">
-            </v-text-field>
             <v-switch
               v-model="inputValue.appbar.showLogo"
               primary
@@ -232,9 +247,6 @@
               label="Inset"
               primary
             />
-            <v-text-field label="字体" 
-              v-model="inputValue.footer.fontFamily">
-            </v-text-field>
             <v-switch
               v-model="inputValue.footer.dark"
               primary
