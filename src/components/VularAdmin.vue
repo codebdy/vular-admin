@@ -40,9 +40,6 @@
       <v-toolbar-title v-if="vularApp.appbar.showLogo" class="ml-0 pl-3">
         <span class="hidden-sm-and-down">{{vularApp.logo.title}}</span>
       </v-toolbar-title>
-      <v-btn icon>
-        <v-icon color="red">mdi-ladybug</v-icon>
-      </v-btn>
       <v-spacer></v-spacer>
       <v-btn icon>
         <v-icon medium>mdi-magnify</v-icon>
@@ -61,6 +58,9 @@
       }"
     >
       <v-container fluid>
+        <v-btn small fab dark falt fixed right color="red">
+          <v-icon>mdi-bug</v-icon>
+        </v-btn>
         <h1><v-icon>mdi-layers-triple</v-icon> 主题设置</h1>
         <v-row
           align="center"
@@ -70,8 +70,8 @@
             <ThemeSettings v-model="vularApp"></ThemeSettings>
           </v-col>
         </v-row>
-      </v-container>
-    </v-content>
+        </v-container>
+     </v-content>
 
     <v-footer
       :inset="vularApp.footer.inset"

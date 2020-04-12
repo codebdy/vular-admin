@@ -146,34 +146,18 @@ export default {
               small:false,
             }
           },
-          chip:{
-            title:'New',
-            props:{
-              dark:true,
-              color:'red',
-              small:false,
-            }
-          }
         },
         {
           name:"vular-menu-item",
           prependIcon: 'home',
+          appendIcon: 'mdi-bug',
           title:'测试',
-          appendIcon: 'home',
-          badge:{
-            title:'6',
-            props:{
-              dark:true,
-              color:'red',
-              small:false,
-            }
-          },
           chip:{
             title:'New',
             props:{
               dark:true,
-              color:'red',
-              small:false,
+              color:'blue',
+              'x-small':true,
             }
           }
         },
