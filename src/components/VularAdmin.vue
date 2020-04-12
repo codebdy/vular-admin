@@ -40,7 +40,7 @@
       <v-spacer></v-spacer>
     </v-app-bar>
 
-    <v-content>
+    <v-content style="background: red url('images/450.jpg');">
       <v-container fluid>
         <v-row
           align="center"
