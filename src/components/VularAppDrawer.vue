@@ -1,43 +1,20 @@
 <template>
-  <v-navigation-drawer
-    :miniVariant.sync = "mini"
-    :bottom = "bottom"
-    :clipped = 'clipped'
-    :disableRouteWatcher = 'disableRouteWatcher'
-    :disableResizeWatcher = 'disableResizeWatcher'
-    :height = 'height'
-    :floating = 'floating'
-    :miniVariantWidth = 'miniVariantWidth'
-    :mobileBreakPoint = 'mobileBreakPoint'
-    :permanent = 'permanent'
-    :right = 'right'
-    :stateless = 'stateless'
-    :temporary = 'temporary'
-    :touchless = 'touchless'
-    :width = 'width'
-    :app = 'app'
-    :dark = 'dark'
-    :light = 'light'
-    color="#1b1b28"
-    v-model="model"
-    overflow
-  >
-    <div class="drawer-content">
-      <v-toolbar  class="flex-0" color="#1a1a27">
+    <div class="drawer-content" :class="{light: inputValue.light}">
+      <v-toolbar v-if="inputValue.showLogo"  class="flex-0">
         <img src="images/logo.png" :height="36" alt="Vular Amazing Framework" />
         <v-toolbar-title class="ml-0 pl-3">
           <span class="hidden-sm-and-down">Vular</span>
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-btn icon class="hidden-xs-only" 
-          @click.stop="mini = !mini"
+          @click.stop="inputValue.mini = !inputValue.mini"
         >
           <v-icon>chevron_left</v-icon>
         </v-btn>
       </v-toolbar>
 
       <v-list class="drawer-list">
-        <v-list-item link>
+        <v-list-item link class="menu-item">
           <v-list-item-icon>
             <v-icon>dashboard</v-icon>
           </v-list-item-icon>
@@ -49,7 +26,7 @@
             <v-badge
             color="pink"
             dot
-            v-if="mini"
+            v-if="inputValue.mini"
             >
             <v-icon>mail</v-icon>
           </v-badge>
@@ -68,7 +45,7 @@
           >6</v-chip>
         </div>
       </v-list-item>
-      <v-subheader v-if="!mini">外贸管理</v-subheader>
+      <v-subheader v-if="!inputValue.mini">外贸管理</v-subheader>
       <v-list-group
       v-for="item in items"
       :key="item.title"
@@ -81,7 +58,7 @@
           <v-badge
           color="pink"
           dot
-          v-if="mini"
+          v-if="inputValue.mini"
           >
           <v-icon v-text="item.action"></v-icon>
         </v-badge>
@@ -136,7 +113,7 @@
       </v-list-item-content>
     </v-list-item>
     </v-list-group>
-    <v-subheader v-if="!mini">系统设置</v-subheader>
+    <v-subheader v-if="!inputValue.mini">系统设置</v-subheader>
     <v-list-item link>
       <v-list-item-icon>
         <v-icon>settings</v-icon>
@@ -149,61 +126,16 @@
     </v-list>
 
     </div>
-
-  </v-navigation-drawer>
 </template>
 <script>
 export default {
   name: 'vular-app-drawer',
   props: {
-    bottom: Boolean,
-    clipped: Boolean,
-    disableRouteWatcher: Boolean,
-    disableResizeWatcher: Boolean,
-    height: {
-      type: [Number, String],
-      default: '100%'
-    },
-    floating: Boolean,
-    miniVariant: Boolean,
-    miniVariantWidth: {
-      type: [Number, String],
-      default: 70
-    },
-    mobileBreakPoint: {
-      type: [Number, String],
-      default: 1264
-    },
-    permanent: Boolean,
-    right: Boolean,
-    stateless: Boolean,
-    temporary: Boolean,
-    touchless: Boolean,
-    width: {
-      type: [Number, String],
-      default: 300
-    },
-
-    //mixins/Applicationable
-    app: Boolean,
-
-    //mixins/themable
-    dark: {
-      type: Boolean,
-      default: null
-    },
-    light: {
-      type: Boolean,
-      default: null
-    },
-
-    //mixins/Overlayable
-    hideOverlay: Boolean,
+    value:{default:()=>{return {}}},
+    dark:{default:false},
   },
   data: function () {
     return{
-      mini: this.miniVariant,
-      model: true,
       items: [
         {
           action: 'local_activity',
@@ -247,6 +179,16 @@ export default {
     }    
   },
   
+  computed:{
+    inputValue: {
+      get:function() {
+        return this.value;
+      },
+      set:function(val) {
+        this.$emit('input', val);
+      },
+    },
+  },
 
   methods: {
   },
@@ -255,7 +197,7 @@ export default {
   },
 
   watch:{
-    mini(val){
+    "value.mini" : function (val){
       if(val){
         this.items.forEach(item=>{
           this.$set(item, 'active', false)
@@ -277,11 +219,30 @@ export default {
   }
   .drawer-content ::-webkit-scrollbar-thumb {
     border-radius: 0;
-    background: #ccc;
+    background: rgba(0,0,0, 0.2);
     transition: all .2s;
   }
+
   .drawer-content ::-webkit-scrollbar-thumb:hover {
-    background-color: #aaa;
+    background: rgba(0,0,0, 0.4);
+  }
+
+  .theme--dark .drawer-content ::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background: rgba(255,255,255, 0.2);
+    transition: all .2s;
+  }
+  .theme--dark .drawer-content ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255, 0.4);
+  }
+  .light.drawer-content ::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background: rgba(0,0,0, 0.2);
+    transition: all .2s;
+  }
+
+  .light.drawer-content ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,0,0, 0.4);
   }
 
   .drawer-content ::-webkit-scrollbar-corner{
@@ -292,6 +253,10 @@ export default {
     width: 100%;height: 100%;display: flex;flex-flow: column;
   }
 
+  .drawer-content .v-list-item__title{
+    font-size: 0.825rem;
+  }
+
   .flex-0{
     flex: 0;
   }
@@ -300,5 +265,7 @@ export default {
     flex: 1;
     overflow-y: auto; 
     overflow-x:hidden;
+    margin-right: 2px;
   }
+
 </style>
