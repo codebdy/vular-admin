@@ -6,29 +6,49 @@
             cols="12"
             md="3"
           >
-            ddd
+            <v-card>
+              <v-img
+                src="images/demo1.jpg"
+              ></v-img>
+              <v-card-title class="title">Demo1</v-card-title>
+            </v-card>
           </v-col>
           <v-col
             cols="12"
             md="3"
           >
-            ddd
+            <v-card>
+              <v-img
+                src="images/demo1.jpg"
+              ></v-img>
+              <v-card-title class="title">Demo2</v-card-title>
+            </v-card>
           </v-col>
           <v-col
             cols="12"
             md="3"
           >
-            ddd
+            <v-card>
+              <v-img
+                src="images/demo1.jpg"
+              ></v-img>
+              <v-card-title class="title">Demo3</v-card-title>
+            </v-card>
           </v-col>
           <v-col
             cols="12"
             md="3"
           >
-            ddd
+            <v-card>
+              <v-img
+                src="images/demo1.jpg"
+              ></v-img>
+              <v-card-title class="title">Demo4</v-card-title>
+            </v-card>
           </v-col>
         </v-row>
-        <v-divider></v-divider>
-        <v-row class="pt-2">
+        <v-divider class="mt-6"></v-divider>
+        <v-row class="pt-2 mt-4">
           <v-col
             cols="12"
             md="4"

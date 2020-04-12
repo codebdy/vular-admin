@@ -107,9 +107,9 @@
           showLogo: true,
           color: "#1b1b28",
           src:"",
-          textColor:"",
-          activeTextColor:"",
-          subheaderColor:"",
+          fontSize: "0.825rem",
+          textColor:"#8c8da0",
+          subheaderColor:"#494b74",
           fontSize:"0.825rem",
           dark:true,
           light:false,
@@ -127,6 +127,7 @@
             src:"",
             style:"border-bottom:#0e0e18 solid 1px;"
           },
+          fontSize: "0.825rem",
         },
         appbar:{
           showLogo: false,

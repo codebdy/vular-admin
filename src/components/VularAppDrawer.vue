@@ -155,7 +155,7 @@ export default {
         {
           action: 'restaurant',
           title: 'Dining',
-          active: true,
+          active: false,
           items: [
           { title: 'Breakfast & brunch' },
           { title: 'New American' },
@@ -262,6 +262,10 @@ export default {
   }
 
   .drawer-content .v-list-item__title{
+    font-size: 0.825rem;
+  }
+
+  .drawer-content .v-subheader{
     font-size: 0.825rem;
   }
 
