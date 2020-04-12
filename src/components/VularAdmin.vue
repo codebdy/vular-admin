@@ -40,7 +40,9 @@
       <v-spacer></v-spacer>
     </v-app-bar>
 
-    <v-content style="background: red url('images/450.jpg');">
+    <v-content 
+      :style="{background: content.color + ' url(' + content.src +')'}"
+    >
       <v-container fluid>
         <v-row
           align="center"
@@ -215,7 +217,8 @@
                     />
                     <VularBackgrounInput
                      v-if="drawer.showLogo"
-                     v-model="drawer.logo"></VularBackgrounInput>                  </v-col>
+                     v-model="drawer.logo"></VularBackgrounInput>                  
+                   </v-col>
                   <v-col
                     cols="12"
                     md="4"
@@ -252,6 +255,22 @@
                     </v-text-field>
 
                     <b>内容区</b>
+                    <VularBackgrounInput
+                     v-model="content"></VularBackgrounInput>                  
+                    <v-text-field label="字体" 
+                      v-model="content.fontFamily">
+                    </v-text-field>
+
+                    <b>Logo内容</b>
+                    <v-text-field label="图标" 
+                      v-model="logo.src">
+                    </v-text-field>
+                    <v-text-field label="文字" 
+                      v-model="logo.title">
+                    </v-text-field>
+                    <v-text-field label="Alt" 
+                      v-model="logo.alt">
+                    </v-text-field>
                   </v-col>
                 </v-row>
               </v-card-text>
@@ -316,7 +335,7 @@
         showLogo: false,
         dark: false,
         light: false,
-        color: "#FFFFFF",
+        color: "",
         src: "",
       },
       footer: {
@@ -325,6 +344,8 @@
       },
       content:{
         fontFamily:"",
+        color: "",
+        src: "",
       },
       drawers: [
         {
