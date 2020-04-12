@@ -18,6 +18,7 @@
       :src="drawer.src"
     >
       <VularAppDrawer v-model="drawer"
+        :logo = "logo"
       ></VularAppDrawer>
     </v-navigation-drawer>
 
@@ -29,14 +30,15 @@
       :src = "appbar.src"
       :flat = "appbar.flat"
       app
+      style="border-bottom:#dbdfef solid 1px;"
     >
       <v-app-bar-nav-icon
         v-if="drawer.type !== 'permanent'"
         @click.stop="drawer.model = !drawer.model"
       />
-      <img v-if="appbar.showLogo" src="images/logo.png" style="height:36px;" alt="Vular Amazing Framework" />
+      <img v-if="appbar.showLogo" :src="logo.src" style="height:36px;" :alt="logo.alt" />
       <v-toolbar-title v-if="appbar.showLogo" class="ml-0 pl-3">
-        <span class="hidden-sm-and-down">Vular</span>
+        <span class="hidden-sm-and-down">{{logo.title}}</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon>
@@ -58,7 +60,7 @@
           justify="center"
         >
           <v-col cols="12">
-            <v-card :flat="content.flat">
+            <v-card :flat="content.flat" color="#f4f5fa">
               <v-card-text>
                 <v-row>
                   <v-col>

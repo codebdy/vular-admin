@@ -6,9 +6,9 @@
         :color="inputValue.logo.color"
         :src = "inputValue.logo.src"
         >
-        <img src="images/logo.png" style="height:36px;" alt="Vular Amazing Framework" />
+        <img :src="logo.src" style="height:36px;" :alt="logo.alt" />
         <v-toolbar-title class="ml-0 pl-3">
-          <span class="hidden-sm-and-down">Vular</span>
+          <span class="hidden-sm-and-down">{{logo.title}}</span>
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-btn icon class="hidden-xs-only" 
@@ -137,6 +137,7 @@ export default {
   name: 'vular-app-drawer',
   props: {
     value:{default:()=>{return {}}},
+    logo:{default:()=>{return {}}},
     dark:{default:false},
   },
   data: function () {
