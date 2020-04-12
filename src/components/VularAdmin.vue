@@ -61,52 +61,82 @@
                       label="Dark"
                     />
                     <span>Light主题配色</span>
-                    <VularColorInput 
-                      v-model="$vuetify.theme.themes.light.primary" 
-                      label = "Primary"></VularColorInput>
-                    <VularColorInput 
-                      v-model="$vuetify.theme.themes.light.secondary" 
-                      label = "Secondary"></VularColorInput>
-                    <VularColorInput 
-                      v-model="$vuetify.theme.themes.light.accent" 
-                      label = "Accent"></VularColorInput>
-                    <VularColorInput 
-                      v-model="$vuetify.theme.themes.light.error" 
-                      label = "Error"></VularColorInput>
-                    <VularColorInput 
-                      v-model="$vuetify.theme.themes.light.info" 
-                      label = "Info"></VularColorInput>
-                    <VularColorInput 
-                      v-model="$vuetify.theme.themes.light.success" 
-                      label = "Success"></VularColorInput>
-                    <VularColorInput 
-                      v-model="$vuetify.theme.themes.light.warning" 
-                      label = "Warning"></VularColorInput>
+                    <v-row>
+                      <v-col cols="12" md="6">
+                        <VularColorInput 
+                          v-model="$vuetify.theme.themes.light.primary" 
+                          label = "Primary"></VularColorInput>
+                      </v-col>
+                      <v-col cols="12" md="6">
+                        <VularColorInput 
+                          v-model="$vuetify.theme.themes.light.secondary" 
+                          label = "Secondary"></VularColorInput>
+                      </v-col>
+                      <v-col cols="12" md="6">
+                        <VularColorInput 
+                          v-model="$vuetify.theme.themes.light.accent" 
+                          label = "Accent"></VularColorInput>
+                      </v-col>
+                      <v-col cols="12" md="6">
+                      <VularColorInput 
+                        v-model="$vuetify.theme.themes.light.error" 
+                        label = "Error"></VularColorInput>
+                      </v-col>
+                      <v-col cols="12" md="6">
+                      <VularColorInput 
+                        v-model="$vuetify.theme.themes.light.info" 
+                        label = "Info"></VularColorInput>
+                      </v-col>
+                      <v-col cols="12" md="6">
+                      <VularColorInput 
+                        v-model="$vuetify.theme.themes.light.success" 
+                        label = "Success"></VularColorInput>
+                      </v-col>
+                      <v-col cols="12" md="6">
+                      <VularColorInput 
+                        v-model="$vuetify.theme.themes.light.warning" 
+                        label = "Warning"></VularColorInput>
+                      </v-col>
+                    </v-row>
 
                     <span>Dark主题配色</span>
-                    <VularColorInput 
-                      v-model="$vuetify.theme.themes.dark.primary" 
-                      label = "Primary"></VularColorInput>
-                    <VularColorInput 
-                      v-model="$vuetify.theme.themes.dark.secondary" 
-                      label = "Secondary"></VularColorInput>
-                    <VularColorInput 
-                      v-model="$vuetify.theme.themes.dark.accent" 
-                      label = "Accent"></VularColorInput>
-                    <VularColorInput 
-                      v-model="$vuetify.theme.themes.dark.error" 
-                      label = "Error"></VularColorInput>
-                    <VularColorInput 
-                      v-model="$vuetify.theme.themes.dark.info" 
-                      label = "Info"></VularColorInput>
-                    <VularColorInput 
-                      v-model="$vuetify.theme.themes.dark.success" 
-                      label = "Success"></VularColorInput>
-                    <VularColorInput 
-                      v-model="$vuetify.theme.themes.dark.warning" 
-                      label = "Warning"></VularColorInput>
-
-                    
+                    <v-row>
+                      <v-col cols="12" md="6">
+                        <VularColorInput 
+                          v-model="$vuetify.theme.themes.dark.primary" 
+                          label = "Primary"></VularColorInput>
+                      </v-col>
+                      <v-col cols="12" md="6">
+                        <VularColorInput 
+                          v-model="$vuetify.theme.themes.dark.secondary" 
+                          label = "Secondary"></VularColorInput>
+                      </v-col>
+                      <v-col cols="12" md="6">
+                        <VularColorInput 
+                          v-model="$vuetify.theme.themes.dark.accent" 
+                          label = "Accent"></VularColorInput>
+                      </v-col>
+                      <v-col cols="12" md="6">
+                        <VularColorInput 
+                          v-model="$vuetify.theme.themes.dark.error" 
+                          label = "Error"></VularColorInput>
+                      </v-col>
+                      <v-col cols="12" md="6">
+                        <VularColorInput 
+                          v-model="$vuetify.theme.themes.dark.info" 
+                          label = "Info"></VularColorInput>
+                      </v-col>
+                      <v-col cols="12" md="6">
+                        <VularColorInput 
+                          v-model="$vuetify.theme.themes.dark.success" 
+                          label = "Success"></VularColorInput>
+                      </v-col>
+                      <v-col cols="12" md="6">
+                        <VularColorInput 
+                          v-model="$vuetify.theme.themes.dark.warning" 
+                          label = "Warning"></VularColorInput>
+                      </v-col>
+                    </v-row>
                   </v-col>
                   <v-col
                     cols="12"
