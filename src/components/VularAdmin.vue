@@ -27,13 +27,14 @@
       :dark = "appbar.dark"
       :light = "appbar.light"
       :src = "appbar.src"
+      :flat = "appbar.flat"
       app
     >
       <v-app-bar-nav-icon
         v-if="drawer.type !== 'permanent'"
         @click.stop="drawer.model = !drawer.model"
       />
-      <img v-if="appbar.showLogo" src="images/logo.png" :height="36" alt="Vular Amazing Framework" />
+      <img v-if="appbar.showLogo" src="images/logo.png" style="height:36px;" alt="Vular Amazing Framework" />
       <v-toolbar-title v-if="appbar.showLogo" class="ml-0 pl-3">
         <span class="hidden-sm-and-down">Vular</span>
       </v-toolbar-title>
@@ -56,8 +57,8 @@
           align="center"
           justify="center"
         >
-          <v-col cols="10">
-            <v-card>
+          <v-col cols="12">
+            <v-card :flat="content.flat">
               <v-card-text>
                 <v-row>
                   <v-col>
@@ -251,6 +252,11 @@
                       primary
                       label="Light"
                     />
+                    <v-switch
+                      v-model="appbar.flat"
+                      primary
+                      label="Flat"
+                    />
                     <VularBackgrounInput v-model="appbar"></VularBackgrounInput>
                     <b>页脚</b>
                     <v-switch
@@ -279,6 +285,11 @@
                     <v-text-field label="字体" 
                       v-model="content.fontFamily">
                     </v-text-field>
+                    <v-switch
+                      v-model="content.flat"
+                      primary
+                      label="Flat"
+                    />
 
                     <b>Logo内容</b>
                     <v-text-field label="图标" 
@@ -362,8 +373,9 @@
         showLogo: false,
         dark: false,
         light: false,
-        color: "",
+        color: "#f4f5fa",
         src: "",
+        flat:true,
       },
       footer: {
         fontFamily:"",
@@ -375,8 +387,9 @@
       },
       content:{
         fontFamily:"",
-        color: "",
+        color: "#ecebf2",
         src: "",
+        flat: true,
       },
       drawers: [
         {

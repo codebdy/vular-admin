@@ -6,7 +6,7 @@
         :color="inputValue.logo.color"
         :src = "inputValue.logo.src"
         >
-        <img src="images/logo.png" :height="36" alt="Vular Amazing Framework" />
+        <img src="images/logo.png" style="height:36px;" alt="Vular Amazing Framework" />
         <v-toolbar-title class="ml-0 pl-3">
           <span class="hidden-sm-and-down">Vular</span>
         </v-toolbar-title>
