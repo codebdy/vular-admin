@@ -22,6 +22,8 @@
     <v-app-bar
       :clipped-left="drawer.clipped"
       :color="appbar.color"
+      :dark = "appbar.dark"
+      :light = "appbar.light"
       app
     >
       <v-app-bar-nav-icon
@@ -61,6 +63,17 @@
                       primary
                       label="显示LOGO"
                     />
+                    <v-switch
+                      v-model="appbar.dark"
+                      primary
+                      label="Dark"
+                    />
+                    <v-switch
+                      v-model="appbar.light"
+                      primary
+                      label="Light"
+                    />
+                    <VularBackgrounInput v-model="appbar"></VularBackgrounInput>                    
                   </v-col>
                   <v-col
                     cols="12"
@@ -153,9 +166,11 @@
 
 <script>
   import VularAppDrawer from "./VularAppDrawer.vue"
+  import VularBackgrounInput from "./VularBackgrounInput"
   export default {
     components: {
-      VularAppDrawer
+      VularAppDrawer,
+      VularBackgrounInput
     },
     data: () => ({
       fontFamily:"",
@@ -184,9 +199,11 @@
         expandOnHover:false,
       },
       appbar:{
-        showLogo:false,
-        dark:true,
-        color:"",
+        showLogo: false,
+        dark: false,
+        light: false,
+        color: "#FFFFFF",
+        src: "",
       },
       footer: {
         inset: false,
