@@ -32,9 +32,9 @@ export default {
     return {
       item: 1,
       items: [
-        { text: 'Real-Time', icon: 'mdi-clock' },
-        { text: 'Audience', icon: 'mdi-account' },
-        { text: 'Conversions', icon: 'mdi-flag' },
+        { text: '个人信息', icon: 'mdi-account' },
+        { text: '修改密码', icon: 'mdi-lock-open-outline' },
+        { text: '退出', icon: 'mdi-logout' },
       ],      
     }
   },

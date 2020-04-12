@@ -38,7 +38,9 @@
         <span class="hidden-sm-and-down">Vular</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <VularSearch></VularSearch>
+      <v-btn icon>
+        <v-icon medium>mdi-magnify</v-icon>
+      </v-btn>
       <v-btn icon>
         <v-icon class="fa-2x">fab fa-github</v-icon>
       </v-btn>
@@ -316,7 +318,6 @@
   import VularColorInput from "./VularColorInput"
   import VularAppbarProfile from "./VularAppbarProfile"
   import VularNotifications from "./VularNotifications"
-  import VularSearch from "./VularSearch"
   export default {
     components: {
       VularAppDrawer,
@@ -324,7 +325,6 @@
       VularColorInput,
       VularAppbarProfile,
       VularNotifications,
-      VularSearch
     },
     data: () => ({
       fontFamily:"",

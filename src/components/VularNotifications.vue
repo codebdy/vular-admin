@@ -8,21 +8,32 @@
         </v-badge>
       </v-btn>
     </template>
-    <v-list>
-      <v-list-item-group v-model="item" color="primary">
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-        >
-          <v-list-item-icon>
-            <v-icon v-text="item.icon"></v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.text"></v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list-item-group>
-    </v-list>
+    <v-card class="elevation-0">
+      <v-toolbar dense flat color="transparent">
+        <v-toolbar-title><h4>消息列表</h4></v-toolbar-title>
+      </v-toolbar>
+      <v-divider></v-divider>
+      <v-card-text class="pa-0">
+        <v-list two-line subheader class="pa-0">
+          <template v-for="(item, index) in items">
+            <v-subheader v-if="item.header" :key="item.header">{{ item.header }}</v-subheader>
+            <v-divider v-else-if="item.divider" :key="index"></v-divider>
+            <v-list-item v-else :key="item.title">
+              <v-list-item-avatar :color="item.color">
+                <v-icon dark>{{ item.icon }}</v-icon>
+              </v-list-item-avatar>
+              <v-list-item-content>
+                <v-list-item-title :class="{'font-weight-bold' : index===0}"  v-text="item.title"></v-list-item-title>
+                <v-list-item-subtitle v-text="item.timeLabel"></v-list-item-subtitle>
+              </v-list-item-content>
+             </v-list-item>
+          </template>
+        </v-list>
+        <v-divider></v-divider>
+        <v-btn block tile class="ma-0">All</v-btn>
+        <v-divider></v-divider>
+      </v-card-text>
+    </v-card>
   </v-menu>
 </template>
 
@@ -31,12 +42,36 @@ export default {
   name: 'vular-notifications',
   data () {
     return {
-      item: 1,
       items: [
-        { text: 'Real-Time', icon: 'mdi-clock' },
-        { text: 'Audience', icon: 'mdi-account' },
-        { text: 'Conversions', icon: 'mdi-flag' },
-      ],      
+        {
+          title: "New user registered",
+          color: "light-green",
+          icon: "account_circle",
+          timeLabel: "Just now"
+        },
+        { divider: true, inset: true },
+        {
+          title: "New order received",
+          color: "light-blue",
+          icon: "shopping_cart",
+          timeLabel: "2 min ago"
+        },
+        { divider: true, inset: true },
+        {
+          title: "New payment made",
+          color: "cyan",
+          icon: "payment",
+          timeLabel: "24 min ago"
+        },
+        { divider: true, inset: true },
+        {
+          title: "New message from Michael",
+          color: "red",
+          icon: "email",
+          timeLabel: "1 hour ago"
+        }
+      ]
+      ,      
     }
   },
 
