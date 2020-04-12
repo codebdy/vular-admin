@@ -50,17 +50,27 @@
             <v-card>
               <v-card-text>
                 <v-row>
+                  <v-col>
+                    ddd
+                  </v-col>
+                </v-row>
+                <v-divider></v-divider>
+                <v-row class="pt-2">
                   <v-col
                     cols="12"
                     md="4"
+                    class="px-12"
                   >
-                    <span>主题</span>
+                    <b>主题</b>
                     <v-switch
                       v-model="$vuetify.theme.dark"
                       primary
                       label="Dark"
                     />
-                    <span>Light主题配色</span>
+                    <v-text-field label="全局字体" 
+                      v-model="fontFamily">
+                    </v-text-field>
+                    <b>Light主题配色</b>
                     <v-row>
                       <v-col cols="12" md="6">
                         <VularColorInput 
@@ -99,7 +109,7 @@
                       </v-col>
                     </v-row>
 
-                    <span>Dark主题配色</span>
+                    <b>Dark主题配色</b>
                     <v-row>
                       <v-col cols="12" md="6">
                         <VularColorInput 
@@ -141,8 +151,9 @@
                   <v-col
                     cols="12"
                     md="4"
+                    class="px-12"
                   >
-                    <span>导航菜单</span>
+                    <b>导航菜单</b>
                     <v-switch
                       v-model="drawer.dark"
                       primary
@@ -153,6 +164,9 @@
                       primary
                       label="Light"
                     />
+                    <v-text-field label="字体" 
+                      v-model="drawer.fontFamily">
+                    </v-text-field>
                     <VularBackgrounInput v-model="drawer"></VularBackgrounInput>                    
                     <v-select
                       :items="drawers"
@@ -205,8 +219,12 @@
                   <v-col
                     cols="12"
                     md="4"
+                    class="px-12"
                   >
-                    <span>工具栏</span>
+                    <b>工具栏</b>
+                    <v-text-field label="字体" 
+                      v-model="appbar.fontFamily">
+                    </v-text-field>
                     <v-switch
                       v-model="appbar.showLogo"
                       primary
@@ -223,23 +241,20 @@
                       label="Light"
                     />
                     <VularBackgrounInput v-model="appbar"></VularBackgrounInput>
-                    <span>页脚</span>
+                    <b>页脚</b>
                     <v-switch
                       v-model="footer.inset"
                       label="Inset"
                       primary
                     />
+                    <v-text-field label="字体" 
+                      v-model="footer.fontFamily">
+                    </v-text-field>
+
+                    <b>内容区</b>
                   </v-col>
                 </v-row>
               </v-card-text>
-              <v-card-actions>
-                <v-spacer />
-                <v-btn text>Cancel</v-btn>
-                <v-btn
-                  text
-                  color="primary"
-                >Submit</v-btn>
-              </v-card-actions>
             </v-card>
           </v-col>
         </v-row>
@@ -273,6 +288,7 @@
         alt: "An amazing framework",
       },
       drawer: {
+        fontFamily:"",
         showLogo: true,
         color: "#1b1b28",
         src:"",
@@ -296,6 +312,7 @@
         },
       },
       appbar:{
+        fontFamily:"",
         showLogo: false,
         dark: false,
         light: false,
@@ -303,7 +320,11 @@
         src: "",
       },
       footer: {
+        fontFamily:"",
         inset: false,
+      },
+      content:{
+        fontFamily:"",
       },
       drawers: [
         {
