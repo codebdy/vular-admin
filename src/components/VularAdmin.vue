@@ -38,6 +38,12 @@
         <span class="hidden-sm-and-down">Vular</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
+      <VularSearch></VularSearch>
+      <v-btn icon>
+        <v-icon class="fa-2x">fab fa-github</v-icon>
+      </v-btn>
+      <VularNotifications></VularNotifications>
+      <VularAppbarProfile></VularAppbarProfile>
     </v-app-bar>
 
     <v-content 
@@ -253,6 +259,17 @@
                     <v-text-field label="字体" 
                       v-model="footer.fontFamily">
                     </v-text-field>
+                    <v-switch
+                      v-model="footer.dark"
+                      primary
+                      label="Dark"
+                    />
+                    <v-switch
+                      v-model="footer.light"
+                      primary
+                      label="Light"
+                    />
+                    <VularBackgrounInput v-model="footer"></VularBackgrounInput>
 
                     <b>内容区</b>
                     <VularBackgrounInput
@@ -282,6 +299,10 @@
 
     <v-footer
       :inset="footer.inset"
+      :dark = "footer.dark"
+      :light = "footer.light"
+      :color = "footer.color"
+      :src = "footer.src"
       app
     >
       <span class="px-4">&copy; {{ new Date().getFullYear() }}</span>
@@ -293,11 +314,17 @@
   import VularAppDrawer from "./VularAppDrawer.vue"
   import VularBackgrounInput from "./VularBackgrounInput"
   import VularColorInput from "./VularColorInput"
+  import VularAppbarProfile from "./VularAppbarProfile"
+  import VularNotifications from "./VularNotifications"
+  import VularSearch from "./VularSearch"
   export default {
     components: {
       VularAppDrawer,
       VularBackgrounInput,
-      VularColorInput
+      VularColorInput,
+      VularAppbarProfile,
+      VularNotifications,
+      VularSearch
     },
     data: () => ({
       fontFamily:"",
@@ -341,6 +368,10 @@
       footer: {
         fontFamily:"",
         inset: false,
+        color:"",
+        dark:false,
+        light:false,
+        src:"",
       },
       content:{
         fontFamily:"",
