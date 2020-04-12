@@ -5,6 +5,8 @@
         :light="inputValue.logo.light"
         :color="inputValue.logo.color"
         :src = "inputValue.logo.src"
+        :flat = "inputValue.logo.flat"
+        :style = "inputValue.logo.style"
         >
         <img :src="logo.src" style="height:36px;" :alt="logo.alt" />
         <v-toolbar-title class="ml-0 pl-3">

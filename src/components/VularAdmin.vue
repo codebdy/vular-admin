@@ -30,7 +30,7 @@
       :src = "appbar.src"
       :flat = "appbar.flat"
       app
-      style="border-bottom:#dbdfef solid 1px;"
+      :style="appbar.style"
     >
       <v-app-bar-nav-icon
         v-if="drawer.type !== 'permanent'"
@@ -60,7 +60,7 @@
           justify="center"
         >
           <v-col cols="12">
-            <v-card :flat="content.flat" color="#f4f5fa">
+            <v-card :flat="content.flat" :color="content.cardColor">
               <v-card-text>
                 <v-row>
                   <v-col>
@@ -160,6 +160,20 @@
                           label = "Warning"></VularColorInput>
                       </v-col>
                     </v-row>
+                    <v-row>
+                      <v-col>
+                        <b>Logo内容</b>
+                        <v-text-field label="图标" 
+                          v-model="logo.src">
+                        </v-text-field>
+                        <v-text-field label="文字" 
+                          v-model="logo.title">
+                        </v-text-field>
+                        <v-text-field label="Alt" 
+                          v-model="logo.alt">
+                        </v-text-field>
+                      </v-col>
+                    </v-row>
                   </v-col>
                   <v-col
                     cols="12"
@@ -229,6 +243,16 @@
                     <VularBackgrounInput
                      v-if="drawer.showLogo"
                      v-model="drawer.logo"></VularBackgrounInput>                  
+                    <v-switch
+                      v-if="drawer.showLogo"
+                      v-model="drawer.logo.flat"
+                      primary
+                      label="Flat"
+                    />
+                    <v-text-field label="样式" 
+                      v-if="drawer.showLogo"
+                      v-model="drawer.logo.style">
+                    </v-text-field>
                    </v-col>
                   <v-col
                     cols="12"
@@ -260,6 +284,9 @@
                       label="Flat"
                     />
                     <VularBackgrounInput v-model="appbar"></VularBackgrounInput>
+                    <v-text-field label="样式" 
+                      v-model="appbar.style">
+                    </v-text-field>
                     <b>页脚</b>
                     <v-switch
                       v-model="footer.inset"
@@ -292,17 +319,12 @@
                       primary
                       label="Flat"
                     />
+                    <VularColorInput 
+                      v-model="content.cardColor" 
+                      label = "卡片颜色">
+                    </VularColorInput>
+                    
 
-                    <b>Logo内容</b>
-                    <v-text-field label="图标" 
-                      v-model="logo.src">
-                    </v-text-field>
-                    <v-text-field label="文字" 
-                      v-model="logo.title">
-                    </v-text-field>
-                    <v-text-field label="Alt" 
-                      v-model="logo.alt">
-                    </v-text-field>
                   </v-col>
                 </v-row>
               </v-card-text>
@@ -367,7 +389,9 @@
         logo:{
           color: "#1a1a27",
           dark: false,
+          flat: true,
           src:"",
+          style:"border-bottom:#0e0e18 solid 1px;"
         },
       },
       appbar:{
@@ -378,6 +402,7 @@
         color: "#f4f5fa",
         src: "",
         flat:true,
+        style:"border-bottom:#dbdfef solid 1px;"
       },
       footer: {
         fontFamily:"",
@@ -392,6 +417,7 @@
         color: "#ecebf2",
         src: "",
         flat: true,
+        cardColor:"#f4f5fa",
       },
       drawers: [
         {
