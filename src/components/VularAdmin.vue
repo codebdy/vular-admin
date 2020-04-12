@@ -14,6 +14,8 @@
       :dark="drawer.dark"
       :light="drawer.light"
       :expand-on-hover = "drawer.expandOnHover"
+      :color="drawer.color"
+      :src="drawer.src"
     >
       <VularAppDrawer v-model="drawer"
       ></VularAppDrawer>
@@ -24,6 +26,7 @@
       :color="appbar.color"
       :dark = "appbar.dark"
       :light = "appbar.light"
+      :src = "appbar.src"
       app
     >
       <v-app-bar-nav-icon
@@ -57,23 +60,53 @@
                       primary
                       label="Dark"
                     />
-                    <span>工具栏</span>
-                    <v-switch
-                      v-model="appbar.showLogo"
-                      primary
-                      label="显示LOGO"
-                    />
-                    <v-switch
-                      v-model="appbar.dark"
-                      primary
-                      label="Dark"
-                    />
-                    <v-switch
-                      v-model="appbar.light"
-                      primary
-                      label="Light"
-                    />
-                    <VularBackgrounInput v-model="appbar"></VularBackgrounInput>                    
+                    <span>Light主题配色</span>
+                    <VularColorInput 
+                      v-model="$vuetify.theme.themes.light.primary" 
+                      label = "Primary"></VularColorInput>
+                    <VularColorInput 
+                      v-model="$vuetify.theme.themes.light.secondary" 
+                      label = "Secondary"></VularColorInput>
+                    <VularColorInput 
+                      v-model="$vuetify.theme.themes.light.accent" 
+                      label = "Accent"></VularColorInput>
+                    <VularColorInput 
+                      v-model="$vuetify.theme.themes.light.error" 
+                      label = "Error"></VularColorInput>
+                    <VularColorInput 
+                      v-model="$vuetify.theme.themes.light.info" 
+                      label = "Info"></VularColorInput>
+                    <VularColorInput 
+                      v-model="$vuetify.theme.themes.light.success" 
+                      label = "Success"></VularColorInput>
+                    <VularColorInput 
+                      v-model="$vuetify.theme.themes.light.warning" 
+                      label = "Warning"></VularColorInput>
+
+                    <span>Dark主题配色</span>
+                    <VularColorInput 
+                      v-model="$vuetify.theme.themes.dark.primary" 
+                      label = "Primary"></VularColorInput>
+                    <VularColorInput 
+                      v-model="$vuetify.theme.themes.dark.secondary" 
+                      label = "Secondary"></VularColorInput>
+                    <VularColorInput 
+                      v-model="$vuetify.theme.themes.dark.accent" 
+                      label = "Accent"></VularColorInput>
+                    <VularColorInput 
+                      v-model="$vuetify.theme.themes.dark.error" 
+                      label = "Error"></VularColorInput>
+                    <VularColorInput 
+                      v-model="$vuetify.theme.themes.dark.info" 
+                      label = "Info"></VularColorInput>
+                    <VularColorInput 
+                      v-model="$vuetify.theme.themes.dark.success" 
+                      label = "Success"></VularColorInput>
+                    <VularColorInput 
+                      v-model="$vuetify.theme.themes.dark.warning" 
+                      label = "Warning"></VularColorInput>
+
+                    
                   </v-col>
                   <v-col
                     cols="12"
@@ -90,6 +123,7 @@
                       primary
                       label="Light"
                     />
+                    <VularBackgrounInput v-model="drawer"></VularBackgrounInput>                    
                     <v-select
                       :items="drawers"
                       filled
@@ -97,16 +131,6 @@
                       v-model="drawer.type"
                     ></v-select>
 
-                    <v-switch
-                      v-model="drawer.showLogo"
-                      label="显示LOGO"
-                      primary
-                    />
-                    <v-switch
-                      v-model="drawer.logoDark"
-                      label="Logo Dark"
-                      primary
-                    />
                     <v-switch
                       v-model="drawer.clipped"
                       label="Clipped"
@@ -127,12 +151,49 @@
                       label="悬停展开"
                       primary
                     />
-                  </v-col>
+                    <v-switch
+                      v-model="drawer.showLogo"
+                      label="显示LOGO"
+                      primary
+                    />
+                    <span v-if="drawer.showLogo">导航Logo</span>
+                    <v-switch
+                      v-if="drawer.showLogo"
+                      v-model="drawer.logo.dark"
+                      primary
+                      label="Dark"
+                    />
+                    <v-switch
+                      v-if="drawer.showLogo"
+                      v-model="drawer.logo.light"
+                      primary
+                      label="Light"
+                    />
+                    <VularBackgrounInput
+                     v-if="drawer.showLogo"
+                     v-model="drawer.logo"></VularBackgrounInput>                  </v-col>
                   <v-col
                     cols="12"
                     md="4"
                   >
-                    <span>Footer</span>
+                    <span>工具栏</span>
+                    <v-switch
+                      v-model="appbar.showLogo"
+                      primary
+                      label="显示LOGO"
+                    />
+                    <v-switch
+                      v-model="appbar.dark"
+                      primary
+                      label="Dark"
+                    />
+                    <v-switch
+                      v-model="appbar.light"
+                      primary
+                      label="Light"
+                    />
+                    <VularBackgrounInput v-model="appbar"></VularBackgrounInput>
+                    <span>页脚</span>
                     <v-switch
                       v-model="footer.inset"
                       label="Inset"
@@ -167,10 +228,12 @@
 <script>
   import VularAppDrawer from "./VularAppDrawer.vue"
   import VularBackgrounInput from "./VularBackgrounInput"
+  import VularColorInput from "./VularColorInput"
   export default {
     components: {
       VularAppDrawer,
-      VularBackgrounInput
+      VularBackgrounInput,
+      VularColorInput
     },
     data: () => ({
       fontFamily:"",
@@ -182,13 +245,12 @@
       drawer: {
         showLogo: true,
         color: "#1b1b28",
-        logoColor: "#1a1a27",
-        logoDark: false,
+        src:"",
         textColor:"",
         activeTextColor:"",
         subheaderColor:"",
         fontSize:"0.825rem",
-        dark:false,
+        dark:true,
         light:false,
         model: null,
         type: 'default (no property)',
@@ -197,6 +259,11 @@
         mini: false,
         miniVariantWidth: 70,
         expandOnHover:false,
+        logo:{
+          color: "#1a1a27",
+          dark: false,
+          src:"",
+        },
       },
       appbar:{
         showLogo: false,

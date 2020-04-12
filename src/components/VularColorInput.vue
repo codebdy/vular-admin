@@ -1,16 +1,13 @@
 <template>
-  <v-text-field label="背景图/色" 
-    placeholder="输入图片地址，点选颜色"
-    v-model="inputValue.src">
-    <v-btn icon slot="prepend" @click="onClear">
-      <v-icon>mdi-close</v-icon>
-    </v-btn>
+  <v-text-field :label="label" 
+    placeholder="输入或点选颜色"
+    v-model="inputValue">
     <v-menu slot="append" :close-on-content-click = "false" v-model="model">
       <template v-slot:activator="{ on }">
         <v-btn icon                            
           v-on="on"
         >
-          <v-avatar size="30px" tile style="border:solid 1px;" :style="{background: inputValue.color}">
+          <v-avatar size="30px" tile style="border:solid 1px;" :style="{background: inputValue}">
           </v-avatar>
         </v-btn>
       </template>
@@ -27,9 +24,10 @@
 
 <script>
 export default {
-  name: 'vular-background-input',
+  name: 'vular-color-input',
   props: {
-    value:{default:()=>{return {color:'', src:''}}},
+    value: {default: ""},
+    label: {default: "颜色"},
   },
   data () {
     return {
@@ -52,25 +50,24 @@ export default {
 
   methods: {
     onClear(){
-      this.inputValue.color = ""
-      this.inputValue.src = ""
+      this.inputValue = ""
     },
 
     onCancel(){
       this.model = false
-      this.color = this.inputValue.color
+      this.color = this.inputValue
     },
 
     onConfirm(){
       this.model = false
-      this.inputValue.color = this.color
+      this.inputValue = this.color
     }
   },
 
   watch:{
     model(val){
       if(val && this.inputValue.color){
-        this.color = this.inputValue.color
+        this.color = this.inputValue
       }
     }
   }
