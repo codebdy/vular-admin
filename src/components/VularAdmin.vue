@@ -13,6 +13,7 @@
       :mini-variant.sync="drawer.mini"
       :dark="drawer.dark"
       :light="drawer.light"
+      :expand-on-hover = "drawer.expandOnHover"
     >
       <VularAppDrawer v-model="drawer"
       ></VularAppDrawer>
@@ -23,7 +24,7 @@
       app
     >
       <v-app-bar-nav-icon
-        v-if="drawer.type !== 'permanent'"
+        v-if="drawer.type !== 'permanent' && !drawer.expandOnHover"
         @click.stop="drawer.model = !drawer.model"
       />
       <img v-if="appbar.showLogo" src="images/logo.png" :height="36" alt="Vular Amazing Framework" />
@@ -94,12 +95,17 @@
                     />
                     <v-switch
                       v-model="drawer.floating"
-                      label="Floating"
+                      label="浮动"
                       primary
                     />
                     <v-switch
                       v-model="drawer.mini"
-                      label="Mini"
+                      label="迷你"
+                      primary
+                    />
+                    <v-switch
+                      v-model="drawer.expandOnHover"
+                      label="悬停展开"
                       primary
                     />
                   </v-col>
@@ -169,6 +175,7 @@
         floating: false,
         mini: false,
         miniVariantWidth: 70,
+        expandOnHover:false,
       },
       appbar:{
         showLogo:false,

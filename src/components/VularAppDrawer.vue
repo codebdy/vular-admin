@@ -198,7 +198,7 @@ export default {
 
   watch:{
     "value.mini" : function (val){
-      if(val){
+      if(val && !this.value.expandOnHover){
         this.items.forEach(item=>{
           this.$set(item, 'active', false)
         })
