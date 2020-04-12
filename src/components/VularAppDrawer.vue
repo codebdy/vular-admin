@@ -1,6 +1,6 @@
 <template>
     <div class="drawer-content" :class="{light: inputValue.light}">
-      <v-toolbar v-if="inputValue.showLogo"  class="flex-0">
+      <v-toolbar v-if="inputValue.showLogo"  class="flex-0" :dark="inputValue.logoDark">
         <img src="images/logo.png" :height="36" alt="Vular Amazing Framework" />
         <v-toolbar-title class="ml-0 pl-3">
           <span class="hidden-sm-and-down">Vular</span>

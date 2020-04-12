@@ -21,10 +21,11 @@
 
     <v-app-bar
       :clipped-left="drawer.clipped"
+      :color="appbar.color"
       app
     >
       <v-app-bar-nav-icon
-        v-if="drawer.type !== 'permanent' && !drawer.expandOnHover"
+        v-if="drawer.type !== 'permanent'"
         @click.stop="drawer.model = !drawer.model"
       />
       <img v-if="appbar.showLogo" src="images/logo.png" :height="36" alt="Vular Amazing Framework" />
@@ -86,6 +87,11 @@
                     <v-switch
                       v-model="drawer.showLogo"
                       label="显示LOGO"
+                      primary
+                    />
+                    <v-switch
+                      v-model="drawer.logoDark"
+                      label="Logo Dark"
                       primary
                     />
                     <v-switch
@@ -162,13 +168,13 @@
         showLogo: true,
         color: "#1b1b28",
         logoColor: "#1a1a27",
+        logoDark: false,
         textColor:"",
         activeTextColor:"",
         subheaderColor:"",
         fontSize:"0.825rem",
         dark:false,
         light:false,
-        logoDark:true,
         model: null,
         type: 'default (no property)',
         clipped: false,
@@ -180,6 +186,7 @@
       appbar:{
         showLogo:false,
         dark:true,
+        color:"",
       },
       footer: {
         inset: false,
