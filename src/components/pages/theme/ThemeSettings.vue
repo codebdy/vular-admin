@@ -11,60 +11,23 @@
                 <v-row>
                   <v-col
                     cols="12"
-                    md="3"
-                  >
-                    <v-card flat dark color="primary" elevation = '2' >
-                      <v-img
-                        src="images/demo1.jpg"
-                      ></v-img>
-                      <v-card-title class="title">Demo1</v-card-title>
-                    </v-card>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    md="3"
+                    md="2"
+                    v-for="(theme, index) in themes"
                   >
                     <v-hover
                       v-slot:default="{ hover }"
                       open-delay="200"
                     >
-                      <v-card flat outlined color="#ecebf2" :elevation="hover ? 16 : 2">
-                          <v-img
-                            src="images/demo1.jpg"
-                          ></v-img>
-                          <v-card-title class="title">Demo2</v-card-title>
-                      </v-card>
-                    </v-hover>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    md="3"
-                  >
-                    <v-hover
-                      v-slot:default="{ hover }"
-                      open-delay="200"
-                    >
-                      <v-card flat color="#ecebf2" :elevation="hover ? 16 : 2">
-                          <v-img
-                            src="images/demo1.jpg"
-                          ></v-img>
-                          <v-card-title class="title">Demo3</v-card-title>
-                      </v-card>
-                    </v-hover>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    md="3"
-                  >
-                    <v-hover
-                      v-slot:default="{ hover }"
-                      open-delay="200"
-                    >
-                      <v-card flat color="#ecebf2" :elevation="hover ? 16 : 2">
-                          <v-img
-                            src="images/demo1.jpg"
-                          ></v-img>
-                          <v-card-title class="title">Demo4</v-card-title>
+                      <v-card flat 
+                        :dark="theme.selected" 
+                        :color="theme.selected? 'primary' :'#ecebf2' " 
+                        :elevation="hover ? 16 : 2" 
+                        @click="onThemeClick(theme)"
+                      >
+                        <v-img
+                          :src="theme.src"
+                        ></v-img>
+                        <v-card-title class="title">{{theme.title}}</v-card-title>
                       </v-card>
                     </v-hover>
                   </v-col>
@@ -362,33 +325,46 @@
         ],
         themes:[
           {
+            title:'Demo1',
             selected:true,
             src:"/images/demo1.jpg",
-            theme:JSON.parse(JSON.stringify(demo1)),
+            theme:demo1,
           },
           {
+            title:'经典深黑蓝',
             selected:false,
             src:"/images/demo2.jpg",
-            theme:JSON.parse(JSON.stringify(demo2)),
+            theme:demo2,
           },
           {
+            title:'简约待改',
             selected:false,
             src:"/images/demo3.jpg",
-            theme:JSON.parse(JSON.stringify(demo3)),
+            theme:demo3,
           },
           {
+            title:'简·黑·白',
             selected:false,
             src:"/images/demo4.jpg",
-            theme:JSON.parse(JSON.stringify(demo4)),
+            theme:demo4,
           },
         ]
       }
     },
-    computed:{
-    },
-
 
     methods: {
+      onThemeClick(theme){
+        for(var i = 0; i < this.themes.length; i++){
+          let th = this.themes[i]
+          if(th === theme){
+            th.selected = true
+            this.$store.commit('changeTheme', th.theme)
+          }
+          else{
+            th.selected = false
+          }
+        }
+      }
     },
   }
 </script>

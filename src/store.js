@@ -14,7 +14,7 @@ new Vuex.Store({
  
   mutations:{
     changeTheme(state, theme){
-      state.vularApp = theme
+      state.vularApp = JSON.parse(JSON.stringify(theme))
     },
   },
  
