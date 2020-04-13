@@ -29,83 +29,6 @@
         :drawer="inputValue"
       >
       </component>
-      <v-list-group
-      v-for="item in items"
-      :key="item.title"
-      v-model="item.active"
-      no-action
-      >
-
-      <template v-slot:activator>
-        <v-list-item-icon>
-          <v-badge
-          color="pink"
-          dot
-          v-if="inputValue.mini"
-          >
-          <v-icon v-text="item.icon"></v-icon>
-        </v-badge>
-        <v-icon
-        v-else
-        v-text="item.icon"></v-icon>
-      </v-list-item-icon>
-      <v-list-item-content>
-        <v-list-item-title v-text="item.title"></v-list-item-title>
-      </v-list-item-content>
-    </template>
-    <v-list-item link>
-      <v-list-item-icon>
-        <v-icon>mail</v-icon>
-      </v-list-item-icon>
-      <v-list-item-content>
-        <v-list-item-title>Test</v-list-item-title>
-      </v-list-item-content>
-      <div>
-        <v-chip
-        color="blue"
-        x-small
-        dark
-        >new</v-chip>
-      </div>
-    </v-list-item>
-
-    <v-list-item >
-      <v-list-item-icon>
-        <v-icon>mail</v-icon>
-      </v-list-item-icon>
-      <v-list-item-content>
-        <v-list-item-title>Test2</v-list-item-title>
-      </v-list-item-content>
-      <v-list-item-icon>
-        <v-icon>mail</v-icon>
-      </v-list-item-icon>
-      <div>
-        <v-chip
-        color="pink"
-        >3</v-chip>
-      </div>
-    </v-list-item>
-
-    <v-list-item
-    v-for="subItem in item.items"
-    :key="subItem.title"
-    @click=""
-    >
-      <v-list-item-content>
-        <v-list-item-title v-text="subItem.title"></v-list-item-title>
-      </v-list-item-content>
-    </v-list-item>
-    </v-list-group>
-    <v-subheader v-if="!inputValue.mini">系统设置</v-subheader>
-    <v-list-item link>
-      <v-list-item-icon>
-        <v-icon>settings</v-icon>
-      </v-list-item-icon>
-
-      <v-list-item-title>设置</v-list-item-title>
-    </v-list-item>
-
-
     </v-list>
 
     </div>
@@ -116,11 +39,11 @@ import VularMenuItemGroup from "./VularMenuItemGroup"
 import VularSubheader from "./VularSubheader"
 export default {
   name: 'vular-app-drawer',
-    components: {
-      VularMenuItem,
-      VularMenuItemGroup,
-      VularSubheader,
-    },
+  components: {
+    VularMenuItem,
+    VularMenuItemGroup,
+    VularSubheader,
+  },
   props: {
     value:{default:()=>{return {}}},
     logo:{default:()=>{return {}}},
@@ -163,15 +86,16 @@ export default {
         },
         {
           name:"vular-subheader",
-          title:"外贸管理"
+          title:"菜单演示"
         },
         {
           name:"vular-menu-item-group",
-          icon:'mail',
-          title:'订单管理',
-          appendIcon: 'home',
+          prependIcon:'mdi-blur',
+          //appendIcon: 'home',
+          title:'菜单测试',
+          active: false,
           badge:{
-            title:'6',
+            title:'8',
             props:{
               dark:true,
               color:'red',
@@ -179,13 +103,86 @@ export default {
             }
           },
           chip:{
-            title:'New',
+            title:'Hot',
             props:{
               dark:true,
-              color:'red',
-              small:false,
+              color:'green',
+              'x-small':true,
             }
-          }
+          },
+          children: [
+            {
+              name:"vular-menu-item",
+              prependIcon: 'mdi-ab-testing',
+              appendIcon: 'mdi-brush',
+              title:'调试2',
+              chip:{
+                title:'New',
+                props:{
+                  dark:true,
+                  color:'blue',
+                  'x-small':true,
+                }
+              }
+            },
+            {
+              name:"vular-menu-item",
+              title:'菜单Badge测试',
+              badge:{
+                title:'4',
+                props:{
+                  dark:true,
+                  color:'blue',
+                  small:false,
+                }
+              },
+            },
+
+          ]          
+        },
+        {
+          name:"vular-menu-item-group",
+          prependIcon:'mdi-basket',
+          //appendIcon: 'home',
+          title:'菜单测试2',
+          active: false,
+          chip:{
+            title:'Hot',
+            props:{
+              dark:true,
+              color:'pink',
+              'x-small':true,
+            }
+          },
+          children: [
+            {
+              name:"vular-menu-item",
+              prependIcon: 'mdi-apple-finder',
+              appendIcon: 'mdi-bug',
+              title:'调试2',
+              chip:{
+                title:'New',
+                props:{
+                  dark:true,
+                  color:'blue',
+                  'x-small':true,
+                }
+              }
+            },
+            {
+              name:"vular-menu-item",
+              title:'菜单Badge测试',
+              badge:{
+                title:'4',
+                props:{
+                  dark:true,
+                  color:'blue',
+                  small:false,
+                }
+              },
+            },
+
+          ]          
         },
       ],
       items: [

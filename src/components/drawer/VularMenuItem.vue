@@ -23,15 +23,15 @@
     <v-list-item-icon v-if="schema.appendIcon">
       <v-icon v-text="schema.appendIcon"></v-icon>
     </v-list-item-icon>
-    <div v-if="schema.badge">
-      <v-chip
-        v-bind="schema.badge.props"
-      >{{schema.badge.title}}</v-chip>
-    </div>
     <div v-if="schema.chip">
       <v-chip
         v-bind="schema.chip.props"
       >{{schema.chip.title}}</v-chip>
+    </div>
+    <div v-if="schema.badge">
+      <v-chip
+        v-bind="schema.badge.props"
+      >{{schema.badge.title}}</v-chip>
     </div>
   </v-list-item>
 </template>
