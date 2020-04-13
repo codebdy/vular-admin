@@ -92,7 +92,7 @@
   import VularAppDrawer from "./drawer/VularAppDrawer.vue"
   import VularAppbarProfile from "./VularAppbarProfile"
   import VularNotifications from "./VularNotifications"
-  import ThemeSettings from "./pages/ThemeSettings"
+  import ThemeSettings from "./pages/theme/ThemeSettings"
   export default {
     components: {
       VularAppDrawer,
