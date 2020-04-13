@@ -173,7 +173,7 @@
             />
             <VularBackgrounInput v-model="inputValue.drawer"></VularBackgrounInput>                    
             <v-select
-              :items="inputValue.drawers"
+              :items="drawers"
               filled
               label="类型"
               v-model="inputValue.drawer.type"

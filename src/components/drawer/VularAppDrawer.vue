@@ -22,7 +22,7 @@
 
       <v-list class="drawer-list">
       <component     
-        v-for="schema in items2"
+        v-for="schema in items"
         :key="schema.title"
         :is="schema.name" 
         :schema="schema"
@@ -51,7 +51,7 @@ export default {
   },
   data: function () {
     return{
-      items2:[
+      items:[
         {
           name:"vular-menu-item",
           prependIcon:'mdi-speedometer',
