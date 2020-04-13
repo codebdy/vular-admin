@@ -6,9 +6,9 @@
     <template v-slot:activator>
       <v-list-item-icon>
         <v-badge
-        color="pink"
-        dot
-        v-if="drawer.mini"
+          :color="badge.props.color"
+          dot
+          v-if="badge"
         >
         <v-icon v-text="schema.prependIcon"></v-icon>
       </v-badge>
@@ -63,6 +63,27 @@ export default {
     }
   },
 
+  computed:{
+    badge(){
+      let schema = this.schema
+      if(this.drawer.mini && schema.badge){
+        return schema.badge
+      }
+
+      let badge = null
+      if(schema.children){
+        for(var index in schema.children){
+          if(schema.children[index].badge){
+            badge = schema.children[index].badge
+          }
+        }
+      }
+
+      if(badge && (!schema.active || this.drawer.mini)){
+        return badge
+      }
+    }
+  },
 
   methods: {
   },

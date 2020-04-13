@@ -176,7 +176,7 @@ export default {
                 title:'4',
                 props:{
                   dark:true,
-                  color:'blue',
+                  color:'green',
                   small:false,
                 }
               },
@@ -184,46 +184,25 @@ export default {
 
           ]          
         },
-      ],
-      items: [
         {
-          icon: 'local_activity',
-          title: 'Attractions',
-          items: [
-          { title: 'List Item' },
-          ],
+          name:"vular-subheader",
+          title:"系统设置"
         },
         {
-          icon: 'restaurant',
-          title: 'Dining',
-          active: false,
-          items: [
-          { title: 'Breakfast & brunch' },
-          { title: 'New American' },
-          { title: 'Sushi' },
-          ],
+          name:"vular-menu-item",
+          prependIcon:'mdi-compare',
+          title:'主题设置',
+            chip:{
+              title:'更美',
+              props:{
+                dark:true,
+                color:'red',
+                'x-small':true,
+              }
+            }
         },
-        {
-          icon: 'school',
-          title: 'Education',
-          items: [
-          { title: 'List Item' },
-          ],
-        },
-        {
-          icon: 'directions_run',
-          title: 'Family',
-          items: [
-          { title: 'List Item' },
-          ],
-        },
-        {
-          icon: 'healing',
-          title: 'Health',
-          items: [
-          { title: 'List Item' },
-          ],
-        },
+
+
       ],
     }    
   },

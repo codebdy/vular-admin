@@ -60,7 +60,7 @@
       }"
     >
       <v-container fluid>
-        <h1><v-icon>mdi-layers-triple</v-icon> 主题设置</h1>
+        <h1><v-icon>mdi-compare</v-icon> 主题设置</h1>
         <v-row
           align="center"
           justify="center"
