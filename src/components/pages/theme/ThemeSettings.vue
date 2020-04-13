@@ -6,7 +6,7 @@
       justify="center"
     >
       <v-col cols="12">
-        <v-card :flat="inputValue.content.flat" :color="inputValue.content.cardColor">
+        <v-card :flat="$store.state.vularApp.content.flat" :color="$store.state.vularApp.content.cardColor">
               <v-card-text>
                 <v-row>
                   <v-col
@@ -68,7 +68,7 @@
                       label="Dark"
                     />
                     <v-text-field label="全局字体" 
-                      v-model="inputValue.fontFamily">
+                      v-model="$store.state.vularApp.fontFamily">
                     </v-text-field>
                     <b>Light主题配色</b>
                     <v-row>
@@ -151,13 +151,13 @@
                       <v-col>
                         <b>Logo内容</b>
                         <v-text-field label="图标" 
-                          v-model="inputValue.logo.src">
+                          v-model="$store.state.vularApp.logo.src">
                         </v-text-field>
                         <v-text-field label="文字" 
-                          v-model="inputValue.logo.title">
+                          v-model="$store.state.vularApp.logo.title">
                         </v-text-field>
                         <v-text-field label="Alt" 
-                          v-model="inputValue.logo.alt">
+                          v-model="$store.state.vularApp.logo.alt">
                         </v-text-field>
                       </v-col>
                     </v-row>
@@ -169,73 +169,73 @@
                   >
                     <b>导航菜单</b>
                     <v-switch
-                      v-model="inputValue.drawer.dark"
+                      v-model="$store.state.vularApp.drawer.dark"
                       primary
                       label="Dark"
                     />
                     <v-switch
-                      v-model="inputValue.drawer.light"
+                      v-model="$store.state.vularApp.drawer.light"
                       primary
                       label="Light"
                     />
-                    <VularBackgrounInput v-model="inputValue.drawer"></VularBackgrounInput>                    
+                    <VularBackgrounInput v-model="$store.state.vularApp.drawer"></VularBackgrounInput>                    
                     <v-select
                       :items="drawers"
                       filled
                       label="类型"
-                      v-model="inputValue.drawer.type"
+                      v-model="$store.state.vularApp.drawer.type"
                     ></v-select>
 
                     <v-switch
-                      v-model="inputValue.drawer.clipped"
+                      v-model="$store.state.vularApp.drawer.clipped"
                       label="Clipped"
                       primary
                     />
                     <v-switch
-                      v-model="inputValue.drawer.floating"
+                      v-model="$store.state.vularApp.drawer.floating"
                       label="浮动"
                       primary
                     />
                     <v-switch
-                      v-model="inputValue.drawer.mini"
+                      v-model="$store.state.vularApp.drawer.mini"
                       label="迷你"
                       primary
                     />
                     <v-switch
-                      v-model="inputValue.drawer.expandOnHover"
+                      v-model="$store.state.vularApp.drawer.expandOnHover"
                       label="悬停展开"
                       primary
                     />
                     <v-switch
-                      v-model="inputValue.drawer.showLogo"
+                      v-model="$store.state.vularApp.drawer.showLogo"
                       label="显示LOGO"
                       primary
                     />
-                    <span v-if="inputValue.drawer.showLogo">导航Logo</span>
+                    <span v-if="$store.state.vularApp.drawer.showLogo">导航Logo</span>
                     <v-switch
-                      v-if="inputValue.drawer.showLogo"
-                      v-model="inputValue.drawer.logo.dark"
+                      v-if="$store.state.vularApp.drawer.showLogo"
+                      v-model="$store.state.vularApp.drawer.logo.dark"
                       primary
                       label="Dark"
                     />
                     <v-switch
-                      v-if="inputValue.drawer.showLogo"
-                      v-model="inputValue.drawer.logo.light"
+                      v-if="$store.state.vularApp.drawer.showLogo"
+                      v-model="$store.state.vularApp.drawer.logo.light"
                       primary
                       label="Light"
                     />
                     <VularBackgrounInput
-                     v-if="inputValue.drawer.showLogo"
-                     v-model="inputValue.drawer.logo"></VularBackgrounInput>                  
+                     v-if="$store.state.vularApp.drawer.showLogo"
+                     v-model="$store.state.vularApp.drawer.logo"></VularBackgrounInput>                  
                     <v-switch
-                      v-if="inputValue.drawer.showLogo"
-                      v-model="inputValue.drawer.logo.flat"
+                      v-if="$store.state.vularApp.drawer.showLogo"
+                      v-model="$store.state.vularApp.drawer.logo.flat"
                       primary
                       label="Flat"
                     />
                     <v-text-field label="样式" 
-                      v-if="inputValue.drawer.showLogo"
-                      v-model="inputValue.drawer.logo.style">
+                      v-if="$store.state.vularApp.drawer.showLogo"
+                      v-model="$store.state.vularApp.drawer.logo.style">
                     </v-text-field>
                    </v-col>
                   <v-col
@@ -245,60 +245,60 @@
                   >
                     <b>工具栏</b>
                     <v-switch
-                      v-model="inputValue.appbar.showLogo"
+                      v-model="$store.state.vularApp.appbar.showLogo"
                       primary
                       label="显示LOGO"
                     />
                     <v-switch
-                      v-model="inputValue.appbar.dark"
+                      v-model="$store.state.vularApp.appbar.dark"
                       primary
                       label="Dark"
                     />
                     <v-switch
-                      v-model="inputValue.appbar.light"
+                      v-model="$store.state.vularApp.appbar.light"
                       primary
                       label="Light"
                     />
                     <v-switch
-                      v-model="inputValue.appbar.flat"
+                      v-model="$store.state.vularApp.appbar.flat"
                       primary
                       label="Flat"
                     />
-                    <VularBackgrounInput v-model="inputValue.appbar"></VularBackgrounInput>
+                    <VularBackgrounInput v-model="$store.state.vularApp.appbar"></VularBackgrounInput>
                     <v-text-field label="样式" 
-                      v-model="inputValue.appbar.style">
+                      v-model="$store.state.vularApp.appbar.style">
                     </v-text-field>
                     <b>页脚</b>
                     <v-switch
-                      v-model="inputValue.footer.inset"
+                      v-model="$store.state.vularApp.footer.inset"
                       label="Inset"
                       primary
                     />
                     <v-switch
-                      v-model="inputValue.footer.dark"
+                      v-model="$store.state.vularApp.footer.dark"
                       primary
                       label="Dark"
                     />
                     <v-switch
-                      v-model="inputValue.footer.light"
+                      v-model="$store.state.vularApp.footer.light"
                       primary
                       label="Light"
                     />
-                    <VularBackgrounInput v-model="inputValue.footer"></VularBackgrounInput>
+                    <VularBackgrounInput v-model="$store.state.vularApp.footer"></VularBackgrounInput>
 
                     <b>内容区</b>
                     <VularBackgrounInput
-                     v-model="inputValue.content"></VularBackgrounInput>                  
+                     v-model="$store.state.vularApp.content"></VularBackgrounInput>                  
                     <v-text-field label="字体" 
-                      v-model="inputValue.content.fontFamily">
+                      v-model="$store.state.vularApp.content.fontFamily">
                     </v-text-field>
                     <v-switch
-                      v-model="inputValue.content.flat"
+                      v-model="$store.state.vularApp.content.flat"
                       primary
                       label="Flat"
                     />
                     <VularColorInput 
-                      v-model="inputValue.content.cardColor" 
+                      v-model="$store.state.vularApp.content.cardColor" 
                       label = "卡片颜色">
                     </VularColorInput>
                     
@@ -323,7 +323,6 @@
       VularColorInput,
     },
     props: {
-      value:{default:()=>{return {}}},
     },
     data () {
       return {
@@ -344,14 +343,6 @@
       }
     },
     computed:{
-      inputValue: {
-        get:function() {
-          return this.value;
-        },
-        set:function(val) {
-          this.$emit('input', val);
-        },
-      },
     },
 
 

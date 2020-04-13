@@ -56,6 +56,7 @@ export default {
           name:"vular-menu-item",
           prependIcon:'mdi-speedometer',
           title:'仪表盘',
+          to:"dashboard",
         },
         {
           name:"vular-menu-item",
@@ -273,6 +274,7 @@ export default {
         {
           name:"vular-menu-item",
           prependIcon:'mdi-compare',
+          to:"theme-settings",
           title:'主题设置',
             chip:{
               title:'更美',

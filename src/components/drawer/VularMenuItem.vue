@@ -1,5 +1,5 @@
 <template>
-   <v-list-item link>
+   <v-list-item link :to="schema.to">
       <v-list-item-icon
         v-if="schema.prependIcon"
       >
