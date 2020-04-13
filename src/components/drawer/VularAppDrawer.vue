@@ -151,7 +151,7 @@ export default {
           name:"vular-menu-item",
           prependIcon: 'mdi-ab-testing',
           appendIcon: 'mdi-bug',
-          title:'测试',
+          title:'调试',
           chip:{
             title:'New',
             props:{
