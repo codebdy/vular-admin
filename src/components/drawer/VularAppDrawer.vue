@@ -71,6 +71,92 @@ export default {
           },
         },
         {
+          name:"vular-subheader",
+          title:"CMS模块"
+        },
+        {
+          name:"vular-menu-item-group",
+          prependIcon:'library_books',
+          //appendIcon: 'home',
+          title:'文章管理',
+          active: false,
+          children: [
+            {
+              name:"vular-menu-item",
+              title:'全部文章',
+            },
+            {
+              name:"vular-menu-item",
+              title:'草稿箱',
+              badge:{
+                title:'4',
+                props:{
+                  dark:true,
+                  color:'blue',
+                  small:false,
+                }
+              },
+            },
+            {
+              name:"vular-menu-item",
+              title:'文章分类',
+            },
+            {
+              name:"vular-menu-item",
+              title:'文章属性',
+            },
+
+          ]          
+        },
+        {
+          name:"vular-menu-item-group",
+          prependIcon:'mdi-gift',
+          //appendIcon: 'home',
+          title:'产品管理',
+          active: false,
+          children: [
+            {
+              name:"vular-menu-item",
+              title:'产品列表',
+            },
+            {
+              name:"vular-menu-item",
+              title:'产品分类',
+            },
+            {
+              name:"vular-menu-item",
+              title:'产品属性',
+            },
+
+          ]          
+        },
+        {
+          name:"vular-menu-item-group",
+          prependIcon:'mdi-semantic-web',
+          //appendIcon: 'home',
+          title:'页面管理',
+          active: false,
+          children: [
+            {
+              name:"vular-menu-item",
+              title:'页面列表',
+            },
+            {
+              name:"vular-menu-item",
+              title:'页面分类',
+            },
+            {
+              name:"vular-menu-item",
+              title:'页面属性',
+            },
+
+          ]          
+        },
+        {
+          name:"vular-subheader",
+          title:"菜单演示"
+        },
+        {
           name:"vular-menu-item",
           prependIcon: 'mdi-ab-testing',
           appendIcon: 'mdi-bug',
@@ -83,10 +169,6 @@ export default {
               'x-small':true,
             }
           }
-        },
-        {
-          name:"vular-subheader",
-          title:"菜单演示"
         },
         {
           name:"vular-menu-item-group",
