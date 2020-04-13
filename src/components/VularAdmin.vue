@@ -20,6 +20,8 @@
       <VularAppDrawer v-model="vularApp.drawer"
         :logo = "vularApp.logo"
       ></VularAppDrawer>
+
+
     </v-navigation-drawer>
 
     <v-app-bar
@@ -58,9 +60,6 @@
       }"
     >
       <v-container fluid>
-        <v-btn small fab dark falt fixed right color="red">
-          <v-icon>mdi-bug</v-icon>
-        </v-btn>
         <h1><v-icon>mdi-layers-triple</v-icon> 主题设置</h1>
         <v-row
           align="center"
@@ -81,6 +80,9 @@
       :src = "vularApp.footer.src"
       app
     >
+      <v-btn x-small fab dark falt absolute bottom left color="red" class="mb-4 ml-n4">
+        <v-icon>mdi-bug</v-icon>
+      </v-btn>
       <span class="px-4">&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>

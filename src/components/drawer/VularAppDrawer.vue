@@ -149,7 +149,7 @@ export default {
         },
         {
           name:"vular-menu-item",
-          prependIcon: 'home',
+          prependIcon: 'mdi-ab-testing',
           appendIcon: 'mdi-bug',
           title:'测试',
           chip:{
