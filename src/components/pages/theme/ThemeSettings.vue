@@ -13,7 +13,7 @@
                     cols="12"
                     md="3"
                   >
-                    <v-card>
+                    <v-card flat dark color="primary" elevation = '2' >
                       <v-img
                         src="images/demo1.jpg"
                       ></v-img>
@@ -24,34 +24,49 @@
                     cols="12"
                     md="3"
                   >
-                    <v-card>
-                      <v-img
-                        src="images/demo1.jpg"
-                      ></v-img>
-                      <v-card-title class="title">Demo2</v-card-title>
-                    </v-card>
+                    <v-hover
+                      v-slot:default="{ hover }"
+                      open-delay="200"
+                    >
+                      <v-card flat outlined color="#ecebf2" :elevation="hover ? 16 : 2">
+                          <v-img
+                            src="images/demo1.jpg"
+                          ></v-img>
+                          <v-card-title class="title">Demo2</v-card-title>
+                      </v-card>
+                    </v-hover>
                   </v-col>
                   <v-col
                     cols="12"
                     md="3"
                   >
-                    <v-card>
-                      <v-img
-                        src="images/demo1.jpg"
-                      ></v-img>
-                      <v-card-title class="title">Demo3</v-card-title>
-                    </v-card>
+                    <v-hover
+                      v-slot:default="{ hover }"
+                      open-delay="200"
+                    >
+                      <v-card flat color="#ecebf2" :elevation="hover ? 16 : 2">
+                          <v-img
+                            src="images/demo1.jpg"
+                          ></v-img>
+                          <v-card-title class="title">Demo3</v-card-title>
+                      </v-card>
+                    </v-hover>
                   </v-col>
                   <v-col
                     cols="12"
                     md="3"
                   >
-                    <v-card>
-                      <v-img
-                        src="images/demo1.jpg"
-                      ></v-img>
-                      <v-card-title class="title">Demo4</v-card-title>
-                    </v-card>
+                    <v-hover
+                      v-slot:default="{ hover }"
+                      open-delay="200"
+                    >
+                      <v-card flat color="#ecebf2" :elevation="hover ? 16 : 2">
+                          <v-img
+                            src="images/demo1.jpg"
+                          ></v-img>
+                          <v-card-title class="title">Demo4</v-card-title>
+                      </v-card>
+                    </v-hover>
                   </v-col>
                 </v-row>
                 <v-divider class="mt-6"></v-divider>
@@ -316,6 +331,11 @@
 <script>
   import VularBackgrounInput from "./VularBackgrounInput"
   import VularColorInput from "./VularColorInput"
+  import demo1 from '../../../themes/demo1'
+  import demo2 from '../../../themes/demo2'
+  import demo3 from '../../../themes/demo3'
+  import demo4 from '../../../themes/demo4'
+
   export default {
     name: 'theme-settings',
     components: {
@@ -340,6 +360,28 @@
             'text':'Temporary'
           }, 
         ],
+        themes:[
+          {
+            selected:true,
+            src:"/images/demo1.jpg",
+            theme:JSON.parse(JSON.stringify(demo1)),
+          },
+          {
+            selected:false,
+            src:"/images/demo2.jpg",
+            theme:JSON.parse(JSON.stringify(demo2)),
+          },
+          {
+            selected:false,
+            src:"/images/demo3.jpg",
+            theme:JSON.parse(JSON.stringify(demo3)),
+          },
+          {
+            selected:false,
+            src:"/images/demo4.jpg",
+            theme:JSON.parse(JSON.stringify(demo4)),
+          },
+        ]
       }
     },
     computed:{

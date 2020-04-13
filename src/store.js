@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import defaultTheme from './themes/default'
+import defaultTheme from './themes/demo1'
 
 Vue.use(Vuex)
 
@@ -8,7 +8,7 @@ Vue.use(Vuex)
 export default 
 new Vuex.Store({
   state:{
-      vularApp: defaultTheme,
+      vularApp: JSON.parse(JSON.stringify(defaultTheme)),
   },
 
  
