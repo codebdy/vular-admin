@@ -2,13 +2,21 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 import vuetify from './plugins/vuetify' // path to vuetify export
-import store from './store';    
+import VeLine from 'v-charts/lib/line.common'
+import VeHistogram from 'v-charts/lib/histogram.common'
+import VePie from 'v-charts/lib/pie.common'
+
+import store from './store'    
 
 import VularAdmin from "./components/VularAdmin.vue"
 import ThemeSettings from "./components/pages/theme/ThemeSettings"
 import Dashboard from "./components/pages/dashboard/Dashboard"
 
 Vue.use(VueRouter)
+
+Vue.component(VeLine.name, VeLine)
+Vue.component(VeHistogram.name, VeHistogram)
+Vue.component(VePie.name, VePie)
 Vue.component('VularAdmin', VularAdmin)
 
 const routes = [
