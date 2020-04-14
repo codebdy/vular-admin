@@ -84,5 +84,9 @@
     },
     data: () => ({
     }),
+
+    created(){
+      console.log(this.$vuetify)
+    },
   }
 </script>

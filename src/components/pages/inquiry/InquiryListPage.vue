@@ -5,13 +5,19 @@
       'font-family': $store.state.vularApp.content.fontFamily
     }"
   >
+    <div 
+      :style="{ 
+        background: $store.state.vularApp.content.color,
+        width:'calc(100% - ' + $vuetify.application.left + 'px)' 
+      }"
+    style="position: fixed; right:0;top:40px; z-index: 1; height: 130px; padding-top:16px;"
+    >
       <v-toolbar 
         flat
-        :color="'transparent'"
-        fixed
-        dense
+        :color="$store.state.vularApp.content.color"
         top
-        class="mt-6"
+        class="mt-8"
+        
       >
         <h2>询盘</h2>
         <v-divider
@@ -22,22 +28,23 @@
         <span>共360条</span>
         <v-spacer></v-spacer>
         
-        <v-btn class="mr-5" fab x-small elevation="0" :color="$store.state.vularApp.content.card.color">
+        <v-btn class="mr-5" fab small elevation="0" :color="$store.state.vularApp.content.card.color">
           <v-icon color="#8296f8">mdi-import</v-icon>
         </v-btn>
 
-        <v-btn class="mr-5" fab x-small elevation="0" :color="$store.state.vularApp.content.card.color">
+        <v-btn class="mr-5" fab small elevation="0" :color="$store.state.vularApp.content.card.color">
           <v-icon color="#8296f8">mdi-export-variant</v-icon>
         </v-btn>
-        <v-btn class="mr-5" fab x-small elevation="0" :color="$store.state.vularApp.content.card.color">
+        <v-btn class="mr-5" fab small elevation="0" :color="$store.state.vularApp.content.card.color">
           <v-icon color="#8296f8">mdi-cloud-print-outline</v-icon>
         </v-btn>
-        <v-btn rounded color="primary" dark style="padding:0 28px;" >
+        <v-btn rounded color="primary" large dark style="padding:0 28px;" >
           <v-icon left>mdi-plus</v-icon> 新建
         </v-btn>
         
       </v-toolbar>
-    <v-container fluid>
+    </div>
+    <v-container fluid style="margin-top: 80px;">
       <v-row
         align="center"
         justify="center"
@@ -67,6 +74,7 @@
 
     methods: {
     },
+
   }
 </script>
 
