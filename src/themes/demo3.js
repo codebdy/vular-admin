@@ -21,7 +21,7 @@ export default {
     src:"",
     dark:false,
     light:false,
-    model: null,
+    model: false,
     type: 'permanent',
     clipped: false,
     floating: false,

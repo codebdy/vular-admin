@@ -22,7 +22,7 @@ export default {
     src:"",
     dark:false,
     light:false,
-    model: null,
+    model: false,
     type: 'temporary',
     clipped: false,
     floating: false,

@@ -22,7 +22,7 @@ export default {
     dark:false,
     light:false,
     color:"",
-    model: null,
+    model: true,
     type: 'default (no property)',
     clipped: false,
     floating: false,
