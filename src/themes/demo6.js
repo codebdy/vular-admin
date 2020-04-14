@@ -4,10 +4,10 @@ export default {
     dark:false,
     themes: {
       light: {
-        primary: "#9764fd",
+        primary: "#0bb883",
       },
       dark: {
-        primary: "#9764fd",
+        primary: "#0bb883",
       },
     },
   },

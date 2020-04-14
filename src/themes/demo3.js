@@ -4,10 +4,10 @@ export default {
     dark:false,
     themes: {
       light: {
-        primary: "#22b9ff",
+        primary: "#fbce44",
       },
       dark: {
-        primary: "#22b9ff",
+        primary: "#fbce44",
       },
     },
   },
@@ -30,7 +30,7 @@ export default {
     expandOnHover:true,
     logo:{
       color: "#fbce44",
-      dark: false,
+      dark: true,
       flat: true,
       src:"",
       style:"border-bottom:rgba(0,0,0,0.1) solid 1px;"
