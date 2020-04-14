@@ -373,7 +373,50 @@
           if(th === theme){
             th.selected = true
             this.$store.commit('changeTheme', th.theme)
-            this.$vuetify.theme = JSON.parse(JSON.stringify(th.theme.theme))
+            this.$vuetify.theme.dark = th.theme.theme.dark
+            if(th.theme.theme.themes.light.primary){
+              this.$vuetify.theme.themes.light.primary = th.theme.theme.themes.light.primary
+            }
+            if(th.theme.theme.themes.light.secondary){
+              this.$vuetify.theme.themes.light.secondary = th.theme.theme.themes.light.secondary
+            }
+            if(th.theme.theme.themes.light.accent){
+              this.$vuetify.theme.themes.light.accent = th.theme.theme.themes.light.accent
+            }
+            if(th.theme.theme.themes.light.error){
+              this.$vuetify.theme.themes.light.error = th.theme.theme.themes.light.error
+            }
+            if(th.theme.theme.themes.light.info){
+              this.$vuetify.theme.themes.light.info = th.theme.theme.themes.light.info
+            }
+            if(th.theme.theme.themes.light.success){
+              this.$vuetify.theme.themes.light.success = th.theme.theme.themes.light.success
+            }
+            if(th.theme.theme.themes.light.warning){
+              this.$vuetify.theme.themes.light.warning = th.theme.theme.themes.light.warning
+            }
+
+            if(th.theme.theme.themes.dark.primary){
+              this.$vuetify.theme.themes.dark.primary = th.theme.theme.themes.dark.primary
+            }
+            if(th.theme.theme.themes.dark.secondary){
+              this.$vuetify.theme.themes.dark.secondary = th.theme.theme.themes.dark.secondary
+            }
+            if(th.theme.theme.themes.dark.accent){
+              this.$vuetify.theme.themes.dark.accent = th.theme.theme.themes.dark.accent
+            }
+            if(th.theme.theme.themes.dark.error){
+              this.$vuetify.theme.themes.dark.error = th.theme.theme.themes.dark.error
+            }
+            if(th.theme.theme.themes.dark.info){
+              this.$vuetify.theme.themes.dark.info = th.theme.theme.themes.dark.info
+            }
+            if(th.theme.theme.themes.dark.success){
+              this.$vuetify.theme.themes.dark.success = th.theme.theme.themes.dark.success
+            }
+            if(th.theme.theme.themes.dark.warning){
+              this.$vuetify.theme.themes.dark.warning = th.theme.theme.themes.dark.warning
+            }
           }
           else{
             th.selected = false
