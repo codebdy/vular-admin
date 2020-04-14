@@ -4,10 +4,10 @@ export default {
     dark:false,
     themes: {
       light: {
-        primary: "#5d78ff",
+        primary: "#ffa800",
       },
       dark: {
-        primary: "#5d78ff",
+        primary: "#ffa800",
       },
     },
   },
@@ -17,36 +17,36 @@ export default {
     alt: "An amazing framework",
   },
   drawer: {
-    showLogo: true,
-    color: "#1b1b28",
+    showLogo: false,
     src:"",
     dark:true,
     light:false,
+    color:"#672f7e",
     model: null,
     type: 'default (no property)',
-    clipped: false,
+    clipped: true,
     floating: false,
     mini: false,
     miniVariantWidth: 70,
     expandOnHover:false,
     logo:{
-      color: "#1a1a27",
+      color: "#0bb883",
       dark: false,
       flat: true,
       src:"",
-      style:"border-bottom:#0e0e18 solid 1px;"
+      style:"border-bottom:rgba(0,0,0,0.1) solid 1px;"
     },
     fontSize: "0.825rem",
   },
   appbar:{
-    logoImage: false,
-    logoText: false,
-    dark: false,
+    logoImage: true,
+    logoText: true,
+    dark: true,
     light: false,
-    color: "#f4f5fa",
+    color: "#561b6f",
     src: "",
     flat:true,
-    style:"border-bottom:#dbdfef solid 1px;"
+      style:"border-bottom:rgba(0,0,0,0.1) solid 1px;"
   },
   footer: {
     inset: true,
@@ -57,9 +57,9 @@ export default {
   },
   content:{
     fontFamily:"",
-    color: "#ecebf2",
+    color: "#fbf6f0",
     src: "",
     flat: true,
-    cardColor:"#f4f5fa",
+    cardColor:"#ffffff",
   },
 }

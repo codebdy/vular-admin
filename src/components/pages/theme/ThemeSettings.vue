@@ -306,6 +306,8 @@
   import demo3 from '../../../themes/demo3'
   import demo4 from '../../../themes/demo4'
   import demo5 from '../../../themes/demo5'
+  import demo6 from '../../../themes/demo6'
+  import demo7 from '../../../themes/demo7'
 
   export default {
     name: 'theme-settings',
@@ -333,19 +335,19 @@
         ],
         themes:[
           {
-            title:'Demo1',
+            title:'经典',
             selected:true,
             src:"/images/demo1.jpg",
             theme:demo1,
           },
           {
-            title:'经典深黑蓝',
+            title:'缺省蓝',
             selected:false,
             src:"/images/demo2.jpg",
             theme:demo2,
           },
           {
-            title:'简约待改',
+            title:'简约黄',
             selected:false,
             src:"/images/demo3.jpg",
             theme:demo3,
@@ -361,6 +363,18 @@
             selected:false,
             src:"/images/demo4.jpg",
             theme:demo5,
+          },
+          {
+            title:'清新绿',
+            selected:false,
+            src:"/images/demo4.jpg",
+            theme:demo6,
+          },
+          {
+            title:'紫色',
+            selected:false,
+            src:"/images/demo4.jpg",
+            theme:demo7,
           },
         ]
       }

@@ -14,10 +14,10 @@ const opts = {
     dark:false,
     themes: {
       light: {
-        primary: "#22b9ff",
+        primary: "#5d78ff",
       },
       dark: {
-        primary: "#22b9ff",
+        primary: "#5d78ff",
       },
     },
   },

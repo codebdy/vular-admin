@@ -50,10 +50,10 @@
             color:'pink lighten-1',
           },
           {
-            name: '打印星空',
+            name: '统计星星',
             deadline: '7天',
             user: '/images/3.jpg',
-            progress: '60%',
+            progress: '90%',
             bgColor:'pink lighten-3',
             color:'pink lighten-1',
           },

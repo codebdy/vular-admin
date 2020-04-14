@@ -4,10 +4,10 @@ export default {
     dark:false,
     themes: {
       light: {
-        primary: "#5d78ff",
+        primary: "#3f51b5",
       },
       dark: {
-        primary: "#5d78ff",
+        primary: "#3f51b5",
       },
     },
   },
@@ -18,10 +18,10 @@ export default {
   },
   drawer: {
     showLogo: true,
-    color: "#1b1b28",
     src:"",
-    dark:true,
+    dark:false,
     light:false,
+    color:"",
     model: null,
     type: 'default (no property)',
     clipped: false,
@@ -30,23 +30,23 @@ export default {
     miniVariantWidth: 70,
     expandOnHover:false,
     logo:{
-      color: "#1a1a27",
-      dark: false,
+      color: "#193a9a",
+      dark: true,
       flat: true,
       src:"",
-      style:"border-bottom:#0e0e18 solid 1px;"
+      style:"border-bottom:rgba(0,0,0,0.1) solid 1px;"
     },
     fontSize: "0.825rem",
   },
   appbar:{
     logoImage: false,
     logoText: false,
-    dark: false,
+    dark: true,
     light: false,
-    color: "#f4f5fa",
+    color: "#3f51b5",
     src: "",
     flat:true,
-    style:"border-bottom:#dbdfef solid 1px;"
+      style:"border-bottom:rgba(0,0,0,0.1) solid 1px;"
   },
   footer: {
     inset: true,
@@ -57,9 +57,9 @@ export default {
   },
   content:{
     fontFamily:"",
-    color: "#ecebf2",
+    color: "#ffffff",
     src: "",
-    flat: true,
-    cardColor:"#f4f5fa",
+    flat: false,
+    cardColor:"#ffffff",
   },
 }
