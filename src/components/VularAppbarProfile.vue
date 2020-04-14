@@ -3,7 +3,7 @@
     <template v-slot:activator="{ on }">
       <v-btn icon v-on="on" class="mr-3">
         <v-avatar size="30px">
-          <img src="images/100.jpg" alt="Water Li" />
+          <img src="/images/100.jpg" alt="Water Li" />
         </v-avatar>
       </v-btn>
     </template>
