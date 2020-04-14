@@ -46,7 +46,7 @@ export default {
     color: "#f4f5fa",
     src: "",
     flat:true,
-    style:"border-bottom:#dbdfef solid 1px;"
+    style:"border-bottom:#dbdfef solid 1px; box-shadow: 2px 2px 5px rgba(0,0,0,0.05);"
   },
   footer: {
     inset: true,
@@ -60,6 +60,9 @@ export default {
     color: "#ecebf2",
     src: "",
     flat: true,
-    cardColor:"#f4f5fa",
+    card:{
+      color:"#f4f5fa",
+      style:"box-shadow: 2px 2px 5px rgba(0,0,0,0.05);",
+    }
   },
 }

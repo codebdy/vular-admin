@@ -4,7 +4,7 @@
     :items="desserts"
     item-key="name"
     hide-default-footer
-    :style="{backgroundColor:$store.state.vularApp.content.cardColor}"
+    :style="{backgroundColor:$store.state.vularApp.content.card.color}"
   >
     <template v-slot:item.status="{ item }">
       <v-chip

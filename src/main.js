@@ -11,6 +11,7 @@ import store from './store'
 import VularAdmin from "./components/VularAdmin.vue"
 import ThemeSettings from "./components/pages/theme/ThemeSettings"
 import Dashboard from "./components/pages/dashboard/Dashboard"
+import InquiryListPage from "./components/pages/inquiry/InquiryListPage"
 
 Vue.use(VueRouter)
 
@@ -18,11 +19,13 @@ Vue.component(VeLine.name, VeLine)
 Vue.component(VeHistogram.name, VeHistogram)
 Vue.component(VePie.name, VePie)
 Vue.component('VularAdmin', VularAdmin)
+Vue.component('InquiryListPage', InquiryListPage)
 
 const routes = [
   //{ path: '/form2', component: VularForm },
   { path: '/', redirect: {name:'theme-settings'} },
   { path: '/dashboard', name:'dashboard', component: Dashboard },
+  { path: '/inquiry-list', name:'inquiry-list', component: InquiryListPage },
   { path: '/theme-settings', name:'theme-settings', component: ThemeSettings },
 ]
 

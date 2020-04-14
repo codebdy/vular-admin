@@ -59,6 +59,9 @@ export default {
     color: "#fbf6f0",
     src: "",
     flat: true,
-    cardColor:"#ffffff",
+    card:{
+      color:"#ffffff",
+      style:"",
+    }
   },
 }

@@ -70,6 +70,7 @@ export default {
               small:false,
             }
           },
+          to:"inquiry-list",
         },
         {
           name:"vular-subheader",

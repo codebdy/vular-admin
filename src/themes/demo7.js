@@ -60,6 +60,9 @@ export default {
     color: "#fbf6f0",
     src: "",
     flat: true,
-    cardColor:"#ffffff",
+    card:{
+      color:"#ffffff",
+      style:"box-shadow: 2px 2px 5px rgba(0,0,0,0.05);",
+    }
   },
 }

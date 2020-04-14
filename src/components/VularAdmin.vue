@@ -47,21 +47,14 @@
       <v-btn icon>
         <v-icon medium>mdi-magnify</v-icon>
       </v-btn>
-      <v-btn icon>
+      <v-btn icon href="https://github.com/vularsoft/vular-admin" target="_blank">
         <v-icon class="fa-2x">fab fa-github</v-icon>
       </v-btn>
       <VularNotifications></VularNotifications>
       <VularAppbarProfile></VularAppbarProfile>
     </v-app-bar>
 
-    <v-content 
-      :style="{
-        background: $store.state.vularApp.content.color + ' url(' + $store.state.vularApp.content.src +')',
-        'font-family': $store.state.vularApp.content.fontFamily
-      }"
-    >
-      <router-view/>
-    </v-content>
+    <router-view/>
 
     <v-footer
       :inset="$store.state.vularApp.footer.inset"
