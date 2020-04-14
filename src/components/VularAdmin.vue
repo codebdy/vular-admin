@@ -32,6 +32,7 @@
       :src = "$store.state.vularApp.appbar.src"
       :flat = "$store.state.vularApp.appbar.flat"
       app
+      :shrink-on-scroll="$store.state.vularApp.appbar.shrinkOnScroll"
       :style="$store.state.vularApp.appbar.style"
     >
       <v-app-bar-nav-icon

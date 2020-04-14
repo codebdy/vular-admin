@@ -22,7 +22,7 @@ export default {
     dark:true,
     light:false,
     color:"#672f7e",
-    model: null,
+    model: true,
     type: 'default (no property)',
     clipped: true,
     floating: false,

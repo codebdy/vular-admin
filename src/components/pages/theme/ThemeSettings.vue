@@ -249,6 +249,11 @@
                       primary
                       label="Flat"
                     />
+                    <v-switch
+                      v-model="$store.state.vularApp.appbar.shrinkOnScroll"
+                      primary
+                      label="滚动缩小"
+                    />
                     <VularBackgrounInput v-model="$store.state.vularApp.appbar"></VularBackgrounInput>
                     <v-text-field label="样式" 
                       v-model="$store.state.vularApp.appbar.style">
@@ -308,6 +313,7 @@
   import demo5 from '../../../themes/demo5'
   import demo6 from '../../../themes/demo6'
   import demo7 from '../../../themes/demo7'
+  import demo8 from '../../../themes/demo8'
 
   export default {
     name: 'theme-settings',
@@ -341,7 +347,7 @@
             theme:demo1,
           },
           {
-            title:'缺省蓝',
+            title:'默认蓝',
             selected:false,
             src:"/images/demo2.jpg",
             theme:demo2,
@@ -361,20 +367,26 @@
           {
             title:'简·黑',
             selected:false,
-            src:"/images/demo4.jpg",
+            src:"/images/demo5.jpg",
             theme:demo5,
           },
           {
             title:'清新绿',
             selected:false,
-            src:"/images/demo4.jpg",
+            src:"/images/demo6.jpg",
             theme:demo6,
           },
           {
             title:'紫色',
             selected:false,
-            src:"/images/demo4.jpg",
+            src:"/images/demo7.jpg",
             theme:demo7,
+          },
+          {
+            title:'现代',
+            selected:false,
+            src:"/images/demo8.jpg",
+            theme:demo8,
           },
         ]
       }

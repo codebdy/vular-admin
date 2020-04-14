@@ -4,48 +4,50 @@ export default {
     dark:false,
     themes: {
       light: {
-        primary: "#3f51b5",
+        primary: "#5d78ff",
       },
       dark: {
-        primary: "#3f51b5",
+        primary: "#5d78ff",
       },
     },
   },
   logo: {
-    src: "/images/logo.png",
+    src: "/images/logo-w.png",
     title:"Vular",
     alt: "An amazing framework",
   },
   drawer: {
-    showLogo: true,
+    showLogo: false,
+    color: "",
     src:"",
     dark:false,
     light:false,
-    color:"",
     model: null,
-    type: 'default (no property)',
+    type: 'temporary',
     clipped: false,
     floating: false,
     mini: false,
     miniVariantWidth: 70,
     expandOnHover:false,
     logo:{
-      color: "#193a9a",
-      dark: true,
-      flat: false,
+      color: "#1a1a27",
+      dark: false,
+      flat: true,
       src:"",
-      style:""
+      style:"border-bottom:#0e0e18 solid 1px;"
     },
+    fontSize: "0.825rem",
   },
   appbar:{
     logoImage: false,
-    logoText: false,
+    logoText: true,
     dark: true,
     light: false,
-    color: "#3f51b5",
-    src: "",
-    flat:false,
-    style:""
+    color: "#f4f5fa",
+    src: "/images/bg.jpg",
+    flat:true,
+    style:"border-bottom:#dbdfef solid 1px;",
+    shrinkOnScroll:true,
   },
   footer: {
     inset: true,
@@ -56,9 +58,9 @@ export default {
   },
   content:{
     fontFamily:"",
-    color: "#ffffff",
+    color: "#ecebf2",
     src: "",
-    flat: false,
-    cardColor:"#ffffff",
+    flat: true,
+    cardColor:"#f4f5fa",
   },
 }
