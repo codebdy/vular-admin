@@ -22,14 +22,14 @@
         <span>共360条</span>
         <v-spacer></v-spacer>
         
-        <v-btn class="mr-5" fab flat x-small elevation="0" :color="$store.state.vularApp.content.card.color">
+        <v-btn class="mr-5" fab x-small elevation="0" :color="$store.state.vularApp.content.card.color">
           <v-icon color="#8296f8">mdi-import</v-icon>
         </v-btn>
 
-        <v-btn class="mr-5" fab flat x-small elevation="0" :color="$store.state.vularApp.content.card.color">
+        <v-btn class="mr-5" fab x-small elevation="0" :color="$store.state.vularApp.content.card.color">
           <v-icon color="#8296f8">mdi-export-variant</v-icon>
         </v-btn>
-        <v-btn class="mr-5" fab flat x-small elevation="0" :color="$store.state.vularApp.content.card.color">
+        <v-btn class="mr-5" fab x-small elevation="0" :color="$store.state.vularApp.content.card.color">
           <v-icon color="#8296f8">mdi-cloud-print-outline</v-icon>
         </v-btn>
         <v-btn rounded color="primary" dark style="padding:0 28px;" >
