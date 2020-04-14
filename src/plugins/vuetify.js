@@ -11,12 +11,13 @@ const opts = {
     iconfont: 'md' ||'fa',
   },
   theme: {
+    dark:false,
     themes: {
       light: {
-        primary: "#5d78ff",
+        primary: "#22b9ff",
       },
       dark: {
-        primary: "#5d78ff",
+        primary: "#22b9ff",
       },
     },
   },

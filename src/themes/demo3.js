@@ -1,5 +1,16 @@
 export default {
   fontFamily:"Microsoft YaHei",
+  theme: {
+    dark:false,
+    themes: {
+      light: {
+        primary: "#5d78ff",
+      },
+      dark: {
+        primary: "#5d78ff",
+      },
+    },
+  },
   logo: {
     src: "/images/logo-w.png",
     title:"Vular",
@@ -27,7 +38,8 @@ export default {
     fontSize: "0.825rem",
   },
   appbar:{
-    showLogo: true,
+    logoImage: true,
+    logoText: true,
     dark: true,
     light: false,
     src: "",

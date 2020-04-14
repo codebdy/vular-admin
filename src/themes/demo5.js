@@ -1,7 +1,7 @@
 export default {
   fontFamily:"Microsoft YaHei",
   theme: {
-    dark:false,
+    dark:true,
     themes: {
       light: {
         primary: "#0078d4",
@@ -12,7 +12,7 @@ export default {
     },
   },
   logo: {
-    src: "/images/logo.png",
+    src: "/images/logo-w.png",
     title:"Vular",
     alt: "An amazing framework",
   },
@@ -44,8 +44,7 @@ export default {
     light: false,
     src: "",
     flat:true,
-    color:"#ffffff",
-    style:"border-bottom:rgba(0,0,0,0.1) solid 1px;"
+    style:""
   },
   footer: {
     inset: true,
@@ -56,7 +55,7 @@ export default {
   },
   content:{
     fontFamily:"",
-    color: "#ffffff",
+    color: "#121212",
     src: "",
     //flat: true,
     //cardColor:"#f4f5fa",

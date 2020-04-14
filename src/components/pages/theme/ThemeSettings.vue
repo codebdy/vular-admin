@@ -13,6 +13,7 @@
                     cols="12"
                     md="2"
                     v-for="(theme, index) in themes"
+                    :key="index"
                   >
                     <v-hover
                       v-slot:default="{ hover }"
@@ -23,6 +24,7 @@
                         :color="theme.selected? 'primary' :'#ecebf2' " 
                         :elevation="hover ? 16 : 2" 
                         @click="onThemeClick(theme)"
+                        :light="!theme.selected"
                       >
                         <v-img
                           :src="theme.src"
@@ -223,9 +225,14 @@
                   >
                     <b>工具栏</b>
                     <v-switch
-                      v-model="$store.state.vularApp.appbar.showLogo"
+                      v-model="$store.state.vularApp.appbar.logoImage"
                       primary
-                      label="显示LOGO"
+                      label="LOGO图片"
+                    />
+                    <v-switch
+                      v-model="$store.state.vularApp.appbar.logoText"
+                      primary
+                      label="LOGO文字"
                     />
                     <v-switch
                       v-model="$store.state.vularApp.appbar.dark"
@@ -298,6 +305,7 @@
   import demo2 from '../../../themes/demo2'
   import demo3 from '../../../themes/demo3'
   import demo4 from '../../../themes/demo4'
+  import demo5 from '../../../themes/demo5'
 
   export default {
     name: 'theme-settings',
@@ -343,10 +351,16 @@
             theme:demo3,
           },
           {
-            title:'简·黑·白',
+            title:'简·白',
             selected:false,
             src:"/images/demo4.jpg",
             theme:demo4,
+          },
+          {
+            title:'简·黑',
+            selected:false,
+            src:"/images/demo4.jpg",
+            theme:demo5,
           },
         ]
       }
@@ -359,6 +373,7 @@
           if(th === theme){
             th.selected = true
             this.$store.commit('changeTheme', th.theme)
+            this.$vuetify.theme = JSON.parse(JSON.stringify(th.theme.theme))
           }
           else{
             th.selected = false

@@ -38,8 +38,8 @@
         v-if="$store.state.vularApp.drawer.type !== 'permanent'"
         @click.stop="$store.state.vularApp.drawer.model = !$store.state.vularApp.drawer.model"
       />
-      <img v-if="$store.state.vularApp.appbar.showLogo" :src="$store.state.vularApp.logo.src" style="height:36px;" :alt="$store.state.vularApp.logo.alt" />
-      <v-toolbar-title v-if="$store.state.vularApp.appbar.showLogo" class="ml-0 pl-3">
+      <img v-if="$store.state.vularApp.appbar.logoImage" :src="$store.state.vularApp.logo.src" style="height:36px;" :alt="$store.state.vularApp.logo.alt" />
+      <v-toolbar-title v-if="$store.state.vularApp.appbar.logoText" class="ml-0 pl-3">
         <span class="hidden-sm-and-down">{{$store.state.vularApp.logo.title}}</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>

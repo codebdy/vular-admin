@@ -1,39 +1,51 @@
 export default {
   fontFamily:"Microsoft YaHei",
+  theme: {
+    dark:false,
+    themes: {
+      light: {
+        primary: "#22b9ff",
+      },
+      dark: {
+        primary: "#22b9ff",
+      },
+    },
+  },
   logo: {
-    src: "/images/logo-w.png",
+    src: "/images/logo-4.png",
     title:"Vular",
     alt: "An amazing framework",
   },
   drawer: {
-    showLogo: false,
+    showLogo: true,
     src:"",
     dark:false,
     light:false,
     model: null,
     type: 'permanent',
-    clipped: true,
+    clipped: false,
     floating: false,
     mini: false,
     miniVariantWidth: 70,
     expandOnHover:true,
     logo:{
-      color: "#1a1a27",
+      color: "#fbce44",
       dark: false,
       flat: true,
       src:"",
-      style:"border-bottom:#0e0e18 solid 1px;"
+      style:"border-bottom:rgba(0,0,0,0.1) solid 1px;"
     },
     fontSize: "0.825rem",
   },
   appbar:{
-    showLogo: true,
-    dark: true,
+    logoImage: false,
+    logoText: true,
+    dark: false,
     light: false,
-    color: "#000000",
+    color: "#ffffff",
     src: "",
     flat:true,
-    style:""
+      style:"border-bottom:rgba(0,0,0,0.1) solid 1px;"
   },
   footer: {
     inset: true,
@@ -44,9 +56,9 @@ export default {
   },
   content:{
     fontFamily:"",
-    //color: "#ecebf2",
+    color: "#f3f3f7",
     src: "",
-    //flat: true,
-    //cardColor:"#f4f5fa",
+    flat: true,
+    cardColor:"#ffffff",
   },
 }
