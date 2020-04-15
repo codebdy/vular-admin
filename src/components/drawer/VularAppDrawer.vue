@@ -60,7 +60,7 @@ export default {
         },
         {
           name:"vular-menu-item",
-          prependIcon: 'mail',
+          prependIcon: 'mdi-email',
           title:'询盘',
           badge:{
             title:'6',
@@ -78,7 +78,7 @@ export default {
         },
         {
           name:"vular-menu-item-group",
-          prependIcon:'library_books',
+          prependIcon:'mdi-text-box-multiple',
           //appendIcon: 'home',
           title:'文章管理',
           active: false,

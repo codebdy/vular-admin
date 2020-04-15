@@ -34,7 +34,6 @@
     "deepmerge": "^4.2.2",
     "fibers": "^4.0.2",
     "file-loader": "^1.1.4",
-    "material-design-icons-iconfont": "^5.0.1",
     "sass": "^1.26.3",
     "sass-loader": "^7.3.1",
     "stylus": "^0.54.7",

@@ -10,7 +10,7 @@
         background: $store.state.vularApp.content.color,
         width:'calc(100% - ' + $vuetify.application.left + 'px)' 
       }"
-    style="position: fixed; right:0;top:40px; z-index: 1; height: 130px; padding-top:16px;"
+    style="position: fixed; right:0;top:40px; z-index: 1; height: 280px; padding-top:16px;"
     >
       <v-toolbar 
         flat
@@ -19,7 +19,7 @@
         class="mt-8"
         
       >
-        <h2>询盘</h2>
+        <h2>询盘列表</h2>
         <v-divider
           class="mx-4"
           inset
@@ -43,8 +43,29 @@
         </v-btn>
         
       </v-toolbar>
+      <v-container fluid>
+        <v-row
+          align="center"
+        >
+          <v-col cols="12">
+            <div flat style="height:90px;"  
+              :style="{
+                background: $store.state.vularApp.content.card.color
+              }">
+              Table Header
+            </div>
+          </v-col>
+        </v-row>
+        <v-row
+          align="center"
+        >
+          <v-col cols="12" justify="center" style="display: flex; align-items: center;">
+            Table title
+          </v-col>
+        </v-row>
+      </v-container>
     </div>
-    <v-container fluid style="margin-top: 80px;">
+    <v-container fluid style="margin-top: 190px;">
       <v-row
         align="center"
         justify="center"
