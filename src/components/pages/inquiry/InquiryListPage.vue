@@ -5,7 +5,11 @@
       'font-family': $store.state.vularApp.content.fontFamily
     }"
   >
-  <VularListPageHeader></VularListPageHeader>
+  <VularListPageHeader>
+    <template slot='list-title'>
+      <VularListTitle :schema="listSchema"></VularListTitle>
+    </template>
+  </VularListPageHeader>
     <v-container fluid style="margin-top: 190px; ">
       <v-row
         align="center"
@@ -47,6 +51,53 @@
     },
     data () {
       return {
+        listSchema:{
+          canSelect:true,
+          columns:[
+            {
+              field:'name',
+              title: '姓名',
+              width:'',
+              flex: '1' ,
+              //props:[],
+            },
+            {
+              field:'email',
+              title: '邮箱',
+              width:'',
+              flex: '2' ,
+              //props:[],
+            },
+            {
+              field:'company',
+              title: '公司',
+              width:'',
+              flex: '3' ,
+              //props:[],
+            },
+          ],
+          actionsColumn:{
+            width:'150px',
+          },
+        },
+        rows:[
+          {
+            name : 'Martin Li', 
+            email : 'Li@vular.cn', 
+            company : 'Vular soft'
+          },
+          {
+            name : 'Margin Wang', 
+            email : 'Li@tianbupa.com', 
+            company : '小火星'
+          },
+          {
+            name : 'Padding 赵', 
+            email : 'Li@dibupa.com', 
+            company : '大太阳'
+          },
+        ]
+        
       }
     },
     computed:{

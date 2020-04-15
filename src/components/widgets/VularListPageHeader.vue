@@ -12,8 +12,8 @@
       <div
         :color="$store.state.vularApp.content.color"
         :style="{
-          'padding-top': breadCrumbsPadding + 'px',
-          'padding-bottom': breadCrumbsPadding + 'px',
+          'padding-top': breadCrumbsPadding*1.2 + 'px',
+          'padding-bottom': breadCrumbsPadding*0.8 + 'px',
         }"
         class="d-flex flex-row align-center"
       >
@@ -116,19 +116,15 @@
       <v-row
         align="center"
         class="py-0" 
+        v-if = "$slots['list-title']"
       >
         <v-col cols="12" justify="center" 
           style="display: flex; align-items: center; "
           class="py-0"
         >
-          <div style="width:100%; height: 40px; border-bottom:rgba(0,0,0,0.05) solid 1px; display: flex; align-items: center; border:solid 1px;" class="px-6">
-            <ul class="vular-list-head">
-              <li style="margin-left: 50px; flex:2;">邮箱邮箱邮箱邮箱邮箱邮箱邮箱邮箱邮箱邮箱邮箱邮箱邮箱邮箱邮箱邮箱</li>
-              <li style="flex: 1">姓名</li>
-              <li style="flex: 2">sssssssssssssrttrghhghgsssssssssssserretsssssssssssssss</li>
-              <li style="flex: 3">内容</li>
-              <li class="list-action"></li>
-            </ul>
+          <div style="width:100%; height: 40px; border-bottom:rgba(0,0,0,0.05) solid 1px; display: flex; align-items: center;" class="px-6">
+            
+            <slot name="list-title"></slot>
             
           </div>
         </v-col>
@@ -201,30 +197,5 @@
 
   .select-button .v-icon{
     margin-right: 15px !important;
-  }
-
-  .vular-list-head{
-    list-style: none;
-    padding: 0; 
-    margin:0;
-    display: flex; 
-    flex-flow: row;
-    padding: 0 !important;
-    border:solid 1px;
-    flex: 1;
-  }
-
-  .vular-list-head li{
-    border:solid 1px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    padding-right:20px;
-    word-break:break-all;
-  }
-
-  .vular-list-head .list-action{
-    width: 150px;
-    justify-content: flex-end;
   }
 </style>
