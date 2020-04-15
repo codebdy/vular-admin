@@ -5,73 +5,30 @@
       'font-family': $store.state.vularApp.content.fontFamily
     }"
   >
-    <div 
-      :style="{ 
-        background: $store.state.vularApp.content.color,
-        width:'calc(100% - ' + $vuetify.application.left + 'px)' 
-      }"
-    style="position: fixed; right:0;top:40px; z-index: 1; height: 280px; padding-top:16px;"
-    >
-      <v-toolbar 
-        flat
-        :color="$store.state.vularApp.content.color"
-        top
-        class="mt-8"
-        
-      >
-        <h2>询盘列表</h2>
-        <v-divider
-          class="mx-4"
-          inset
-          vertical
-        ></v-divider>
-        <span>共360条</span>
-        <v-spacer></v-spacer>
-        
-        <v-btn class="mr-5" fab small elevation="0" :color="$store.state.vularApp.content.card.color">
-          <v-icon color="#8296f8">mdi-import</v-icon>
-        </v-btn>
-
-        <v-btn class="mr-5" fab small elevation="0" :color="$store.state.vularApp.content.card.color">
-          <v-icon color="#8296f8">mdi-export-variant</v-icon>
-        </v-btn>
-        <v-btn class="mr-5" fab small elevation="0" :color="$store.state.vularApp.content.card.color">
-          <v-icon color="#8296f8">mdi-cloud-print-outline</v-icon>
-        </v-btn>
-        <v-btn rounded color="primary" large dark style="padding:0 28px;" >
-          <v-icon left>mdi-plus</v-icon> 新建
-        </v-btn>
-        
-      </v-toolbar>
-      <v-container fluid>
-        <v-row
-          align="center"
-        >
-          <v-col cols="12">
-            <div flat style="height:90px;"  
-              :style="{
-                background: $store.state.vularApp.content.card.color
-              }">
-              Table Header
-            </div>
-          </v-col>
-        </v-row>
-        <v-row
-          align="center"
-        >
-          <v-col cols="12" justify="center" style="display: flex; align-items: center;">
-            Table title
-          </v-col>
-        </v-row>
-      </v-container>
-    </div>
+  <VularListPageHeader></VularListPageHeader>
     <v-container fluid style="margin-top: 190px;">
       <v-row
         align="center"
         justify="center"
       >
         <v-col cols="12">
-          <v-card flat style="height:1000px;"  :color="$store.state.vularApp.content.card.color" :style="$store.state.vularApp.content.card.style"></v-card>
+          <v-card flat style="height:1000px;"  :color="$store.state.vularApp.content.card.color" :style="$store.state.vularApp.content.card.style"
+            class="px-6"
+          >
+            12<br>
+            3<br>
+            4<br>
+            5<br>
+            6<br>
+            7<br>
+            8<br>
+            9<br>
+            10<br>
+            11<br>
+            12<br>
+            13<br>
+            14<br>
+          </v-card>
         </v-col>
       </v-row>
     </v-container>
@@ -91,6 +48,8 @@
     data () {
       return {
       }
+    },
+    computed:{
     },
 
     methods: {
