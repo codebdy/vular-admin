@@ -64,6 +64,12 @@
           :style="$store.state.vularApp.content.card.style"
         >
           <VularListBody :schema="listSchema" v-model="rows"></VularListBody>
+          <v-pagination
+            :length="4"
+            circle
+            color="success"
+          ></v-pagination>
+
         </v-card>
       </v-col>
     </v-row>
