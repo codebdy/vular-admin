@@ -6,7 +6,8 @@
     }"
   >
     <v-container fluid>
-      <h1><v-icon>mdi-compare</v-icon> 主题设置</h1>
+      <VularListPageHeader @stick="onStick" :title="'主题设置'" :titleIcon="'mdi-compare'">
+      </VularListPageHeader>
       <v-row
         align="center"
         justify="center"

@@ -4,6 +4,7 @@
         width:'calc(100% - ' + ($vuetify.application.left + $vuetify.application.right) + 'px)' ,
         top:$vuetify.application.top + 'px',
         background: $store.state.vularApp.content.color,
+        'box-shadow': isStick ? '2px 2px 5px rgba(0,0,0,0.1)' :'',
       }"
       style="position: fixed; right:0; z-index: 1; "
       v-scroll="onScroll"
@@ -17,45 +18,18 @@
         }"
         class="d-flex flex-row align-center"
       >
-        <h2
+        <h1 class="page-title"
           :style="{'font-size': titleFontSize + 'px'}"
-        >询盘列表</h2>
-        <v-divider
-          class="mx-4"
-          inset
-          vertical
-        ></v-divider>
-        <div>
-          <span>共360条</span>
-        </div>
-        <v-spacer></v-spacer>
-        <div>
-          <v-btn class="mr-5" fab elevation="0" :color="$store.state.vularApp.content.card.color"
-            :small="baseHeight >= smallLimit"
-            :x-small="baseHeight < smallLimit"
-          >
-            <v-icon color="#8296f8">mdi-import</v-icon>
-          </v-btn>
-
-          <v-btn class="mr-5" fab elevation="0" :color="$store.state.vularApp.content.card.color"
-            :small="baseHeight >= smallLimit"
-            :x-small="baseHeight < smallLimit"
-          >
-            <v-icon color="#8296f8">mdi-export-variant</v-icon>
-          </v-btn>
-          <v-btn class="mr-5" fab elevation="0" :color="$store.state.vularApp.content.card.color"
-            :small="baseHeight >= smallLimit"
-            :x-small="baseHeight < smallLimit"
-          >
-            <v-icon color="#8296f8">mdi-cloud-print-outline</v-icon>
-          </v-btn>
-        </div>
-        <v-btn rounded color="primary" dark style="padding:0 28px;" 
-          :small="baseHeight < smallLimit"
         >
-          <v-icon left>mdi-plus</v-icon> 新建
-        </v-btn>
-        
+          <v-icon
+            :large="!isStick"
+            v-if="titleIcon"
+          >{{titleIcon}}</v-icon>
+          {{title}}
+        </h1>
+
+        <slot>
+        </slot>
       </div>
       <v-row
         v-if = "$slots['list-head']"
@@ -97,7 +71,8 @@
   export default {
     name: 'vular-list-page-header',
     props: {
-      title: "untitled",
+      title: {default: "untitled"},
+      titleIcon: {default: ""},
     },
 
     data () {
@@ -142,11 +117,13 @@
         this.topOffset = parseInt(window.pageYOffset || document.documentElement.offsetTop || 0)
         this.isStick = this.baseHeight < this.smallLimit
         this.$emit('stick', this.isStick)
-        console.log(this.topOffset)
       }
     },
   }
 </script>
 
 <style>
+  .page-title{
+    font-weight: 500;
+  }
 </style>

@@ -6,7 +6,8 @@
     }"
   >
     <v-container fluid>
-      <h1><v-icon>mdi-speedometer</v-icon> 仪表盘</h1>
+    <VularListPageHeader @stick="onStick" :title="'仪表盘'" :titleIcon="'mdi-speedometer'">
+    </VularListPageHeader>
       <v-row
         justify="start"
       >
