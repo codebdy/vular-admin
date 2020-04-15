@@ -6,13 +6,13 @@
     }"
   >
   <VularListPageHeader></VularListPageHeader>
-    <v-container fluid style="margin-top: 190px;">
+    <v-container fluid style="margin-top: 190px; ">
       <v-row
         align="center"
         justify="center"
       >
         <v-col cols="12">
-          <v-card flat style="height:1000px;"  :color="$store.state.vularApp.content.card.color" :style="$store.state.vularApp.content.card.style"
+          <v-card flat style="height:1000px; border:#000 solid 1px;"  :color="$store.state.vularApp.content.card.color" :style="$store.state.vularApp.content.card.style"
             class="px-6"
           >
             12<br>
