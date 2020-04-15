@@ -5,10 +5,10 @@
       'font-family': $store.state.vularApp.content.fontFamily
     }"
   >
-    <v-container fluid>
-      <VularListPageHeader @stick="onStick" :title="'主题设置'" :titleIcon="'mdi-compare'">
-      </VularListPageHeader>
-      <v-row
+    <VularListPageHeader @stick="onStick" :title="'主题设置'" :titleIcon="'mdi-compare'">
+    </VularListPageHeader>
+    <v-container fluid style="margin-top: 80px;">
+       <v-row
         align="center"
         justify="center"
       >
