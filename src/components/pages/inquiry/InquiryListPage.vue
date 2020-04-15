@@ -17,23 +17,23 @@
     <v-spacer></v-spacer>
     <div>
       <v-btn class="mr-5" fab elevation="0" :color="$store.state.vularApp.content.card.color"
-        :small="isStick"
+        :small="!isStick"
         :x-small="isStick"
       >
-        <v-icon color="#8296f8">mdi-import</v-icon>
+        <v-icon color="primary" class="top-small-button">mdi-import</v-icon>
       </v-btn>
 
       <v-btn class="mr-5" fab elevation="0" :color="$store.state.vularApp.content.card.color"
-        :small="isStick"
+        :small="!isStick"
         :x-small="isStick"
       >
-        <v-icon color="#8296f8">mdi-export-variant</v-icon>
+        <v-icon color="primary" class="top-small-button">mdi-export-variant</v-icon>
       </v-btn>
       <v-btn class="mr-5" fab elevation="0" :color="$store.state.vularApp.content.card.color"
-        :small="isStick"
+        :small="!isStick"
         :x-small="isStick"
       >
-        <v-icon color="#8296f8">mdi-cloud-print-outline</v-icon>
+        <v-icon color="primary" class="top-small-button">mdi-cloud-print-outline</v-icon>
       </v-btn>
     </div>
     <v-btn rounded color="primary new-button" dark 
@@ -173,6 +173,10 @@
 </script>
 
 <style>
+  .top-small-button{
+    opacity: 0.7;
+  }
+
   .new-button{
     padding:0 28px !import;
   }

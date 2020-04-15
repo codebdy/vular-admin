@@ -1,41 +1,46 @@
 <template>
   <v-card-text class="pa-0">
-    <ul class="vular-list-body px-6"
+    <v-hover
       v-for="(row, i) in inputValue"
       :key = "row.id"
-      :style = "{
-        'border-bottom': $store.state.vularApp.content.color + ' solid 1px',
-      }"
+     v-slot:default="{ hover }"
     >
-      <li v-if="schema.canSelect" class="select-col">
-        <v-checkbox
-          v-model="row.selected"
-        ></v-checkbox>
-      </li>
-      <li 
-        v-for="(column, index) in schema.columns"
-        :key="column.field"
+      <ul class="vular-list-body px-6"
+        :style = "{
+          'border-bottom': $store.state.vularApp.content.color + ' solid 1px',
+          background: hover ? 'rgba(0, 0, 255, 0.1)' : ''
+        }"
+      >
+        <li v-if="schema.canSelect" class="select-col">
+          <v-checkbox
+            v-model="row.selected"
+          ></v-checkbox>
+        </li>
+        <li 
+          v-for="(column, index) in schema.columns"
+          :key="column.field"
+          :style="{
+            flex: column.flex,
+            width: column.width,
+          }"
+          class="py-5"
+        >
+          {{row[column.field]}}
+        </li>
+        <li class="list-action"         
         :style="{
-          flex: column.flex,
-          width: column.width,
-        }"
-        class="py-5"
-      >
-        {{row[column.field]}}
-      </li>
-      <li class="list-action"         
-      :style="{
-          width: schema.actionsColumn.width,
-        }"
-      >
-        <v-btn icon color="primary" >
-          <v-icon small>mdi-eye-outline</v-icon>
-        </v-btn>
-        <v-btn icon color="primary" >
-          <v-icon small>mdi-dots-horizontal</v-icon>
-        </v-btn>
-      </li>
-    </ul>
+            width: schema.actionsColumn.width,
+          }"
+        >
+          <v-btn icon color="primary" v-if="hover">
+            <v-icon small>mdi-eye-outline</v-icon>
+          </v-btn>
+          <v-btn icon color="primary" >
+            <v-icon small>mdi-dots-horizontal</v-icon>
+          </v-btn>
+        </li>
+      </ul>
+    </v-hover>
   </v-card-text>
 </template>
 
@@ -85,6 +90,7 @@
     align-items: center;
     padding-right:20px;
     word-break:break-all;
+    cursor: pointer;
   }
 
   .vular-list-body .list-action{
