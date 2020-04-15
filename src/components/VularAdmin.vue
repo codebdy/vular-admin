@@ -48,7 +48,7 @@
         <v-icon medium>mdi-magnify</v-icon>
       </v-btn>
       <v-btn icon href="https://github.com/vularsoft/vular-admin" target="_blank">
-        <v-icon class="fa-2x">fab fa-github</v-icon>
+        <v-icon medium>mdi-github</v-icon>
       </v-btn>
       <VularNotifications></VularNotifications>
       <VularAppbarProfile></VularAppbarProfile>

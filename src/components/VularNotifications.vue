@@ -4,7 +4,7 @@
       <v-btn icon v-on="on">
         <v-badge color="red" overlap>
           <span slot="badge">3</span>
-          <v-icon medium>notifications</v-icon>
+          <v-icon medium>mdi-bell</v-icon>
         </v-badge>
       </v-btn>
     </template>

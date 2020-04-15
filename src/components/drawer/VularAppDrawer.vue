@@ -16,7 +16,7 @@
         <v-btn icon class="hidden-xs-only" 
           @click.stop="inputValue.mini = !inputValue.mini"
         >
-          <v-icon>chevron_left</v-icon>
+          <v-icon>mdi-chevron-left</v-icon>
         </v-btn>
       </v-toolbar>
 
