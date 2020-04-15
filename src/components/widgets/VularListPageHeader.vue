@@ -53,10 +53,9 @@
         v-if = "$slots['list-title']"
       >
         <v-col cols="12" justify="center" 
-          style="display: flex; align-items: center; "
-          class="py-0"
+          class="py-0 list-title-col"
         >
-          <div style="width:100%; height: 40px; border-bottom:rgba(0,0,0,0.05) solid 1px; display: flex; align-items: center;" class="px-6">
+          <div class="list-title-wrap px-6">
             
             <slot name="list-title"></slot>
             
@@ -123,6 +122,12 @@
 </script>
 
 <style>
+  .list-title-col{
+    display: flex; align-items: center;
+  }
+  .list-title-wrap{
+    width:100%; height: 40px; border-bottom:rgba(0,0,0,0.05) solid 1px; display: flex; align-items: center;
+  }
   .page-title{
     font-weight: 500;
   }
