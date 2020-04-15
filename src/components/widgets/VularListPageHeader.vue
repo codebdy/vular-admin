@@ -127,7 +127,7 @@
               <li style="flex: 1">姓名</li>
               <li style="flex: 2">sssssssssssssrttrghhghgsssssssssssserretsssssssssssssss</li>
               <li style="flex: 3">内容</li>
-              <li class="list-action">操作</li>
+              <li class="list-action"></li>
             </ul>
             
           </div>
@@ -224,6 +224,7 @@
   }
 
   .vular-list-head .list-action{
-    width: 50px;
+    width: 150px;
+    justify-content: flex-end;
   }
 </style>
