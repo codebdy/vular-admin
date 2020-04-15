@@ -36,7 +36,7 @@
         <v-icon color="#8296f8">mdi-cloud-print-outline</v-icon>
       </v-btn>
     </div>
-    <v-btn rounded color="primary" dark style="padding:0 28px;" 
+    <v-btn rounded color="primary new-button" dark 
       :small="isStick"
     >
       <v-icon left>mdi-plus</v-icon> 新建
@@ -58,22 +58,12 @@
       justify="center"
     >
       <v-col cols="12">
-        <v-card flat style="height:1000px; border:#000 solid 1px; padding-top:10px;"  :color="$store.state.vularApp.content.card.color" :style="$store.state.vularApp.content.card.style"
-          class="px-6"
+        <v-card flat  
+          style="padding-top:10px;"  
+          :color="$store.state.vularApp.content.card.color" 
+          :style="$store.state.vularApp.content.card.style"
         >
-          12<br>
-          3<br>
-          4<br>
-          5<br>
-          6<br>
-          7<br>
-          8<br>
-          9<br>
-          10<br>
-          11<br>
-          12<br>
-          13<br>
-          14<br>
+          <VularListBody :schema="listSchema" v-model="rows"></VularListBody>
         </v-card>
       </v-col>
     </v-row>
@@ -125,16 +115,43 @@
         },
         rows:[
           {
+            id:"1",
             name : 'Martin Li', 
             email : 'Li@vular.cn', 
             company : 'Vular soft'
           },
           {
+            id:"2",
             name : 'Margin Wang', 
             email : 'Li@tianbupa.com', 
             company : '小火星'
           },
           {
+            id:"3",
+            name : 'Padding 赵', 
+            email : 'Li@dibupa.com', 
+            company : '大太阳'
+          },
+          {
+            id:"4",
+            name : 'Padding 赵', 
+            email : 'Li@dibupa.com', 
+            company : '大太阳'
+          },
+          {
+            id:"5",
+            name : 'Padding 赵', 
+            email : 'Li@dibupa.com', 
+            company : '大太阳'
+          },
+          {
+            id:"6",
+            name : 'Padding 赵', 
+            email : 'Li@dibupa.com', 
+            company : '大太阳'
+          },
+          {
+            id:"7",
             name : 'Padding 赵', 
             email : 'Li@dibupa.com', 
             company : '大太阳'
@@ -156,4 +173,7 @@
 </script>
 
 <style>
+  .new-button{
+    padding:0 28px !import;
+  }
 </style>

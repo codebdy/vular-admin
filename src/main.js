@@ -15,6 +15,7 @@ import InquiryListPage from "./components/pages/inquiry/InquiryListPage"
 import VularListPageHeader from "./components/widgets/VularListPageHeader"
 import VularListTitle from "./components/widgets/VularListTitle"
 import VularListHead from "./components/widgets/VularListHead"
+import VularListBody from "./components/widgets/VularListBody"
 
 Vue.use(VueRouter)
 
@@ -26,6 +27,7 @@ Vue.component('InquiryListPage', InquiryListPage)
 Vue.component('VularListPageHeader', VularListPageHeader)
 Vue.component('VularListHead', VularListHead)
 Vue.component('VularListTitle', VularListTitle)
+Vue.component('VularListBody', VularListBody)
 
 const routes = [
   //{ path: '/form2', component: VularForm },
