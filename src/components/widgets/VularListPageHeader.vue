@@ -149,14 +149,4 @@
 </script>
 
 <style>
-  .select-button{
-    max-width: 300px;
-    overflow: hidden;
-    text-overflow:ellipsis;
-    white-space: nowrap;
-  }
-
-  .select-button .v-icon{
-    margin-right: 15px !important;
-  }
 </style>

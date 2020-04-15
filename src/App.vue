@@ -84,4 +84,12 @@
     font-size:13px;
   }
 
+  .flex-1{
+    flex:1;
+  }
+
+  .shrink-0{
+    flex-shrink:0;
+  }
+
 </style>

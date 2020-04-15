@@ -1,18 +1,20 @@
 <template>
-  <div class="d-flex flex-row align-center" style="flex: 1;">
+  <div class="d-flex flex-row align-center flex-1">
     <v-checkbox
       v-model="selectAll"
       label="全选"
       class ="mt-5"
     ></v-checkbox>
     <v-spacer></v-spacer>
-    <div style="margin-right: 50px; transition:all 0.3s;" 
+    <div 
       :style="{width: searchboxWidth + 'px'}"
+      class="list-search-box"
     >
       <v-text-field
         hide-details
         prepend-inner-icon="mdi-magnify"
         style="padding-top:0px;"
+        class="mt-n1"
         @focus="searchboxWidth = 220"
         @blur = "searchboxWidth = 120"
       ></v-text-field>
@@ -36,7 +38,6 @@
       outlined
       rounded
       :small="isStick"
-      style="max-width: 100px;"
     >
       日期日期分类测试...
       <v-icon right dark>mdi-chevron-down</v-icon>
@@ -69,4 +70,14 @@
 </script>
 
 <style>
+  .select-button{
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+  }
+
+  .list-search-box{
+    margin-right: 50px; transition:all 0.3s;
+  }
 </style>
