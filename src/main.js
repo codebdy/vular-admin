@@ -14,6 +14,7 @@ import Dashboard from "./components/pages/dashboard/Dashboard"
 import InquiryListPage from "./components/pages/inquiry/InquiryListPage"
 import VularListPageHeader from "./components/widgets/VularListPageHeader"
 import VularListTitle from "./components/widgets/VularListTitle"
+import VularListHead from "./components/widgets/VularListHead"
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,7 @@ Vue.component(VePie.name, VePie)
 Vue.component('VularAdmin', VularAdmin)
 Vue.component('InquiryListPage', InquiryListPage)
 Vue.component('VularListPageHeader', VularListPageHeader)
+Vue.component('VularListHead', VularListHead)
 Vue.component('VularListTitle', VularListTitle)
 
 const routes = [

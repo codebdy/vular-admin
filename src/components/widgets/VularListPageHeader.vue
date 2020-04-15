@@ -58,6 +58,7 @@
         
       </div>
       <v-row
+        v-if = "$slots['list-head']"
       >
         <v-col cols="12" class="py-0">
           <div  
@@ -68,48 +69,7 @@
             class="d-flex flex-row align-center px-6"
             style = "box-shadow: 2px 2px 5px rgba(0,0,0,0.05);"
           >
-            <v-checkbox
-              v-model="selectAll"
-              label="全选"
-              class ="mt-5"
-            ></v-checkbox>
-            <v-spacer></v-spacer>
-            <div style="margin-right: 50px; transition:all 0.3s;" 
-              :style="{width: searboxWidth + 'px'}"
-            >
-              <v-text-field
-                hide-details
-                prepend-inner-icon="mdi-magnify"
-                style="padding-top:0px;"
-                @focus="searboxWidth = 220"
-                @blur = "searboxWidth = 120"
-              ></v-text-field>
-            </div>
-            
-            分类:
-            <v-btn
-              color="rgba(0,0,0, 0.3)"
-              class="ml-4 mr-10"
-              outlined
-              rounded
-              :small="baseHeight < smallLimit"
-            >
-              未知
-              <v-icon right dark>mdi-chevron-down</v-icon>
-            </v-btn>
-            过滤器:
-            <v-btn
-              color="primary"
-              class="ml-4 select-button"
-              outlined
-              rounded
-              :small="baseHeight < smallLimit"
-              style="max-width: 100px;"
-            >
-              日期日期分类测试...
-              <v-icon right dark>mdi-chevron-down</v-icon>
-            </v-btn>
-
+            <slot name="list-head"></slot>
           </div>
         </v-col>
       </v-row>
@@ -144,10 +104,9 @@
       return {
         topOffset: 0,
         smallLimit: 180,
-        selectAll: false,
-        searboxWidth: 120,
         maxBaxeHeight: 200,
         minBaxeHeight: 140,
+        isStick: false,
       }
     },
 
@@ -181,6 +140,8 @@
     methods: {
       onScroll(e){
         this.topOffset = parseInt(window.pageYOffset || document.documentElement.offsetTop || 0)
+        this.isStick = this.baseHeight < this.smallLimit
+        this.$emit('stick', this.isStick)
         console.log(this.topOffset)
       }
     },

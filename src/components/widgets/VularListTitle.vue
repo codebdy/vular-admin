@@ -1,5 +1,5 @@
 <template>
-  <ul class="vular-list-head">
+  <ul class="vular-list-title">
     <li 
       v-for="(column, index) in schema.columns"
       :key="column.field"
@@ -36,7 +36,7 @@
 </script>
 
 <style>
-  .vular-list-head{
+  .vular-list-title{
     list-style: none;
     padding: 0; 
     margin:0;
@@ -46,7 +46,7 @@
     flex: 1;
   }
 
-  .vular-list-head li{
+  .vular-list-title li{
     flex-shrink: 0;
     display: flex;
     align-items: center;
@@ -54,7 +54,7 @@
     word-break:break-all;
   }
 
-  .vular-list-head .list-action{
+  .vular-list-title .list-action{
     width: 150px;
     justify-content: flex-end;
   }

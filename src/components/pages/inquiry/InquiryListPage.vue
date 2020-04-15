@@ -5,7 +5,13 @@
       'font-family': $store.state.vularApp.content.fontFamily
     }"
   >
-  <VularListPageHeader>
+  <VularListPageHeader @stick="onStick">
+    <template slot='list-head'>
+      <VularListHead 
+        :schema="listSchema"
+        :isStick = "isStick" 
+      ></VularListHead>
+    </template>
     <template slot='list-title'>
       <VularListTitle :schema="listSchema"></VularListTitle>
     </template>
@@ -51,6 +57,7 @@
     },
     data () {
       return {
+        isStick: false,
         listSchema:{
           canSelect:true,
           columns:[
@@ -104,6 +111,9 @@
     },
 
     methods: {
+      onStick(isStick){
+        this.isStick = isStick
+      }
     },
 
   }
