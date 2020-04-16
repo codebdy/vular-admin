@@ -55,7 +55,7 @@
     </v-app-bar>
 
     <router-view/>
-
+    <VularAppFab></VularAppFab>
     <v-footer
       :inset="$store.state.vularApp.footer.inset"
       :dark = "$store.state.vularApp.footer.dark"
@@ -76,11 +76,13 @@
   import VularAppDrawer from "./drawer/VularAppDrawer.vue"
   import VularAppbarProfile from "./VularAppbarProfile"
   import VularNotifications from "./VularNotifications"
+  import VularAppFab from "./VularAppFab"
   export default {
     components: {
       VularAppDrawer,
       VularAppbarProfile,
       VularNotifications,
+      VularAppFab
     },
     data: () => ({
     }),
