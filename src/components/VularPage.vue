@@ -24,7 +24,7 @@
       <template v-slot:activator="{ on }">
         <v-btn class="ml-2" fab elevation="0" :color="$store.state.vularApp.content.card.color"
           :small="!header.isStick"
-          :x-small="true"
+          :x-small="header.isStick"
           v-on="on"
        >
           <v-icon color="primary" class="top-small-button">mdi-dots-vertical</v-icon>
