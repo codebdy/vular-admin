@@ -79,11 +79,14 @@
             :schema="listSchema" 
             v-model="rows"
           ></VularListBody>
-          <v-pagination
-            :length="4"
-            circle
-            color="success"
-          ></v-pagination>
+          <v-card-actions justify="start">
+            <v-pagination
+              :length="15"
+              :total-visible="7"
+              circle
+              color="success"
+            ></v-pagination>
+          </v-card-actions>
 
         </v-card>
       </v-col>
@@ -270,4 +273,8 @@
   .new-button{
     padding:0 28px !import;
   }
+
+  .theme--light.v-pagination .v-pagination__item, .theme--light.v-pagination .v-pagination__navigation{
+    background: transparent;
+  }  
 </style>
