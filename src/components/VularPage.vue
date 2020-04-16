@@ -27,7 +27,7 @@
           :x-small="true"
           v-on="on"
        >
-          <v-icon color="primary" class="top-small-button">mdi-dots-vertical</v-icon>
+          <v-icon color="primary" class="top-small-button">mdi-dots-horizontal</v-icon>
         </v-btn>
       </template>
       <v-list>

@@ -6,9 +6,8 @@
         background: $store.state.vularApp.content.color,
         'box-shadow': isStick ? '2px 2px 5px rgba(0,0,0,0.1)' :'',
       }"
-      style="position: fixed; right:0; z-index: 1; "
       v-scroll="onScroll"
-      class="py-0"
+      class="py-0 header-container"
     >
       <div
         :color="$store.state.vularApp.content.color"
@@ -50,16 +49,14 @@
         align="center"
         justify="center"
         class="py-0" 
-        v-if = "$slots['list-title']"
+        v-if = "$slots['list-title'] && !$vuetify.breakpoint.xs"
         :style= "{height : tableTitleHeight + 'px'}"
       >
         <v-col cols="12" justify="center" 
           class="py-0 list-title-col"
         >
           <div class="list-title-wrap px-6">
-            
             <slot name="list-title"></slot>
-            
           </div>
         </v-col>
       </v-row>
@@ -87,7 +84,7 @@
 
     computed:{
       baseHeight(){
-        let height = this.maxBaxeHeight - this.topOffset/2
+        let height = this.maxBaxeHeight - this.topOffset/1.5
         height = height < this.minBaxeHeight ? this.minBaxeHeight : height
 
         return height
@@ -130,7 +127,7 @@
       if(this.$slots['list-head']){
         height = height + 90
       }
-      if(this.$slots['list-title']){
+      if(this.$slots['list-title'] && !this.$vuetify.breakpoint.xs){
         height = height + 40
       }
       this.$emit('headerHeight', height)
@@ -155,5 +152,9 @@
   }
   .page-title{
     font-weight: 500;
+  }
+
+  .header-container{
+    position: fixed; right:0; z-index: 1;
   }
 </style>

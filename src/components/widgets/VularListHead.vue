@@ -15,33 +15,42 @@
         prepend-inner-icon="mdi-magnify"
         style="padding-top:0px;"
         class="mt-n1"
-        @focus="searchboxWidth = 220"
-        @blur = "searchboxWidth = 120"
+        @focus="searchBoxFocused = true"
+        @blur = "searchBoxFocused = false"
       ></v-text-field>
     </div>
-    
-    分类:
-    <v-btn
-      color="rgba(0,0,0, 0.3)"
-      class="ml-4 mr-10"
-      outlined
-      rounded
-      :small="isStick"
-    >
-      未知
-      <v-icon right dark>mdi-chevron-down</v-icon>
+    <div v-if="!collopsed">
+      分类:
+      <v-btn
+        color="rgba(0,0,0, 0.3)"
+        class="ml-2 mr-10"
+        outlined
+        rounded
+        :small="isStick"
+      >
+        未知
+        <v-icon right dark>mdi-chevron-down</v-icon>
+      </v-btn>
+      过滤器:
+      <v-btn
+        color="primary"
+        class="ml-2 select-button"
+        outlined
+        rounded
+        :small="isStick"
+      >
+        日期
+        <v-icon right dark>mdi-chevron-down</v-icon>
+      </v-btn>
+    </div>
+    <v-btn class="ml-2" outlined fab elevation="0" color="primary"
+        :small="!isStick"
+        :x-small="true"
+        v-if="collopsed"
+     >
+        <v-icon color="primary" class="top-small-button">mdi-dots-horizontal</v-icon>
     </v-btn>
-    过滤器:
-    <v-btn
-      color="primary"
-      class="ml-4 select-button"
-      outlined
-      rounded
-      :small="isStick"
-    >
-      日期日期分类测试...
-      <v-icon right dark>mdi-chevron-down</v-icon>
-    </v-btn>
+
   </div>
 
 </template>
@@ -57,11 +66,22 @@
     data () {
       return {
         selectAll: false,
-        searchboxWidth: 120,
+        searchBoxFocused: false,
       }
     },
 
     computed:{
+      collopsed(){
+        return this.$vuetify.breakpoint.xs || this.$vuetify.breakpoint.sm
+      },
+
+      searchboxWidth(){
+        let width = 120
+        if(this.searchBoxFocused){
+          width = this.$vuetify.breakpoint.xs ? 150 : 200
+        }
+        return width
+      }
     },
 
     methods: {
