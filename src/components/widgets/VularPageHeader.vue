@@ -68,7 +68,7 @@
 
 <script>
   export default {
-    name: 'vular-list-page-header',
+    name: 'vular-page-header',
     props: {
       title: {default: "untitled"},
       titleIcon: {default: ""},

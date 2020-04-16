@@ -5,7 +5,7 @@
       'font-family': $store.state.vularApp.content.fontFamily
     }"
   >
-  <VularListPageHeader @stick="onStick" :title="'询盘列表'">
+  <VularPageHeader @stick="onStick" :title="'询盘列表'">
     <v-divider
       class="mx-4"
       inset
@@ -60,7 +60,7 @@
     <template slot='list-title'>
       <VularListTitle :schema="listSchema"></VularListTitle>
     </template>
-  </VularListPageHeader>
+  </VularPageHeader>
   <v-container fluid style="margin-top: 205px;">
     <v-row
       align="center"

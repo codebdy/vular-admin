@@ -5,8 +5,8 @@
       'font-family': $store.state.vularApp.content.fontFamily
     }"
   >
-    <VularListPageHeader @stick="onStick" :title="'仪表盘'" :titleIcon="'mdi-speedometer'">
-    </VularListPageHeader>
+    <VularPageHeader @stick="onStick" :title="'仪表盘'" :titleIcon="'mdi-speedometer'">
+    </VularPageHeader>
     <v-container fluid>
         <v-row
         justify="start"
