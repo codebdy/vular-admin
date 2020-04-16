@@ -76,7 +76,7 @@
             :small="!isStick"
             :x-small="isStick"
           >
-            <v-icon class="top-small-button">mdi-dots-vertical</v-icon>
+            <v-icon class="top-small-button">mdi-dots-horizontal</v-icon>
           </v-btn>
         </template>
         <v-card :color="$store.state.vularApp.content.color">
@@ -132,6 +132,21 @@
       </v-menu>
     </template>
     <template v-else>
+      <v-btn text rounded color="primary" class="mx-3">
+        下载
+        <v-icon right dark>mdi-arrow-collapse-down</v-icon>
+      </v-btn>
+       <v-btn text rounded color="primary"  class="mx-3">
+        分配
+        <v-icon right dark>mdi-email-send-outline</v-icon>
+      </v-btn>
+      <v-btn fab elevation="0" class="ml-3"
+        :color="$store.state.vularApp.content.card.color"
+        :small="!isStick"
+        :x-small="isStick"
+      >
+         <v-icon color="primary" class="top-small-button">mdi-delete-sweep-outline</v-icon>
+      </v-btn>
       <v-menu offset-y>
         <template v-slot:activator="{ on }">
           <v-btn fab elevation="0" :color="$store.state.vularApp.content.card.color"
@@ -139,16 +154,16 @@
             :x-small="isStick"
             v-on="on"
          >
-            <v-icon color="primary" class="top-small-button">mdi-dots-vertical</v-icon>
+            <v-icon color="primary" class="top-small-button">mdi-dots-horizontal</v-icon>
           </v-btn>
         </template>
         <v-list :color="$store.state.vularApp.content.card.color">
           <v-list-item link>
             <v-list-item-icon>
-              <v-icon color="primary">mdi-beaker-remove-outline</v-icon>
+              <v-icon color="primary">mdi-sale</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title>删除</v-list-item-title>
+              <v-list-item-title>促销</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
           <v-list-item link>
