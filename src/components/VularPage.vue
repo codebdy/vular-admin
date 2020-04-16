@@ -114,6 +114,59 @@
         selectedRows: [],
         listSchema:{
           canSelect:true,
+          canBatchDelete: true,
+          batchActions:[
+            {
+              icon: 'mdi-arrow-collapse-down',
+              label: '下载',
+              shortcut: true,
+              action:'action_id1',
+            },
+            {
+              icon: 'mdi-email-send-outline',
+              label: '分配',
+              shortcut: true,
+              action:'action_id2',
+            },
+            {
+              icon: 'mdi-sale',
+              label: '促销',
+              shortcut: false,
+              action:'action_id3',
+            },
+            {
+              icon: 'mdi-content-copy',
+              label: '克隆',
+              shortcut: false,
+              action:'action_id4',
+            },
+          ],
+          rowActions:[
+            {
+              icon: 'mdi-eye-outline',
+              label: '隐藏',
+              shortcut: true,
+              action:'action_id1',
+            },
+            {
+              icon: 'mdi-pencil',
+              label: '编辑',
+              shortcut: false,
+              action:'action_id2',
+            },
+            {
+              icon: 'mdi-content-copy',
+              label: '克隆',
+              shortcut: false,
+              action:'action_id3',
+            },
+            {
+              icon: 'mdi-trash-can',
+              label: '删除',
+              shortcut: false,
+              action:'action_id4',
+            },
+          ],
           obviousFilters:[
             {
               label:'分类',

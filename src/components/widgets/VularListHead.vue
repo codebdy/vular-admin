@@ -133,18 +133,16 @@
     </template>
     <template v-else>
       <v-btn text rounded color="primary" class="mx-3"
+        v-for="(action, index) in schema.batchActions"
+        v-if="action.shortcut && !collopsed"
+        :key = "action.action"
         :small="isStick"
         >
-        下载
-        <v-icon right dark>mdi-arrow-collapse-down</v-icon>
-      </v-btn>
-       <v-btn text rounded color="primary"  class="mx-3"
-        :small="isStick"
-       >
-        分配
-        <v-icon right dark>mdi-email-send-outline</v-icon>
+        {{action.label}}
+        <v-icon right dark v-text="action.icon"></v-icon>
       </v-btn>
       <v-btn fab elevation="0" class="mx-3"
+        v-if="schema.canBatchDelete"
         :color="$store.state.vularApp.content.card.color"
         :small="!isStick"
         :x-small="isStick"
@@ -162,20 +160,16 @@
           </v-btn>
         </template>
         <v-list :color="$store.state.vularApp.content.card.color" class="px-2">
-          <v-list-item link>
+          <v-list-item link
+            v-for="(action, index) in schema.batchActions"
+            v-if="!action.shortcut || collopsed"
+            :key = "action.action"
+          >
             <v-list-item-icon>
-              <v-icon color="primary">mdi-sale</v-icon>
+              <v-icon color="primary" v-text="action.icon"></v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title>促销</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item link>
-            <v-list-item-icon>
-              <v-icon color="primary">mdi-content-copy</v-icon>
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title>克隆</v-list-item-title>
+              <v-list-item-title>{{action.label}}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list>
