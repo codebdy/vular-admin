@@ -107,7 +107,17 @@
 
 
       titleFontSize(){
-        return 16 + (this.heightPercent * 12);
+        let scale = 12
+        if(this.$vuetify.breakpoint.xs){
+          scale = 3
+        }
+        if(this.$vuetify.breakpoint.sm){
+          scale = 6
+        }
+        if(this.$vuetify.breakpoint.md){
+          scale = 8
+        }
+        return 16 + (this.heightPercent * scale);
       }
     },
 

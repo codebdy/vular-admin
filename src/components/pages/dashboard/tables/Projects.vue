@@ -28,6 +28,7 @@
       return {
         headers: [
           { text: '名称', value: 'name' },
+          { text: '名称2', value: 'name2' },
           { text: '工期', value: 'deadline' },
           { text: '负责人', value: 'user' },
           { text: '进度', value: 'progress' },
@@ -35,6 +36,7 @@
         desserts: [
           {
             name: '熄灭月亮',
+            name2: '熄灭月亮',
             deadline: '1天',
             user: '/images/1.jpg',
             progress: '10%',
@@ -42,7 +44,8 @@
             color:'error',
           },
           {
-            name: '重启太阳',
+            name: '重启太阳重启太阳重启太阳重启太阳重启太阳重启太阳重启太阳',
+            name2: '重启太阳重启太阳重启太阳重启太阳重启太阳重启太阳重启太阳',
             deadline: '5天',
             user: '/images/2.jpg',
             progress: '30%',
@@ -51,6 +54,7 @@
           },
           {
             name: '统计星星',
+            name2: '统计星星',
             deadline: '7天',
             user: '/images/3.jpg',
             progress: '90%',
@@ -59,6 +63,7 @@
           },
           {
             name: '抽干太平洋',
+            name2: '抽干太平洋',
             deadline: '1小时',
             user: '/images/4.jpg',
             progress: '80%',
@@ -67,6 +72,7 @@
           },
           {
             name: '休息',
+            name2: '休息',
             deadline: '1月',
             user: '/images/5.jpg',
             progress: '40%',
