@@ -1,9 +1,9 @@
 <template>
   <div class="d-flex flex-row align-center flex-1">
     <v-checkbox
-      v-model="selectAll"
       :label="selectedCounts > 0 ? '已选中' + selectedCounts + '条' : '全选'"
       class ="mt-5"
+      v-model = "selectedAll"
       :indeterminate = "selectedCounts > 0 && selectedCounts != inputValue.length"
       @change = "onSelectedChange"
     ></v-checkbox>
@@ -143,7 +143,6 @@
 
     data () {
       return {
-        selectAll: false,
         searchBoxFocused: false,
         obviousFilters: this.schema.obviousFilters,
         popFilters: this.schema.popFilters,
@@ -163,6 +162,10 @@
 
       collopsed(){
         return this.$vuetify.breakpoint.xs || this.$vuetify.breakpoint.sm
+      },
+
+      selectedAll(){
+        return this.selectedCounts != 0
       },
 
       searchboxWidth(){
