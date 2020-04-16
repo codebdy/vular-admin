@@ -132,15 +132,19 @@
       </v-menu>
     </template>
     <template v-else>
-      <v-btn text rounded color="primary" class="mx-3">
+      <v-btn text rounded color="primary" class="mx-3"
+        :small="isStick"
+        >
         下载
         <v-icon right dark>mdi-arrow-collapse-down</v-icon>
       </v-btn>
-       <v-btn text rounded color="primary"  class="mx-3">
+       <v-btn text rounded color="primary"  class="mx-3"
+        :small="isStick"
+       >
         分配
         <v-icon right dark>mdi-email-send-outline</v-icon>
       </v-btn>
-      <v-btn fab elevation="0" class="ml-3"
+      <v-btn fab elevation="0" class="mx-3"
         :color="$store.state.vularApp.content.card.color"
         :small="!isStick"
         :x-small="isStick"
