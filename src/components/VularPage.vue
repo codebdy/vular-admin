@@ -54,7 +54,9 @@
     <template slot='list-head'>
       <VularListHead 
         :schema="listSchema"
-        :isStick = "header.isStick" 
+        :isStick = "header.isStick"
+        v-model="rows"
+        @selectAll = "onSelectAll" 
       ></VularListHead>
     </template>
     <template slot='list-title'>
@@ -73,7 +75,10 @@
           :color="$store.state.vularApp.content.card.color" 
           :style="$store.state.vularApp.content.card.style"
         >
-          <VularListBody :schema="listSchema" v-model="rows"></VularListBody>
+          <VularListBody 
+            :schema="listSchema" 
+            v-model="rows"
+          ></VularListBody>
           <v-pagination
             :length="4"
             circle
@@ -103,6 +108,7 @@
           isStick: false,
           height: 100,
         },
+        selectedRows: [],
         listSchema:{
           canSelect:true,
           obviousFilters:[
@@ -192,7 +198,7 @@
             id:"1",
             name : 'Martin Li', 
             email : 'Li@vular.cn', 
-            company : 'Vular soft'
+            company : 'Vular soft',
           },
           {
             id:"2",
@@ -244,6 +250,12 @@
 
       onHeaderHeight(height){
         this.header.height = height
+      },
+
+      onSelectAll(selected){
+        this.rows.forEach(row=>{
+          this.$set(row, 'selected', selected)
+        })
       },
     },
 

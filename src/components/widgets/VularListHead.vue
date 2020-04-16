@@ -2,9 +2,10 @@
   <div class="d-flex flex-row align-center flex-1">
     <v-checkbox
       v-model="selectAll"
-      label="全选"
+      :label="selectedCounts > 0 ? '已选中' + selectedCounts + '条' : '全选'"
       class ="mt-5"
-      :indeterminate = "true"
+      :indeterminate = "selectedCounts > 0 && selectedCounts != inputValue.length"
+      @change = "onSelectedChange"
     ></v-checkbox>
     <v-spacer></v-spacer>
     <div 
@@ -136,14 +137,14 @@
     name: 'vular-list-head',
     props: {
       schema: {default : ()=>{return {}}},
-      isStick: {default : false}
+      isStick: {default : false},
+      value: {default: ()=>{return []}},
     },
 
     data () {
       return {
         selectAll: false,
         searchBoxFocused: false,
-        test:true,
         obviousFilters: this.schema.obviousFilters,
         popFilters: this.schema.popFilters,
         isPopedFilters : false,
@@ -151,6 +152,15 @@
     },
 
     computed:{
+      inputValue: {
+        get:function() {
+          return this.value;
+        },
+        set:function(val) {
+          this.$emit('input', val);
+        },
+      },
+
       collopsed(){
         return this.$vuetify.breakpoint.xs || this.$vuetify.breakpoint.sm
       },
@@ -161,6 +171,17 @@
           width = this.$vuetify.breakpoint.xs ? 150 : 200
         }
         return width
+      },
+
+      selectedCounts(){
+        let counts = 0
+        this.inputValue.forEach(row=>{
+          if(row.selected){
+            counts ++
+          }
+        })
+
+        return counts
       },
 
       popFilersSelected(){
@@ -199,6 +220,10 @@
           let filter = this.schema.popFilters[i]
           filter.model = filter.blankValue
         }
+      },
+
+      onSelectedChange(value){
+        this.$emit('selectAll', value)
       }
     },
   }
