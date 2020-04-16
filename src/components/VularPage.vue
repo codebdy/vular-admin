@@ -27,7 +27,7 @@
           :x-small="true"
           v-on="on"
        >
-          <v-icon color="primary" class="top-small-button">mdi-dots-horizontal</v-icon>
+          <v-icon color="primary" class="top-small-button">mdi-dots-vertical</v-icon>
         </v-btn>
       </template>
       <v-list>
@@ -116,7 +116,8 @@
                 'cat5' : 'Category5',
                 'cat6' : 'Category6',
               },
-              model:'',
+              blankLabel:"全部分类",
+              blankValue:"",
             },
             {
               label:'属性',
@@ -128,7 +129,8 @@
                 'attr5' : 'Attribute5',
                 'attr6' : 'Attribute6',
               },
-              model:'',
+              blankLabel:"全部属性",
+              blankValue:"",
             }
           ],
           popFilters:[
