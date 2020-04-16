@@ -3,7 +3,7 @@
     <v-hover
       v-for="(row, i) in inputValue"
       :key = "row.id"
-     v-slot:default="{ hover }"
+      v-slot:default="{ hover }"
     >
       <ul class="vular-list-body px-6"
         :style = "{

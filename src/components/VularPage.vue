@@ -105,6 +105,34 @@
         },
         listSchema:{
           canSelect:true,
+          obviousFilters:[
+            {
+              label:'分类',
+              rules:{
+                'cat1' : 'Category1',
+                'cat2' : 'Category2',
+                'cat3' : 'Category3',
+                'cat4' : 'Category4',
+                'cat5' : 'Category5',
+                'cat6' : 'Category6',
+              },
+              model:'',
+            },
+            {
+              label:'属性',
+              rules:{
+                'attr1' : 'Attribute1',
+                'attr2' : 'Attribute2',
+                'attr3' : 'Attribute3',
+                'attr4' : 'Attribute4',
+                'attr5' : 'Attribute5',
+                'attr6' : 'Attribute6',
+              },
+              model:'',
+            }
+          ],
+          popFilters:[
+          ],
           columns:[
             {
               field:'name',
@@ -117,14 +145,14 @@
               field:'email',
               title: '邮箱',
               width:'',
-              flex: '2' ,
+              flex: '1' ,
               //props:[],
             },
             {
               field:'company',
               title: '公司',
               width:'',
-              flex: '3' ,
+              flex: '1' ,
               //props:[],
             },
           ],
