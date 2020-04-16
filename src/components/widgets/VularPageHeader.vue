@@ -13,8 +13,7 @@
       <div
         :color="$store.state.vularApp.content.color"
         :style="{
-          'padding-top': breadCrumbsPadding*1.2 + 'px',
-          'padding-bottom': breadCrumbsPadding*0.8 + 'px',
+          height: breadCrumbsHeight + 'px'
         }"
         class="d-flex flex-row align-center"
       >
@@ -49,8 +48,10 @@
       </v-row>
       <v-row
         align="center"
+        justify="center"
         class="py-0" 
         v-if = "$slots['list-title']"
+        :style= "{height : tableTitleHeight + 'px'}"
       >
         <v-col cols="12" justify="center" 
           class="py-0 list-title-col"
@@ -97,14 +98,17 @@
         return (this.baseHeight - this.minBaxeHeight)/(this.maxBaxeHeight - this.minBaxeHeight)
       },
 
-      breadCrumbsPadding(){
-        return 10 + this.heightPercent * 20
+      breadCrumbsHeight(){
+        return 50 + this.heightPercent * 40
       },
 
       tableHeaderHeight(){
         return 50 + this.heightPercent * 40
       },
 
+      tableTitleHeight(){
+        return 40 
+      },
 
       titleFontSize(){
         let scale = 12

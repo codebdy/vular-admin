@@ -9,6 +9,7 @@ import VePie from 'v-charts/lib/pie.common'
 import store from './store'    
 
 import VularAdmin from "./components/VularAdmin.vue"
+import VularPage from "./components/VularPage.vue"
 import ThemeSettings from "./components/pages/theme/ThemeSettings"
 import Dashboard from "./components/pages/dashboard/Dashboard"
 import InquiryListPage from "./components/pages/inquiry/InquiryListPage"
@@ -23,6 +24,7 @@ Vue.component(VeLine.name, VeLine)
 Vue.component(VeHistogram.name, VeHistogram)
 Vue.component(VePie.name, VePie)
 Vue.component('VularAdmin', VularAdmin)
+Vue.component('VularPage', VularPage)
 Vue.component('InquiryListPage', InquiryListPage)
 Vue.component('VularPageHeader', VularPageHeader)
 Vue.component('VularListHead', VularListHead)
