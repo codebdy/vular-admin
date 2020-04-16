@@ -118,6 +118,7 @@
               },
               blankLabel:"全部分类",
               blankValue:"",
+              model:"",
             },
             {
               label:'属性',
@@ -131,6 +132,7 @@
               },
               blankLabel:"全部属性",
               blankValue:"",
+              model:"",
             }
           ],
           popFilters:[

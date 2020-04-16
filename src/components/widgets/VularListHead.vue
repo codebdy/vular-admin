@@ -26,26 +26,30 @@
         <v-menu offset-y>
           <template v-slot:activator="{ on }">
             <v-btn
-              color="rgba(0,0,0, 0.3)"
-              class="ml-2 mr-3"
+              :color="filter.model === filter.blankValue ? '' : 'primary'"
+              class="ml-2 mr-3 filter-button"
               outlined
               rounded
               :small="isStick"
               v-on="on"
             >
-              全部
+              {{filter.blankValue === filter.model ? filter.blankLabel : filter.rules[filter.model]}}
               <v-icon right dark>mdi-chevron-down</v-icon>
             </v-btn>
           </template>
           <v-list>
-            <v-list-item link color="primary" v-model="test">
+            <v-list-item link color="primary" 
+              v-model="filter.blankValue === filter.model"
+              @click = "onFilter(filter, filter.blankValue)"
+            >
               <v-list-item-content>
                 <v-list-item-title>{{filter.blankLabel}}</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
-            <v-list-item link 
+            <v-list-item link color="primary"
               v-for="(label, value) in filter.rules"
-
+              v-model="value === filter.model"
+              @click = "onFilter(filter, value)"
             >
               <v-list-item-content>
                 <v-list-item-title>{{label}}</v-list-item-title>
@@ -57,7 +61,7 @@
     </div>
     <v-menu offset-y :close-on-content-click="false" :nudge-width="150">
       <template v-slot:activator="{ on }">
-        <v-btn class="" icon elevation="0" color="grey"
+        <v-btn icon fab 
           v-on="on"
           :small="isStick"
         >
@@ -128,9 +132,8 @@
       <v-card-actions>
         <v-spacer></v-spacer>
 
-        <v-btn text>取消</v-btn>
-        <v-btn text>清空</v-btn>
-        <v-btn color="primary" text>确定</v-btn>
+        <v-btn text>关闭</v-btn>
+        <v-btn color="primary" text>清空</v-btn>
       </v-card-actions>
     </v-card>
     </v-menu>
@@ -171,6 +174,9 @@
     },
 
     methods: {
+      onFilter(filter, model){
+        filter.model = model
+      }
     },
   }
 </script>
@@ -188,7 +194,11 @@
   }
 
   .vular-filter-list{
-    max-height: 500px;
+    max-height: 400px;
     overflow-y: auto;
+  }
+
+  .filter-button{
+    opacity: 0.6;
   }
 </style>
