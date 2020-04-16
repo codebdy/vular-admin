@@ -50,7 +50,7 @@
     props: {
       schema: { default: ()=>{return {}}},
       isStick: {default: false},
-      value: {default: ()=>{return {}}},
+      value: {default: ()=>{return []}},
       heightPercent: { default : 1 },
     },
 

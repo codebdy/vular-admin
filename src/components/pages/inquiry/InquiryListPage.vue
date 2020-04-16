@@ -1,5 +1,8 @@
 <template>
-  <VularListPage></VularListPage>
+  <VularListPage 
+    :schema = "schema"
+    v-model = "rows"
+  ></VularListPage>
 </template>
 
 <script>
@@ -13,9 +16,118 @@
     },
     data () {
       return {
-        isStick: false,
-        listSchema:{
+        schema:{
           canSelect:true,
+          canBatchDelete: true,
+          transshapeBreakPoint: 'xs',
+          transshape: false,
+          batchActions:[
+            {
+              icon: 'mdi-arrow-collapse-down',
+              label: '下载',
+              shortcut: true,
+              action:'action_id1',
+            },
+            {
+              icon: 'mdi-email-send-outline',
+              label: '分配',
+              shortcut: true,
+              action:'action_id2',
+            },
+            {
+              icon: 'mdi-sale',
+              label: '促销',
+              shortcut: false,
+              action:'action_id3',
+            },
+            {
+              icon: 'mdi-content-copy',
+              label: '克隆',
+              shortcut: false,
+              action:'action_id4',
+            },
+          ],
+          rowActions:[
+            {
+              icon: 'mdi-eye-outline',
+              label: '隐藏',
+              shortcut: true,
+              action:'action_id1',
+            },
+            {
+              icon: 'mdi-pencil',
+              label: '编辑',
+              shortcut: false,
+              action:'action_id2',
+            },
+            {
+              icon: 'mdi-content-copy',
+              label: '克隆',
+              shortcut: false,
+              action:'action_id3',
+            },
+            {
+              icon: 'mdi-trash-can',
+              label: '删除',
+              shortcut: false,
+              action:'action_id4',
+            },
+          ],
+          filters:[
+            {
+              label:'分类',
+              shortcut: true,
+              rules:{
+                'cat1' : 'Category1',
+                'cat2' : 'Category2',
+                'cat3' : 'Category3',
+                'cat4' : 'Category4',
+                'cat5' : 'Category5',
+                'cat6' : 'Category6',
+              },
+              blankLabel:"全部分类",
+              blankValue:"",
+              model:"",
+            },
+            {
+              label:'属性',
+              shortcut: true,
+              rules:{
+                'attr1' : 'Attribute1',
+                'attr2' : 'Attribute2',
+                'attr3' : 'Attribute3',
+                'attr4' : 'Attribute4',
+                'attr5' : 'Attribute5',
+                'attr6' : 'Attribute6',
+              },
+              blankLabel:"全部属性",
+              blankValue:"",
+              model:"",
+            },
+            {
+              label:'销量',
+              rules:{
+                'sales1' : '最好',
+                'sales2' : '最差',
+                'sales3' : '一般',
+              },
+              blankLabel:"全部",
+              blankValue:"",
+              model:"",
+            },
+            {
+              label:'状态',
+              rules:{
+                'ststus1' : '正在编辑',
+                'ststus2' : '已经发布',
+                'ststus3' : '未发布',
+                'ststus4' : '被拒绝',
+              },
+              blankLabel:"全部",
+              blankValue:"",
+              model:"",
+            }
+          ],
           columns:[
             {
               field:'name',
@@ -28,14 +140,14 @@
               field:'email',
               title: '邮箱',
               width:'',
-              flex: '2' ,
+              flex: '1' ,
               //props:[],
             },
             {
               field:'company',
               title: '公司',
               width:'',
-              flex: '3' ,
+              flex: '1' ,
               //props:[],
             },
           ],
@@ -48,7 +160,7 @@
             id:"1",
             name : 'Martin Li', 
             email : 'Li@vular.cn', 
-            company : 'Vular soft'
+            company : 'Vular soft',
           },
           {
             id:"2",
@@ -94,20 +206,10 @@
     },
 
     methods: {
-      onStick(isStick){
-        this.isStick = isStick
-      }
     },
 
   }
 </script>
 
 <style>
-  .top-small-button{
-    opacity: 0.7;
-  }
-
-  .new-button{
-    padding:0 28px !import;
-  }
 </style>

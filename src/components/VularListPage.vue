@@ -7,7 +7,7 @@
         vertical
       ></v-divider>
       <div>
-        <span>共360条</span>
+        <span>共{{inputValue.length}}条</span>
       </div>
       <v-spacer></v-spacer>
       <v-btn rounded color="primary new-button" dark 
@@ -48,10 +48,10 @@
 
     <template slot="header-extension">
       <VularListHead
-        :schema="listSchema"
+        :schema="schema"
         :isStick = "page.header.isStick"
         :heightPercent = "page.header.heightPercent"
-        v-model="rows"
+        v-model="inputValue"
         @selectAll = "onSelectAll" 
         @listHeaderHeight = "onListHeaderHeight"
       ></VularListHead>
@@ -70,8 +70,8 @@
             :style="$store.state.vularApp.content.card.style"
           >
             <VularListBody 
-              :schema="listSchema" 
-              v-model="rows"
+              :schema="schema" 
+              v-model="inputValue"
             ></VularListBody>
             <v-card-actions justify="start">
               <v-pagination
@@ -98,6 +98,8 @@
     components: {
     },
     props: {
+      schema: { default: ()=>{return {}}},
+      value: {default: ()=>{return []}},
     },
     data () {
       return {
@@ -109,216 +111,40 @@
           },
         },
         selectedRows: [],
-        listSchema:{
-          canSelect:true,
-          canBatchDelete: true,
-          transshapeBreakPoint: 'xs',
-          transshape: false,
-          batchActions:[
-            {
-              icon: 'mdi-arrow-collapse-down',
-              label: '下载',
-              shortcut: true,
-              action:'action_id1',
-            },
-            {
-              icon: 'mdi-email-send-outline',
-              label: '分配',
-              shortcut: true,
-              action:'action_id2',
-            },
-            {
-              icon: 'mdi-sale',
-              label: '促销',
-              shortcut: false,
-              action:'action_id3',
-            },
-            {
-              icon: 'mdi-content-copy',
-              label: '克隆',
-              shortcut: false,
-              action:'action_id4',
-            },
-          ],
-          rowActions:[
-            {
-              icon: 'mdi-eye-outline',
-              label: '隐藏',
-              shortcut: true,
-              action:'action_id1',
-            },
-            {
-              icon: 'mdi-pencil',
-              label: '编辑',
-              shortcut: false,
-              action:'action_id2',
-            },
-            {
-              icon: 'mdi-content-copy',
-              label: '克隆',
-              shortcut: false,
-              action:'action_id3',
-            },
-            {
-              icon: 'mdi-trash-can',
-              label: '删除',
-              shortcut: false,
-              action:'action_id4',
-            },
-          ],
-          filters:[
-            {
-              label:'分类',
-              shortcut: true,
-              rules:{
-                'cat1' : 'Category1',
-                'cat2' : 'Category2',
-                'cat3' : 'Category3',
-                'cat4' : 'Category4',
-                'cat5' : 'Category5',
-                'cat6' : 'Category6',
-              },
-              blankLabel:"全部分类",
-              blankValue:"",
-              model:"",
-            },
-            {
-              label:'属性',
-              shortcut: true,
-              rules:{
-                'attr1' : 'Attribute1',
-                'attr2' : 'Attribute2',
-                'attr3' : 'Attribute3',
-                'attr4' : 'Attribute4',
-                'attr5' : 'Attribute5',
-                'attr6' : 'Attribute6',
-              },
-              blankLabel:"全部属性",
-              blankValue:"",
-              model:"",
-            },
-            {
-              label:'销量',
-              rules:{
-                'sales1' : '最好',
-                'sales2' : '最差',
-                'sales3' : '一般',
-              },
-              blankLabel:"全部",
-              blankValue:"",
-              model:"",
-            },
-            {
-              label:'状态',
-              rules:{
-                'ststus1' : '正在编辑',
-                'ststus2' : '已经发布',
-                'ststus3' : '未发布',
-                'ststus4' : '被拒绝',
-              },
-              blankLabel:"全部",
-              blankValue:"",
-              model:"",
-            }
-          ],
-          columns:[
-            {
-              field:'name',
-              title: '姓名',
-              width:'',
-              flex: '1' ,
-              //props:[],
-            },
-            {
-              field:'email',
-              title: '邮箱',
-              width:'',
-              flex: '1' ,
-              //props:[],
-            },
-            {
-              field:'company',
-              title: '公司',
-              width:'',
-              flex: '1' ,
-              //props:[],
-            },
-          ],
-          actionsColumn:{
-            width:'150px',
-          },
-        },
-        rows:[
-          {
-            id:"1",
-            name : 'Martin Li', 
-            email : 'Li@vular.cn', 
-            company : 'Vular soft',
-          },
-          {
-            id:"2",
-            name : 'Margin Wang', 
-            email : 'Li@tianbupa.com', 
-            company : '小火星'
-          },
-          {
-            id:"3",
-            name : 'Padding 赵', 
-            email : 'Li@dibupa.com', 
-            company : '大太阳'
-          },
-          {
-            id:"4",
-            name : 'Padding 赵', 
-            email : 'Li@dibupa.com', 
-            company : '大太阳'
-          },
-          {
-            id:"5",
-            name : 'Padding 赵', 
-            email : 'Li@dibupa.com', 
-            company : '大太阳'
-          },
-          {
-            id:"6",
-            name : 'Padding 赵', 
-            email : 'Li@dibupa.com', 
-            company : '大太阳'
-          },
-          {
-            id:"7",
-            name : 'Padding 赵', 
-            email : 'Li@dibupa.com', 
-            company : '大太阳'
-          },
-        ]
-        
       }
     },
     computed:{
+      inputValue: {
+        get:function() {
+          return this.value;
+        },
+        set:function(val) {
+          this.$emit('input', val);
+        },
+      },
     },
     mounted () {
-      if(!this.listSchema.transshapeBreakPoint){
-        this.listSchema.transshapeBreakPoint = 'xs'
+      if(!this.schema.transshapeBreakPoint){
+        this.schema.transshapeBreakPoint = 'xs'
       }
 
-      if(this.listSchema.transshapeBreakPoint == 'xs'){
+      if(this.schema.transshapeBreakPoint == 'xs'){
         this.checkXs()
       }
-      if(this.listSchema.transshapeBreakPoint == 'sm'){
+      if(this.schema.transshapeBreakPoint == 'sm'){
         this.checkSm()
       }
-      if(this.listSchema.transshapeBreakPoint == 'md'){
+      if(this.schema.transshapeBreakPoint == 'md'){
         this.checkMd()
       }
-      if(this.listSchema.transshapeBreakPoint == 'lg'){
+      if(this.schema.transshapeBreakPoint == 'lg'){
         this.checkLg()
       }
     },
 
     methods: {
       onSelectAll(selected){
-        this.rows.forEach(row=>{
+        this.inputValue.forEach(row=>{
           this.$set(row, 'selected', selected)
         })
       },
@@ -329,47 +155,47 @@
 
       checkXs(){
         if(this.$vuetify.breakpoint.xs){
-          if(this.listSchema.transshapeBreakPoint === 'xs'){
-            this.listSchema.transshape = true
+          if(this.schema.transshapeBreakPoint === 'xs'){
+            this.schema.transshape = true
           }
           else{
-            this.listSchema.transshape = false
+            this.schema.transshape = false
           }
         }
       },
 
       checkSm(){
         if(this.$vuetify.breakpoint.sm){
-          if(this.listSchema.transshapeBreakPoint === 'sm'
-            ||this.listSchema.transshapeBreakPoint === 'md'
-            ||this.listSchema.transshapeBreakPoint === 'lg'){
-            this.listSchema.transshape = true
+          if(this.schema.transshapeBreakPoint === 'sm'
+            ||this.schema.transshapeBreakPoint === 'md'
+            ||this.schema.transshapeBreakPoint === 'lg'){
+            this.schema.transshape = true
           }
           else{
-            this.listSchema.transshape = false
+            this.schema.transshape = false
           }
         }
       },
 
       checkMd(){
         if(this.$vuetify.breakpoint.md){
-          if(this.listSchema.transshapeBreakPoint === 'md'
-            ||this.listSchema.transshapeBreakPoint === 'lg'){
-            this.listSchema.transshape = true
+          if(this.schema.transshapeBreakPoint === 'md'
+            ||this.schema.transshapeBreakPoint === 'lg'){
+            this.schema.transshape = true
           }
           else{
-            this.listSchema.transshape = false
+            this.schema.transshape = false
           }
         }
       },
 
       checkLg(){
         if(this.$vuetify.breakpoint.lg){
-          if(this.listSchema.transshapeBreakPoint === 'lg'){
-            this.listSchema.transshape = true
+          if(this.schema.transshapeBreakPoint === 'lg'){
+            this.schema.transshape = true
           }
           else{
-            this.listSchema.transshape = false
+            this.schema.transshape = false
           }
         }
       },
@@ -391,7 +217,7 @@
 
       "$vuetify.breakpoint.lg":function (val){
         if(val){
-          this.listSchema.transshape = false
+          this.schema.transshape = false
         }
       }
     },
