@@ -30,14 +30,14 @@
               action:'action_id1',
             },
             {
-              icon: 'mdi-email-send-outline',
-              label: '分配',
+              icon: 'mdi-publish',
+              label: '发布',
               shortcut: true,
               action:'action_id2',
             },
             {
-              icon: 'mdi-sale',
-              label: '促销',
+              icon: 'mdi-shield-check-outline',
+              label: '审核',
               shortcut: false,
               action:'action_id3',
             },
@@ -106,7 +106,7 @@
               model:"",
             },
             {
-              label:'销量',
+              label:'阅读量',
               rules:{
                 'sales1' : '最好',
                 'sales2' : '最差',
@@ -131,22 +131,29 @@
           ],
           columns:[
             {
-              field:'name',
-              title: '姓名',
+              field:'avatar',
+              title: '',
               width:'',
               flex: '1' ,
               //props:[],
             },
             {
-              field:'email',
-              title: '邮箱',
+              field:'title',
+              title: '标题',
               width:'',
               flex: '1' ,
               //props:[],
             },
             {
-              field:'company',
-              title: '公司',
+              field:'date',
+              title: '更新时间',
+              width:'',
+              flex: '1' ,
+              //props:[],
+            },
+            {
+              field:'status',
+              title: '状态',
               width:'',
               flex: '1' ,
               //props:[],
@@ -159,7 +166,7 @@
         rows:[
           {
             id:"1",
-            name : 'Martin Li', 
+            title : '随随便便吹过一阵风', 
             email : 'Li@vular.cn', 
             company : 'Vular soft',
           },
