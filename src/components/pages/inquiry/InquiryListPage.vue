@@ -15,32 +15,19 @@
       <span>共360条</span>
     </div>
     <v-spacer></v-spacer>
-    <div>
-      <v-btn class="mr-5" fab elevation="0" :color="$store.state.vularApp.content.card.color"
-        :small="!isStick"
-        :x-small="isStick"
-      >
-        <v-icon color="primary" class="top-small-button">mdi-import</v-icon>
-      </v-btn>
-
-      <v-btn class="mr-5" fab elevation="0" :color="$store.state.vularApp.content.card.color"
-        :small="!isStick"
-        :x-small="isStick"
-      >
-        <v-icon color="primary" class="top-small-button">mdi-export-variant</v-icon>
-      </v-btn>
-      <v-btn class="mr-5" fab elevation="0" :color="$store.state.vularApp.content.card.color"
-        :small="!isStick"
-        :x-small="isStick"
-      >
-        <v-icon color="primary" class="top-small-button">mdi-cloud-print-outline</v-icon>
-      </v-btn>
-    </div>
     <v-btn rounded color="primary new-button" dark 
       :small="isStick"
     >
       <v-icon left>mdi-plus</v-icon> 新建
     </v-btn>
+    <div>
+      <v-btn class="ml-2" fab elevation="0" :color="$store.state.vularApp.content.card.color"
+        :small="!isStick"
+        :x-small="true"
+      >
+        <v-icon color="primary" class="top-small-button">mdi-dots-vertical</v-icon>
+      </v-btn>
+    </div>
 
     <template slot='list-head'>
       <VularListHead 
@@ -52,7 +39,7 @@
       <VularListTitle :schema="listSchema"></VularListTitle>
     </template>
   </VularListPageHeader>
-  <v-container fluid style="margin-top: 215px;">
+  <v-container fluid style="margin-top: 205px;">
     <v-row
       align="center"
       justify="center"
