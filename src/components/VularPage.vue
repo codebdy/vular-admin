@@ -167,9 +167,10 @@
               action:'action_id4',
             },
           ],
-          obviousFilters:[
+          filters:[
             {
               label:'分类',
+              shortcut: true,
               rules:{
                 'cat1' : 'Category1',
                 'cat2' : 'Category2',
@@ -184,6 +185,7 @@
             },
             {
               label:'属性',
+              shortcut: true,
               rules:{
                 'attr1' : 'Attribute1',
                 'attr2' : 'Attribute2',
@@ -195,9 +197,7 @@
               blankLabel:"全部属性",
               blankValue:"",
               model:"",
-            }
-          ],
-          popFilters:[
+            },
             {
               label:'销量',
               rules:{

@@ -24,7 +24,8 @@
       </div>
       <div v-if="!collopsed">
         <template 
-          v-for="(filter, index) in obviousFilters"
+          v-for="(filter, index) in schema.filters"
+          v-if="filter.shortcut"
         >
           {{filter.label}}
           <v-menu offset-y>
@@ -82,27 +83,9 @@
         <v-card :color="$store.state.vularApp.content.color">
           <v-list class="pt-0 vular-filter-list" :color="$store.state.vularApp.content.card.color">
             <template 
-              v-for = "(filter, index) in obviousFilters"
-              v-if = "collopsed"
+              v-for="(filter, index) in schema.filters"
+              v-if="!filter.shortcut || collopsed"
             >
-              <v-subheader 
-                :style="{background: $store.state.vularApp.content.color}">
-              {{filter.label}}
-              </v-subheader>
-              <v-radio-group class="px-3" v-model="filter.model">
-                <v-radio
-                  :label="filter.blankLabel"
-                  :value="filter.blankValue"
-                ></v-radio>
-                <v-radio
-                  v-for="(label, value) in filter.rules"
-                  :key="value"
-                  :label="label"
-                  :value="value"
-                ></v-radio>
-              </v-radio-group>
-            </template>
-            <template v-for="(filter, index) in popFilters">
               <v-subheader 
                 :style="{background: $store.state.vularApp.content.color}">
               {{filter.label}}
@@ -239,17 +222,9 @@
       },
 
       popFilersSelected(){
-        if(this.collopsed){
-          for(var i = 0; i < this.schema.obviousFilters.length; i++){
-            let filter = this.schema.obviousFilters[i]
-            if(filter.blankValue != filter.model){
-              return true
-            }
-          }
-        }
-        for(var i = 0; i < this.schema.popFilters.length; i++){
-          let filter = this.schema.popFilters[i]
-          if(filter.blankValue != filter.model){
+        for(var i = 0; i < this.schema.filters.length; i++){
+          let filter = this.schema.filters[i]
+          if(filter.blankValue != filter.model && (!filter.shortcut || this.collopsed)){
             return true
           }
         }
@@ -264,15 +239,11 @@
 
       onClear(){
         this.isPopedFilters = false
-        if(this.collopsed){
-          for(var i = 0; i < this.schema.obviousFilters.length; i++){
-            let filter = this.schema.obviousFilters[i]
+         for(var i = 0; i < this.schema.filters.length; i++){
+          let filter = this.schema.filters[i]
+          if(!filter.shortcut || this.collopsed){
             filter.model = filter.blankValue
           }
-        }
-        for(var i = 0; i < this.schema.popFilters.length; i++){
-          let filter = this.schema.popFilters[i]
-          filter.model = filter.blankValue
         }
       },
 
