@@ -15,8 +15,7 @@ import ThemeSettings from "./components/pages/theme/ThemeSettings"
 import Dashboard from "./components/pages/dashboard/Dashboard"
 import InquiryListPage from "./components/pages/inquiry/InquiryListPage"
 import VularPageHeader from "./components/widgets/VularPageHeader"
-import VularListTitle from "./components/widgets/VularListTitle"
-import VularListActions from "./components/widgets/VularListActions"
+import VularListHead from "./components/widgets/VularListHead"
 import VularListBody from "./components/widgets/VularListBody"
 
 Vue.use(VueRouter)
@@ -29,8 +28,7 @@ Vue.component('VularPage', VularPage)
 Vue.component('VularListPage', VularListPage)
 Vue.component('InquiryListPage', InquiryListPage)
 Vue.component('VularPageHeader', VularPageHeader)
-Vue.component('VularListActions', VularListActions)
-Vue.component('VularListTitle', VularListTitle)
+Vue.component('VularListHead', VularListHead)
 Vue.component('VularListBody', VularListBody)
 
 const routes = [

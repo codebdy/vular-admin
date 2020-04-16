@@ -11,7 +11,7 @@
           background: hover ? 'rgba(0, 0, 255, 0.1)' : ''
         }"
 
-        :class="smallSize ? 'vular-list-body-small' : 'vular-list-body'"
+        :class="schema.transshape ? 'vular-list-body-small' : 'vular-list-body'"
       >
         <li v-if="schema.canSelect" class="select-col">
           <v-checkbox
@@ -28,7 +28,7 @@
           class="py-5"
         >
           <div
-            v-if="smallSize"
+            v-if="schema.transshape"
             class="column-title"
           >
             {{column.title}}
@@ -37,7 +37,7 @@
         </li>
         <li class="list-action"         
         :style="{
-            width: !smallSize ? schema.actionsColumn.width :'',
+            width: !schema.transshape ? schema.actionsColumn.width :'',
           }"
         >
           <v-btn icon color="primary" 
@@ -97,9 +97,6 @@
         set:function(val) {
           this.$emit('input', val);
         },
-      },
-      smallSize(){
-        return this.$vuetify.breakpoint.xs
       },
     },
 

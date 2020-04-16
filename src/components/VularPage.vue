@@ -5,17 +5,19 @@
       'font-family': $store.state.vularApp.content.fontFamily
     }"
   >
-    <VularPageHeader @stick="onStick" :title="title" @headerHeight="onHeaderHeight">
-      <slot name="breadcrumbs-area"></slot>
-      <template slot='list-head'>
-        <slot name="list-actions" ></slot>
+    <VularPageHeader 
+      :title="title" 
+      @stick="onStick" 
+      @heightPercent="onHeightPercent"
+      v-model="inputValue.header"
+    >
+      <template slot="breadcrumbs-area">
+        <slot name="breadcrumbs-area"></slot>
       </template>
-      <template slot='list-title'>
-        <slot name="list-title"></slot>
-      </template>
+      <slot name="header-extension"></slot>
     </VularPageHeader>
     <v-container fluid class="pt-0"
-      :style="{'margin-top': (inputValue.height + 0) + 'px'}"
+      :style="{'margin-top': (inputValue.header.breadcrumbHeight + inputValue.header.listHeaderHeight + 0) + 'px'}"
     >
       <slot></slot>
     </v-container>
@@ -32,7 +34,16 @@
     },
     props: {
       title : { default: 'untitled'},
-      value : { default: ()=>{return {}}}
+      value : { default: ()=>{
+        return {
+          header:{
+            isStick: false,
+            breadcrumbHeight: 90,
+            listHeaderHeight: 0,
+            heightPercent: 1,
+          },
+        }}
+      },
     },
     data () {
       return {
@@ -52,12 +63,12 @@
 
     methods: {
       onStick(isStick){
-        this.inputValue.isStick = isStick
+        this.inputValue.header.isStick = isStick
       },
 
-      onHeaderHeight(height){
-        this.inputValue.height = height
-      },
+      onHeightPercent(percent){
+       this.inputValue.header.heightPercent = percent
+      }
     },
 
   }

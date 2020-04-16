@@ -1,5 +1,5 @@
 <template>
-  <VularPage title="询盘列表" v-model="header">
+  <VularPage title="询盘列表" v-model="page">
     <template slot="breadcrumbs-area">
       <v-divider
         class="mx-4"
@@ -11,15 +11,15 @@
       </div>
       <v-spacer></v-spacer>
       <v-btn rounded color="primary new-button" dark 
-        :small="header.isStick"
+        :small="page.header.isStick"
       >
         <v-icon left>mdi-plus</v-icon> 新建
       </v-btn>
       <v-menu offset-y>
         <template v-slot:activator="{ on }">
           <v-btn class="ml-2" fab elevation="0" :color="$store.state.vularApp.content.card.color"
-            :small="!header.isStick"
-            :x-small="header.isStick"
+            :small="!page.header.isStick"
+            :x-small="page.header.isStick"
             v-on="on"
          >
             <v-icon color="primary" class="top-small-button">mdi-dots-horizontal</v-icon>
@@ -46,18 +46,16 @@
       </v-menu>
     </template>
 
-    <template slot="list-actions">
-      <VularListActions 
+    <template slot="header-extension">
+      <VularListHead
         :schema="listSchema"
-        :isStick = "header.isStick"
+        :isStick = "page.header.isStick"
+        :heightPercent = "page.header.heightPercent"
         v-model="rows"
         @selectAll = "onSelectAll" 
-      ></VularListActions>
+        @listHeaderHeight = "onListHeaderHeight"
+      ></VularListHead>
     </template>
-
-    <template slot="list-title">
-      <VularListTitle :schema="listSchema"></VularListTitle>
-    </template>      
 
     <template>
       <v-row
@@ -103,14 +101,19 @@
     },
     data () {
       return {
-        header:{
-          isStick: false,
-          height: 100,
+        page:{
+          header:{
+            isStick: false,
+            listHeaderHeight: '',
+            heightPercent: 1,
+          },
         },
         selectedRows: [],
         listSchema:{
           canSelect:true,
           canBatchDelete: true,
+          transshapeBreakPoint: 'xs',
+          transshape: false,
           batchActions:[
             {
               icon: 'mdi-arrow-collapse-down',
@@ -294,6 +297,24 @@
     },
     computed:{
     },
+    mounted () {
+      if(!this.listSchema.transshapeBreakPoint){
+        this.listSchema.transshapeBreakPoint = 'xs'
+      }
+
+      if(this.listSchema.transshapeBreakPoint == 'xs'){
+        this.checkXs()
+      }
+      if(this.listSchema.transshapeBreakPoint == 'sm'){
+        this.checkSm()
+      }
+      if(this.listSchema.transshapeBreakPoint == 'md'){
+        this.checkMd()
+      }
+      if(this.listSchema.transshapeBreakPoint == 'lg'){
+        this.checkLg()
+      }
+    },
 
     methods: {
       onSelectAll(selected){
@@ -301,6 +322,78 @@
           this.$set(row, 'selected', selected)
         })
       },
+
+      onListHeaderHeight(height){
+        this.page.header.listHeaderHeight = height
+      },
+
+      checkXs(){
+        if(this.$vuetify.breakpoint.xs){
+          if(this.listSchema.transshapeBreakPoint === 'xs'){
+            this.listSchema.transshape = true
+          }
+          else{
+            this.listSchema.transshape = false
+          }
+        }
+      },
+
+      checkSm(){
+        if(this.$vuetify.breakpoint.sm){
+          if(this.listSchema.transshapeBreakPoint === 'sm'
+            ||this.listSchema.transshapeBreakPoint === 'md'
+            ||this.listSchema.transshapeBreakPoint === 'lg'){
+            this.listSchema.transshape = true
+          }
+          else{
+            this.listSchema.transshape = false
+          }
+        }
+      },
+
+      checkMd(){
+        if(this.$vuetify.breakpoint.md){
+          if(this.listSchema.transshapeBreakPoint === 'md'
+            ||this.listSchema.transshapeBreakPoint === 'lg'){
+            this.listSchema.transshape = true
+          }
+          else{
+            this.listSchema.transshape = false
+          }
+        }
+      },
+
+      checkLg(){
+        if(this.$vuetify.breakpoint.lg){
+          if(this.listSchema.transshapeBreakPoint === 'lg'){
+            this.listSchema.transshape = true
+          }
+          else{
+            this.listSchema.transshape = false
+          }
+        }
+      },
+    },
+
+    watch:{
+      "$vuetify.breakpoint.xs": function(val){
+        this.checkXs()
+      },
+      "$vuetify.breakpoint.sm":function(val){
+        this.checkSm()
+      },
+      "$vuetify.breakpoint.md":function (val){
+        this.checkMd()
+      },
+      "$vuetify.breakpoint.lg":function (val){
+        this.checkLg()
+      },
+
+      "$vuetify.breakpoint.lg":function (val){
+        if(val){
+          this.listSchema.transshape = false
+        }
+      }
     },
 
   }

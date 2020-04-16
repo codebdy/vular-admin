@@ -26,40 +26,10 @@
           {{title}}
         </h1>
 
-        <slot>
+        <slot name="breadcrumbs-area">
         </slot>
       </div>
-      <v-row
-        v-if = "$slots['list-head']"
-      >
-        <v-col cols="12" class="py-0">
-          <div  
-            :style="{
-              background: $store.state.vularApp.content.card.color,
-              height:tableHeaderHeight + 'px',
-            }" 
-            class="d-flex flex-row align-center px-6"
-            style = "box-shadow: 2px 2px 5px rgba(0,0,0,0.05);"
-          >
-            <slot name="list-head"></slot>
-          </div>
-        </v-col>
-      </v-row>
-      <v-row
-        align="center"
-        justify="center"
-        class="py-0" 
-        v-if = "$slots['list-title'] && !$vuetify.breakpoint.xs"
-        :style= "{height : tableTitleHeight + 'px'}"
-      >
-        <v-col cols="12" justify="center" 
-          class="py-0 list-title-col"
-        >
-          <div class="list-title-wrap px-6">
-            <slot name="list-title"></slot>
-          </div>
-        </v-col>
-      </v-row>
+      <slot></slot>
     </v-container>
 
 </template>
@@ -70,6 +40,7 @@
     props: {
       title: {default: "untitled"},
       titleIcon: {default: ""},
+      value : { default: ()=>{return {}}}
     },
 
     data () {
@@ -83,6 +54,14 @@
     },
 
     computed:{
+      inputValue: {
+        get:function() {
+          return this.value;
+        },
+        set:function(val) {
+          this.$emit('input', val);
+        },
+      },
       baseHeight(){
         let height = this.maxBaxeHeight - this.topOffset/1.5
         height = height < this.minBaxeHeight ? this.minBaxeHeight : height
@@ -97,14 +76,6 @@
 
       breadCrumbsHeight(){
         return 50 + this.heightPercent * 40
-      },
-
-      tableHeaderHeight(){
-        return 50 + this.heightPercent * 40
-      },
-
-      tableTitleHeight(){
-        return 40 
       },
 
       titleFontSize(){
@@ -122,34 +93,30 @@
       }
     },
     mounted () {
-      let height = 90
+      this.inputValue.breadcrumbHeight = 90
+      //let height = 90
 
-      if(this.$slots['list-head']){
-        height = height + 90
-      }
-      if(this.$slots['list-title'] && !this.$vuetify.breakpoint.xs){
-        height = height + 40
-      }
-      this.$emit('headerHeight', height)
+      //if(this.$slots['list-head']){
+      //  height = height + 90
+      //}
+      //if(this.$slots['list-title'] && !this.$vuetify.breakpoint.xs){
+      //  height = height + 40
+      //}
+      //this.$emit('headerHeight', height)
     },
 
     methods: {
       onScroll(e){
         this.topOffset = parseInt(window.pageYOffset || document.documentElement.offsetTop || 0)
         this.isStick = this.baseHeight < this.smallLimit
-        this.$emit('stick', this.isStick)
+        this.inputValue.isStick = this.isStick
+        this.inputValue.heightPercent = this.heightPercent
       }
     },
   }
 </script>
 
 <style>
-  .list-title-col{
-    display: flex; align-items: center;
-  }
-  .list-title-wrap{
-    width:100%; height: 40px; border-bottom:rgba(0,0,0,0.05) solid 1px; display: flex; align-items: center;
-  }
   .page-title{
     font-weight: 500;
   }
