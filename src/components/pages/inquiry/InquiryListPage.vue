@@ -20,14 +20,36 @@
     >
       <v-icon left>mdi-plus</v-icon> 新建
     </v-btn>
-    <div>
-      <v-btn class="ml-2" fab elevation="0" :color="$store.state.vularApp.content.card.color"
-        :small="!isStick"
-        :x-small="true"
-      >
-        <v-icon color="primary" class="top-small-button">mdi-dots-vertical</v-icon>
-      </v-btn>
-    </div>
+    <v-menu offset-y>
+      <template v-slot:activator="{ on }">
+        <v-btn class="ml-2" fab elevation="0" :color="$store.state.vularApp.content.card.color"
+          :small="!isStick"
+          :x-small="true"
+          v-on="on"
+       >
+          <v-icon color="primary" class="top-small-button">mdi-dots-vertical</v-icon>
+        </v-btn>
+      </template>
+      <v-list>
+        <v-list-item link>
+          <v-list-item-icon>
+            <v-icon color="primary">mdi-cloud-print-outline</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>打印</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item link>
+          <v-list-item-icon>
+            <v-icon color="primary">mdi-file-export-outline</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>导出</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-menu>
+
 
     <template slot='list-head'>
       <VularListHead 

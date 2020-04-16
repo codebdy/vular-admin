@@ -109,6 +109,7 @@
     },
     data () {
       return {
+        isStick:false,
         drawers: [
           {
             'value':'default (no property)',
@@ -130,6 +131,9 @@
 
 
     methods: {
+      onStick(isStick){
+        this.isStick = isStick
+      }
     },
   }
 </script>

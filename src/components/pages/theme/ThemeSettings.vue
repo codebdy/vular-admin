@@ -332,6 +332,7 @@
     },
     data () {
       return {
+        isStick:false,
         drawers: [
           {
             'value':'default (no property)',
@@ -400,6 +401,9 @@
     },
 
     methods: {
+      onStick(isStick){
+        this.isStick = isStick
+      },
       onThemeClick(theme){
         for(var i = 0; i < this.themes.length; i++){
           let th = this.themes[i]
