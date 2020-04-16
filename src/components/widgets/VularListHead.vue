@@ -21,7 +21,9 @@
       ></v-text-field>
     </div>
     <div v-if="!collopsed">
-      <template v-for="(filter, index) in obviousFilters">
+      <template 
+        v-for="(filter, index) in obviousFilters"
+      >
         {{filter.label}}
         <v-menu offset-y>
           <template v-slot:activator="{ on }">
@@ -48,6 +50,7 @@
             </v-list-item>
             <v-list-item link color="primary"
               v-for="(label, value) in filter.rules"
+              :key = 'value'
               v-model="value === filter.model"
               @click = "onFilter(filter, value)"
             >
@@ -59,83 +62,70 @@
         </v-menu>
       </template>
     </div>
-    <v-menu offset-y :close-on-content-click="false" :nudge-width="150">
+    <v-menu offset-y 
+      :close-on-content-click="false" 
+      :nudge-width="150"
+      v-model="isPopedFilters"
+      >
       <template v-slot:activator="{ on }">
         <v-btn icon fab 
           v-on="on"
           :small="isStick"
+          :color="popFilersSelected ? 'primary' : ''"
         >
           <v-icon :small="isStick" class="top-small-button">mdi-dots-vertical</v-icon>
         </v-btn>
       </template>
-    <v-card :color="$store.state.vularApp.content.color">
-      <v-divider></v-divider>
+      <v-card :color="$store.state.vularApp.content.color">
+        <v-list class="pt-0 vular-filter-list" :color="$store.state.vularApp.content.card.color">
+          <template 
+            v-for = "(filter, index) in obviousFilters"
+            v-if = "collopsed"
+          >
+            <v-subheader 
+              :style="{background: $store.state.vularApp.content.color}">
+            {{filter.label}}
+            </v-subheader>
+            <v-radio-group class="px-3" v-model="filter.model">
+              <v-radio
+                :label="filter.blankLabel"
+                :value="filter.blankValue"
+              ></v-radio>
+              <v-radio
+                v-for="(label, value) in filter.rules"
+                :key="value"
+                :label="label"
+                :value="value"
+              ></v-radio>
+            </v-radio-group>
+          </template>
+          <template v-for="(filter, index) in popFilters">
+            <v-subheader 
+              :style="{background: $store.state.vularApp.content.color}">
+            {{filter.label}}
+            </v-subheader>
+            <v-radio-group class="px-3" v-model="filter.model">
+              <v-radio
+                :label="filter.blankLabel"
+                :value="filter.blankValue"
+              ></v-radio>
+              <v-radio
+                v-for="(label, value) in filter.rules"
+                :key="value"
+                :label="label"
+                :value="value"
+              ></v-radio>
+            </v-radio-group>
+          </template>
+        </v-list>
 
-    <v-list class="pt-0 vular-filter-list" :color="$store.state.vularApp.content.card.color">
-        <v-subheader 
-          :style="{background: $store.state.vularApp.content.color}">过滤器1</v-subheader>
-        <v-radio-group class="px-3">
-          <v-radio
-            v-for="n in 3"
-            :key="n"
-            :label="`Radio ${n}`"
-            :value="n"
-          ></v-radio>
-        </v-radio-group>
-        <v-subheader>过滤器2</v-subheader>
-        <v-list-item link color="primary" v-model="test">
-          <v-list-item-content>
-            <v-list-item-title>全部</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-subheader>过滤器3</v-subheader>
-        <v-list-item link color="primary" v-model="test">
-          <v-list-item-content>
-            <v-list-item-title>全部</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-subheader>过滤器3</v-subheader>
-        <v-list-item link color="primary" v-model="test">
-          <v-list-item-content>
-            <v-list-item-title>全部</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-subheader>过滤器3</v-subheader>
-        <v-list-item link color="primary" v-model="test">
-          <v-list-item-content>
-            <v-list-item-title>全部</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-subheader>过滤器4</v-subheader>
-        <v-list-item link color="primary" v-model="test">
-          <v-list-item-content>
-            <v-list-item-title>全部</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item link>
-          <v-list-item-content>
-            <v-list-item-title>鞋子大马猴</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item link>
-          <v-list-item-content>
-            <v-list-item-title>靴子</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item link>
-          <v-list-item-content>
-            <v-list-item-title>裤子</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
+        <v-card-actions>
+          <v-spacer></v-spacer>
 
-      <v-card-actions>
-        <v-spacer></v-spacer>
-
-        <v-btn text>关闭</v-btn>
-        <v-btn color="primary" text>清空</v-btn>
-      </v-card-actions>
-    </v-card>
+          <v-btn text @click="isPopedFilters = false">关闭</v-btn>
+          <v-btn color="primary" text @click="onClear">清空</v-btn>
+        </v-card-actions>
+      </v-card>
     </v-menu>
   </div>
 
@@ -156,6 +146,7 @@
         test:true,
         obviousFilters: this.schema.obviousFilters,
         popFilters: this.schema.popFilters,
+        isPopedFilters : false,
       }
     },
 
@@ -170,12 +161,44 @@
           width = this.$vuetify.breakpoint.xs ? 150 : 200
         }
         return width
+      },
+
+      popFilersSelected(){
+        if(this.collopsed){
+          for(var i = 0; i < this.schema.obviousFilters.length; i++){
+            let filter = this.schema.obviousFilters[i]
+            if(filter.blankValue != filter.model){
+              return true
+            }
+          }
+        }
+        for(var i = 0; i < this.schema.popFilters.length; i++){
+          let filter = this.schema.popFilters[i]
+          if(filter.blankValue != filter.model){
+            return true
+          }
+        }
+        return false
       }
     },
 
     methods: {
       onFilter(filter, model){
         filter.model = model
+      },
+
+      onClear(){
+        this.isPopedFilters = false
+        if(this.collopsed){
+          for(var i = 0; i < this.schema.obviousFilters.length; i++){
+            let filter = this.schema.obviousFilters[i]
+            filter.model = filter.blankValue
+          }
+        }
+        for(var i = 0; i < this.schema.popFilters.length; i++){
+          let filter = this.schema.popFilters[i]
+          filter.model = filter.blankValue
+        }
       }
     },
   }

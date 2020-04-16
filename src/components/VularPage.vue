@@ -136,6 +136,29 @@
             }
           ],
           popFilters:[
+            {
+              label:'销量',
+              rules:{
+                'sales1' : '最好',
+                'sales2' : '最差',
+                'sales3' : '一般',
+              },
+              blankLabel:"全部",
+              blankValue:"",
+              model:"",
+            },
+            {
+              label:'状态',
+              rules:{
+                'ststus1' : '正在编辑',
+                'ststus2' : '已经发布',
+                'ststus3' : '未发布',
+                'ststus4' : '被拒绝',
+              },
+              blankLabel:"全部",
+              blankValue:"",
+              model:"",
+            }
           ],
           columns:[
             {
