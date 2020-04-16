@@ -5,11 +5,13 @@
       :key = "row.id"
       v-slot:default="{ hover }"
     >
-      <ul class="vular-list-body px-6"
+      <ul class="px-6"
         :style = "{
           'border-bottom': $store.state.vularApp.content.color + ' solid 1px',
           background: hover ? 'rgba(0, 0, 255, 0.1)' : ''
         }"
+
+        :class="smallSize ? 'vular-list-body-small' : 'vular-list-body'"
       >
         <li v-if="schema.canSelect" class="select-col">
           <v-checkbox
@@ -25,15 +27,25 @@
           }"
           class="py-5"
         >
-          {{row[column.field]}}
+          <div
+            v-if="smallSize"
+            class="column-title"
+          >
+            {{column.title}}
+          </div>
+          <div>{{row[column.field]}}</div>
         </li>
         <li class="list-action"         
         :style="{
-            width: schema.actionsColumn.width,
+            width: !smallSize ? schema.actionsColumn.width :'',
           }"
         >
-          <v-btn icon color="primary" v-if="hover">
-            <v-icon small>mdi-eye-outline</v-icon>
+          <v-btn icon color="primary" 
+            v-for="(action, index) in schema.rowActions"
+            v-if="hover && action.shortcut"
+            :key = "action.id"
+          >
+            <v-icon small v-text="action.icon"></v-icon>
           </v-btn>
           <v-menu offset-y>
             <template v-slot:activator="{ on }">
@@ -44,28 +56,16 @@
               </v-btn>
             </template>
             <v-list :color="$store.state.vularApp.content.card.color" class="px-2">
-              <v-list-item link>
+              <v-list-item link
+                v-for="(action, index) in schema.rowActions"
+                v-if="!action.shortcut"
+                :key = "action.id"
+              >
                 <v-list-item-icon>
-                  <v-icon color="primary">mdi-pencil</v-icon>
+                  <v-icon color="primary" v-text="action.icon"></v-icon>
                 </v-list-item-icon>
                 <v-list-item-content>
-                  <v-list-item-title>编辑</v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-              <v-list-item link>
-                <v-list-item-icon>
-                  <v-icon color="primary">mdi-content-copy</v-icon>
-                </v-list-item-icon>
-                <v-list-item-content>
-                  <v-list-item-title>克隆</v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-              <v-list-item link>
-                <v-list-item-icon>
-                  <v-icon color="primary">mdi-trash-can</v-icon>
-                </v-list-item-icon>
-                <v-list-item-content>
-                  <v-list-item-title>删除</v-list-item-title>
+                  <v-list-item-title>{{action.label}}</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
             </v-list>
@@ -98,6 +98,9 @@
           this.$emit('input', val);
         },
       },
+      smallSize(){
+        return this.$vuetify.breakpoint.xs
+      },
     },
 
     methods: {
@@ -116,6 +119,7 @@
     flex: 1;
   }
 
+
   .vular-list-body li{
     flex-shrink: 0;
     display: flex;
@@ -126,11 +130,40 @@
   }
 
   .vular-list-body .list-action{
-    width: 150px;
     justify-content: flex-end;
   }
 
   .vular-list-body .select-col{
     width: 50px;
+  }
+
+  .vular-list-body-small{
+    list-style: none;
+    padding: 0; 
+    margin:0;
+    display: flex; 
+    flex-flow: column;
+    padding: 0 !important;
+    flex: 1;
+  }
+
+  .vular-list-body-small li{
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding-right:20px;
+    word-break:break-all;
+    cursor: pointer;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+  }
+
+  .vular-list-body-small .select-col, .vular-list-body-small .list-action{
+    justify-content: flex-end;
+  }
+
+  .vular-list-body-small .column-title{
+    font-weight: bold;
   }
 </style>
