@@ -1,7 +1,7 @@
 <template>
   <v-menu offset-y origin="center center" :nudge-bottom="10" transition="scale-transition">
     <template v-slot:activator="{ on }">
-      <v-btn icon v-on="on" class="mr-3">
+      <v-btn icon v-on="on">
         <v-avatar size="30px">
           <img src="/images/100.jpg" alt="Water Li" />
         </v-avatar>
