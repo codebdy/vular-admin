@@ -10,12 +10,13 @@ import store from './store'
 
 import VularAdmin from "./components/VularAdmin.vue"
 import VularPage from "./components/VularPage.vue"
+import VularListPage from "./components/VularListPage.vue"
 import ThemeSettings from "./components/pages/theme/ThemeSettings"
 import Dashboard from "./components/pages/dashboard/Dashboard"
 import InquiryListPage from "./components/pages/inquiry/InquiryListPage"
 import VularPageHeader from "./components/widgets/VularPageHeader"
 import VularListTitle from "./components/widgets/VularListTitle"
-import VularListHead from "./components/widgets/VularListHead"
+import VularListActions from "./components/widgets/VularListActions"
 import VularListBody from "./components/widgets/VularListBody"
 
 Vue.use(VueRouter)
@@ -25,9 +26,10 @@ Vue.component(VeHistogram.name, VeHistogram)
 Vue.component(VePie.name, VePie)
 Vue.component('VularAdmin', VularAdmin)
 Vue.component('VularPage', VularPage)
+Vue.component('VularListPage', VularListPage)
 Vue.component('InquiryListPage', InquiryListPage)
 Vue.component('VularPageHeader', VularPageHeader)
-Vue.component('VularListHead', VularListHead)
+Vue.component('VularListActions', VularListActions)
 Vue.component('VularListTitle', VularListTitle)
 Vue.component('VularListBody', VularListBody)
 

@@ -1,5 +1,5 @@
 <template>
-  <VularPage></VularPage>
+  <VularListPage></VularListPage>
 </template>
 
 <script>

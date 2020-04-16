@@ -164,7 +164,7 @@
 
 <script>
   export default {
-    name: 'vular-list-head',
+    name: 'vular-list-actions',
     props: {
       schema: {default : ()=>{return {}}},
       isStick: {default : false},
