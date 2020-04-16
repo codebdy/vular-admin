@@ -86,6 +86,7 @@ export default {
             {
               name:"vular-menu-item",
               title:'全部文章',
+              to:"post-list",
             },
             {
               name:"vular-menu-item",
@@ -120,6 +121,7 @@ export default {
             {
               name:"vular-menu-item",
               title:'产品列表',
+              to:"product-list",
             },
             {
               name:"vular-menu-item",

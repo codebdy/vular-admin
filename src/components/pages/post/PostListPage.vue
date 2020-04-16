@@ -1,7 +1,7 @@
 <template>
   <VularListPage 
     :schema = "schema"
-    title = "询盘列表"
+    title = "文章列表"
     v-model = "rows"
   ></VularListPage>
 </template>
@@ -10,7 +10,7 @@
   //import VularBackgrounInput from "./VularBackgrounInput"
 
   export default {
-    name: 'inquiry-list-page',
+    name: 'post-list-page',
     components: {
     },
     props: {

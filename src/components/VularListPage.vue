@@ -1,5 +1,5 @@
 <template>
-  <VularPage title="询盘列表" v-model="page">
+  <VularPage :title="title" :titleIcon="titleIcon" v-model="page">
     <template slot="breadcrumbs-area">
       <v-divider
         class="mx-4"
@@ -100,6 +100,8 @@
     props: {
       schema: { default: ()=>{return {}}},
       value: {default: ()=>{return []}},
+      titleIcon: {default:''},
+      title: {default:''},
     },
     data () {
       return {

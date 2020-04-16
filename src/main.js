@@ -13,10 +13,12 @@ import VularPage from "./components/VularPage.vue"
 import VularListPage from "./components/VularListPage.vue"
 import ThemeSettings from "./components/pages/theme/ThemeSettings"
 import Dashboard from "./components/pages/dashboard/Dashboard"
-import InquiryListPage from "./components/pages/inquiry/InquiryListPage"
 import VularPageHeader from "./components/widgets/VularPageHeader"
 import VularListHead from "./components/widgets/VularListHead"
 import VularListBody from "./components/widgets/VularListBody"
+import InquiryListPage from "./components/pages/inquiry/InquiryListPage"
+import PostListPage from "./components/pages/post/PostListPage"
+import ProductListPage from "./components/pages/product/ProductListPage"
 
 Vue.use(VueRouter)
 
@@ -26,16 +28,20 @@ Vue.component(VePie.name, VePie)
 Vue.component('VularAdmin', VularAdmin)
 Vue.component('VularPage', VularPage)
 Vue.component('VularListPage', VularListPage)
-Vue.component('InquiryListPage', InquiryListPage)
 Vue.component('VularPageHeader', VularPageHeader)
 Vue.component('VularListHead', VularListHead)
 Vue.component('VularListBody', VularListBody)
+Vue.component('InquiryListPage', InquiryListPage)
+Vue.component('ProductListPage', ProductListPage)
+Vue.component('PostListPage', PostListPage)
 
 const routes = [
   //{ path: '/form2', component: VularForm },
   { path: '/', redirect: {name:'theme-settings'} },
   { path: '/dashboard', name:'dashboard', component: Dashboard },
   { path: '/inquiry-list', name:'inquiry-list', component: InquiryListPage },
+  { path: '/post-list', name:'post-list', component: PostListPage },
+  { path: '/product-list', name:'product-list', component: ProductListPage },
   { path: '/theme-settings', name:'theme-settings', component: ThemeSettings },
 ]
 

@@ -6,7 +6,8 @@
     }"
   >
     <VularPageHeader 
-      :title="title" 
+      :title="title"
+      :titleIcon = "titleIcon" 
       @stick="onStick" 
       @heightPercent="onHeightPercent"
       v-model="inputValue.header"
@@ -33,7 +34,8 @@
     components: {
     },
     props: {
-      title : { default: 'untitled'},
+      title : { default: ''},
+      titleIcon:{ default: ''},
       value : { default: ()=>{
         return {
           header:{
