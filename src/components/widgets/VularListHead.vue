@@ -161,7 +161,7 @@
             <v-icon color="primary" class="top-small-button">mdi-dots-horizontal</v-icon>
           </v-btn>
         </template>
-        <v-list :color="$store.state.vularApp.content.card.color">
+        <v-list :color="$store.state.vularApp.content.card.color" class="px-2">
           <v-list-item link>
             <v-list-item-icon>
               <v-icon color="primary">mdi-sale</v-icon>

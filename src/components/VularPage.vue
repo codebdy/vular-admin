@@ -30,7 +30,7 @@
           <v-icon color="primary" class="top-small-button">mdi-dots-horizontal</v-icon>
         </v-btn>
       </template>
-      <v-list>
+      <v-list class="px-2" :color="$store.state.vularApp.content.card.color">
         <v-list-item link>
           <v-list-item-icon>
             <v-icon color="primary">mdi-cloud-print-outline</v-icon>

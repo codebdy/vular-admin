@@ -35,9 +35,41 @@
           <v-btn icon color="primary" v-if="hover">
             <v-icon small>mdi-eye-outline</v-icon>
           </v-btn>
-          <v-btn icon color="primary" >
-            <v-icon small>mdi-dots-horizontal</v-icon>
-          </v-btn>
+          <v-menu offset-y>
+            <template v-slot:activator="{ on }">
+              <v-btn icon color="primary"
+                v-on="on"
+              >
+                <v-icon small>mdi-dots-horizontal</v-icon>
+              </v-btn>
+            </template>
+            <v-list :color="$store.state.vularApp.content.card.color" class="px-2">
+              <v-list-item link>
+                <v-list-item-icon>
+                  <v-icon color="primary">mdi-pencil</v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title>编辑</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item link>
+                <v-list-item-icon>
+                  <v-icon color="primary">mdi-content-copy</v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title>克隆</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item link>
+                <v-list-item-icon>
+                  <v-icon color="primary">mdi-trash-can</v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title>删除</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
+          </v-menu>
         </li>
       </ul>
     </v-hover>
