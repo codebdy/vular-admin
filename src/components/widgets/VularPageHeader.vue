@@ -124,6 +124,17 @@
         return 16 + (this.heightPercent * scale);
       }
     },
+    mounted () {
+      let height = 90
+
+      if(this.$slots['list-head']){
+        height = height + 90
+      }
+      if(this.$slots['list-title']){
+        height = height + 40
+      }
+      this.$emit('headerHeight', height)
+    },
 
     methods: {
       onScroll(e){

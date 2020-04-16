@@ -5,7 +5,7 @@
       'font-family': $store.state.vularApp.content.fontFamily
     }"
   >
-  <VularPageHeader @stick="onStick" :title="'询盘列表'">
+  <VularPageHeader @stick="onStick" :title="'询盘列表'" @headerHeight="onHeaderHeight">
     <v-divider
       class="mx-4"
       inset
@@ -16,14 +16,14 @@
     </div>
     <v-spacer></v-spacer>
     <v-btn rounded color="primary new-button" dark 
-      :small="isStick"
+      :small="header.isStick"
     >
       <v-icon left>mdi-plus</v-icon> 新建
     </v-btn>
     <v-menu offset-y>
       <template v-slot:activator="{ on }">
         <v-btn class="ml-2" fab elevation="0" :color="$store.state.vularApp.content.card.color"
-          :small="!isStick"
+          :small="!header.isStick"
           :x-small="true"
           v-on="on"
        >
@@ -54,19 +54,20 @@
     <template slot='list-head'>
       <VularListHead 
         :schema="listSchema"
-        :isStick = "isStick" 
+        :isStick = "header.isStick" 
       ></VularListHead>
     </template>
     <template slot='list-title'>
       <VularListTitle :schema="listSchema"></VularListTitle>
     </template>
   </VularPageHeader>
-  <v-container fluid style="margin-top: 205px;">
+  <v-container fluid :style="{'margin-top': (header.height + 0) + 'px'}" class="pt-0">
     <v-row
       align="center"
       justify="center"
+      class="pt-0 mt-0"
     >
-      <v-col cols="12">
+      <v-col cols="12" class="pt-0 mt-0">
         <v-card flat  
           style="padding-top:10px;"  
           :color="$store.state.vularApp.content.card.color" 
@@ -100,8 +101,8 @@
       return {
         header:{
           isStick: false,
+          height: 100,
         },
-        isStick: false,
         listSchema:{
           canSelect:true,
           columns:[
@@ -183,8 +184,12 @@
 
     methods: {
       onStick(isStick){
-        this.isStick = isStick
-      }
+        this.header.isStick = isStick
+      },
+
+      onHeaderHeight(height){
+        this.header.height = height
+      },
     },
 
   }
