@@ -1,13 +1,5 @@
 <template>
-  <v-content 
-    :style="{
-      background: $store.state.vularApp.content.color + ' url(' + $store.state.vularApp.content.src +')',
-      'font-family': $store.state.vularApp.content.fontFamily
-    }"
-  >
-    <VularPageHeader @stick="onStick" :title="'主题设置'" :titleIcon="'mdi-compare'">
-    </VularPageHeader>
-    <v-container fluid style="margin-top: 80px;">
+  <VularPage :title="'主题设置'" :titleIcon="'mdi-compare'">
        <v-row
         align="center"
         justify="center"
@@ -306,8 +298,7 @@
           </v-card>
         </v-col>
       </v-row>
-    </v-container>
-  </v-content>
+  </VularPage>
 </template>
 
 <script>
@@ -401,9 +392,6 @@
     },
 
     methods: {
-      onStick(isStick){
-        this.isStick = isStick
-      },
       onThemeClick(theme){
         for(var i = 0; i < this.themes.length; i++){
           let th = this.themes[i]
