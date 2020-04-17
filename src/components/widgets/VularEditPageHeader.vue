@@ -3,7 +3,7 @@
       :style="{ 
         width:'calc(100% - ' + ($vuetify.application.left + $vuetify.application.right) + 'px)' ,
         top:$vuetify.application.top + 'px',
-        //background: $store.state.vularApp.content.color,
+        background: heightPercent < 0.5 ? $store.state.vularApp.content.color : '',
         'box-shadow': isStick ? '2px 2px 5px rgba(0,0,0,0.1)' :'',
       }"
       v-scroll="onScroll"
@@ -11,49 +11,59 @@
       
     >
       <div
-        v-if="heightPercent > 0"
+        v-if="large"
         :color="$store.state.vularApp.content.color"
         :style="{
           height: (heightPercent*30 + 30) + 'px'
         }"
         class="d-flex flex-row align-center"
       >
-        <v-btn text rounded dark class="ml-n4">文章列表</v-btn>
-        <v-icon dark>mdi-chevron-right</v-icon>
-        <v-chip rounded dark color="transparent">{{title}}</v-chip>
+        <v-btn text rounded :dark="dark" class="ml-n4">文章列表</v-btn>
+        <v-icon :dark="dark">mdi-chevron-right</v-icon>
+        <v-chip rounded :dark="dark" color="transparent">{{title}}</v-chip>
       </div>
       <div
         class="d-flex flex-row align-center"
         :style="{
-          height: (heightPercent*30 + 30 + (heightPercent ===0 ? 30 : 0)) + 'px'
+          height: (heightPercent*30 + 40 + (heightPercent ===0 ? 30 : 0)) + 'px'
         }"
       >
-        <v-btn text rounded dark class="ml-n4"
-          v-if="heightPercent == 0"
+      <template
+        v-if="!large && !this.$vuetify.breakpoint.xs"
+      >
+        <v-btn text rounded  class="ml-n4"
         >文章列表</v-btn>
-        <v-icon dark 
-           v-if="heightPercent == 0"
-        >mdi-chevron-right</v-icon>
-        <v-chip rounded dark color="transparent"
-          v-if="heightPercent == 0"
+        <v-icon>mdi-chevron-right</v-icon>
+        <v-chip rounded color="transparent"
         >{{title}}</v-chip>
-        <v-icon dark class="mr-4"
-           v-if="heightPercent == 0"
+        <v-icon class="mr-4"
         >mdi-chevron-right</v-icon>
+        
+      </template>
         <v-text-field
-          dark
+          :dark="dark"
           value="我是一阵风"
           :style="{'font-size': titleFontSize + 'px'}"
         ></v-text-field>
         <v-spacer></v-spacer>
-        <v-btn outlined fab dark small>
+        <v-btn outlined fab 
+          :dark="dark" 
+          :small = "large"
+          :x-small ="!large">
           <v-icon>mdi-dots-horizontal</v-icon>
         </v-btn>
-        <v-btn outlined rounded dark large class="ml-6">
+        <v-btn outlined rounded 
+          :dark="dark" 
+          :large="large" 
+          class="ml-6">
           取消
         </v-btn>
 
-        <v-btn rounded text class="ml-6" large color="primary" 
+        <v-btn rounded 
+          class="ml-6"
+          :text = "dark" 
+          :large="large" 
+          color="primary" 
           :style="{background: $store.state.vularApp.content.card.color}"
         >
           保存
@@ -65,27 +75,35 @@
 <script>
 import VularPageHeader from "./VularPageHeader"
 
-export default {
-  name: "vular-edit-page-header",
-  extends:VularPageHeader,
-  data: () => ({
-  }),
+  export default {
+    name: "vular-edit-page-header",
+    extends:VularPageHeader,
+    data: () => ({
+    }),
+    
+    computed:{
+      baseHeight(){
+        let height = this.maxBaxeHeight - this.topOffset/1.8
+        height = height < this.minBaxeHeight ? this.minBaxeHeight : height
 
-  methods: {
+        return height
+      },
+      large(){
+        return this.heightPercent >= 0.1
+      },
+
+      dark(){
+        return this.heightPercent >= 0.5
+      }
+    },
+
+    methods: {
+    }
   }
-}
 </script>
 
 <style>
   .header-container{
-    overflow: hidden;
-  }
-
-  .header-image{
-    -webkit-filter: blur(20px);
-    -moz-filter: blur(20px);
-    -o-filter: blur(20px);
-    -ms-filter: blur(20px);
-    filter: blur(20px);
+   z-index: 1;
   }
 </style>
