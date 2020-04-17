@@ -24,8 +24,8 @@
           v-for="(column, index) in schema.columns"
           :key="column.field"
           :style="{
-            flex: column.flex,
-            width: column.width,
+            flex: schema.transshape ? '' : column.flex,
+            width: schema.transshape ? '' : column.width,
           }"
           class="py-5"
         >
@@ -35,7 +35,14 @@
           >
             {{column.title}}
           </div>
-          <div>{{row[column.field]}}</div>
+          <div v-if="!row[column.field] || typeof(row[column.field]) == 'string'">
+            {{row[column.field]}}
+          </div>
+          <VularNode
+            v-else
+            :schema = "row[column.field]"
+          >
+          </VularNode>
         </li>
         <li class="list-action"         
         :style="{

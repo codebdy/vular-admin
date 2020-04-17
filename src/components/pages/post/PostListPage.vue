@@ -133,8 +133,7 @@
             {
               field:'avatar',
               title: '',
-              width:'',
-              flex: '1' ,
+              width:'80px',
               //props:[],
             },
             {
@@ -168,13 +167,16 @@
             id:"1",
             avatar : {
               name:"v-avatar",
+              props:{
+                size: '60',
+              },
               children:[
                 {
                   name:"img",
-                  props:{
-                    src:"https://cdn.vuetifyjs.com/images/john.jpg",
+                  attrs:{
+                    src:"/images/4.jpg",
                     alt:"",
-                  }
+                  },
                 },
               ],
             },

@@ -8,6 +8,7 @@ import VePie from 'v-charts/lib/pie.common'
 
 import store from './store'    
 
+import VularNode from './VularNode'
 import VularAdmin from "./components/VularAdmin.vue"
 import VularPage from "./components/VularPage.vue"
 import VularListPage from "./components/VularListPage.vue"
@@ -25,6 +26,7 @@ Vue.use(VueRouter)
 Vue.component(VeLine.name, VeLine)
 Vue.component(VeHistogram.name, VeHistogram)
 Vue.component(VePie.name, VePie)
+Vue.component('VularNode',VularNode);
 Vue.component('VularAdmin', VularAdmin)
 Vue.component('VularPage', VularPage)
 Vue.component('VularListPage', VularListPage)
