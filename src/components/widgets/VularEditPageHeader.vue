@@ -25,7 +25,7 @@
       <div
         class="d-flex flex-row align-center"
         :style="{
-          height: (heightPercent*30 + 40 + (heightPercent ===0 ? 30 : 0)) + 'px'
+          height: (heightPercent*30 + 70) + 'px'
         }"
       >
       <template
@@ -83,7 +83,7 @@ import VularPageHeader from "./VularPageHeader"
     
     computed:{
       baseHeight(){
-        let height = this.maxBaxeHeight - this.topOffset/1.8
+        let height = this.maxBaxeHeight - this.topOffset/2.5
         height = height < this.minBaxeHeight ? this.minBaxeHeight : height
 
         return height
