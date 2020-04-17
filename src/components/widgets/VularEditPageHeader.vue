@@ -67,8 +67,7 @@
 
         <v-btn rounded 
           class="ml-6"
-          :text = "dark" 
-          :large="large" 
+          :large="large"
           color="primary" 
           :style="{background: $store.state.vularApp.content.card.color}"
         >
