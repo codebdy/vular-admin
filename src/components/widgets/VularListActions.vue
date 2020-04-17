@@ -27,7 +27,7 @@
           v-for="(filter, index) in schema.filters"
           v-if="filter.shortcut"
         >
-          {{filter.label}}
+          {{filter.title}}
           <v-menu offset-y>
             <template v-slot:activator="{ on }">
               <v-btn
@@ -38,7 +38,7 @@
                 :small="isStick"
                 v-on="on"
               >
-                {{filter.blankValue === filter.model ? filter.blankLabel : filter.rules[filter.model]}}
+                {{filter.blankValue === filter.model ? filter.blankTitle : filter.rules[filter.model]}}
                 <v-icon right dark>mdi-chevron-down</v-icon>
               </v-btn>
             </template>
@@ -48,7 +48,7 @@
                 @click = "onFilter(filter, filter.blankValue)"
               >
                 <v-list-item-content>
-                  <v-list-item-title>{{filter.blankLabel}}</v-list-item-title>
+                  <v-list-item-title>{{filter.blankTitle}}</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
               <v-list-item link color="primary"
@@ -88,11 +88,11 @@
             >
               <v-subheader 
                 :style="{background: $store.state.vularApp.content.color}">
-              {{filter.label}}
+              {{filter.title}}
               </v-subheader>
               <v-radio-group class="px-3" v-model="filter.model">
                 <v-radio
-                  :label="filter.blankLabel"
+                  :label="filter.blankTitle"
                   :value="filter.blankValue"
                 ></v-radio>
                 <v-radio
@@ -121,7 +121,7 @@
         :key = "action.action"
         :small="isStick"
         >
-        {{action.label}}
+        {{action.title}}
         <v-icon right dark v-text="action.icon"></v-icon>
       </v-btn>
       <v-btn fab elevation="0" class="mx-3"
@@ -152,7 +152,7 @@
               <v-icon color="primary" v-text="action.icon"></v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title>{{action.label}}</v-list-item-title>
+              <v-list-item-title>{{action.title}}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list>
