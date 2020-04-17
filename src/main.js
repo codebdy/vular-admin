@@ -19,6 +19,7 @@ import VularListHead from "./components/widgets/VularListHead"
 import VularListBody from "./components/widgets/VularListBody"
 import InquiryListPage from "./components/pages/inquiry/InquiryListPage"
 import PostListPage from "./components/pages/post/PostListPage"
+import PostEditPage from "./components/pages/post/PostEditPage"
 import ProductListPage from "./components/pages/product/ProductListPage"
 
 Vue.use(VueRouter)
@@ -36,6 +37,7 @@ Vue.component('VularListBody', VularListBody)
 Vue.component('InquiryListPage', InquiryListPage)
 Vue.component('ProductListPage', ProductListPage)
 Vue.component('PostListPage', PostListPage)
+Vue.component('PostEditPage', PostEditPage)
 
 const routes = [
   //{ path: '/form2', component: VularForm },
@@ -43,6 +45,7 @@ const routes = [
   { path: '/dashboard', name:'dashboard', component: Dashboard },
   { path: '/inquiry-list', name:'inquiry-list', component: InquiryListPage },
   { path: '/post-list', name:'post-list', component: PostListPage },
+  { path: '/post-edit', name:'post-edit', component: PostEditPage },
   { path: '/product-list', name:'product-list', component: ProductListPage },
   { path: '/theme-settings', name:'theme-settings', component: ThemeSettings },
 ]

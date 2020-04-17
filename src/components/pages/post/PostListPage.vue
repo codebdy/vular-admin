@@ -3,6 +3,7 @@
     :schema = "schema"
     title = "文章列表"
     v-model = "rows"
+    editPath = "post-edit"
   ></VularListPage>
 </template>
 

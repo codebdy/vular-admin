@@ -12,6 +12,7 @@
       <v-spacer></v-spacer>
       <v-btn rounded color="primary new-button" dark 
         :small="page.header.isStick"
+        :to="editPath"
       >
         <v-icon left>mdi-plus</v-icon> 新建
       </v-btn>
@@ -57,35 +58,33 @@
       ></VularListHead>
     </template>
 
-    <template>
-      <v-row
-        align="center"
-        justify="center"
-        class="pt-0 mt-0"
-      >
-        <v-col cols="12" class="pt-0 mt-0">
-          <v-card flat  
-            style="padding-top:10px;"  
-            :color="$store.state.vularApp.content.card.color" 
-            :style="$store.state.vularApp.content.card.style"
-          >
-            <VularListBody 
-              :schema="schema" 
-              v-model="inputValue"
-            ></VularListBody>
-            <v-card-actions justify="start">
-              <v-pagination
-                :length="15"
-                :total-visible="7"
-                circle
-                color="success"
-              ></v-pagination>
-            </v-card-actions>
+    <v-row
+      align="center"
+      justify="center"
+      class="pt-0 mt-0"
+    >
+      <v-col cols="12" class="pt-0 mt-0">
+        <v-card flat  
+          style="padding-top:10px;"  
+          :color="$store.state.vularApp.content.card.color" 
+          :style="$store.state.vularApp.content.card.style"
+        >
+          <VularListBody 
+            :schema="schema" 
+            v-model="inputValue"
+          ></VularListBody>
+          <v-card-actions justify="start">
+            <v-pagination
+              :length="15"
+              :total-visible="7"
+              circle
+              color="success"
+            ></v-pagination>
+          </v-card-actions>
 
-          </v-card>
-        </v-col>
-      </v-row>
-    </template>    
+        </v-card>
+      </v-col>
+    </v-row>
   </VularPage>
 
 </template>
@@ -102,6 +101,7 @@
       value: {default: ()=>{return []}},
       titleIcon: {default:''},
       title: {default:''},
+      editPath:{default: ''},
     },
     data () {
       return {

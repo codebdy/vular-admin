@@ -52,6 +52,13 @@
       </v-btn>
       <VularNotifications></VularNotifications>
       <VularAppbarProfile></VularAppbarProfile>
+
+      <template v-slot:extension>
+        <v-tabs align-with-title>
+          <v-tab>文章列表</v-tab>
+          <v-tab>新建文章</v-tab>
+        </v-tabs>
+      </template>
     </v-app-bar>
 
     <router-view/>

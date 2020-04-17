@@ -1,13 +1,5 @@
 <template>
-  <v-content 
-    :style="{
-      background: $store.state.vularApp.content.color + ' url(' + $store.state.vularApp.content.src +')',
-      'font-family': $store.state.vularApp.content.fontFamily
-    }"
-  >
-    <VularPageHeader @stick="onStick" :title="'仪表盘'" :titleIcon="'mdi-speedometer'">
-    </VularPageHeader>
-    <v-container fluid>
+  <VularPage :title="'仪表盘'" :titleIcon="'mdi-speedometer'" v-model="page">
         <v-row
         justify="start"
       >
@@ -88,8 +80,8 @@
           </v-card>
         </v-col>
       </v-row>
-    </v-container>
-  </v-content>
+
+  </VularPage>
 </template>
 
 <script>
@@ -109,21 +101,13 @@
     },
     data () {
       return {
-        isStick:false,
-        drawers: [
-          {
-            'value':'default (no property)',
-            'text':'Default (no property)'
-          }, 
-          {
-            'value':'permanent',
-            'text':'Permanent'
-          }, 
-          {
-            'value':'temporary',
-            'text':'Temporary'
-          }, 
-        ],
+        page:{
+          header:{
+            isStick: false,
+            listHeaderHeight: '',
+            heightPercent: 1,
+          },
+        },
       }
     },
     computed:{
@@ -131,9 +115,6 @@
 
 
     methods: {
-      onStick(isStick){
-        this.isStick = isStick
-      }
     },
   }
 </script>
