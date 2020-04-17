@@ -51,7 +51,7 @@
           rowActions:[
             {
               icon: 'mdi-eye-outline',
-              title: '隐藏',
+              title: '查看',
               shortcut: true,
               action:'action_id1',
             },
