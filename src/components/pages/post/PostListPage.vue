@@ -141,14 +141,14 @@
               field:'title',
               title: '标题',
               width:'',
-              flex: '1' ,
+              flex: '4' ,
               //props:[],
             },
             {
               field:'date',
               title: '更新时间',
               width:'',
-              flex: '1' ,
+              flex: '2' ,
               //props:[],
             },
             {

@@ -43,6 +43,7 @@
           <v-tooltip top
             v-for="(action, index) in schema.rowActions"
             v-if="hover && action.shortcut"
+            :key="index"
           >
             <template v-slot:activator="{ on }">
               <v-btn icon color="primary" 
