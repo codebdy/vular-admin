@@ -13,7 +13,6 @@
           left : $vuetify.application.left + 'px',
           height : headerImageHeight,
           top : headerImageTop + 'px',
-          opacity : inputValue.header.heightPercent,
         }" 
       >
         <div style=" background-image:url(/images/a1.jpg); " class="header-image"

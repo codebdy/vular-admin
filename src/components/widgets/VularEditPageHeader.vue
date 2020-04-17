@@ -3,13 +3,19 @@
       :style="{ 
         width:'calc(100% - ' + ($vuetify.application.left + $vuetify.application.right) + 'px)' ,
         top:$vuetify.application.top + 'px',
-        background: heightPercent < 0.5 ? $store.state.vularApp.content.color : '',
         'box-shadow': isStick ? '2px 2px 5px rgba(0,0,0,0.1)' :'',
       }"
       v-scroll="onScroll"
       class="py-0 header-container"
       
     >
+      <div style="position: absolute;top:0;left: 0; width: 100%;height: 100%;"
+        :style="{ 
+          background: $store.state.vularApp.content.color,
+          opacity : 1 - heightPercent,
+        }"
+      >
+      </div>
       <div
         v-if="large"
         :color="$store.state.vularApp.content.color"
