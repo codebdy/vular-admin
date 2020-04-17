@@ -8,8 +8,14 @@
       }"
       v-scroll="onScroll"
       class="py-0 header-container"
-      
     >
+      <div class="header-mask"
+        :style="{ 
+          background: $store.state.vularApp.content.color,
+          opacity: 1 - heightPercent,
+        }"
+      >
+      </div>
       <div
         v-if="large"
         :color="$store.state.vularApp.content.color"
@@ -104,6 +110,14 @@ import VularPageHeader from "./VularPageHeader"
 
 <style>
   .header-container{
-   z-index: 1;
+    z-index: 1;
+  }
+
+  .header-mask{
+    position: absolute;
+    top:0;
+    left: 0; 
+    width: 100%;
+    height: calc(100% + 7px);
   }
 </style>

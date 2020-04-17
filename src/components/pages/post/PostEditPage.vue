@@ -22,9 +22,34 @@
           </div>
         </div>
       </div>
-      <v-container fluid style="height: 1000px; margin-top:220px;">
+      <v-container fluid style="height: 1000px; margin-top:150px;">
         <v-row>
-          
+          <v-col
+            cols="12"
+            md="8"
+          >
+            <v-card
+              class="pa-2"
+              flat
+              style="height: 500px;"
+              :color="$store.state.vularApp.content.card.color" 
+              :style="$store.state.vularApp.content.card.style"
+            >
+            </v-card>
+          </v-col>          
+          <v-col
+            cols="12"
+            md="4"
+          >
+            <v-card
+              class="pa-2"
+              flat
+              style="height: 500px;"
+              :color="$store.state.vularApp.content.card.color" 
+              :style="$store.state.vularApp.content.card.style"
+            >
+            </v-card>
+          </v-col>          
         </v-row>
       </v-container>
   </v-content>
