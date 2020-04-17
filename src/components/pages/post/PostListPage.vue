@@ -144,6 +144,13 @@
               //props:[],
             },
             {
+              field:'author',
+              title: '作者',
+              width:'',
+              flex: '2' ,
+              //props:[],
+            },
+            {
               field:'date',
               title: '更新时间',
               width:'',
@@ -181,20 +188,73 @@
               ],
             },
             title : '随随便便吹过一阵风', 
-            email : 'Li@vular.cn', 
-            company : 'Vular soft',
+            author : '无敌坤',
+            date : '2020-5-4 18:22', 
+            status : {
+              name: "v-chip",
+              props:{
+                small:"true",
+                color:"primary"
+              },
+              text: "编辑中",
+            },
           },
           {
-            id:"2",
-            name : 'Margin Wang', 
-            email : 'Li@tianbupa.com', 
-            company : '小火星'
+            avatar : {
+              name:"v-avatar",
+              props:{
+                size: '60',
+              },
+              children:[
+                {
+                  name:"img",
+                  attrs:{
+                    src:"/images/4.jpg",
+                    alt:"",
+                  },
+                },
+              ],
+            },
+            title : '随随便便吹过一阵风', 
+            author : '小熊熊',
+            date : '2020-5-4 18:22', 
+            status : {
+              name: "v-chip",
+              props:{
+                small:"true",
+                color:"red",
+                dark:true,
+              },
+              text: "待审核",
+            },
           },
           {
             id:"3",
-            name : 'Padding 赵', 
-            email : 'Li@dibupa.com', 
-            company : '大太阳'
+            avatar : {
+              name:"v-avatar",
+              props:{
+                size: '60',
+              },
+              children:[
+                {
+                  name:"img",
+                  attrs:{
+                    src:"/images/4.jpg",
+                    alt:"",
+                  },
+                },
+              ],
+            },
+            title : '随随便便吹过一阵风', 
+            author : '孙悟空',
+            date : '2020-5-4 18:22', 
+            status : {
+              name: "v-chip",
+              props:{
+                small:"true",
+              },
+              text: "已发布",
+            },
           },
           {
             id:"4",

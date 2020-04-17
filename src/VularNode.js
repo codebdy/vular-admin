@@ -155,6 +155,9 @@ export default {
   render: function (createElement) {
     const self = this
     const children = [];
+    if(self.schema.text){
+      children.push(self.schema.text)
+    }
     if(self.schema.children){
       self.schema.children.forEach(function (com) {
         if(com){
