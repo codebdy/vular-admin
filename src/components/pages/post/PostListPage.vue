@@ -187,13 +187,13 @@
                 },
               ],
             },
-            title : '随随便便吹过一阵风', 
+            title : 'Vular是迄今为止最棒的应用框架', 
             author : '无敌坤',
             date : '2020-5-4 18:22', 
             status : {
               name: "v-chip",
               props:{
-                small:"true",
+                small:true,
                 color:"primary"
               },
               text: "编辑中",
@@ -215,13 +215,13 @@
                 },
               ],
             },
-            title : '随随便便吹过一阵风', 
+            title : '如果有一天，世界上最后一只熊消失，那么人们会想念他们吗？', 
             author : '小熊熊',
             date : '2020-5-4 18:22', 
             status : {
               name: "v-chip",
               props:{
-                small:"true",
+                small:true,
                 color:"red",
                 dark:true,
               },
@@ -245,13 +245,13 @@
                 },
               ],
             },
-            title : '随随便便吹过一阵风', 
+            title : '疫情过后，一切依旧笑春风', 
             author : '孙悟空',
             date : '2020-5-4 18:22', 
             status : {
               name: "v-chip",
               props:{
-                small:"true",
+                small:true,
               },
               text: "已发布",
             },
@@ -279,7 +279,7 @@
             status : {
               name: "v-chip",
               props:{
-                small:"true",
+                small:true,
               },
               text: "已发布",
             },
@@ -307,7 +307,7 @@
             status : {
               name: "v-chip",
               props:{
-                small:"true",
+                small:true,
               },
               text: "已发布",
             },
@@ -335,7 +335,7 @@
             status : {
               name: "v-chip",
               props:{
-                small:"true",
+                small:true,
               },
               text: "已发布",
             },
@@ -363,7 +363,7 @@
             status : {
               name: "v-chip",
               props:{
-                small:"true",
+                small:true,
               },
               text: "已发布",
             },
@@ -391,7 +391,7 @@
             status : {
               name: "v-chip",
               props:{
-                small:"true",
+                small:true,
               },
               text: "已发布",
             },
@@ -419,7 +419,7 @@
             status : {
               name: "v-chip",
               props:{
-                small:"true",
+                small:true,
               },
               text: "已发布",
             },
@@ -447,7 +447,7 @@
             status : {
               name: "v-chip",
               props:{
-                small:"true",
+                small:true,
               },
               text: "已发布",
             },
@@ -475,7 +475,7 @@
             status : {
               name: "v-chip",
               props:{
-                small:"true",
+                small:true,
               },
               text: "已发布",
             },
