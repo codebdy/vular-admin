@@ -40,18 +40,19 @@
             width: !schema.transshape ? schema.actionsColumn.width :'',
           }"
         >
-          <v-tooltip top>
+          <v-tooltip top
+            v-for="(action, index) in schema.rowActions"
+            v-if="hover && action.shortcut"
+          >
             <template v-slot:activator="{ on }">
               <v-btn icon color="primary" 
-                v-for="(action, index) in schema.rowActions"
-                v-if="hover && action.shortcut"
-                :key = "action.id"
                 v-on="on"
+                :key = "action.id"
               >
                 <v-icon small v-text="action.icon"></v-icon>
               </v-btn>
             </template>
-            <span>action.title</span>
+            <span>{{action.title}}</span>
           </v-tooltip>
           <v-menu offset-y>
             <template v-slot:activator="{ on }">
@@ -71,7 +72,7 @@
                   <v-icon color="primary" v-text="action.icon"></v-icon>
                 </v-list-item-icon>
                 <v-list-item-content>
-                  <v-list-item-title>{{action.title}}</v-list-item-title>
+                  <v-list-item-title>{{action.label}}</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
             </v-list>
@@ -129,7 +130,6 @@
     align-items: center;
     padding-right:20px;
     word-break:break-all;
-    cursor: pointer;
   }
 
   .vular-list-body .list-action{
