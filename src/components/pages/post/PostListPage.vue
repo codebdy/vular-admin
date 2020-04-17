@@ -50,16 +50,16 @@
           ],
           rowActions:[
             {
-              icon: 'mdi-eye-outline',
-              title: '隐藏',
-              shortcut: true,
-              action:'action_id1',
-            },
-            {
               icon: 'mdi-pencil',
               title: '编辑',
-              shortcut: false,
+              shortcut: true,
               action:'action_id2',
+            },
+            {
+              icon: 'mdi-eye-outline',
+              title: '隐藏',
+              shortcut: false,
+              action:'action_id1',
             },
             {
               icon: 'mdi-content-copy',

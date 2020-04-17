@@ -72,7 +72,7 @@
                   <v-icon color="primary" v-text="action.icon"></v-icon>
                 </v-list-item-icon>
                 <v-list-item-content>
-                  <v-list-item-title>{{action.label}}</v-list-item-title>
+                  <v-list-item-title>{{action.title}}</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
             </v-list>
