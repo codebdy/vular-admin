@@ -6,10 +6,12 @@
       v-slot:default="{ hover }"
     >
       <ul class="px-6"
-        :style = "{
-          'border-bottom': $store.state.vularApp.content.color + ' solid 1px',
-          background: hover ? 'rgba(0, 0, 255, 0.1)' : ''
-        }"
+        :style = "Object.assign({
+            'border-bottom': $store.state.vularApp.content.color + ' solid 1px',
+            background: hover ? 'rgba(0, 0, 255, 0.1)' : ''
+          },
+          row['vular-styles']
+        )"
 
         :class="schema.transshape ? 'vular-list-body-small' : 'vular-list-body'"
       >

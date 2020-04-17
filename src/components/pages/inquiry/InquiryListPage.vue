@@ -162,6 +162,9 @@
             name : 'Martin Li', 
             email : 'Li@vular.cn', 
             company : 'Vular soft',
+            "vular-styles": {
+              "font-weight":"bold",
+            }
           },
           {
             id:"2",

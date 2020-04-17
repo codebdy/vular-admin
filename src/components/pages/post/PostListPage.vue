@@ -166,6 +166,18 @@
         rows:[
           {
             id:"1",
+            avatar : {
+              name:"v-avatar",
+              children:[
+                {
+                  name:"img",
+                  props:{
+                    src:"https://cdn.vuetifyjs.com/images/john.jpg",
+                    alt:"",
+                  }
+                },
+              ],
+            },
             title : '随随便便吹过一阵风', 
             email : 'Li@vular.cn', 
             company : 'Vular soft',
