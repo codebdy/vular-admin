@@ -13,16 +13,19 @@
           left : $vuetify.application.left + 'px',
           height : headerImageHeight,
           top : headerImageTop + 'px',
+          opacity:inputValue.header.heightPercent,
         }" 
       >
         <div style=" background-image:url(/images/a1.jpg); " class="header-image"
         >
-          <div class="header-image-mask"
-          >
+          <div class="header-image-mask">
           </div>
         </div>
       </div>
-      <v-container fluid style="height: 1000px; position: relative; margin-top:500px;background: #FFF">
+      <v-container fluid style="height: 1000px; margin-top:220px;">
+        <v-row>
+          
+        </v-row>
       </v-container>
   </v-content>
 </template>
