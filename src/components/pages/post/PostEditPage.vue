@@ -27,7 +27,6 @@
     computed:{
     },
 
-
     methods: {
       onStick(isStick){
         this.isStick = isStick

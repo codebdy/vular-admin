@@ -8,7 +8,7 @@ Vue.use(Vuex)
 export default 
 new Vuex.Store({
   state:{
-      vularApp: JSON.parse(JSON.stringify(defaultTheme)),
+    vularApp: JSON.parse(JSON.stringify(defaultTheme)),
   },
 
  
