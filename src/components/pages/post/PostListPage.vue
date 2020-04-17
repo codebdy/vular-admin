@@ -181,7 +181,7 @@
                 {
                   name:"img",
                   attrs:{
-                    src:"/images/4.jpg",
+                    src:"/images/a1.jpg",
                     alt:"",
                   },
                 },
@@ -209,7 +209,7 @@
                 {
                   name:"img",
                   attrs:{
-                    src:"/images/4.jpg",
+                    src:"/images/a2.jpg",
                     alt:"",
                   },
                 },
@@ -239,7 +239,7 @@
                 {
                   name:"img",
                   attrs:{
-                    src:"/images/4.jpg",
+                    src:"/images/a3.jpg",
                     alt:"",
                   },
                 },
@@ -258,51 +258,227 @@
           },
           {
             id:"4",
-            name : 'Padding 赵', 
-            email : 'Li@dibupa.com', 
-            company : '大太阳'
+            avatar : {
+              name:"v-avatar",
+              props:{
+                size: '60',
+              },
+              children:[
+                {
+                  name:"img",
+                  attrs:{
+                    src:"/images/a4.jpg",
+                    alt:"",
+                  },
+                },
+              ],
+            },
+            title : '随随便便吹过一阵风', 
+            author : '孙悟空',
+            date : '2020-5-4 18:22', 
+            status : {
+              name: "v-chip",
+              props:{
+                small:"true",
+              },
+              text: "已发布",
+            },
           },
           {
             id:"5",
-            name : 'Padding 赵', 
-            email : 'Li@dibupa.com', 
-            company : '大太阳'
+            avatar : {
+              name:"v-avatar",
+              props:{
+                size: '60',
+              },
+              children:[
+                {
+                  name:"img",
+                  attrs:{
+                    src:"/images/a5.jpg",
+                    alt:"",
+                  },
+                },
+              ],
+            },
+            title : '随随便便吹过一阵风', 
+            author : '孙悟空',
+            date : '2020-5-4 18:22', 
+            status : {
+              name: "v-chip",
+              props:{
+                small:"true",
+              },
+              text: "已发布",
+            },
           },
           {
             id:"6",
-            name : 'Padding 赵', 
-            email : 'Li@dibupa.com', 
-            company : '大太阳'
+            avatar : {
+              name:"v-avatar",
+              props:{
+                size: '60',
+              },
+              children:[
+                {
+                  name:"img",
+                  attrs:{
+                    src:"/images/a6.jpg",
+                    alt:"",
+                  },
+                },
+              ],
+            },
+            title : '随随便便吹过一阵风', 
+            author : '孙悟空',
+            date : '2020-5-4 18:22', 
+            status : {
+              name: "v-chip",
+              props:{
+                small:"true",
+              },
+              text: "已发布",
+            },
           },
           {
             id:"7",
-            name : 'Padding 赵', 
-            email : 'Li@dibupa.com', 
-            company : '大太阳'
+            avatar : {
+              name:"v-avatar",
+              props:{
+                size: '60',
+              },
+              children:[
+                {
+                  name:"img",
+                  attrs:{
+                    src:"/images/a1.jpg",
+                    alt:"",
+                  },
+                },
+              ],
+            },
+            title : '随随便便吹过一阵风', 
+            author : '孙悟空',
+            date : '2020-5-4 18:22', 
+            status : {
+              name: "v-chip",
+              props:{
+                small:"true",
+              },
+              text: "已发布",
+            },
           },
           {
             id:"8",
-            name : 'Padding 赵', 
-            email : 'Li@dibupa.com', 
-            company : '大太阳'
+            avatar : {
+              name:"v-avatar",
+              props:{
+                size: '60',
+              },
+              children:[
+                {
+                  name:"img",
+                  attrs:{
+                    src:"/images/a2.jpg",
+                    alt:"",
+                  },
+                },
+              ],
+            },
+            title : '随随便便吹过一阵风', 
+            author : '孙悟空',
+            date : '2020-5-4 18:22', 
+            status : {
+              name: "v-chip",
+              props:{
+                small:"true",
+              },
+              text: "已发布",
+            },
           },
           {
             id:"9",
-            name : 'Padding 赵', 
-            email : 'Li@dibupa.com', 
-            company : '大太阳'
+            avatar : {
+              name:"v-avatar",
+              props:{
+                size: '60',
+              },
+              children:[
+                {
+                  name:"img",
+                  attrs:{
+                    src:"/images/a4.jpg",
+                    alt:"",
+                  },
+                },
+              ],
+            },
+            title : '随随便便吹过一阵风', 
+            author : '孙悟空',
+            date : '2020-5-4 18:22', 
+            status : {
+              name: "v-chip",
+              props:{
+                small:"true",
+              },
+              text: "已发布",
+            },
           },
           {
             id:"10",
-            name : 'Padding 赵', 
-            email : 'Li@dibupa.com', 
-            company : '大太阳'
+            avatar : {
+              name:"v-avatar",
+              props:{
+                size: '60',
+              },
+              children:[
+                {
+                  name:"img",
+                  attrs:{
+                    src:"/images/a5.jpg",
+                    alt:"",
+                  },
+                },
+              ],
+            },
+            title : '随随便便吹过一阵风', 
+            author : '孙悟空',
+            date : '2020-5-4 18:22', 
+            status : {
+              name: "v-chip",
+              props:{
+                small:"true",
+              },
+              text: "已发布",
+            },
           },
           {
             id:"11",
-            name : 'Padding 赵', 
-            email : 'Li@dibupa.com', 
-            company : '大太阳'
+            avatar : {
+              name:"v-avatar",
+              props:{
+                size: '60',
+              },
+              children:[
+                {
+                  name:"img",
+                  attrs:{
+                    src:"/images/a6.jpg",
+                    alt:"",
+                  },
+                },
+              ],
+            },
+            title : '随随便便吹过一阵风', 
+            author : '孙悟空',
+            date : '2020-5-4 18:22', 
+            status : {
+              name: "v-chip",
+              props:{
+                small:"true",
+              },
+              text: "已发布",
+            },
           },
         ]
         
