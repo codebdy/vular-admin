@@ -102,6 +102,6 @@
     width: 120%;
     height: 100%; 
     opacity: 0.5; 
-    background-image: linear-gradient(257deg,#b6aaae,#79abb5 71%,#b9b1aa);
+    background-image: linear-gradient(257deg,#7f7679,#79abb5 71%,#b9b1aa);
   }
 </style>
