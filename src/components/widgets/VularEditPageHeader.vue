@@ -88,12 +88,6 @@ import VularPageHeader from "./VularPageHeader"
     }),
     
     computed:{
-      baseHeight(){
-        let height = this.maxBaxeHeight - this.topOffset/2.5
-        height = height < this.minBaxeHeight ? this.minBaxeHeight : height
-
-        return height
-      },
       large(){
         return this.heightPercent >= 0.1
       },

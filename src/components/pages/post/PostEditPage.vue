@@ -35,6 +35,16 @@
               :color="$store.state.vularApp.content.card.color" 
               :style="$store.state.vularApp.content.card.style"
             >
+              <v-toolbar flat color="transparent">
+                <v-toolbar-title>图片&视频</v-toolbar-title>
+
+                <v-spacer></v-spacer>
+
+                <v-btn icon color="primary">
+                  <v-icon>mdi-dots-horizontal</v-icon>
+                </v-btn>
+              </v-toolbar>
+              <v-divider></v-divider>
             </v-card>
           </v-col>          
           <v-col
