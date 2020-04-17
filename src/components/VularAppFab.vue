@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: "VularAppFab",
+  name: "vular-app-fab",
 
   data: () => ({
     fab: false

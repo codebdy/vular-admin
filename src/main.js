@@ -15,12 +15,13 @@ import VularListPage from "./components/VularListPage.vue"
 import ThemeSettings from "./components/pages/theme/ThemeSettings"
 import Dashboard from "./components/pages/dashboard/Dashboard"
 import VularPageHeader from "./components/widgets/VularPageHeader"
+import VularEditPageHeader from "./components/widgets/VularEditPageHeader"
 import VularListHead from "./components/widgets/VularListHead"
 import VularListBody from "./components/widgets/VularListBody"
 import InquiryListPage from "./components/pages/inquiry/InquiryListPage"
 import PostListPage from "./components/pages/post/PostListPage"
 import PostEditPage from "./components/pages/post/PostEditPage"
-import ProductListPage from "./components/pages/product/ProductListPage"
+import ProductModule from "./components/pages/product/ProductModule"
 
 Vue.use(VueRouter)
 
@@ -32,10 +33,11 @@ Vue.component('VularAdmin', VularAdmin)
 Vue.component('VularPage', VularPage)
 Vue.component('VularListPage', VularListPage)
 Vue.component('VularPageHeader', VularPageHeader)
+Vue.component('VularEditPageHeader', VularEditPageHeader)
 Vue.component('VularListHead', VularListHead)
 Vue.component('VularListBody', VularListBody)
 Vue.component('InquiryListPage', InquiryListPage)
-Vue.component('ProductListPage', ProductListPage)
+Vue.component('ProductModule', ProductModule)
 Vue.component('PostListPage', PostListPage)
 Vue.component('PostEditPage', PostEditPage)
 
@@ -46,7 +48,7 @@ const routes = [
   { path: '/inquiry-list', name:'inquiry-list', component: InquiryListPage },
   { path: '/post-list', name:'post-list', component: PostListPage },
   { path: '/post-edit', name:'post-edit', component: PostEditPage },
-  { path: '/product-list', name:'product-list', component: ProductListPage },
+  { path: '/product-list', name:'product-list', component: ProductModule },
   { path: '/theme-settings', name:'theme-settings', component: ThemeSettings },
 ]
 
