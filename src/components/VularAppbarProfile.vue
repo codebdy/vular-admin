@@ -8,10 +8,11 @@
       </v-btn>
     </template>
     <v-list>
-      <v-list-item-group v-model="item" color="primary">
+      <v-list-item-group color="primary">
         <v-list-item
           v-for="(item, i) in items"
           :key="i"
+          :to="item.to"
         >
           <v-list-item-icon>
             <v-icon v-text="item.icon"></v-icon>
@@ -30,11 +31,10 @@ export default {
   name: 'vular-appbar-profile',
   data () {
     return {
-      item: 1,
       items: [
         { text: '个人信息', icon: 'mdi-account' },
         { text: '修改密码', icon: 'mdi-lock-open-outline' },
-        { text: '退出', icon: 'mdi-logout' },
+        { text: '退出', icon: 'mdi-logout' , to:"login",},
       ],      
     }
   },
