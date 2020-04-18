@@ -23,7 +23,7 @@
           </div>
         </div>
       </div>
-      <v-container fluid style="height: 1000px; margin-top:150px;">
+      <v-container fluid style="margin-top:150px;">
         <v-row>
           <v-col
             cols="12"
@@ -32,7 +32,6 @@
             <v-card
               class="pa-2"
               flat
-              style="height: 500px;"
               :color="$store.state.vularApp.content.card.color" 
               :style="$store.state.vularApp.content.card.style"
             >
@@ -46,7 +45,103 @@
                 </v-btn>
               </v-toolbar>
               <v-divider></v-divider>
+              <v-card-text>
+                <v-row>
+                  <v-col
+                    cols="12"
+                    md="4"
+                    xs="6"
+                  >
+                    <v-img
+                        :src="`https://picsum.photos/500/300?image=${30 * 5 + 10}`"
+                        :lazy-src="`https://picsum.photos/10/6?image=${30 * 5 + 10}`"
+                        aspect-ratio="1"
+                        class="grey lighten-2"
+                      >
+                    </v-img>
+                   
+                  </v-col>
+                  <v-col
+                    cols="12"
+                    md="8"
+                    xs="6"
+                  >
+                    <v-row>
+                      <v-col
+                        v-for="n in 8"
+                        :key="n"
+                        cols="12"
+                        md="3"
+                      >
+                          <v-img
+                            :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"
+                            :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`"
+                            aspect-ratio="1"
+                            class="grey lighten-2"
+                          >
+                            <template v-slot:placeholder>
+                              <v-row
+                                class="fill-height ma-0"
+                                align="center"
+                                justify="center"
+                              >
+                                <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+                              </v-row>
+                            </template>
+                          </v-img>
+                      </v-col>
+
+                    </v-row>
+                  </v-col>
+                  <v-col
+                    v-for="n in 10"
+                    :key="n"
+                    class="d-flex child-flex"
+                    cols="12"
+                    md="2"
+                  >
+                      <v-img
+                        :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"
+                        :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`"
+                        aspect-ratio="1"
+                        class="grey lighten-2"
+                      >
+                        <template v-slot:placeholder>
+                          <v-row
+                            class="fill-height ma-0"
+                            align="center"
+                            justify="center"
+                          >
+                            <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+                          </v-row>
+                        </template>
+                      </v-img>
+                  </v-col>
+                </v-row>
+
+              </v-card-text>
             </v-card>
+
+            <v-card
+              class="pa-2 mt-5"
+              flat
+              style="height: 500px;"
+              :color="$store.state.vularApp.content.card.color" 
+              :style="$store.state.vularApp.content.card.style"
+
+            >
+              <v-toolbar flat color="transparent">
+                <v-toolbar-title>基本信息</v-toolbar-title>
+
+                <v-spacer></v-spacer>
+
+                <v-btn icon>
+                  <v-icon>mdi-chevron-up</v-icon>
+                </v-btn>
+              </v-toolbar>
+              <v-divider></v-divider>
+            </v-card>
+
           </v-col>          
           <v-col
             cols="12"
@@ -59,6 +154,16 @@
               :color="$store.state.vularApp.content.card.color" 
               :style="$store.state.vularApp.content.card.style"
             >
+              <v-toolbar flat color="transparent">
+                <v-toolbar-title>属性</v-toolbar-title>
+
+                <v-spacer></v-spacer>
+
+                <v-btn icon>
+                  <v-icon>mdi-chevron-down</v-icon>
+                </v-btn>
+              </v-toolbar>
+              <v-divider></v-divider>
             </v-card>
           </v-col>          
         </v-row>
