@@ -11,5 +11,10 @@
   	"videos" : "视频",
     "edit-alt" : "编辑图片Alt文本",
     "remove-all" : "删除所有图片和视频"
+  },
+
+  "debug":{
+    "debug":"调试",
+    "slogan" : "抓虫工作，其乐无穷"
   }
 }

@@ -11,5 +11,10 @@
     "videos" : "Videos",
     "edit-alt" : "Edit Alt Text for Images",
     "remove-all" : "Remove All Images & Videos"
+  },
+
+  "debug":{
+    "debug":"Debug",
+    "slogan" : "Find a bug is funny"
   }
 }

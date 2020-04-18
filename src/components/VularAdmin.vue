@@ -75,10 +75,10 @@
           <v-btn icon dark @click="debug = false">
             <v-icon>mdi-close</v-icon>
           </v-btn>
-          <v-toolbar-title>Debug</v-toolbar-title>
+          <v-toolbar-title>{{$t('debug.debug')}}</v-toolbar-title>
+          <v-subheader>{{$t('debug.slogan')}}</v-subheader>
           <v-spacer></v-spacer>
           <v-toolbar-items>
-            <v-btn dark text @click="debug = false">Save</v-btn>
           </v-toolbar-items>
         </v-toolbar>
         <v-list three-line subheader>
