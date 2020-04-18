@@ -12,14 +12,26 @@
 
       <v-spacer></v-spacer>
 
-      <v-menu offset-y top>
+      <v-menu offset-y top v-model="menu">
         <template v-slot:activator="{ on }">
           <v-btn icon color="primary" v-on="on">
             <v-icon>mdi-dots-horizontal</v-icon>
           </v-btn>
         </template>
         <v-list class="px-2" :color="$store.state.vularApp.content.card.color">
-          <AltDialog></AltDialog>
+          <v-dialog v-model="altDialog" scrollable tile max-width="600px">
+            <template v-slot:activator="{ on }">
+              <v-list-item link v-on="on">
+                <v-list-item-icon>
+                  <v-icon color="primary">mdi-text-recognition</v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title>{{$t('media.edit-alt')}}</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </template>
+            <AltDialog @close="altDialog = false"></AltDialog>
+            </v-dialog>
           <v-list-item link>
             <v-list-item-icon>
               <v-icon color="primary">mdi-delete-sweep-outline</v-icon>
@@ -46,7 +58,7 @@
               :src="`https://picsum.photos/500/300?image=${20 * 5 + 10}`"
               :lazy-src="`https://picsum.photos/10/6?image=${20 * 5 + 10}`"
               aspect-ratio="1"
-              class="grey lighten-2"
+              style="border-radius: 5px"
             >
           </v-img>
          
@@ -68,7 +80,7 @@
                   :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"
                   :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`"
                   aspect-ratio="1"
-                  class="grey lighten-2"
+                  style="border-radius: 5px"
                 >
                   <template v-slot:placeholder>
                     <v-row
@@ -96,7 +108,7 @@
               :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"
               :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`"
               aspect-ratio="1"
-              class="grey lighten-2"
+              class="media-thubnail-rounded"
             >
               <template v-slot:placeholder>
                 <v-row
@@ -124,9 +136,22 @@ export default {
   },
 
   data: () => ({
+    menu:false,
+    altDialog:false,
   }),
 
   methods: {
+  },
+
+  watch:{
+    altDialog(val){
+      if(val){
+        this.menu = false
+      }
+    }
   }
 }
 </script>
+
+<style>
+</style>

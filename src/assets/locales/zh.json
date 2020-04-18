@@ -7,10 +7,11 @@
   },
 
   "media":{
-  	"images" : "图片",
-  	"videos" : "视频",
+    "images" : "图片",
+    "videos" : "视频",
     "edit-alt" : "编辑图片Alt文本",
     "remove-all" : "删除所有图片和视频",
+    "alt-tips" : "为图片添加Alt文本， 以提高在搜索引擎中的表现，注意每个图片的文本是唯一的。",
     "cancel" : "取消",
     "confirm" : "确定"
   },
