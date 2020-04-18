@@ -49,14 +49,13 @@
       <v-row no-gutters>
         <v-col
           cols="12"
-          md="4"
+          sm="4"
           xs="6"
-
           style="padding:10px;"
         >
           <v-img
-              :src="`https://picsum.photos/500/300?image=${20 * 5 + 10}`"
-              :lazy-src="`https://picsum.photos/10/6?image=${20 * 5 + 10}`"
+              :src="`/images/pics/110-500x300.jpg`"
+              :lazy-src="`/images/pics/110-500x300.jpg`"
               aspect-ratio="1"
               style="border-radius: 5px"
             >
@@ -65,7 +64,7 @@
         </v-col>
         <v-col
           cols="12"
-          md="8"
+          sm="8"
           xs="6"
         >
           <v-row no-gutters>
@@ -73,12 +72,13 @@
               v-for="n in 8"
               :key="n"
               cols="12"
-              md="3"
+              sm="3"
+              xs="4"
               style="padding:10px;"
             >
                 <v-img
-                  :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"
-                  :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`"
+                  :src="`/images/pics/11${n+1}-500x300.jpg`"
+                  :lazy-src="`/images/pics/11${n+1}-500x300.jpg`"
                   aspect-ratio="1"
                   style="border-radius: 5px"
                 >
@@ -99,11 +99,11 @@
         <v-col
           class="d-flex child-flex"
           cols="12"
-          md="2"
+          sm="2"
           style="padding:10px;"
         >
-          <v-img aspect-ratio="1"" style="border:solid 1px;">
-           
+          <v-img aspect-ratio="1" class="new-image-placeholder">
+            <div class="add-icon"></div>
           </v-img>
         </v-col>
       </v-row>
@@ -114,29 +114,64 @@
 
 <script>
 import AltDialog from "./AltDialog.vue"
-export default {
-  name: "vular-media-select",
-  components: {
-    AltDialog
-  },
+  export default {
+    name: "vular-media-select",
+    components: {
+      AltDialog
+    },
+    props: {
+      small: { default: false },
+    },
 
-  data: () => ({
-    menu:false,
-    altDialog:false,
-  }),
+    data: () => ({
+      menu:false,
+      altDialog:false,
+    }),
 
-  methods: {
-  },
+    methods: {
+    },
 
-  watch:{
-    altDialog(val){
-      if(val){
-        this.menu = false
+    watch:{
+      altDialog(val){
+        if(val){
+          this.menu = false
+        }
       }
     }
   }
-}
 </script>
 
 <style>
+  .new-image-placeholder{
+    background: rgba(0,0,255, 0.1);
+    padding:10px;
+    cursor: pointer;
+  }
+
+  .add-icon{
+    width: 100%;
+    height: 100%;
+    border: rgba(0,0,255, 0.3) dashed 1px;
+    position: relative;
+  }
+
+  .add-icon::before{
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 40px;
+    border-top: rgba(0,0,255, 0.3) solid 0.1rem;
+    top: 50%;
+    left: calc(50% - 20px);
+  }
+
+  .add-icon::after{
+    content: "";
+    position: absolute;
+    height: 40px;
+    width: 1px;
+    border-left: rgba(0,0,255, 0.3) solid 0.1rem;
+    top: calc(50% - 20px);
+    left: 50%;
+  }
 </style>

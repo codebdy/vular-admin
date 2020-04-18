@@ -19,24 +19,28 @@
 </template>
 
 <script>
-export default {
-  name: "vular-app-fab",
-
-  data: () => ({
-    fab: false
-  }),
-
-  methods: {
-    onScroll() {
-      if (typeof window === "undefined") return
-
-      const top = window.pageYOffset || document.documentElement.offsetTop || 0
-      this.fab = top > 180
+  export default {
+    name: "vular-app-fab",
+    components: {
+    },
+    props: {
     },
 
-    toTop() {
-      this.$vuetify.goTo(0)
+    data: () => ({
+      fab: false
+    }),
+
+    methods: {
+      onScroll() {
+        if (typeof window === "undefined") return
+
+        const top = window.pageYOffset || document.documentElement.offsetTop || 0
+        this.fab = top > 180
+      },
+
+      toTop() {
+        this.$vuetify.goTo(0)
+      }
     }
   }
-}
 </script>
