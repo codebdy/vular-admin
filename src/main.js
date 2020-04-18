@@ -10,6 +10,7 @@ import VePie from 'v-charts/lib/pie.common'
 import store from './store'    
 
 import VularNode from './VularNode'
+import VularLogin from "./components/VularLogin.vue"
 import VularAdmin from "./components/VularAdmin.vue"
 import VularMediaSelect from "./components/media/VularMediaSelect.vue"
 import VularPage from "./components/VularPage.vue"
@@ -31,6 +32,7 @@ Vue.component(VeLine.name, VeLine)
 Vue.component(VeHistogram.name, VeHistogram)
 Vue.component(VePie.name, VePie)
 Vue.component('VularNode',VularNode);
+Vue.component('VularLogin', VularLogin)
 Vue.component('VularAdmin', VularAdmin)
 Vue.component('VularMediaSelect', VularMediaSelect)
 Vue.component('VularPage', VularPage)
@@ -46,13 +48,14 @@ Vue.component('PostEditPage', PostEditPage)
 
 const routes = [
   //{ path: '/form2', component: VularForm },
-  { path: '/', redirect: {name:'theme-settings'} },
+  { path: '/', redirect: {name:'login'} },
   { path: '/dashboard', name:'dashboard', component: Dashboard },
   { path: '/inquiry-list', name:'inquiry-list', component: InquiryListPage },
   { path: '/post-list', name:'post-list', component: PostListPage },
   { path: '/post-edit', name:'post-edit', component: PostEditPage },
   { path: '/product-list', name:'product-list', component: ProductModule },
   { path: '/theme-settings', name:'theme-settings', component: ThemeSettings },
+  { path: '/login', name:'login', component: VularLogin },
 ]
 
 const router = new VueRouter({

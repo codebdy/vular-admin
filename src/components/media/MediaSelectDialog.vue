@@ -24,7 +24,7 @@
               append-icon = "mdi-magnify"
               style = "padding-top:0px; "
               class = "mt-n1"
-              @focus = "searchboxWidth = 250"
+              @focus = "searchboxWidth = 350"
               @blur = "searchboxWidth = 200"
             ></v-text-field>
           </div>
@@ -51,7 +51,6 @@
           >
             <v-icon size="21">mdi-format-list-checkbox</v-icon>
           </v-btn>
-
         </div>
         <v-divider></v-divider>
         <v-card-text style="flex:1; overflow-y: auto;">
@@ -60,7 +59,7 @@
         </v-card-text>
       </div>
       <v-divider vertical></v-divider>
-      <div class="d-flex flex-column" style="width: 250px;"
+      <div class="flex-column d-none d-md-flex" style="width: 250px;"
         :style="{background: $store.state.vularApp.content.color}"
       >
         <div class="d-flex justify-center align-center" style="height: 80px;">
@@ -107,6 +106,8 @@
     data: () => ({
       searchboxWidth : 150,
       isList: false,
+      drawer: true,
+      showFolder:true,
     }),
 
     methods: {
@@ -126,5 +127,6 @@
   }
   .media-select-dialog-actions{
     box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    height: 50px;
   }
 </style>
