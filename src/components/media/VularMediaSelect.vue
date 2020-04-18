@@ -31,7 +31,7 @@
               </v-list-item>
             </template>
             <AltDialog @close="altDialog = false"></AltDialog>
-            </v-dialog>
+          </v-dialog>
           <v-list-item link>
             <v-list-item-icon>
               <v-icon color="primary">mdi-delete-sweep-outline</v-icon>
@@ -109,14 +109,20 @@
               </v-img>
             </template>
             <v-card flat class="d-flex flex-row pa-5" :color="$store.state.vularApp.content.card.color">
-              <v-card class="add-new-item mr-5 d-flex flex-column justify-center align-center" flat height="100" width="100" color="rgba(0,0,255, 0.05)">
-                <v-icon class="ma-2" large color="rgba(0,20,255, 0.25)" >mdi-image-plus</v-icon>
-                图片
-              </v-card>
+              <v-dialog v-model="selectDialog" scrollable tile max-width="600px">
+                <template v-slot:activator="{ on }">
+                  <v-card v-on="on" class="add-new-item mr-5 d-flex flex-column justify-center align-center" flat height="100" width="100" color="rgba(0,0,255, 0.05)">
+                    <v-icon class="ma-2" large color="rgba(0,20,255, 0.25)" >mdi-image-plus</v-icon>
+                    {{$t('media.images')}}
+                  </v-card>
+                </template>
+                <MediaSelectDialog @close="selectDialog = false"></MediaSelectDialog>
+              </v-dialog>
+
               <v-divider vertical></v-divider>
               <v-card class="add-new-item ml-5 d-flex flex-column justify-center align-center" flat height="100" width="100"  color="rgba(0,0,255, 0.05)">
                 <v-icon class="ma-2" large color="rgba(0,20,255, 0.25)">mdi-video-plus</v-icon>
-                视频
+                {{$t('media.videos')}}
               </v-card>
             </v-card>
           </v-menu>
@@ -128,11 +134,13 @@
 </template>
 
 <script>
-import AltDialog from "./AltDialog.vue"
+  import AltDialog from "./AltDialog"
+  import MediaSelectDialog from "./MediaSelectDialog"
   export default {
     name: "vular-media-select",
     components: {
-      AltDialog
+      AltDialog,
+      MediaSelectDialog
     },
     props: {
       small: { default: false },
@@ -142,6 +150,7 @@ import AltDialog from "./AltDialog.vue"
       menu : false,
       addMenu : false,
       altDialog : false,
+      selectDialog: false,
 
     }),
 
@@ -152,6 +161,12 @@ import AltDialog from "./AltDialog.vue"
       altDialog(val){
         if(val){
           this.menu = false
+        }
+      },
+      
+      selectDialog(val){
+        if(val){
+          this.addMenu = false
         }
       }
     }
