@@ -3,7 +3,6 @@
       :style="{ 
         width:'calc(100% - ' + ($vuetify.application.left + $vuetify.application.right) + 'px)' ,
         top:$vuetify.application.top + 'px',
-        'box-shadow': heightPercent === 0 ? '2px 2px 5px rgba(0,0,0,0.1)' :'',
         background: heightPercent === 0 ? $store.state.vularApp.content.color : '',
       }"
       v-scroll="onScroll"
@@ -13,6 +12,7 @@
         :style="{ 
           background: $store.state.vularApp.content.color,
           opacity: 1 - heightPercent,
+          'box-shadow': heightPercent === 0 ? '2px 2px 5px rgba(0,0,0,0.1)' :'',
         }"
       >
       </div>
