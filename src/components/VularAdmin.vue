@@ -78,8 +78,10 @@
           <v-toolbar-title>{{$t('debug.debug')}}</v-toolbar-title>
           <v-subheader>{{$t('debug.slogan')}}</v-subheader>
           <v-spacer></v-spacer>
-          <v-toolbar-items>
-          </v-toolbar-items>
+          <v-btn href="https://github.com/vularsoft/vular-admin" target="_blank">
+            <v-icon medium class="mr-1">mdi-github</v-icon>
+            {{$t('debug.report-bug')}}
+          </v-btn>
         </v-toolbar>
         <v-list three-line subheader>
           <v-subheader>User Controls</v-subheader>

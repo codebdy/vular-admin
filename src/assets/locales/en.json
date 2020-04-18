@@ -10,11 +10,14 @@
     "images" : "Images",
     "videos" : "Videos",
     "edit-alt" : "Edit Alt Text for Images",
-    "remove-all" : "Remove All Images & Videos"
+    "remove-all" : "Remove All Images & Videos",
+    "cancel" : "Cancel",
+    "confirm" : "Confirm"
   },
 
   "debug":{
     "debug":"Debug",
-    "slogan" : "Find a bug is funny"
+    "slogan" : "Find a bug is funny",
+    "report-bug" : "Report Bug"
   }
 }

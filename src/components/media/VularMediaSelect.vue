@@ -19,14 +19,7 @@
           </v-btn>
         </template>
         <v-list class="px-2" :color="$store.state.vularApp.content.card.color">
-          <v-list-item link>
-            <v-list-item-icon>
-              <v-icon color="primary">mdi-text-recognition</v-icon>
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title>{{$t('media.edit-alt')}}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
+          <AltDialog></AltDialog>
           <v-list-item link>
             <v-list-item-icon>
               <v-icon color="primary">mdi-delete-sweep-outline</v-icon>
@@ -127,6 +120,7 @@ import AltDialog from "./AltDialog.vue"
 export default {
   name: "vular-media-select",
   components: {
+    AltDialog
   },
 
   data: () => ({
