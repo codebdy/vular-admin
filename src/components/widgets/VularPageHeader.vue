@@ -15,6 +15,7 @@
           height: breadCrumbsHeight + 'px'
         }"
         class="d-flex flex-row align-center"
+        style="transition: height 0.3s"
       >
         <h1 class="page-title"
           :style="{'font-size': titleFontSize + 'px'}"

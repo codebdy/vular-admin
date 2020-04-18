@@ -8,7 +8,7 @@
               height:tableHeaderHeight + 'px',
             }" 
             class="d-flex flex-row align-center px-6"
-            style = "box-shadow: 2px 2px 5px rgba(0,0,0,0.05);"
+            style = "box-shadow: 2px 2px 5px rgba(0,0,0,0.05);transition: height 0.3s;"
           >
             <VularListActions 
               :schema="schema"
