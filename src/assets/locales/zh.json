@@ -15,12 +15,14 @@
     "alt-text" : "图片的Alt文本",
     "copy-to-all" : "复制到所有图片",
     "cancel" : "取消",
-    "confirm" : "确定"
+    "confirm" : "确定",
+    "select" : "选择",
+    "select-images" : "选择图片"
   },
 
   "debug":{
     "debug":"调试",
-    "slogan" : "抓虫工作，其乐无穷",
+    "slogan" : "抓虫、抓虫，其乐无穷",
     "report-bug" : "提交Bug"
   }
 }

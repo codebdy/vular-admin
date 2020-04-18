@@ -15,7 +15,9 @@
     "alt-text" : "Alt text for image",
     "copy-to-all" : "Copy to all images",
     "cancel" : "Cancel",
-    "confirm" : "Confirm"
+    "confirm" : "Confirm",
+    "select" : "Select",
+    "select-images" : "Select Images"
   },
 
   "debug":{

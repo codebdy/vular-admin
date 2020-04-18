@@ -79,7 +79,7 @@
           <v-divider inset vertical>
             
           </v-divider>
-          <v-subheader><v-icon>mdi-android-debug-bridge</v-icon> {{$t('debug.slogan')}}</v-subheader>
+          <v-subheader><v-icon color="primary">mdi-android-debug-bridge</v-icon> {{$t('debug.slogan')}}</v-subheader>
           <v-spacer></v-spacer>
           <v-btn href="https://github.com/vularsoft/vular-admin/issues" target="_blank">
             <v-icon medium class="mr-1">mdi-github</v-icon>
