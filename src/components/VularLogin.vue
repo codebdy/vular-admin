@@ -26,7 +26,7 @@
                   :src="'/images/logo.png'" 
                   :alt="$store.state.vularApp.logo.alt" 
                 />
-                {{$t('login.welcome')}}
+                Vular
               </h1>
               <v-card-text>
                 <v-form>
@@ -96,11 +96,12 @@
     justify-content: center;
     align-items: center;
     padding-bottom: 20px;
+    font-size: 50px;
   }
 
   .welcome-title img{
     margin-right: 20px;
-    width: 50px;
+    width: 80px;
   }
 
   .login-btn{
