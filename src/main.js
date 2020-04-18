@@ -1,3 +1,4 @@
+import i18n from './assets/locales'
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
@@ -58,6 +59,7 @@ const router = new VueRouter({
 
 new Vue({
   el: '#app',
+  i18n,
   router,
   store,
   vuetify,

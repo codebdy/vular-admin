@@ -1,0 +1,8 @@
+{
+  "drawer": {
+    "dashboard" : "Dashboard",
+    "leads" : "Leads",
+    "posts" : "Posts",
+    "post-list" : "Post List"
+  }
+}

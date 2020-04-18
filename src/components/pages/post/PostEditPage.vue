@@ -46,15 +46,17 @@
               </v-toolbar>
               <v-divider></v-divider>
               <v-card-text>
-                <v-row>
+                <v-row no-gutters>
                   <v-col
                     cols="12"
                     md="4"
                     xs="6"
+
+                    style="padding:10px;"
                   >
                     <v-img
-                        :src="`https://picsum.photos/500/300?image=${30 * 5 + 10}`"
-                        :lazy-src="`https://picsum.photos/10/6?image=${30 * 5 + 10}`"
+                        :src="`https://picsum.photos/500/300?image=${20 * 5 + 10}`"
+                        :lazy-src="`https://picsum.photos/10/6?image=${20 * 5 + 10}`"
                         aspect-ratio="1"
                         class="grey lighten-2"
                       >
@@ -66,12 +68,13 @@
                     md="8"
                     xs="6"
                   >
-                    <v-row>
+                    <v-row no-gutters>
                       <v-col
                         v-for="n in 8"
                         :key="n"
                         cols="12"
                         md="3"
+                        style="padding:10px;"
                       >
                           <v-img
                             :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"
@@ -99,6 +102,7 @@
                     class="d-flex child-flex"
                     cols="12"
                     md="2"
+                    style="padding:10px;"
                   >
                       <v-img
                         :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"

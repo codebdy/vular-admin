@@ -55,13 +55,13 @@ export default {
         {
           name:"vular-menu-item",
           prependIcon:'mdi-speedometer',
-          title:'仪表盘',
+          title:this.$t('drawer.dashboard'),
           to:"dashboard",
         },
         {
           name:"vular-menu-item",
           prependIcon: 'mdi-email-outline',
-          title:'询盘',
+          title:this.$t('drawer.leads'),
           badge:{
             title:'6',
             props:{
@@ -80,12 +80,12 @@ export default {
           name:"vular-menu-item-group",
           prependIcon:'mdi-text-box-multiple-outline',
           //appendIcon: 'home',
-          title:'文章管理',
+          title:this.$t('drawer.posts'),
           active: false,
           children: [
             {
               name:"vular-menu-item",
-              title:'全部文章',
+              title:this.$t('drawer.post-list'),
               to:"post-list",
             },
             {

@@ -1,0 +1,8 @@
+{
+  "drawer": {
+    "dashboard" : "仪表盘",
+    "leads" : "询盘",
+    "posts" : "文章管理",
+    "post-list" : "全部文章"
+  }
+}
