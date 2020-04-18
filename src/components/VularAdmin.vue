@@ -67,7 +67,7 @@
     <v-dialog v-model="debug" fullscreen hide-overlay transition="dialog-bottom-transition">
       <template v-slot:activator="{ on }">
         <v-btn x-small fab dark falt absolute bottom left color="red" class="mb-4 ml-n4" v-on="on">
-          <v-icon>mdi-bug</v-icon>
+          <v-icon>mdi-android-debug-bridge</v-icon>
         </v-btn>
       </template>
       <v-card dark>
@@ -75,8 +75,11 @@
           <v-btn icon dark @click="debug = false">
             <v-icon>mdi-close</v-icon>
           </v-btn>
-          <v-toolbar-title>{{$t('debug.debug')}}</v-toolbar-title>
-          <v-subheader>{{$t('debug.slogan')}}</v-subheader>
+          <v-toolbar-title class="mr-4">{{$t('debug.debug')}}</v-toolbar-title>
+          <v-divider inset vertical>
+            
+          </v-divider>
+          <v-subheader><v-icon>mdi-android-debug-bridge</v-icon> {{$t('debug.slogan')}}</v-subheader>
           <v-spacer></v-spacer>
           <v-btn href="https://github.com/vularsoft/vular-admin" target="_blank">
             <v-icon medium class="mr-1">mdi-github</v-icon>
