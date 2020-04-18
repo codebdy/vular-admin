@@ -4,5 +4,10 @@
     "leads" : "询盘",
     "posts" : "文章管理",
     "post-list" : "全部文章"
+  },
+
+  "media":{
+  	"images" : "图片",
+  	"videos" : "视频"
   }
 }

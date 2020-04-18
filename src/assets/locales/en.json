@@ -4,5 +4,10 @@
     "leads" : "Leads",
     "posts" : "Posts",
     "post-list" : "Post List"
+  },
+
+  "media":{
+    "images" : "Images",
+    "videos" : "Videos"
   }
 }

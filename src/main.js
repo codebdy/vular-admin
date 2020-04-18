@@ -11,6 +11,7 @@ import store from './store'
 
 import VularNode from './VularNode'
 import VularAdmin from "./components/VularAdmin.vue"
+import VularMediaSelect from "./components/media/VularMediaSelect.vue"
 import VularPage from "./components/VularPage.vue"
 import VularListPage from "./components/VularListPage.vue"
 import ThemeSettings from "./components/pages/theme/ThemeSettings"
@@ -31,6 +32,7 @@ Vue.component(VeHistogram.name, VeHistogram)
 Vue.component(VePie.name, VePie)
 Vue.component('VularNode',VularNode);
 Vue.component('VularAdmin', VularAdmin)
+Vue.component('VularMediaSelect', VularMediaSelect)
 Vue.component('VularPage', VularPage)
 Vue.component('VularListPage', VularListPage)
 Vue.component('VularPageHeader', VularPageHeader)
