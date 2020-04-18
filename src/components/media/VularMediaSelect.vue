@@ -102,9 +102,24 @@
           sm="2"
           style="padding:10px;"
         >
-          <v-img aspect-ratio="1" class="new-image-placeholder">
-            <div class="add-icon"></div>
-          </v-img>
+          <v-menu offset-y top v-model="addMenu">
+            <template v-slot:activator="{ on }">
+              <v-img aspect-ratio="1" class="new-image-placeholder" v-on="on">
+                <div class="add-icon"></div>
+              </v-img>
+            </template>
+            <v-card flat class="d-flex flex-row pa-5" :color="$store.state.vularApp.content.card.color">
+              <v-card class="add-new-item mr-5 d-flex flex-column justify-center align-center" flat height="100" width="100" color="rgba(0,0,255, 0.05)">
+                <v-icon class="ma-2" large color="rgba(0,20,255, 0.25)" >mdi-image-plus</v-icon>
+                图片
+              </v-card>
+              <v-divider vertical></v-divider>
+              <v-card class="add-new-item ml-5 d-flex flex-column justify-center align-center" flat height="100" width="100"  color="rgba(0,0,255, 0.05)">
+                <v-icon class="ma-2" large color="rgba(0,20,255, 0.25)">mdi-video-plus</v-icon>
+                视频
+              </v-card>
+            </v-card>
+          </v-menu>
         </v-col>
       </v-row>
 
@@ -124,8 +139,10 @@ import AltDialog from "./AltDialog.vue"
     },
 
     data: () => ({
-      menu:false,
-      altDialog:false,
+      menu : false,
+      addMenu : false,
+      altDialog : false,
+
     }),
 
     methods: {
@@ -143,9 +160,22 @@ import AltDialog from "./AltDialog.vue"
 
 <style>
   .new-image-placeholder{
-    background: rgba(0,0,255, 0.1);
+    background: rgba(0,0,255, 0.05);
     padding:10px;
     cursor: pointer;
+  }
+
+  .new-image-placeholder:hover{
+    background: rgba(0,0,255, 0.1);
+  }
+
+  .add-new-item{
+    background: rgba(0,0,255, 0.05);
+    cursor: pointer;
+  }
+
+  .add-new-item:hover{
+    background: rgba(0,0,255, 0.1) !important;
   }
 
   .add-icon{
