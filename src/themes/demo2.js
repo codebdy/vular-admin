@@ -62,6 +62,7 @@ export default {
     card:{
       color:"#ffffff",
       style:"",
-    }
+    },
+    breadcurmbsImage:false,
   },
 }

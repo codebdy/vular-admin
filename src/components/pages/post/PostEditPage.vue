@@ -8,6 +8,7 @@
     <VularEditPageHeader :title="'文章编辑'" v-model="inputValue.header">
     </VularEditPageHeader>
       <div class="header-image-container"
+        v-if="this.$store.state.vularApp.content.breadcurmbsImage"
         :style="{
           width : headerImageWidth,
           left : $vuetify.application.left + 'px',

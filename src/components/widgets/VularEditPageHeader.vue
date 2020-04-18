@@ -94,7 +94,7 @@ import VularPageHeader from "./VularPageHeader"
       },
 
       dark(){
-        return this.heightPercent >= 0.5
+        return this.heightPercent >= 0.5 && this.$store.state.vularApp.content.breadcurmbsImage
       }
     },
 
