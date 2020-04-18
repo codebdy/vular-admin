@@ -12,6 +12,8 @@
     "edit-alt" : "Edit Alt Text for Images",
     "remove-all" : "Remove All Images & Videos",
     "alt-tips" : "Add alt text to your images to optimize search engine results and rank higher in Google. Try and make the text unique for each image.",
+    "alt-text" : "Alt text for image",
+    "copy-to-all" : "Copy to all images",
     "cancel" : "Cancel",
     "confirm" : "Confirm"
   },

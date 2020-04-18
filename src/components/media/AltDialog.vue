@@ -26,15 +26,20 @@
 
               <v-text-field
                 v-model="image.alt"
-                label="图片的Alt文本"
+                :label="$t('media.alt-text')"
                 type="text"
               >
                 <template v-slot:append 
                   v-if="i === 0 && image.alt"
                 >
-                  <v-btn icon @click="copyToAll(image)">
-                    <v-icon>mdi-expand-all-outline</v-icon>
-                  </v-btn>
+                  <v-tooltip top>
+                    <template v-slot:activator="{ on }">
+                      <v-btn icon v-on="on" @click="copyToAll(image)">
+                        <v-icon>mdi-expand-all-outline</v-icon>
+                      </v-btn>
+                    </template>
+                    <span>{{$t('media.copy-to-all')}}</span>
+                  </v-tooltip>
                 </template>
               </v-text-field>
             </v-list-item-content>
