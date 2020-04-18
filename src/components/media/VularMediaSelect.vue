@@ -45,7 +45,7 @@
 
     </v-toolbar>
     <v-divider></v-divider>
-    <v-card-text>
+    <v-card-text style="padding: 7px;">
       <v-row no-gutters>
         <v-col
           cols="12"
