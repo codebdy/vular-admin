@@ -24,5 +24,13 @@
     "debug":"Debug",
     "slogan" : "Find a bug is funny",
     "report-bug" : "Report Bug"
+  },
+
+  "login":{
+    "welcome":"Welcome Back",
+    "email":"Email",
+    "password":"Password",
+    "forgot":"Forgot Password?",
+    "login":"Login"
   }
 }

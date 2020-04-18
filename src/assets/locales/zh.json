@@ -24,5 +24,13 @@
     "debug":"调试",
     "slogan" : "抓虫、抓虫，其乐无穷",
     "report-bug" : "提交Bug"
+  },
+
+  "login":{
+    "welcome":"欢迎使用Vular",
+    "email":"邮箱",
+    "password":"密码",
+    "forgot":"忘记密码？",
+    "login":"登陆"
   }
 }

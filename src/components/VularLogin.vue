@@ -20,18 +20,18 @@
             sm="8"
             md="4"
           >
-            <v-card class="elevation-12 pa-12" color="rgba(255,255,255,0.8)">
+            <v-card flat class="pa-12" dark color="rgba(255,255,255,0.0)">
               <h1 class="welcome-title">
                 <img 
                   :src="'/images/logo.png'" 
                   :alt="$store.state.vularApp.logo.alt" 
                 />
-                欢迎使用Vular
+                {{$t('login.welcome')}}
               </h1>
               <v-card-text>
                 <v-form>
                   <v-text-field
-                    label="Email"
+                    :label="$t('login.email')"
                     name="login-id"
                     prepend-inner-icon="mdi-email-outline"
                     outlined
@@ -44,20 +44,19 @@
                     prepend-inner-icon="mdi-lock-outline"
                     outlined
                     name="password"
-                    label="Password"
+                    :label="$t('login.password')"
                     value="wqfasds"
                     class="input-group--focused"
                     @click:append="showPassword = !showPassword"
                   ></v-text-field>
 
                   <div class="forgot-pwd">
-                    <a href="#">Forgot password?</a>
+                    <v-btn text dark style="text-transform:capitalize;">{{$t('login.forgot')}}</v-btn>
                   </div>
+
+                  <v-btn color="primary" class="mt-5" x-large to="dashboard" style="text-transform:capitalize;width: 100%;">{{$t('login.login')}}</v-btn>
                 </v-form>
               </v-card-text>
-              <div class="login-btn">
-                <v-btn color="primary" x-large to="dashboard">Login</v-btn>
-              </div>
             </v-card>
           </v-col>
         </v-row>
@@ -97,7 +96,6 @@
     justify-content: center;
     align-items: center;
     padding-bottom: 20px;
-    color:#555;
   }
 
   .welcome-title img{
@@ -108,7 +106,9 @@
   .login-btn{
     display: flex; 
     flex-flow: column;
-    margin-top: 20px;
+    justify-content: center;
+    align-self: center;
+    padding: 18px;
   }
 
   .forgot-pwd{
@@ -118,17 +118,17 @@
   }
 
   .login-image{
-    -webkit-filter: blur(5px);
-    -moz-filter: blur(5px);
-    -o-filter: blur(5px);
-    -ms-filter: blur(5px);
-    filter: blur(5px);
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -o-filter: blur(0px);
+    -ms-filter: blur(0px);
+    filter: blur(0px);
     position:fixed;
     top:-10%;
     left:-10%;
     width: 120%;
     height: 120%; 
-    background: url(/images/login.jpg) no-repeat; 
+    background: url(/images/login-bg.jpg) no-repeat; 
     background-size: 100% center;    
   }
   .login-image-mask{
