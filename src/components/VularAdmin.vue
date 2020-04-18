@@ -70,8 +70,8 @@
           <v-icon>mdi-bug</v-icon>
         </v-btn>
       </template>
-      <v-card>
-        <v-toolbar dark color="primary">
+      <v-card dark>
+        <v-toolbar dark>
           <v-btn icon dark @click="debug = false">
             <v-icon>mdi-close</v-icon>
           </v-btn>
