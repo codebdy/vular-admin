@@ -64,9 +64,41 @@
       :src = "$store.state.vularApp.footer.src"
       app
     >
-      <v-btn x-small fab dark falt absolute bottom left color="red" class="mb-4 ml-n4">
-        <v-icon>mdi-bug</v-icon>
-      </v-btn>
+    <v-dialog v-model="debug" fullscreen hide-overlay transition="dialog-bottom-transition">
+      <template v-slot:activator="{ on }">
+        <v-btn x-small fab dark falt absolute bottom left color="red" class="mb-4 ml-n4" v-on="on">
+          <v-icon>mdi-bug</v-icon>
+        </v-btn>
+      </template>
+      <v-card>
+        <v-toolbar dark color="primary">
+          <v-btn icon dark @click="debug = false">
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+          <v-toolbar-title>Debug</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-toolbar-items>
+            <v-btn dark text @click="debug = false">Save</v-btn>
+          </v-toolbar-items>
+        </v-toolbar>
+        <v-list three-line subheader>
+          <v-subheader>User Controls</v-subheader>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Content filtering</v-list-item-title>
+              <v-list-item-subtitle>Set the content filtering level to restrict apps that can be downloaded</v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Password</v-list-item-title>
+              <v-list-item-subtitle>Require password for purchase or use password to restrict purchase</v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+        <v-divider></v-divider>
+      </v-card>
+    </v-dialog>
       <span class="px-4">&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
@@ -85,6 +117,7 @@
       VularAppFab
     },
     data: () => ({
+      debug: false,
     }),
 
     created(){

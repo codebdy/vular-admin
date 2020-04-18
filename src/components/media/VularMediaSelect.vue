@@ -6,13 +6,38 @@
     :style="$store.state.vularApp.content.card.style"
   >
     <v-toolbar flat color="transparent">
-      <v-toolbar-title>{{$t('media.images')}} & {{$t('media.videos')}}</v-toolbar-title>
+      <v-toolbar-title>
+        {{$t('media.images')}} & {{$t('media.videos')}}
+      </v-toolbar-title>
 
       <v-spacer></v-spacer>
 
-      <v-btn icon color="primary">
-        <v-icon>mdi-dots-horizontal</v-icon>
-      </v-btn>
+      <v-menu offset-y top>
+        <template v-slot:activator="{ on }">
+          <v-btn icon color="primary" v-on="on">
+            <v-icon>mdi-dots-horizontal</v-icon>
+          </v-btn>
+        </template>
+        <v-list class="px-2" :color="$store.state.vularApp.content.card.color">
+          <v-list-item link>
+            <v-list-item-icon>
+              <v-icon color="primary">mdi-text-recognition</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>{{$t('media.edit-alt')}}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item link>
+            <v-list-item-icon>
+              <v-icon color="primary">mdi-delete-sweep-outline</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>{{$t('media.remove-all')}}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+
     </v-toolbar>
     <v-divider></v-divider>
     <v-card-text>
@@ -98,8 +123,11 @@
 </template>
 
 <script>
+import AltDialog from "./AltDialog.vue"
 export default {
   name: "vular-media-select",
+  components: {
+  },
 
   data: () => ({
   }),

@@ -17,7 +17,7 @@
           opacity:inputValue.header.heightPercent,
         }" 
       >
-        <div style=" background-image:url(/images/a1.jpg); " class="header-image"
+        <div style=" background-image:url(https://picsum.photos/500/300?image=110); " class="header-image"
         >
           <div class="header-image-mask">
           </div>
