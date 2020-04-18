@@ -12,10 +12,46 @@
     <v-divider></v-divider>
     <v-card-text class="pa-0 d-flex flex-row media-select-dialog-body ">
       <div style="flex:1; display: flex;flex-flow: column;">
-        <div style="display: flex;flex-flow: row; height: 60px; align-items: center;padding-right:10px;" color="transparent">
-          <v-toolbar-title>全部媒体</v-toolbar-title>
-          <v-spacer></v-spacer>
-          
+        <div style="display: flex;flex-flow: row; align-items: center; height:60px; padding:20px 15px;" color="transparent">
+          <v-toolbar-title style="font-size: 16px;">根目录</v-toolbar-title>
+          <div 
+            style="transition: width 0.3s;"
+            :style="{width: searchboxWidth + 'px'}"
+            class="list-search-box ml-5"
+          >
+            <v-text-field
+              hide-details
+              append-icon = "mdi-magnify"
+              style = "padding-top:0px; "
+              class = "mt-n1"
+              @focus = "searchboxWidth = 250"
+              @blur = "searchboxWidth = 200"
+            ></v-text-field>
+          </div>
+          <v-spacer ></v-spacer>
+          <v-btn icon >
+            <v-icon size="21">mdi-folder-plus-outline</v-icon>
+          </v-btn>
+          <v-divider vertical class="mx-3"></v-divider>
+          <v-btn icon >
+            <v-icon size="21">mdi-filter-outline</v-icon>
+          </v-btn>
+          <v-btn icon>
+            <v-icon size="21">mdi-sort-ascending</v-icon>
+          </v-btn>
+          <v-btn icon 
+            v-if="!isList"
+            @click="isList = !isList"
+          >
+            <v-icon size="21">mdi-view-grid-outline</v-icon>
+          </v-btn>
+          <v-btn icon  
+            v-else
+            @click="isList = !isList"
+          >
+            <v-icon size="21">mdi-format-list-checkbox</v-icon>
+          </v-btn>
+
         </div>
         <v-divider></v-divider>
         <v-card-text style="flex:1; overflow-y: auto;">
@@ -69,6 +105,8 @@
     name: "media-select-dialog",
 
     data: () => ({
+      searchboxWidth : 150,
+      isList: false,
     }),
 
     methods: {
