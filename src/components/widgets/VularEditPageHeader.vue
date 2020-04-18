@@ -7,6 +7,7 @@
       }"
       v-scroll="onScroll"
       class="py-0 header-container"
+      style="transition: height 0.3s"
     >
       <div class="header-mask"
         :style="{ 
@@ -22,6 +23,7 @@
         :style="{
           height: (heightPercent*30 + 30) + 'px',
         }"
+        style="transition: height 0.3s"
         class="d-flex flex-row align-center"
       >
         <v-btn text rounded :dark="dark" class="ml-n4">文章列表</v-btn>
@@ -34,6 +36,8 @@
           height: (heightPercent*30 + 70) + 'px',
           'margin-top' : (-heightPercent*20) + 'px'
         }"
+
+        style="transition: height 0.3s"
       >
         <template
           v-if="!large && !this.$vuetify.breakpoint.xs"
