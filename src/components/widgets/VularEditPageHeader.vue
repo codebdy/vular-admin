@@ -69,7 +69,8 @@
         <v-btn rounded 
           class="ml-6"
           :large="large"
-          color="primary" 
+          color="primary"
+          :text = "dark && !$vuetify.theme.dark" 
           :style="{background: $store.state.vularApp.content.card.color}"
         >
           保存
