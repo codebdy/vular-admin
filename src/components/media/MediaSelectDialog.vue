@@ -88,6 +88,8 @@
               v-for = "(media, index) in medias"
               :key = "media.src"
               v-model="medias[index]"
+              @select = "onSelect"
+              @unselect = "onUnselect"
             >
             </MediaCell>
           </v-row>
@@ -112,13 +114,14 @@
       <v-spacer></v-spacer>
       <v-btn class="mr-5" outlined rounded @click="onCancel">{{$t('media.cancel')}}</v-btn>
       <v-btn color="primary" class="mr-5" rounded @click="onConfirm">{{$t('media.select')}}</v-btn>
-      已选中 10 个
+      <span v-if="selectedMedias.length > 0">已选中 {{selectedMedias.length}} 个</span>
       <v-spacer></v-spacer>
     </v-card-actions>
   </v-card>
 </template>
 
 <script>
+  import {add, remove} from "../../basic/vular-array"
   import MediaFolderList from "./MediaFolderList"
   import MediaFolderCell from "./MediaFolderCell"
   import MediaCell from "./MediaCell"
@@ -156,79 +159,91 @@
       medias:[
         {
           id : 999,
+          type : "image",
           title : "图片X",
           src : "/images/pics/110-500x300.jpg",
           lazySrc : "/images/lazy-pics/110-500x300.jpg",
         },
         {
           id : 1,
+          type : "image",
           title : "图片1",
           src : "/images/pics/111-500x300.jpg",
           lazySrc : "/images/lazy-pics/111-500x300.jpg",
         },
         {
           id : 2,
+          type : "image",
           title : "图片2",
           src : "/images/pics/112-500x300.jpg",
           lazySrc : "/images/lazy-pics/112-500x300.jpg",
         },
         {
           id : 3,
+          type : "image",
           title : "图片3",
-          src : "/images/pics/112-500x300.jpg",
-          lazySrc : "/images/lazy-pics/112-500x300.jpg",
+          src : "/images/pics/113-500x300.jpg",
+          lazySrc : "/images/lazy-pics/113-500x300.jpg",
         },
         {
           id : 4,
+          type : "image",
           title : "图片4",
           src : "/images/pics/114-500x300.jpg",
           lazySrc : "/images/lazy-pics/114-500x300.jpg",
         },
         {
           id : 5,
+          type : "image",
           title : "图片5",
           src : "/images/pics/115-500x300.jpg",
           lazySrc : "/images/lazy-pics/115-500x300.jpg",
         },
         {
           id : 6,
+          type : "image",
           title : "图片6",
           src : "/images/pics/116-500x300.jpg",
           lazySrc : "/images/lazy-pics/116-500x300.jpg",
         },
         {
           id : 7,
+          type : "image",
           title : "图片7",
           src : "/images/pics/117-500x300.jpg",
           lazySrc : "/images/lazy-pics/117-500x300.jpg",
         },
         {
           id : 8,
+          type : "image",
           title : "图片8",
           src : "/images/pics/118-500x300.jpg",
           lazySrc : "/images/lazy-pics/118-500x300.jpg",
         },
         {
           id : 9,
+          type : "image",
           title : "图片9",
           src : "/images/pics/119-500x300.jpg",
           lazySrc : "/images/lazy-pics/119-500x300.jpg",
         },
         {
           id : 10,
+          type : "image",
           title : "图片10",
           src : "/images/pics/120-500x300.jpg",
           lazySrc : "/images/lazy-pics/120-500x300.jpg",
         },
         {
           id : 11,
+          type : "image",
           title : "图片11",
           src : "/images/pics/121-500x300.jpg",
           lazySrc : "/images/lazy-pics/121-500x300.jpg",
         },
       ],
 
-      selectedItems: [],
+      selectedMedias: [],
     }),
     computed:{
       isSmall(){
@@ -254,6 +269,14 @@
     },
 
     methods: {
+      onSelect(media){
+        console.log('onSelect')
+        add(media, this.selectedMedias)
+      },
+      onUnselect(media){
+        remove(media, this.selectedMedias)
+      },
+
       onCancel(){
         this.$emit('close')
       },
@@ -297,30 +320,6 @@
     height: 50px;
   }
 
-  .media-select-dialog .media-folder{
-    position: relative;
-    padding-bottom: 100%;
-  }
-
-  .media-select-dialog .media-folder-inner{
-    position: absolute;
-    top:0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    border:rgba(0, 0, 255, 0.05) solid 1px;
-    cursor: pointer;
-  }
-
-  .media-select-dialog .media-folder-inner:hover{
-    background: rgba(0, 0, 255, 0.05);
-    border:rgba(0, 0, 255, 0.1) solid 1px;
-  }
-
   .media-select-dialog .image{
     border-radius: 5px !important;
   }
@@ -342,18 +341,6 @@
     display: flex;
     flex-flow: row;
     cursor: pointer;
-  }
-
-  .image-grid-col .real-image{
-    position: relative;
-  }
-
-  .image-grid-col:hover .real-image::after{
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
   }
 
   .image-toolbar .image-button{

@@ -57,3 +57,30 @@
     }
   }
 </script>
+
+<style>
+  .media-select-dialog .media-folder{
+    position: relative;
+    padding-bottom: 100%;
+  }
+
+  .media-select-dialog .media-folder-inner{
+    position: absolute;
+    top:0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    border:rgba(0, 0, 255, 0.05) solid 1px;
+    cursor: pointer;
+  }
+
+  .media-select-dialog .media-folder-inner:hover{
+    background: rgba(0, 0, 255, 0.05);
+    border:rgba(0, 0, 255, 0.1) solid 1px;
+  }
+  
+</style>
