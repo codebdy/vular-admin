@@ -134,7 +134,7 @@
       <v-spacer></v-spacer>
       <v-btn class="mr-5" outlined rounded @click="onCancel">{{$t('media.cancel')}}</v-btn>
       <v-btn color="primary" class="mr-5" rounded @click="onConfirm">{{$t('media.select')}}</v-btn>
-      <span v-if="selectedMedias.length > 0">已选中 {{selectedMedias.length}} 个</span>
+      <span v-if="selectedMedias.length > 0">{{$t('media.selected-counts').replace('{0}', selectedMedias.length)}}</span>
       <v-spacer></v-spacer>
     </v-card-actions>
   </v-card>

@@ -19,7 +19,8 @@
     "select" : "选择",
     "select-images" : "选择图片",
     "upload-files" : "上传文件",
-    "root" : "根目录"
+    "root" : "根目录",
+    "selected-counts" : "已选中 {0} 个文件"
   },
 
   "debug":{

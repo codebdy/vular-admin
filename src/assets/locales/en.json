@@ -19,7 +19,8 @@
     "select" : "Select",
     "select-images" : "Select Images",
     "upload-files" : "Upload files",
-    "root" : "Root folder"
+    "root" : "Root folder",
+    "selected-counts" : "{0} files are selected"
   },
 
   "debug":{
