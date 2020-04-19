@@ -14,7 +14,6 @@
     <v-card-text class="pa-0 d-flex flex-row media-select-dialog-body ">
       <div class="slect-left-area">
         <div class="small-toolbar" color="transparent">
-          
           <v-btn icon>
             <v-icon>mdi-folder-home-outline</v-icon>
           </v-btn>
@@ -79,47 +78,18 @@
         <v-divider></v-divider>
         <v-card-text style="flex:1; overflow-y: auto;">
           <v-row>
-            <v-col
-              class="d-flex child-flex"
-              cols="4"
-              sm="3"
-              md="2"
+            <MediaFolderCell
+              v-for = "(folder, index) in folders"
+              :key = "folder.title"
+              v-model="folders[index]"
             >
-              <div aspect-ratio="1" class="media-folder">
-                <div class="media-folder-inner image">
-                  <v-icon size="60">mdi-folder-outline</v-icon>
-                  <div>产品照片</div>
-                </div>
-              </div>
-            </v-col>
-
-            <v-col
-              v-for="n in 5"
-              :key="n"
-              class="d-flex child-flex"
-              cols="4"
-              sm="3"
-              md="2"
+            </MediaFolderCell>
+            <MediaCell
+              v-for = "(media, index) in medias"
+              :key = "media.src"
+              v-model="medias[index]"
             >
-              <v-card flat tile class="d-flex">
-                <v-img
-                  :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"
-                  :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`"
-                  aspect-ratio="1"
-                  class="image"
-                >
-                  <template v-slot:placeholder>
-                    <v-row
-                      class="fill-height ma-0"
-                      align="center"
-                      justify="center"
-                    >
-                      <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
-                    </v-row>
-                  </template>
-                </v-img>
-              </v-card>
-            </v-col>
+            </MediaCell>
           </v-row>
         </v-card-text>
       </div>
@@ -142,6 +112,7 @@
       <v-spacer></v-spacer>
       <v-btn class="mr-5" outlined rounded @click="onCancel">{{$t('media.cancel')}}</v-btn>
       <v-btn color="primary" class="mr-5" rounded @click="onConfirm">{{$t('media.select')}}</v-btn>
+      已选中 10 个
       <v-spacer></v-spacer>
     </v-card-actions>
   </v-card>
@@ -149,22 +120,119 @@
 
 <script>
   import MediaFolderList from "./MediaFolderList"
+  import MediaFolderCell from "./MediaFolderCell"
+  import MediaCell from "./MediaCell"
+
   export default {
     name: "media-select-dialog",
     components: {
-      MediaFolderList
+      MediaFolderList,
+      MediaFolderCell,
+      MediaCell,
     },
 
     data: () => ({
       searchboxFocused : false,
       isList: false,
-      drawer: true,
-      showFolder:true,
       toolIconSize:21,
+      folders:[
+        {
+          id : 1,
+          title : "产品照片",
+          type : 'folder',
+        },
+        {
+          id : 2,
+          title : "产品图纸",
+          type : 'folder',
+        },
+        {
+          id : 3,
+          title : "文章照片",
+          type : 'folder',
+        }
+      ],
+
+      medias:[
+        {
+          id : 999,
+          title : "图片X",
+          src : "/images/pics/110-500x300.jpg",
+          lazySrc : "/images/lazy-pics/110-500x300.jpg",
+        },
+        {
+          id : 1,
+          title : "图片1",
+          src : "/images/pics/111-500x300.jpg",
+          lazySrc : "/images/lazy-pics/111-500x300.jpg",
+        },
+        {
+          id : 2,
+          title : "图片2",
+          src : "/images/pics/112-500x300.jpg",
+          lazySrc : "/images/lazy-pics/112-500x300.jpg",
+        },
+        {
+          id : 3,
+          title : "图片3",
+          src : "/images/pics/112-500x300.jpg",
+          lazySrc : "/images/lazy-pics/112-500x300.jpg",
+        },
+        {
+          id : 4,
+          title : "图片4",
+          src : "/images/pics/114-500x300.jpg",
+          lazySrc : "/images/lazy-pics/114-500x300.jpg",
+        },
+        {
+          id : 5,
+          title : "图片5",
+          src : "/images/pics/115-500x300.jpg",
+          lazySrc : "/images/lazy-pics/115-500x300.jpg",
+        },
+        {
+          id : 6,
+          title : "图片6",
+          src : "/images/pics/116-500x300.jpg",
+          lazySrc : "/images/lazy-pics/116-500x300.jpg",
+        },
+        {
+          id : 7,
+          title : "图片7",
+          src : "/images/pics/117-500x300.jpg",
+          lazySrc : "/images/lazy-pics/117-500x300.jpg",
+        },
+        {
+          id : 8,
+          title : "图片8",
+          src : "/images/pics/118-500x300.jpg",
+          lazySrc : "/images/lazy-pics/118-500x300.jpg",
+        },
+        {
+          id : 9,
+          title : "图片9",
+          src : "/images/pics/119-500x300.jpg",
+          lazySrc : "/images/lazy-pics/119-500x300.jpg",
+        },
+        {
+          id : 10,
+          title : "图片10",
+          src : "/images/pics/120-500x300.jpg",
+          lazySrc : "/images/lazy-pics/120-500x300.jpg",
+        },
+        {
+          id : 11,
+          title : "图片11",
+          src : "/images/pics/121-500x300.jpg",
+          lazySrc : "/images/lazy-pics/121-500x300.jpg",
+        },
+      ],
+
+      selectedItems: [],
     }),
     computed:{
       isSmall(){
-        return this.$vuetify.breakpoint.xs || this.$vuetify.breakpoint.sm
+        return this.$vuetify.breakpoint.xs || this.$vuetify.breakpoint.sm || this.$vuetify.breakpoint.md
       },
 
       searchboxWidth(){
@@ -245,9 +313,60 @@
     justify-content: center;
     align-items: center;
     border:rgba(0, 0, 255, 0.05) solid 1px;
+    cursor: pointer;
+  }
+
+  .media-select-dialog .media-folder-inner:hover{
+    background: rgba(0, 0, 255, 0.05);
+    border:rgba(0, 0, 255, 0.1) solid 1px;
   }
 
   .media-select-dialog .image{
     border-radius: 5px !important;
+  }
+
+  .media-select-dialog .image-grid-col{
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .image-grid-col .image-toolbar{
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    top:0;
+    left: 0;
+    padding:20px;
+    display: flex;
+    flex-flow: row;
+    cursor: pointer;
+  }
+
+  .image-grid-col .real-image{
+    position: relative;
+  }
+
+  .image-grid-col:hover .real-image::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .image-toolbar .image-button{
+    width:20px; 
+    height:20px; 
+    opacity: 0.6;
+  }
+
+  .image-toolbar .move-button{
+    cursor: move;
+  }
+
+  .media-select-dialog .image-text{
+    font-size: 13px;
   }
 </style>

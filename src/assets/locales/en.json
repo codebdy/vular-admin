@@ -18,7 +18,8 @@
     "confirm" : "Confirm",
     "select" : "Select",
     "select-images" : "Select Images",
-    "upload-files" : "Upload files"
+    "upload-files" : "Upload files",
+    "root" : "Root folder"
   },
 
   "debug":{
