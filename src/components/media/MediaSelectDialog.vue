@@ -1,5 +1,6 @@
 <template>
   <v-card
+    class="media-select-dialog"
     :color="$store.state.vularApp.content.card.color" 
   >
     <v-toolbar flat dark color="primary">
@@ -11,11 +12,15 @@
     </v-toolbar>
     <v-divider></v-divider>
     <v-card-text class="pa-0 d-flex flex-row media-select-dialog-body ">
-      <div style="flex:1; display: flex;flex-flow: column;">
-        <div style="display: flex;flex-flow: row; align-items: center; height:60px; padding:20px 15px;" color="transparent">
-          <v-toolbar-title style="font-size: 16px;">根目录</v-toolbar-title>
+      <div class="slect-left-area">
+        <div class="small-toolbar" color="transparent">
+          
+          <v-btn icon>
+            <v-icon>mdi-folder-home-outline</v-icon>
+          </v-btn>
+          <v-icon class="mr-2">mdi-chevron-right</v-icon>          
+          <div>产品</div>
           <div 
-            style="transition: width 0.3s;"
             :style="{width: searchboxWidth + 'px'}"
             class="list-search-box ml-5"
           >
@@ -32,24 +37,26 @@
             <v-icon size="21">mdi-folder-plus-outline</v-icon>
           </v-btn>
           <v-divider vertical class="mx-3"></v-divider>
-          <v-btn icon >
-            <v-icon :size="toolIconSize">mdi-filter-outline</v-icon>
-          </v-btn>
-          <v-btn icon>
-            <v-icon :size="toolIconSize">mdi-sort-ascending</v-icon>
-          </v-btn>
-          <v-btn icon 
-            v-if="!isList"
-            @click="isList = !isList"
-          >
-            <v-icon size="21">mdi-view-grid-outline</v-icon>
-          </v-btn>
-          <v-btn icon  
-            v-else
-            @click="isList = !isList"
-          >
-            <v-icon :size="toolIconSize">mdi-format-list-checkbox</v-icon>
-          </v-btn>
+          <div v-if="!isSmall">
+            <v-btn icon >
+              <v-icon :size="toolIconSize">mdi-filter-outline</v-icon>
+            </v-btn>
+            <v-btn icon>
+              <v-icon :size="toolIconSize">mdi-sort-ascending</v-icon>
+            </v-btn>
+            <v-btn icon 
+              v-if="!isList"
+              @click="isList = !isList"
+            >
+              <v-icon size="21">mdi-view-grid-outline</v-icon>
+            </v-btn>
+            <v-btn icon  
+              v-else
+              @click="isList = !isList"
+            >
+              <v-icon :size="toolIconSize">mdi-format-list-checkbox</v-icon>
+            </v-btn>
+          </div>
           <v-btn icon
             v-if="isSmall"  
           >
@@ -58,8 +65,35 @@
         </div>
         <v-divider></v-divider>
         <v-card-text style="flex:1; overflow-y: auto;">
-          <div style="height: 1000px;">eee</div>
-          
+          <v-row>
+            <v-col
+              v-for="n in 50"
+              :key="n"
+              class="d-flex child-flex"
+              cols="4"
+              sm="3"
+              md="2"
+            >
+              <v-card flat tile class="d-flex">
+                <v-img
+                  :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"
+                  :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`"
+                  aspect-ratio="1"
+                  class="grey lighten-2"
+                >
+                  <template v-slot:placeholder>
+                    <v-row
+                      class="fill-height ma-0"
+                      align="center"
+                      justify="center"
+                    >
+                      <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+                    </v-row>
+                  </template>
+                </v-img>
+              </v-card>
+            </v-col>
+          </v-row>
         </v-card-text>
       </div>
       <v-divider vertical></v-divider>
@@ -133,8 +167,6 @@
           }
           return 350
         }
-
-
       },
 
     },
@@ -151,6 +183,22 @@
   }
 </script>
 <style>
+  .media-select-dialog .slect-left-area{
+    flex:1; display: flex;flex-flow: column;
+  }
+
+  .media-select-dialog .small-toolbar{
+    display: flex;
+    flex-flow: row; 
+    align-items: center; 
+    height:60px; 
+    padding:20px 15px;
+  }
+
+  .media-select-dialog  .list-search-box{
+    transition: width 0.3s;
+  }
+
   .media-select-dialog-body{
     height: calc(100vh - 0px);
   }
