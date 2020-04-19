@@ -20,7 +20,7 @@
             sm="8"
             md="4"
           >
-            <v-card flat class="pa-12" dark color="rgba(255,255,255,0.0)">
+            <v-card flat class="login-card" dark color="rgba(255,255,255,0.0)">
               <h1 class="welcome-title">
                 <img 
                   :src="'/images/logo.png'" 
@@ -28,7 +28,7 @@
                 />
                 Vular
               </h1>
-              <v-card-text>
+              <v-card-text style="overflow: auto;">
                 <v-form>
                   <v-text-field
                     :label="$t('login.email')"
@@ -91,11 +91,14 @@
     background: #fff;
   }
 
+  .login-card{
+  }
+
   .welcome-title{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
     font-size: 50px;
   }
 
