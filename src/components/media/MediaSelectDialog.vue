@@ -22,10 +22,9 @@
             <v-text-field
               hide-details
               append-icon = "mdi-magnify"
-              style = "padding-top:0px; "
-              class = "mt-n1"
-              @focus = "searchboxWidth = 350"
-              @blur = "searchboxWidth = 200"
+              class = "mt-n1 pa-0"
+              @focus = "searchboxFocused = true"
+              @blur = "searchboxFocused = false"
             ></v-text-field>
           </div>
           <v-spacer ></v-spacer>
@@ -34,10 +33,10 @@
           </v-btn>
           <v-divider vertical class="mx-3"></v-divider>
           <v-btn icon >
-            <v-icon size="21">mdi-filter-outline</v-icon>
+            <v-icon :size="toolIconSize">mdi-filter-outline</v-icon>
           </v-btn>
           <v-btn icon>
-            <v-icon size="21">mdi-sort-ascending</v-icon>
+            <v-icon :size="toolIconSize">mdi-sort-ascending</v-icon>
           </v-btn>
           <v-btn icon 
             v-if="!isList"
@@ -49,7 +48,12 @@
             v-else
             @click="isList = !isList"
           >
-            <v-icon size="21">mdi-format-list-checkbox</v-icon>
+            <v-icon :size="toolIconSize">mdi-format-list-checkbox</v-icon>
+          </v-btn>
+          <v-btn icon
+            v-if="isSmall"  
+          >
+            <v-icon :size="toolIconSize">mdi-dots-horizontal</v-icon>
           </v-btn>
         </div>
         <v-divider></v-divider>
@@ -104,11 +108,36 @@
     name: "media-select-dialog",
 
     data: () => ({
-      searchboxWidth : 150,
+      searchboxFocused : false,
       isList: false,
       drawer: true,
       showFolder:true,
+      toolIconSize:21,
     }),
+    computed:{
+      isSmall(){
+        return this.$vuetify.breakpoint.xs || this.$vuetify.breakpoint.sm
+      },
+
+      searchboxWidth(){
+        if(!this.searchboxFocused){
+          if(this.isSmall){
+            return this.$vuetify.breakpoint.sm ? 150 : 100
+          }
+          return 150
+        }
+
+        if(this.searchboxFocused){
+          if(this.isSmall){
+            return this.$vuetify.breakpoint.sm ? 200 : 150
+          }
+          return 350
+        }
+
+
+      },
+
+    },
 
     methods: {
       onCancel(){
