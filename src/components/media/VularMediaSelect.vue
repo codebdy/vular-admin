@@ -50,7 +50,8 @@
         <v-col
           sm="4"
           xs="6"
-          class="image-col d-none d-sm-flex"
+          class="image-col"
+          v-if="!cols && !$vuetify.breakpoint.xs"
         >
           <v-img
               :src="`/images/pics/110-500x300.jpg`"
@@ -63,15 +64,15 @@
         </v-col>
         <v-col
           cols="12"
-          sm="8"
+          :sm="cols ? 12 :8"
         >
           <v-row no-gutters>
             <v-col
               v-for="n in 8"
               :key="n"
               v-if="n > 0 || $vuetify.breakpoint.xs"
-              cols="4"
-              sm="3"
+              :cols="cols ? cols : 4"
+              :sm="cols ? cols : 3"
               class="image-col"
             >
                 <v-img
@@ -95,7 +96,7 @@
           </v-row>
         </v-col>
         <v-col
-          class="d-flex child-flex"
+          class="d-flex child-flex image-col"
           cols="4"
           sm="2"
         >
@@ -141,6 +142,7 @@
     },
     props: {
       small: { default: false },
+      cols:"2",
     },
 
     data: () => ({
