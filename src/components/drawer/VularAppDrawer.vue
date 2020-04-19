@@ -14,6 +14,7 @@
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-btn icon class="hidden-xs-only" 
+          v-if="!inputValue.mini"
           @click.stop="inputValue.mini = !inputValue.mini"
         >
           <v-icon>mdi-chevron-left</v-icon>

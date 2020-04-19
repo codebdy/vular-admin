@@ -57,11 +57,19 @@
               <v-icon :size="toolIconSize">mdi-format-list-checkbox</v-icon>
             </v-btn>
           </div>
-          <v-btn icon
-            v-if="isSmall"  
-          >
-            <v-icon :size="toolIconSize">mdi-dots-horizontal</v-icon>
-          </v-btn>
+          <v-menu offset-y>
+            <template v-slot:activator="{ on }">
+              <v-btn icon
+                v-on="on"
+                v-if="isSmall"  
+              >
+                <v-icon :size="toolIconSize">mdi-dots-horizontal</v-icon>
+              </v-btn>
+            </template>
+            <v-card :color="$store.state.vularApp.content.card.color">
+              <MediaFolderList></MediaFolderList>
+            </v-card>
+          </v-menu>
         </div>
         <v-divider></v-divider>
         <v-card-text style="flex:1; overflow-y: auto;">
@@ -106,25 +114,7 @@
           </v-btn>
         </div>
         <div style="flex: 1; overflow-y: auto; padding:15px 15px;">
-          <v-card flat height="1000" color="transparent">
-            ffffwe<br>
-            wf<br>
-            545<br>
-            656<br>
-            78<br>
-            990<br>
-            --<br>
-            xc<br>
-            ffffwe<br>
-            wf<br>
-            545<br>
-            656<br>
-            78<br>
-            990<br>
-            --<br>
-
-
-          </v-card>
+          <MediaFolderList></MediaFolderList>
         </div>
       </div>
     </v-card-text>
@@ -138,8 +128,12 @@
 </template>
 
 <script>
+  import MediaFolderList from "./MediaFolderList"
   export default {
     name: "media-select-dialog",
+    components: {
+      MediaFolderList
+    },
 
     data: () => ({
       searchboxFocused : false,
