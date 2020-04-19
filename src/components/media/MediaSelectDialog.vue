@@ -31,12 +31,12 @@
               @blur = "searchboxFocused = false"
             ></v-text-field>
           </div>
-          <v-spacer ></v-spacer>
-          <v-btn icon >
+          <v-spacer></v-spacer>
+          <v-btn icon v-if="selectedMedias.length == 0">
             <v-icon size="21">mdi-folder-plus-outline</v-icon>
           </v-btn>
-          <v-divider vertical class="mx-3"></v-divider>
-          <div v-if="!isSmall">
+          <v-divider vertical class="mx-3" v-if="selectedMedias.length == 0"></v-divider>
+          <div v-if="!isSmall && selectedMedias.length == 0">
             <v-btn icon >
               <v-icon :size="toolIconSize">mdi-filter-outline</v-icon>
             </v-btn>
@@ -56,7 +56,18 @@
               <v-icon :size="toolIconSize">mdi-format-list-checkbox</v-icon>
             </v-btn>
           </div>
-          <v-menu offset-y v-if="isSmall">
+          <div v-if="selectedMedias.length > 0">
+            <v-btn icon color="primary">
+              <v-icon :size="toolIconSize">mdi-broom</v-icon>
+            </v-btn>
+            <v-btn icon color="primary">
+              <v-icon :size="toolIconSize">mdi-folder-move-outline</v-icon>
+            </v-btn>
+            <v-btn icon color="primary">
+              <v-icon :size="toolIconSize">mdi-delete-sweep-outline</v-icon>
+            </v-btn>
+          </div>
+          <v-menu offset-y v-if="isSmall && selectedMedias.length == 0">
             <template v-slot:activator="{ on }">
               <v-btn icon
                 v-on="on"
