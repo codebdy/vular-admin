@@ -57,16 +57,21 @@
               <v-icon :size="toolIconSize">mdi-format-list-checkbox</v-icon>
             </v-btn>
           </div>
-          <v-menu offset-y>
+          <v-menu offset-y v-if="isSmall">
             <template v-slot:activator="{ on }">
               <v-btn icon
                 v-on="on"
-                v-if="isSmall"  
               >
                 <v-icon :size="toolIconSize">mdi-dots-horizontal</v-icon>
               </v-btn>
             </template>
-            <v-card :color="$store.state.vularApp.content.card.color">
+            <v-card :color="$store.state.vularApp.content.card.color" style="flex: 1; overflow: auto; max-height: calc(100vh - 50px);">
+              <v-subheader>过滤</v-subheader>
+              <MediaFolderList></MediaFolderList>
+              <v-subheader>排序</v-subheader>
+              <MediaFolderList></MediaFolderList>
+              <v-divider></v-divider>
+              <v-subheader>文件夹</v-subheader>
               <MediaFolderList></MediaFolderList>
             </v-card>
           </v-menu>
@@ -105,7 +110,8 @@
         </v-card-text>
       </div>
       <v-divider vertical></v-divider>
-      <div class="flex-column d-none d-md-flex" style="width: 250px;"
+      <div class="flex-column right-column"
+        v-if="!isSmall"
         :style="{background: $store.state.vularApp.content.color}"
       >
         <div class="d-flex justify-center align-center" style="height: 80px;">
@@ -191,6 +197,10 @@
 
   .media-select-dialog  .list-search-box{
     transition: width 0.3s;
+  }
+
+  .media-select-dialog  .right-column{
+    width: 250px;
   }
 
   .media-select-dialog-body{
