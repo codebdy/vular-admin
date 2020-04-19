@@ -102,7 +102,7 @@
         >
           <v-menu offset-y top v-model="addMenu">
             <template v-slot:activator="{ on }">
-              <v-img aspect-ratio="1" class="new-image-placeholder" v-on="on">
+              <v-img aspect-ratio="1" class="new-image-placeholder image" v-on="on">
                 <div class="add-icon"></div>
               </v-img>
             </template>
