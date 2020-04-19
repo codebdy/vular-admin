@@ -17,7 +17,8 @@
     "cancel" : "取消",
     "confirm" : "确定",
     "select" : "选择",
-    "select-images" : "选择图片"
+    "select-images" : "选择图片",
+    "upload-files" : "上传文件"
   },
 
   "debug":{

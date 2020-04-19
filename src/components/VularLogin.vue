@@ -30,12 +30,16 @@
               </h1>
               <v-card-text style="overflow: auto;">
                 <v-form>
+
+                  <input type="password" style="display: none;"/>
                   <v-text-field
                     :label="$t('login.email')"
                     name="login-id"
                     prepend-inner-icon="mdi-email-outline"
                     outlined
                     type="text"
+                    autocomplete="off"
+                    value="admin"
                   />
 
                   <v-text-field
@@ -45,9 +49,10 @@
                     outlined
                     name="password"
                     :label="$t('login.password')"
-                    value="wqfasds"
+                    value="admin"
                     class="input-group--focused"
                     @click:append="showPassword = !showPassword"
+                    autocomplete="new-password"
                   ></v-text-field>
 
                   <div class="forgot-pwd">

@@ -80,7 +80,21 @@
         <v-card-text style="flex:1; overflow-y: auto;">
           <v-row>
             <v-col
-              v-for="n in 20"
+              class="d-flex child-flex"
+              cols="4"
+              sm="3"
+              md="2"
+            >
+              <div aspect-ratio="1" class="media-folder">
+                <div class="media-folder-inner image">
+                  <v-icon size="60">mdi-folder-outline</v-icon>
+                  <div>产品照片</div>
+                </div>
+              </div>
+            </v-col>
+
+            <v-col
+              v-for="n in 5"
               :key="n"
               class="d-flex child-flex"
               cols="4"
@@ -92,7 +106,7 @@
                   :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"
                   :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`"
                   aspect-ratio="1"
-                  class="grey lighten-2"
+                  class="image"
                 >
                   <template v-slot:placeholder>
                     <v-row
@@ -114,9 +128,9 @@
         v-if="!isSmall"
         :style="{background: $store.state.vularApp.content.color}"
       >
-        <div class="d-flex justify-center align-center" style="height: 80px;">
+        <div class="d-flex justify-center align-center upload-button-area">
           <v-btn color="primary" rounded >
-            <v-icon class="mr-3">mdi-cloud-upload-outline</v-icon> 上传文件
+            <v-icon class="mr-3">mdi-cloud-upload-outline</v-icon> {{$t("media.upload-files")}}
           </v-btn>
         </div>
         <div style="flex: 1; overflow-y: auto; padding:15px 15px;">
@@ -126,7 +140,7 @@
     </v-card-text>
     <v-card-actions class="pa-5 media-select-dialog-actions">
       <v-spacer></v-spacer>
-      <v-btn color="primary" class="mr-5" outlined rounded @click="onCancel">{{$t('media.cancel')}}</v-btn>
+      <v-btn class="mr-5" outlined rounded @click="onCancel">{{$t('media.cancel')}}</v-btn>
       <v-btn color="primary" class="mr-5" rounded @click="onConfirm">{{$t('media.select')}}</v-btn>
       <v-spacer></v-spacer>
     </v-card-actions>
@@ -195,6 +209,10 @@
     padding:20px 15px;
   }
 
+  .media-select-dialog .upload-button-area{
+    height: 70px;
+  }
+
   .media-select-dialog  .list-search-box{
     transition: width 0.3s;
   }
@@ -209,5 +227,27 @@
   .media-select-dialog-actions{
     box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
     height: 50px;
+  }
+
+  .media-select-dialog .media-folder{
+    position: relative;
+    padding-bottom: 100%;
+  }
+
+  .media-select-dialog .media-folder-inner{
+    position: absolute;
+    top:0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    border:rgba(0, 0, 255, 0.05) solid 1px;
+  }
+
+  .media-select-dialog .image{
+    border-radius: 5px !important;
   }
 </style>
