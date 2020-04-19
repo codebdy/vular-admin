@@ -57,12 +57,21 @@
             </v-btn>
           </div>
           <div v-if="selectedMedias.length > 0">
-            <v-btn icon color="primary">
+            <v-btn icon color="primary"
+              @click="onClear"
+            >
               <v-icon :size="toolIconSize">mdi-broom</v-icon>
             </v-btn>
-            <v-btn icon color="primary">
-              <v-icon :size="toolIconSize">mdi-folder-move-outline</v-icon>
-            </v-btn>
+            <v-menu offset-y>
+              <template v-slot:activator="{ on }">
+                <v-btn icon color="primary" v-on="on">
+                  <v-icon :size="toolIconSize">mdi-folder-move-outline</v-icon>
+                </v-btn>
+              </template>
+              <v-card :color="$store.state.vularApp.content.card.color" style="flex: 1; overflow: auto; max-height: calc(100vh - 50px);">
+                <MediaFolderList></MediaFolderList>
+              </v-card>
+            </v-menu>
             <v-btn icon color="primary">
               <v-icon :size="toolIconSize">mdi-delete-sweep-outline</v-icon>
             </v-btn>
@@ -288,6 +297,13 @@
         remove(media, this.selectedMedias)
       },
 
+      onClear(){
+        this.medias.forEach(media=>{
+          this.$set(media, 'selected', false)
+        })
+        this.selectedMedias = []
+      },
+
       onCancel(){
         this.$emit('close')
       },
@@ -309,6 +325,7 @@
     align-items: center; 
     height:60px; 
     padding:20px 15px;
+    padding-left: 8px;
   }
 
   .media-select-dialog .upload-button-area{
