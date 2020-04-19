@@ -97,8 +97,8 @@
         </v-col>
         <v-col
           class="d-flex child-flex image-col"
-          cols="4"
-          sm="2"
+          :cols="cols ? cols : 4"
+          :sm="cols ? cols : 3"
         >
           <v-menu offset-y top v-model="addMenu">
             <template v-slot:activator="{ on }">
@@ -142,7 +142,7 @@
     },
     props: {
       small: { default: false },
-      cols:"2",
+      cols:{ default : ''/*"6"*/ },
     },
 
     data: () => ({
