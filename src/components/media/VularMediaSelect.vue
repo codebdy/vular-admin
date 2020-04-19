@@ -107,7 +107,7 @@
               </v-img>
             </template>
             <v-card flat class="d-flex flex-row pa-5" :color="$store.state.vularApp.content.card.color">
-              <v-dialog v-model="selectDialog" scrollable tile max-width="calc(100vw - 100px)" >
+              <v-dialog v-model="selectDialog" persistent scrollable tile max-width="calc(100vw - 100px)" >
                 <template v-slot:activator="{ on }">
                   <v-card v-on="on" class="add-new-item mr-5 d-flex flex-column justify-center align-center" flat height="100" width="100" color="rgba(0,0,255, 0.05)">
                     <v-icon class="ma-2" large color="rgba(0,20,255, 0.25)" >mdi-image-plus</v-icon>

@@ -306,12 +306,14 @@
 
       onCancel(){
         this.$emit('close')
+        this.onClear()
       },
 
       onConfirm(){
         this.$emit('close')
+        this.onClear()
       },
-    }
+    },
   }
 </script>
 <style>

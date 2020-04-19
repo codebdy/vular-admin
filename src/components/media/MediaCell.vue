@@ -26,7 +26,7 @@
               <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
             </v-row>
           </template>
-          <div class="image-checkbar">
+          <div v-if="selectable" class="image-checkbar">
             <v-btn fab x-small depressed light color="white" 
               v-if="inputValue.selected"
             >
@@ -63,7 +63,8 @@
     components: {
     },
     props: {
-      value:{default: ()=>{return {}}}
+      value:{default: ()=>{return {}}},
+      selectable:{default: true},
     },
 
     data: () => ({
@@ -82,12 +83,14 @@
 
     methods: {
       onClick(){
-        this.$set(this.inputValue, 'selected', !this.inputValue.selected)
-        if(this.inputValue.selected){
-          this.$emit('select', this.inputValue)
-        }
-        else{
-          this.$emit('unselect', this.inputValue)
+        if(this.selectable){
+          this.$set(this.inputValue, 'selected', !this.inputValue.selected)
+          if(this.inputValue.selected){
+            this.$emit('select', this.inputValue)
+          }
+          else{
+            this.$emit('unselect', this.inputValue)
+          }
         }
       }
     }
@@ -122,6 +125,7 @@
     justify-content: flex-end;
     align-items: center;
     padding-right: 5px;
+    z-index: 1;
   }
 
 </style>
