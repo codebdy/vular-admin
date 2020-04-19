@@ -1,6 +1,6 @@
 <template>
   <v-card
-    class="pa-2"
+    class="pa-2 media-select"
     flat
     :color="$store.state.vularApp.content.card.color" 
     :style="$store.state.vularApp.content.card.style"
@@ -48,16 +48,15 @@
     <v-card-text style="padding: 7px;">
       <v-row no-gutters>
         <v-col
-          cols="12"
           sm="4"
           xs="6"
-          style="padding:10px;"
+          class="image-col d-none d-sm-flex"
         >
           <v-img
               :src="`/images/pics/110-500x300.jpg`"
               :lazy-src="`/images/pics/110-500x300.jpg`"
               aspect-ratio="1"
-              style="border-radius: 5px"
+              class="image"
             >
           </v-img>
          
@@ -65,22 +64,21 @@
         <v-col
           cols="12"
           sm="8"
-          xs="6"
         >
           <v-row no-gutters>
             <v-col
               v-for="n in 8"
               :key="n"
-              cols="12"
+              v-if="n > 0 || $vuetify.breakpoint.xs"
+              cols="4"
               sm="3"
-              xs="4"
-              style="padding:10px;"
+              class="image-col"
             >
                 <v-img
                   :src="`/images/pics/11${n+1}-500x300.jpg`"
                   :lazy-src="`/images/pics/11${n+1}-500x300.jpg`"
+                  class="image"
                   aspect-ratio="1"
-                  style="border-radius: 5px"
                 >
                   <template v-slot:placeholder>
                     <v-row
@@ -98,9 +96,8 @@
         </v-col>
         <v-col
           class="d-flex child-flex"
-          cols="12"
+          cols="4"
           sm="2"
-          style="padding:10px;"
         >
           <v-menu offset-y top v-model="addMenu">
             <template v-slot:activator="{ on }">
@@ -174,6 +171,14 @@
 </script>
 
 <style>
+  .media-select .image-col{
+    padding: 10px;
+  }
+
+  .media-select .image-col .image{
+    border-radius: 5px;
+  }
+
   .new-image-placeholder{
     background: rgba(0,0,255, 0.05);
     padding:10px;
