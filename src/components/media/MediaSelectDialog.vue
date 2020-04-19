@@ -67,7 +67,7 @@
         <v-card-text style="flex:1; overflow-y: auto;">
           <v-row>
             <v-col
-              v-for="n in 50"
+              v-for="n in 20"
               :key="n"
               class="d-flex child-flex"
               cols="4"
