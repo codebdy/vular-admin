@@ -446,6 +446,10 @@
         this.$refs.uploadInput.click()
       },
 
+      addFile(){
+
+      },
+
     }
   }
 </script>
