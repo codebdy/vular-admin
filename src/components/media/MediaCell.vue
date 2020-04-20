@@ -16,6 +16,9 @@
           aspect-ratio="1"
           class="image real-image"
           :class = "inputValue.selected ? 'selected' :''"
+          draggable='true'
+          @dragstart="onDragStart($event)"
+          @dragend="onDragEnd($event)"
         >
           <template v-slot:placeholder>
             <v-row
@@ -131,7 +134,16 @@
 
       onView(){
         this.$emit('view', this.inputValue)
-      }
+      },
+
+      onDragStart(){
+        this.$emit('dragMedia', this.inputValue)
+      },
+
+      onDragEnd(){
+        this.$emit('endDragMedia')
+      },
+
     }
   }
 </script>

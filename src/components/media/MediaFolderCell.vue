@@ -64,6 +64,7 @@
     props: {
       value:{default: ()=>{return {}}},
       draggedFolder: { default:null },
+      draggedMedia: { default:null },
     },
 
     data: () => ({
@@ -118,8 +119,12 @@
       },
 
       onDrop(){
-        if(this.draggedFolder !== this.inputValue){
+        if(this.draggedFolder && this.draggedFolder !== this.inputValue){
           this.$emit('changePosition', this.inputValue)
+        }
+
+        if(this.draggedMedia){
+          this.$set(this.draggedMedia, 'belongsTo', this.inputValue.id)
         }
       },
 

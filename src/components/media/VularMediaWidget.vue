@@ -95,6 +95,7 @@
             v-model="folders[index]"
             :folders = "folders"
             :draggedFolder = "draggedFolder"
+            :draggedMedia = "draggedMedia"
             @remove = "onRemoveFolder"
             @dragFolder = "draggedFolder = folder"
             @endDragFolder = "draggedFolder = null"
@@ -108,6 +109,7 @@
             v-model="folders[index]"
             :folders = "folders"
             :draggedFolder = "draggedFolder"
+            :draggedMedia = "draggedMedia"
             @remove = "onRemoveFolder"
             @dragFolder = "draggedFolder = folder"
             @endDragFolder = "draggedFolder = null"
@@ -117,7 +119,7 @@
             
           </MediaFolderRow>
           <MediaCell
-            v-if = "!isList && (!currentFolder || currentFolder.id == media.belongsTo)"
+            v-if = "!isList && ((!currentFolder && !media.belongsTo) || (currentFolder && currentFolder.id == media.belongsTo))"
             v-for = "(media, index) in medias"
             :key = "media.src"
             v-model="medias[index]"
@@ -125,16 +127,20 @@
             @unselect = "onUnselect"
             @remove = "onRemove"
             @view = "onView"
+            @dragMedia = "draggedMedia = media"
+            @endDragFolder = "draggedMedia = null"
           >
           </MediaCell>
           <MediaRow
-            v-else-if = "!currentFolder || currentFolder.id == media.belongsTo"
+            v-else-if = "(!currentFolder && !media.belongsTo) || (currentFolder &&currentFolder.id == media.belongsTo)"
             :key = "media.src"
             v-model="medias[index]"
             @select = "onSelect"
             @unselect = "onUnselect"
             @remove = "onRemove"
             @view = "onView"
+            @dragMedia = "draggedMedia = media"
+            @endDragFolder = "draggedMedia = null"
           >
           </MediaRow>
         </v-row>
