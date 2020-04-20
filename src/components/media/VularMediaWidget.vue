@@ -2,10 +2,23 @@
   <v-card-text class="pa-0 d-flex flex-row medias-widget ">
     <div class="slect-left-area">
       <div class="small-toolbar" color="transparent">
-        <v-btn icon @click="onSelectFolder(null)">
-          <v-icon>mdi-folder-home-outline</v-icon>
-        </v-btn>
-        <v-icon class="mr-2">mdi-chevron-right</v-icon>          
+        <div v-if="isSmall">
+          <v-menu offset-y v-if="isSmall && selectedMedias.length == 0">
+            <template v-slot:activator="{ on }">
+              <v-btn icon v-on="on">
+                <v-icon>mdi-folder-home-outline</v-icon>
+              </v-btn>
+            </template>
+            <v-card :color="$store.state.vularApp.content.card.color" class="pop-menu">
+              <v-subheader>文件夹</v-subheader>
+              <MediaFolderList 
+                v-model = "folders"
+                @selectFolder = "onSelectFolder"
+              ></MediaFolderList>
+            </v-card>
+          </v-menu>
+          <v-icon class="mr-2">mdi-chevron-right</v-icon>          
+        </div>
         <div v-if="currentFolder">{{currentFolder.title}}</div>
         <div 
           :style="{width: searchboxWidth + 'px'}"
@@ -26,7 +39,7 @@
           <v-icon size="21">mdi-folder-plus-outline</v-icon>
         </v-btn>
         <v-divider vertical class="mx-3" v-if="selectedMedias.length == 0"></v-divider>
-        <div v-if="!isSmall && selectedMedias.length == 0">
+        <div v-if="selectedMedias.length == 0">
           <v-menu offset-y>
             <template v-slot:activator="{ on }">
               <v-btn icon v-on="on">
@@ -142,24 +155,6 @@
             <v-icon :size="toolIconSize">mdi-delete-sweep-outline</v-icon>
           </v-btn>
         </div>
-        <v-menu offset-y v-if="isSmall && selectedMedias.length == 0">
-          <template v-slot:activator="{ on }">
-            <v-btn icon
-              v-on="on"
-            >
-              <v-icon :size="toolIconSize">mdi-dots-horizontal</v-icon>
-            </v-btn>
-          </template>
-          <v-card :color="$store.state.vularApp.content.card.color" class="pop-menu">
-            <v-subheader>过滤</v-subheader>
-            <MediaFolderList></MediaFolderList>
-            <v-subheader>排序</v-subheader>
-            <MediaFolderList></MediaFolderList>
-            <v-divider></v-divider>
-            <v-subheader>文件夹</v-subheader>
-            <MediaFolderList :folders="folders"></MediaFolderList>
-          </v-card>
-        </v-menu>
       </div>
       <v-divider></v-divider>
       <v-card-text style="flex:1; overflow-y: auto; position: relative;">
