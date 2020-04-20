@@ -201,7 +201,19 @@
         {
           id : 3,
           title : "文章照片",
-        }
+        },
+        {
+          id : 4,
+          title : "文章照片",
+        },
+        {
+          id : 5,
+          title : "文章照片",
+        },
+        {
+          id : 6,
+          title : "文章照片",
+        },
       ],
 
       medias:[
@@ -441,6 +453,7 @@
 
   .medias-widget  .right-column{
     width: 250px;
+    display: flex;
   }
 
   .medias-widget .image{

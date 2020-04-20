@@ -1,8 +1,10 @@
 <template>
   <v-list color="transparent">
-    <v-list-item-group color="primary">
       <v-list-item
         link
+        @click="onClick('root')"
+        v-model="selectRoot"
+        color="primary"
       >
         <v-list-item-icon>
           <v-icon>mdi-folder-home-outline</v-icon>
@@ -12,8 +14,11 @@
         </v-list-item-content>
       </v-list-item>
       <v-list-item
-        v-for="(item, i) in folders"
+        v-for="(item, i) in ownFolders"
         :key="i"
+        v-model="item.selected"
+        @click="onClick(i)"
+        color="primary"
         link
       >
         <v-list-item-icon>
@@ -23,7 +28,6 @@
           <v-list-item-title v-text="item.title"></v-list-item-title>
         </v-list-item-content>
       </v-list-item>
-    </v-list-item-group>
   </v-list>
 </template>
 
@@ -37,9 +41,29 @@
     },
 
     data: () => ({
+      selectRoot:true,
+      ownFolders: []
     }),
 
+    computed:{
+    },
+
+    mounted(){
+      this.ownFolders = JSON.parse(JSON.stringify(this.folders))
+    },
+
     methods: {
+      onClick(index){
+        if(index == 'root'){
+          this.selectRoot = true
+        }
+        else{
+          this.selectRoot = false
+        }
+        for(var i = 0; i < this.ownFolders.length; i ++){
+          this.$set(this.ownFolders[i], 'selected' ,i === index )
+        }
+      }
     }
   }
 </script>
