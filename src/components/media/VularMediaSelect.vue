@@ -52,23 +52,7 @@
           class="image-col"
           v-if="feathureMedia"
         >
-          <v-img
-              :src="feathureMedia.src"
-              :lazy-src="feathureMedia.lazySrc"
-              aspect-ratio="1"
-              class="image"
-            >
-              <template v-slot:placeholder>
-                <v-row
-                  class="fill-height ma-0"
-                  align="center"
-                  justify="center"
-                >
-                  <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
-                </v-row>
-              </template>
-          </v-img>
-         
+          <MediaSelectCell :media="feathureMedia"></MediaSelectCell>
         </v-col>
         <v-col
           v-if="hasFeathureRow"
@@ -82,22 +66,7 @@
               sm="3"
               class="image-col"
             >
-                <v-img
-                  :src="media.src"
-                  :lazy-src="media.lazySrc"
-                  class="image"
-                  aspect-ratio="1"
-                >
-                  <template v-slot:placeholder>
-                    <v-row
-                      class="fill-height ma-0"
-                      align="center"
-                      justify="center"
-                    >
-                      <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
-                    </v-row>
-                  </template>
-                </v-img>
+              <MediaSelectCell :media="media"></MediaSelectCell>
             </v-col>
             <v-col
               v-if="feachureRightMedias.length < 8"
@@ -115,26 +84,10 @@
           :cols="cols ? cols : 4"
           :sm="cols ? cols : 2"
         >
-          <v-img
-            :src="media.src"
-            :lazy-src="media.lazySrc"
-            class="image"
-            aspect-ratio="1"
-          >
-            <template v-slot:placeholder>
-              <v-row
-                class="fill-height ma-0"
-                align="center"
-                justify="center"
-              >
-                <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
-              </v-row>
-            </template>
-          </v-img>
-          
+          <MediaSelectCell :media="media"></MediaSelectCell>          
         </v-col>
         <v-col
-          v-if="feachureRightMedias.length == 8"
+          v-if="feachureRightMedias.length == 8 || !hasFeathureRow"
           class="d-flex child-flex image-col"
           :cols="cols ? cols : 4"
           :sm="cols ? cols : 2"
@@ -150,11 +103,13 @@
 <script>
   import AltDialog from "./AltDialog"
   import MediaAddMenu from "./MediaAddMenu"
+  import MediaSelectCell from "./MediaSelectCell"
   export default {
     name: "vular-media-select",
     components: {
       AltDialog,
-      MediaAddMenu
+      MediaAddMenu,
+      MediaSelectCell
     },
     props: {
       small: { default: false },
@@ -238,7 +193,7 @@
 
       feachureRightMedias(){
         let rightMedias = []
-        if(this.feathureMedia.length <=1 ){
+        if(!this.feathureMedia){
           return rightMedias
         }
 
