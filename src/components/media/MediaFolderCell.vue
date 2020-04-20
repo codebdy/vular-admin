@@ -7,8 +7,15 @@
       cols="4"
       sm="3"
       md="2"
+      @dragover="onDragOver($event)"
+      @dragleave="onDragLeave($event)"
+      @drop="onDrop($event)"
     >
-      <div aspect-ratio="1" class="media-folder">
+      <div aspect-ratio="1" class="media-folder"
+        draggable='true'
+        @dragstart="onDragStart($event)"
+        @dragend="onDragEnd($event)"
+      >
         <div class="media-folder-inner image">
           <v-icon size="60">mdi-folder-outline</v-icon>
         </div>
@@ -26,9 +33,6 @@
         </span>
       </v-card-text>
       <div v-if="hover" class="image-toolbar">
-        <v-btn dark fab x-small class="image-button move-button" depressed>
-          <v-icon size="16"  dark>mdi-arrow-all</v-icon>
-        </v-btn>
         <v-spacer></v-spacer>
         <v-btn dark fab x-small depressed class="image-button"
           @click.stop = "onEdit"
@@ -70,7 +74,7 @@
 
     methods: {
       onEdit(event){
-        this.$set(this.inputValue, 'editing', !this.inputValue.editing)
+        this.$set(this.inputValue, 'editing', true)
         this.oldTitle = this.inputValue.title
         this.$refs.titleInput.focus()
       },
@@ -85,6 +89,26 @@
 
       onRemove(){
         this.$emit('remove', this.inputValue)
+      },
+
+      onDragStart(event){
+
+      },
+
+      onDragEnd(event){
+
+      },
+
+      onDragOver(event){
+
+      },
+
+      onDragLeave(event){
+
+      },
+
+      onDrop(event){
+
       },
     }
   }

@@ -48,9 +48,6 @@
         </v-card-text>
       </v-card>
       <div v-if="hover" class="image-toolbar">
-        <v-btn dark fab x-small class="image-button move-button" depressed>
-          <v-icon size="16"  dark>mdi-arrow-all</v-icon>
-        </v-btn>
         <v-spacer></v-spacer>
         <v-btn dark fab x-small depressed class="image-button"
           @click.stop="onView"
@@ -112,7 +109,7 @@
       },
 
       onEdit(event){
-        this.$set(this.inputValue, 'editing', !this.inputValue.editing)
+        this.$set(this.inputValue, 'editing', true)
         this.oldTitle = this.inputValue.title
         this.$refs.titleInput.focus()
       },
