@@ -290,7 +290,6 @@
 
     methods: {
       onSelect(media){
-        console.log('onSelect')
         add(media, this.selectedMedias)
       },
       onUnselect(media){

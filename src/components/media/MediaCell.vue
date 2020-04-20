@@ -35,7 +35,16 @@
           </div>
         </v-img>
         <v-card-text class="d-flex justify-center align-center image-text">
-        {{inputValue.title}}
+          <input v-model="inputValue.title" 
+            v-show="inputValue.editing"
+            @blur = "onStopEdit"
+            @keyup.13 = "onStopEdit"
+            ref="titleInput"
+            style="outline: rgba(0,0,255,0.3) solid 2px;" 
+          />
+          <span v-show="!inputValue.editing">
+            {{inputValue.title}}
+          </span>
         </v-card-text>
       </v-card>
       <div v-if="hover" class="image-toolbar">
@@ -46,7 +55,9 @@
         <v-btn dark fab x-small depressed class="image-button">
           <v-icon size="13"  dark>mdi-magnify</v-icon>
         </v-btn>
-        <v-btn dark fab x-small depressed class="image-button ml-1">
+        <v-btn dark fab x-small depressed class="image-button ml-1"
+          @click.stop = "onEdit"
+        >
           <v-icon size="13"  dark>mdi-pencil</v-icon>
         </v-btn>
         <v-btn dark fab x-small depressed class="image-button ml-1">
@@ -68,6 +79,7 @@
     },
 
     data: () => ({
+      oldTitle:'',
     }),
 
     computed:{
@@ -92,7 +104,23 @@
             this.$emit('unselect', this.inputValue)
           }
         }
-      }
+        this.$refs.titleInput.focus()
+      },
+
+      onEdit(event){
+        this.$set(this.inputValue, 'editing', true)
+        this.oldTitle = this.inputValue.title
+        this.$refs.titleInput.focus()
+      },
+
+      onStopEdit(){
+        this.$set(this.inputValue, 'editing', false)
+
+        if(this.oldTitle !== this.inputValue.title){
+          //@@@数据更改提交后台
+          console.log('@@@数据更改提交后台')
+        }
+      },
     }
   }
 </script>
