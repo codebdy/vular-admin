@@ -1,6 +1,9 @@
 <template>
   <VularPage :title="$t('drawer.medias')" titleIcon="mdi-image-auto-adjust" :persistent="true">
-    <v-card :style="{background: $store.state.vularApp.content.card.color}">
+    <v-card flat  
+      :color="$store.state.vularApp.content.card.color" 
+      :style="$store.state.vularApp.content.card.style"
+    >
       <VularMediaWidget :inMediasPage="true"></VularMediaWidget>
     </v-card>
   </VularPage>
