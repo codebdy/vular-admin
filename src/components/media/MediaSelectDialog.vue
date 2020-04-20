@@ -32,7 +32,9 @@
             ></v-text-field>
           </div>
           <v-spacer></v-spacer>
-          <v-btn icon v-if="selectedMedias.length == 0">
+          <v-btn icon v-if="selectedMedias.length == 0"
+            @click="onCreateFolder"
+          >
             <v-icon size="21">mdi-folder-plus-outline</v-icon>
           </v-btn>
           <v-divider vertical class="mx-3" v-if="selectedMedias.length == 0"></v-divider>
@@ -173,17 +175,14 @@
         {
           id : 1,
           title : "产品照片",
-          type : 'folder',
         },
         {
           id : 2,
           title : "产品图纸",
-          type : 'folder',
         },
         {
           id : 3,
           title : "文章照片",
-          type : 'folder',
         }
       ],
 
@@ -312,6 +311,17 @@
     },
 
     methods: {
+      onCreateFolder(){
+        //
+        let folder = {
+          id:'vular-temp-id',
+          title: this.$t('media.new-folder'),
+          editing: true,
+        }
+
+        this.folders.push(folder)
+      },
+
       onSelect(media){
         add(media, this.selectedMedias)
       },

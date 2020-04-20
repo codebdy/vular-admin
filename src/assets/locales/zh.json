@@ -21,7 +21,8 @@
     "view-media" : "查看媒体",
     "upload-files" : "上传文件",
     "root" : "根目录",
-    "selected-counts" : "已选中 {0} 个文件"
+    "selected-counts" : "已选中 {0} 个文件",
+    "new-folder" : "新文件夹"
   },
 
   "debug":{

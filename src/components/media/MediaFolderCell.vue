@@ -17,6 +17,7 @@
         <input v-model="inputValue.title" 
           v-show="inputValue.editing"
           @keyup.13 = "onStopEdit"
+          @blur = "onStopEdit"
           ref="titleInput"
           class="media-title-input"
         />
@@ -32,8 +33,7 @@
         <v-btn dark fab x-small depressed class="image-button"
           @click.stop = "onEdit"
         >
-          <v-icon size="13" v-if="inputValue.editing"  dark>mdi-pencil-remove-outline</v-icon>
-          <v-icon size="13" v-else dark>mdi-pencil-outline</v-icon>
+          <v-icon size="13" dark>mdi-pencil-outline</v-icon>
         </v-btn>
         <v-btn dark fab x-small depressed class="image-button ml-1"
           @click.stop = "onRemove"
@@ -79,7 +79,7 @@
         this.$set(this.inputValue, 'editing', false)
         if(this.oldTitle !== this.inputValue.title){
           //@@@数据更改提交后台
-          console.log('@@@数据更改提交后台')
+          console.log('@@@数据更改提交后台,ID也要更新，应对新建情况')
         }
       },
 
