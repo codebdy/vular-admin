@@ -33,13 +33,13 @@
           ></v-text-field>
         </div>
         <v-spacer></v-spacer>
-        <v-btn icon v-if="selectedMedias.length == 0"
+        <v-btn icon v-if="inputValue.length == 0"
           @click="onCreateFolder"
         >
           <v-icon size="21">mdi-folder-plus-outline</v-icon>
         </v-btn>
-        <v-divider vertical class="mx-3" v-if="selectedMedias.length == 0"></v-divider>
-        <div v-if="selectedMedias.length == 0">
+        <v-divider vertical class="mx-3" v-if="inputValue.length == 0"></v-divider>
+        <div v-if="inputValue.length == 0">
           <v-menu offset-y>
             <template v-slot:activator="{ on }">
               <v-btn icon v-on="on">
@@ -129,7 +129,7 @@
             <v-icon :size="toolIconSize">mdi-format-list-checkbox</v-icon>
           </v-btn>
         </div>
-        <div v-if="selectedMedias.length > 0">
+        <div v-if="inputValue.length > 0">
           <v-btn icon color="primary"
             @click="onClear"
           >
@@ -272,6 +272,7 @@
         type:String,
         default:'image/*',
       },
+      value:{default:()=>{return []}}
     },
 
     data: () => ({
@@ -282,7 +283,6 @@
       toolIconSize:21,
       draggedFolder: null,
       draggedMedia: null,
-      selectedMedias:[],
       //folders:[],
       folders:[
         {
@@ -414,6 +414,14 @@
     }),
 
     computed:{
+      inputValue: {
+        get:function() {
+          return this.value;
+        },
+        set:function(val) {
+          this.$emit('input', val);
+        },
+      },
       isSmall(){
         return this.$vuetify.breakpoint.xs || this.$vuetify.breakpoint.sm || this.$vuetify.breakpoint.md
       },
@@ -471,15 +479,15 @@
       },
 
       onSelect(media){
-        add(media, this.selectedMedias)
+        add(media, this.inputValue)
       },
       onUnselect(media){
-        remove(media, this.selectedMedias)
+        remove(media, this.inputValue)
       },
 
       onRemove(media){
         remove(media, this.medias)
-        remove(media, this.selectedMedias)
+        remove(media, this.inputValue)
         console.log("@@@调用从后台删除数据节口")
       },
 
@@ -497,7 +505,7 @@
         this.medias.forEach(media=>{
           this.$set(media, 'selected', false)
         })
-        this.selectedMedias = []
+        this.inputValue = []
       },
 
       onCancel(){
@@ -531,16 +539,16 @@
       },
 
       onAddtoFolder(folder){
-        this.selectedMedias.forEach(media=>{
+        this.inputValue.forEach(media=>{
           this.$set(media, 'selected', false)
           this.$set(media, 'belongsTo', folder ? folder.id : '')
         })
 
-        this.selectedMedias = []
+        this.inputValue = []
       },
 
       onRemoveSelected(){
-        this.selectedMedias.forEach(media=>{
+        this.inputValue.forEach(media=>{
           remove(media, this.medias)
         })
 

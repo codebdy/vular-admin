@@ -41,12 +41,20 @@
     methods: {
       onCancel(){
         this.$emit('close')
+        this.clearMediasSelection()
         this.selectedMedias = []
       },
 
       onConfirm(){
         this.$emit('close')
+        this.clearMediasSelection()
         this.selectedMedias = []
+      },
+
+      clearMediasSelection(){
+        this.selectedMedias.forEach(media=>{
+          this.$set(media, 'selected', false)
+        })
       },
     },
   }
