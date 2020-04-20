@@ -59,11 +59,11 @@
               </v-btn>
             </template>
             <v-card :color="$store.state.vularApp.content.card.color" class="pop-menu">
-              <MediaFolderList 
+              <MediaFolderMenu 
                 :folders="folders" 
                 :selectAble = "false"
                 @selectFolder = "onAddtoFolder"
-              ></MediaFolderList>
+              ></MediaFolderMenu>
             </v-card>
           </v-menu>
           <v-btn icon color="primary">
@@ -165,7 +165,7 @@
       </div>
       <div class="right-folder-list">
         <MediaFolderList 
-          :folders = "folders"
+          v-model = "folders"
           @selectFolder = "onSelectFolder"
         ></MediaFolderList>
       </div>
@@ -177,6 +177,7 @@
 <script>
   import {add, remove} from "../../basic/vular-array"
   import MediaFolderList from "./MediaFolderList"
+  import MediaFolderMenu from "./MediaFolderMenu"
   import MediaFolderCell from "./MediaFolderCell"
   import MediaCell from "./MediaCell"
   import MediaView from "./MediaView"
@@ -187,6 +188,7 @@
     name: "VularMediaWidget",
     components: {
       MediaFolderList,
+      MediaFolderMenu,
       MediaFolderCell,
       MediaCell,
       MediaView,
@@ -209,7 +211,6 @@
       toolIconSize:21,
       draggedFolder: null,
       draggedMedia: null,
-      currentFolder: null,
       selectedMedias:[],
       folders:[
         {
@@ -361,6 +362,15 @@
         }
       },
 
+      currentFolder(){
+        for(var i = 0; i < this.folders.length; i++){
+          if(this.folders[i].selected){
+            return this.folders[i]
+          }
+        }
+        return null
+      }
+
     },
 
     methods: {
@@ -429,7 +439,9 @@
       },
 
       onSelectFolder(folder){
-        this.currentFolder = folder
+        this.folders.forEach(fld=>{
+          this.$set(fld, 'selected', folder && fld.id == folder.id)
+        })
         this.onClear()
       },
 

@@ -14,7 +14,7 @@
         </v-list-item-content>
       </v-list-item>
       <v-list-item
-        v-for="(item, i) in inputValue"
+        v-for="(item, i) in ownFolders"
         :key="i"
         v-model="item.selected"
         @click="onClick(i)"
@@ -33,47 +33,47 @@
 
 <script>
   export default {
-    name: "media-folder-list",
+    name: "media-folder-menu",
     components: {
     },
     props: {
-      value:{default:()=>{return []}},
+      folders:{default:()=>{return []}},
+      selectAble:{ default:true },
     },
 
     data: () => ({
-      
+      selectRoot:true,
+      ownFolders: []
     }),
 
     computed:{
-      inputValue: {
-        get:function() {
-          return this.value;
-        },
-        set:function(val) {
-          this.$emit('input', val);
-        },
-      },
-
-      selectRoot(){
-        for(var i = 0; i < this.inputValue.length; i ++){
-          if(this.inputValue[i].selected){
-            return false
-          }
-        }
-
-        return true
-      }
     },
 
     mounted(){
+      this.ownFolders = JSON.parse(JSON.stringify(this.folders))
+      this.selectRoot = this.selectAble
     },
 
     methods: {
       onClick(index){
-        for(var i = 0; i < this.inputValue.length; i ++){
-          this.$set(this.inputValue[i], 'selected' ,i === index )
+        if(index == 'root'){
+          this.$emit('selectFolder', null)
+          this.selectRoot = true
         }
+        else{
+          this.selectRoot = false
+          this.$emit('selectFolder', this.ownFolders[index])
+        }
+        this.selectRealFolder(index)
       },
+
+      selectRealFolder(index){
+        if(this.selectAble){
+          for(var i = 0; i < this.ownFolders.length; i ++){
+            this.$set(this.ownFolders[i], 'selected' ,i === index )
+          }
+        }
+      }
     }
   }
 </script>
