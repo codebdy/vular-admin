@@ -51,11 +51,11 @@
           sm="4"
           xs="6"
           class="image-col"
-          v-if="!cols && !$vuetify.breakpoint.xs"
+          v-if="feathureImage"
         >
           <v-img
-              :src="`/images/pics/110-500x300.jpg`"
-              :lazy-src="`/images/pics/110-500x300.jpg`"
+              :src="feathureImage.src"
+              :lazy-src="feathureImage.lazySrc"
               aspect-ratio="1"
               class="image"
             >
@@ -107,7 +107,10 @@
               </v-img>
             </template>
             <v-card flat class="d-flex flex-row pa-5" :color="$store.state.vularApp.content.card.color">
-              <v-dialog v-model="selectDialog" persistent scrollable tile max-width="calc(100vw - 100px)" >
+              <v-dialog v-model="selectDialog" persistent scrollable tile 
+                max-width="calc(100vw - 100px)" 
+                @selectMedias = "onSelectMedias"
+              >
                 <template v-slot:activator="{ on }">
                   <v-card v-on="on" class="add-new-item mr-5 d-flex flex-column justify-center align-center" flat height="100" width="100" color="rgba(0,0,255, 0.05)">
                     <v-icon class="ma-2" large color="rgba(0,20,255, 0.25)" >mdi-image-plus</v-icon>
@@ -150,10 +153,119 @@
       addMenu : false,
       altDialog : false,
       selectDialog: false,
-
+      medias:[
+        {
+          id : 1,
+          type : "image",
+          title : "图片1",
+          src : "/images/pics/111-500x300.jpg",
+          thumbSrc : '/images/pics/111-500x300.jpg',
+          lazySrc : "/images/lazy-pics/111-500x300.jpg",
+        },
+        {
+          id : 999,
+          type : "image",
+          title : "图片X",
+          src : "/images/pics/110-500x300.jpg",
+          thumbSrc : '/images/pics/110-500x300.jpg',
+          lazySrc : "/images/lazy-pics/110-500x300.jpg",
+          belongsTo : 1,
+        },
+        {
+          id : 2,
+          type : "image",
+          title : "图片2",
+          src : "/images/pics/112-500x300.jpg",
+          thumbSrc : '/images/pics/112-500x300.jpg',
+          lazySrc : "/images/lazy-pics/112-500x300.jpg",
+        },
+        {
+          id : 3,
+          type : "image",
+          title : "图片3",
+          src : "/images/pics/113-500x300.jpg",
+          thumbSrc : '/images/pics/113-500x300.jpg',
+          lazySrc : "/images/lazy-pics/113-500x300.jpg",
+        },
+        {
+          id : 4,
+          type : "image",
+          title : "图片4",
+          src : "/images/pics/114-500x300.jpg",
+          thumbSrc : '/images/pics/114-500x300.jpg',
+          lazySrc : "/images/lazy-pics/114-500x300.jpg",
+        },
+        {
+          id : 5,
+          type : "image",
+          title : "图片5",
+          src : "/images/pics/115-500x300.jpg",
+          thumbSrc : '/images/pics/115-500x300.jpg',
+          lazySrc : "/images/lazy-pics/115-500x300.jpg",
+        },
+        {
+          id : 6,
+          type : "image",
+          title : "图片6",
+          src : "/images/pics/116-500x300.jpg",
+          thumbSrc : '/images/pics/116-500x300.jpg',
+          lazySrc : "/images/lazy-pics/116-500x300.jpg",
+        },
+        {
+          id : 7,
+          type : "image",
+          title : "图片7",
+          src : "/images/pics/117-500x300.jpg",
+          thumbSrc : '/images/pics/117-500x300.jpg',
+          lazySrc : "/images/lazy-pics/117-500x300.jpg",
+        },
+        {
+          id : 8,
+          type : "image",
+          title : "图片8",
+          src : "/images/pics/118-500x300.jpg",
+          thumbSrc : '/images/pics/118-500x300.jpg',
+          lazySrc : "/images/lazy-pics/118-500x300.jpg",
+        },
+        {
+          id : 9,
+          type : "image",
+          title : "图片9",
+          src : "/images/pics/119-500x300.jpg",
+          thumbSrc : '/images/pics/119-500x300.jpg',
+          lazySrc : "/images/lazy-pics/119-500x300.jpg",
+        },
+        {
+          id : 10,
+          type : "image",
+          title : "图片10",
+          src : "/images/pics/120-500x300.jpg",
+          thumbSrc : '/images/pics/120-500x300.jpg',
+          lazySrc : "/images/lazy-pics/120-500x300.jpg",
+        },
+        {
+          id : 11,
+          type : "image",
+          title : "图片11",
+          src : "/images/pics/121-500x300.jpg",
+          thumbSrc : '/images/pics/121-500x300.jpg',
+          lazySrc : "/images/lazy-pics/121-500x300.jpg",
+        },
+      ],
     }),
 
+    computed:{
+      feathureImage(){
+        if(this.medias.length > 0 && !this.cols && !this.$vuetify.breakpoint.xs){
+          return this.medias[0]
+        }
+      }
+    },
+
     methods: {
+      onSelectMedias(medias){
+
+      },
     },
 
     watch:{

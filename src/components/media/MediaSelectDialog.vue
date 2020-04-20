@@ -48,6 +48,8 @@
       onConfirm(){
         this.$emit('close')
         this.clearMediasSelection()
+        let medias = [...this.selectedMedias]
+        this.$emit('selectMedias', medias)
         this.selectedMedias = []
       },
 
