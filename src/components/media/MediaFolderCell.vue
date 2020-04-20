@@ -56,6 +56,7 @@
     },
     props: {
       value:{default: ()=>{return {}}},
+      draggedFolder: { default:null },
     },
 
     data: () => ({
@@ -73,7 +74,7 @@
     },
 
     methods: {
-      onEdit(event){
+      onEdit(){
         this.$set(this.inputValue, 'editing', true)
         this.oldTitle = this.inputValue.title
         this.$refs.titleInput.focus()
@@ -91,24 +92,28 @@
         this.$emit('remove', this.inputValue)
       },
 
-      onDragStart(event){
-
+      onDragStart(){
+        this.$emit('dragFolder', this.inputValue)
       },
 
-      onDragEnd(event){
-
+      onDragEnd(){
+        this.$emit('endDragFolder')
       },
 
       onDragOver(event){
+        if(this.draggedFolder !== this.inputValue){
+          event.preventDefault();
+        }
+      },
+
+      onDragLeave(){
 
       },
 
-      onDragLeave(event){
-
-      },
-
-      onDrop(event){
-
+      onDrop(){
+        if(this.draggedFolder !== this.inputValue){
+          this.$emit('changePosition', this.inputValue)
+        }
       },
     }
   }
@@ -131,7 +136,7 @@
     justify-content: center;
     align-items: center;
     border:rgba(0, 0, 255, 0.05) solid 1px;
-    cursor: pointer;
+    cursor: move;
   }
 
   .media-select-dialog .media-folder-inner:hover{

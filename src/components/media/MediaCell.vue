@@ -108,7 +108,7 @@
         this.$refs.titleInput.focus()
       },
 
-      onEdit(event){
+      onEdit(){
         this.$set(this.inputValue, 'editing', true)
         this.oldTitle = this.inputValue.title
         this.$refs.titleInput.focus()

@@ -105,7 +105,11 @@
               :key = "folder.id"
               v-model="folders[index]"
               :folders = "folders"
+              :draggedFolder = "draggedFolder"
               @remove = "onRemoveFolder"
+              @dragFolder = "draggedFolder = folder"
+              @endDragFolder = "draggedFolder = null"
+              @changePosition = "onChangePosition"
             >
             </MediaFolderCell>
             <MediaCell
@@ -171,6 +175,8 @@
       viewedMedia : null,
       isList: false,
       toolIconSize:21,
+      draggedFolder: null,
+      draggedMedia: null,
       folders:[
         {
           id : 1,
@@ -360,6 +366,19 @@
       onConfirm(){
         this.$emit('close')
         this.onClear()
+      },
+
+      onChangePosition(folder){
+        for(var i=0; i<this.folders.length; i++)
+        {
+          if(this.folders[i].id == this.draggedFolder.id){
+            this.$set(this.folders, i, folder)
+          } 
+          else if(this.folders[i].id == folder.id){
+            this.$set(this.folders, i, this.draggedFolder)
+          } 
+        }
+
       },
     },
   }
