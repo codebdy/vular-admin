@@ -2,7 +2,7 @@
   <v-card-text class="pa-0 d-flex flex-row medias-widget ">
     <div class="slect-left-area">
       <div class="small-toolbar" color="transparent">
-        <v-btn icon>
+        <v-btn icon @click="onSelectFolder(null)">
           <v-icon>mdi-folder-home-outline</v-icon>
         </v-btn>
         <v-icon class="mr-2">mdi-chevron-right</v-icon>          
@@ -20,13 +20,13 @@
           ></v-text-field>
         </div>
         <v-spacer></v-spacer>
-        <v-btn icon v-if="inputValue.length == 0"
+        <v-btn icon v-if="selectedMedias.length == 0"
           @click="onCreateFolder"
         >
           <v-icon size="21">mdi-folder-plus-outline</v-icon>
         </v-btn>
-        <v-divider vertical class="mx-3" v-if="inputValue.length == 0"></v-divider>
-        <div v-if="!isSmall && inputValue.length == 0">
+        <v-divider vertical class="mx-3" v-if="selectedMedias.length == 0"></v-divider>
+        <div v-if="!isSmall && selectedMedias.length == 0">
           <v-btn icon >
             <v-icon :size="toolIconSize">mdi-filter-outline</v-icon>
           </v-btn>
@@ -46,7 +46,7 @@
             <v-icon :size="toolIconSize">mdi-format-list-checkbox</v-icon>
           </v-btn>
         </div>
-        <div v-if="inputValue.length > 0">
+        <div v-if="selectedMedias.length > 0">
           <v-btn icon color="primary"
             @click="onClear"
           >
@@ -66,7 +66,7 @@
             <v-icon :size="toolIconSize">mdi-delete-sweep-outline</v-icon>
           </v-btn>
         </div>
-        <v-menu offset-y v-if="isSmall && inputValue.length == 0">
+        <v-menu offset-y v-if="isSmall && selectedMedias.length == 0">
           <template v-slot:activator="{ on }">
             <v-btn icon
               v-on="on"
@@ -115,7 +115,7 @@
             
           </MediaFolderRow>
           <MediaCell
-            v-if="!isList"
+            v-if = "!isList && (!currentFolder || currentFolder.id == media.belongsTo)"
             v-for = "(media, index) in medias"
             :key = "media.src"
             v-model="medias[index]"
@@ -126,7 +126,7 @@
           >
           </MediaCell>
           <MediaRow
-            v-else
+            v-else-if = "!currentFolder || currentFolder.id == media.belongsTo"
             :key = "media.src"
             v-model="medias[index]"
             @select = "onSelect"
@@ -179,7 +179,6 @@
       MediaFolderRow,
     },
     props: {
-      value:{default : ()=>{return []}},
       inMediasPage:false,
     },
 
@@ -192,6 +191,7 @@
       draggedFolder: null,
       draggedMedia: null,
       currentFolder: null,
+      selectedMedias:[],
       folders:[
         {
           id : 1,
@@ -227,6 +227,7 @@
           src : "/images/pics/110-500x300.jpg",
           thumbSrc : '/images/pics/110-500x300.jpg',
           lazySrc : "/images/lazy-pics/110-500x300.jpg",
+          belongsTo : 1,
         },
         {
           id : 1,
@@ -321,15 +322,6 @@
     }),
 
     computed:{
-      inputValue: {
-        get:function() {
-          return this.value;
-        },
-        set:function(val) {
-          this.$emit('input', val);
-        },
-      },
-
       isSmall(){
         return this.$vuetify.breakpoint.xs || this.$vuetify.breakpoint.sm || this.$vuetify.breakpoint.md
       },
@@ -365,15 +357,15 @@
       },
 
       onSelect(media){
-        add(media, this.inputValue)
+        add(media, this.selectedMedias)
       },
       onUnselect(media){
-        remove(media, this.inputValue)
+        remove(media, this.selectedMedias)
       },
 
       onRemove(media){
         remove(media, this.medias)
-        remove(media, this.inputValue)
+        remove(media, this.selectedMedias)
         console.log("@@@调用从后台删除数据节口")
       },
 
@@ -391,7 +383,7 @@
         this.medias.forEach(media=>{
           this.$set(media, 'selected', false)
         })
-        this.inputValue = []
+        this.selectedMedias = []
       },
 
       onCancel(){
@@ -418,8 +410,8 @@
       },
 
       onSelectFolder(folder){
-        console.log(folder)
         this.currentFolder = folder
+        this.onClear()
       },
     }
   }

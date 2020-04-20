@@ -55,18 +55,25 @@
     methods: {
       onClick(index){
 
-        if(index == 'root' && !this.selectRoot){
-          this.$emit('selectFolder', null)
-          this.selectRoot = true
+        if(index == 'root'){
+          if(!this.selectRoot){
+            this.$emit('selectFolder', null)
+            this.selectRoot = true
+            this.selectRealFolder(index)
+          }
         }
         else{
           this.selectRoot = false
           if(!this.ownFolders[index].selected){
             this.$emit('selectFolder', this.ownFolders[index])
-            for(var i = 0; i < this.ownFolders.length; i ++){
-              this.$set(this.ownFolders[i], 'selected' ,i === index )
-            }
+            this.selectRealFolder(index)
           }
+        }
+      },
+
+      selectRealFolder(index){
+        for(var i = 0; i < this.ownFolders.length; i ++){
+          this.$set(this.ownFolders[i], 'selected' ,i === index )
         }
       }
     }
