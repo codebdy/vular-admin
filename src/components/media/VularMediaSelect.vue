@@ -49,35 +49,42 @@
       <v-row no-gutters>
         <v-col
           sm="4"
-          xs="6"
           class="image-col"
-          v-if="feathureImage"
+          v-if="feathureMedia"
         >
           <v-img
-              :src="feathureImage.src"
-              :lazy-src="feathureImage.lazySrc"
+              :src="feathureMedia.src"
+              :lazy-src="feathureMedia.lazySrc"
               aspect-ratio="1"
               class="image"
             >
+              <template v-slot:placeholder>
+                <v-row
+                  class="fill-height ma-0"
+                  align="center"
+                  justify="center"
+                >
+                  <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+                </v-row>
+              </template>
           </v-img>
          
         </v-col>
         <v-col
+          v-if="hasFeathureRow"
           cols="12"
-          :sm="cols ? 12 :8"
+          :sm="8"
         >
           <v-row no-gutters>
             <v-col
-              v-for="n in 8"
-              :key="n"
-              v-if="n > 0 || $vuetify.breakpoint.xs"
-              :cols="cols ? cols : 4"
-              :sm="cols ? cols : 3"
+              v-for="(media,index) in feachureRightMedias"
+              :key="media.src"
+              sm="3"
               class="image-col"
             >
                 <v-img
-                  :src="`/images/pics/11${n+1}-500x300.jpg`"
-                  :lazy-src="`/images/pics/11${n+1}-500x300.jpg`"
+                  :src="media.src"
+                  :lazy-src="media.lazySrc"
                   class="image"
                   aspect-ratio="1"
                 >
@@ -92,41 +99,47 @@
                   </template>
                 </v-img>
             </v-col>
-
+            <v-col
+              v-if="feachureRightMedias.length < 8"
+              sm="3"
+              class="image-col"
+            >
+              <MediaAddMenu @selectMedias= "onSelectMedias"></MediaAddMenu>
+            </v-col>
           </v-row>
         </v-col>
         <v-col
+          class="image-col"
+          v-for="(media,index) in secondRowMedias"
+          :key="media.src"
+          :cols="cols ? cols : 4"
+          :sm="cols ? cols : 2"
+        >
+          <v-img
+            :src="media.src"
+            :lazy-src="media.lazySrc"
+            class="image"
+            aspect-ratio="1"
+          >
+            <template v-slot:placeholder>
+              <v-row
+                class="fill-height ma-0"
+                align="center"
+                justify="center"
+              >
+                <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+              </v-row>
+            </template>
+          </v-img>
+          
+        </v-col>
+        <v-col
+          v-if="feachureRightMedias.length == 8"
           class="d-flex child-flex image-col"
           :cols="cols ? cols : 4"
-          :sm="cols ? cols : 3"
+          :sm="cols ? cols : 2"
         >
-          <v-menu offset-y top v-model="addMenu">
-            <template v-slot:activator="{ on }">
-              <v-img aspect-ratio="1" class="new-image-placeholder image" v-on="on">
-                <div class="add-icon"></div>
-              </v-img>
-            </template>
-            <v-card flat class="d-flex flex-row pa-5" :color="$store.state.vularApp.content.card.color">
-              <v-dialog v-model="selectDialog" persistent scrollable tile 
-                max-width="calc(100vw - 100px)" 
-                @selectMedias = "onSelectMedias"
-              >
-                <template v-slot:activator="{ on }">
-                  <v-card v-on="on" class="add-new-item mr-5 d-flex flex-column justify-center align-center" flat height="100" width="100" color="rgba(0,0,255, 0.05)">
-                    <v-icon class="ma-2" large color="rgba(0,20,255, 0.25)" >mdi-image-plus</v-icon>
-                    {{$t('media.images')}}
-                  </v-card>
-                </template>
-                <MediaSelectDialog @close="selectDialog = false"></MediaSelectDialog>
-              </v-dialog>
-
-              <v-divider vertical></v-divider>
-              <v-card class="add-new-item ml-5 d-flex flex-column justify-center align-center" flat height="100" width="100"  color="rgba(0,0,255, 0.05)">
-                <v-icon class="ma-2" large color="rgba(0,20,255, 0.25)">mdi-video-plus</v-icon>
-                {{$t('media.videos')}}
-              </v-card>
-            </v-card>
-          </v-menu>
+          <MediaAddMenu @selectMedias= "onSelectMedias"></MediaAddMenu>
         </v-col>
       </v-row>
 
@@ -136,12 +149,12 @@
 
 <script>
   import AltDialog from "./AltDialog"
-  import MediaSelectDialog from "./MediaSelectDialog"
+  import MediaAddMenu from "./MediaAddMenu"
   export default {
     name: "vular-media-select",
     components: {
       AltDialog,
-      MediaSelectDialog
+      MediaAddMenu
     },
     props: {
       small: { default: false },
@@ -150,9 +163,7 @@
 
     data: () => ({
       menu : false,
-      addMenu : false,
       altDialog : false,
-      selectDialog: false,
       medias:[
         {
           id : 1,
@@ -211,54 +222,51 @@
           thumbSrc : '/images/pics/116-500x300.jpg',
           lazySrc : "/images/lazy-pics/116-500x300.jpg",
         },
-        {
-          id : 7,
-          type : "image",
-          title : "图片7",
-          src : "/images/pics/117-500x300.jpg",
-          thumbSrc : '/images/pics/117-500x300.jpg',
-          lazySrc : "/images/lazy-pics/117-500x300.jpg",
-        },
-        {
-          id : 8,
-          type : "image",
-          title : "图片8",
-          src : "/images/pics/118-500x300.jpg",
-          thumbSrc : '/images/pics/118-500x300.jpg',
-          lazySrc : "/images/lazy-pics/118-500x300.jpg",
-        },
-        {
-          id : 9,
-          type : "image",
-          title : "图片9",
-          src : "/images/pics/119-500x300.jpg",
-          thumbSrc : '/images/pics/119-500x300.jpg',
-          lazySrc : "/images/lazy-pics/119-500x300.jpg",
-        },
-        {
-          id : 10,
-          type : "image",
-          title : "图片10",
-          src : "/images/pics/120-500x300.jpg",
-          thumbSrc : '/images/pics/120-500x300.jpg',
-          lazySrc : "/images/lazy-pics/120-500x300.jpg",
-        },
-        {
-          id : 11,
-          type : "image",
-          title : "图片11",
-          src : "/images/pics/121-500x300.jpg",
-          thumbSrc : '/images/pics/121-500x300.jpg',
-          lazySrc : "/images/lazy-pics/121-500x300.jpg",
-        },
       ],
     }),
 
     computed:{
-      feathureImage(){
-        if(this.medias.length > 0 && !this.cols && !this.$vuetify.breakpoint.xs){
+      hasFeathureRow(){
+        return !this.cols && !this.$vuetify.breakpoint.xs
+      },
+
+      feathureMedia(){
+        if(this.medias.length > 0 && this.hasFeathureRow){
           return this.medias[0]
         }
+      },
+
+      feachureRightMedias(){
+        let rightMedias = []
+        if(this.feathureMedia.length <=1 ){
+          return rightMedias
+        }
+
+        let counts = this.medias.length >= 9 ? 9 : this.medias.length
+
+        for(var i = 1; i < counts; i ++){
+          rightMedias.push(this.medias[i])
+        }
+
+        return rightMedias
+      },
+
+      secondRowMedias(){
+        let rowMedias = []
+        let startIndex = 0
+        if(this.hasFeathureRow){
+          if(this.medias.length <= 9){
+            return rowMedias
+          }
+
+          startIndex = 9
+        }
+
+        for(startIndex; startIndex < this.medias.length; startIndex ++){
+          rowMedias.push(this.medias[startIndex])
+        }
+
+        return rowMedias
       }
     },
 
@@ -274,12 +282,6 @@
           this.menu = false
         }
       },
-
-      selectDialog(val){
-        if(val){
-          this.addMenu = false
-        }
-      }
     }
   }
 </script>
@@ -293,49 +295,4 @@
     border-radius: 5px;
   }
 
-  .new-image-placeholder{
-    background: rgba(0,0,255, 0.05);
-    padding:10px;
-    cursor: pointer;
-  }
-
-  .new-image-placeholder:hover{
-    background: rgba(0,0,255, 0.1);
-  }
-
-  .add-new-item{
-    background: rgba(0,0,255, 0.05);
-    cursor: pointer;
-  }
-
-  .add-new-item:hover{
-    background: rgba(0,0,255, 0.1) !important;
-  }
-
-  .add-icon{
-    width: 100%;
-    height: 100%;
-    border: rgba(0,0,255, 0.3) dashed 1px;
-    position: relative;
-  }
-
-  .add-icon::before{
-    content: "";
-    position: absolute;
-    height: 1px;
-    width: 40px;
-    border-top: rgba(0,0,255, 0.3) solid 0.1rem;
-    top: 50%;
-    left: calc(50% - 20px);
-  }
-
-  .add-icon::after{
-    content: "";
-    position: absolute;
-    height: 40px;
-    width: 1px;
-    border-left: rgba(0,0,255, 0.3) solid 0.1rem;
-    top: calc(50% - 20px);
-    left: 50%;
-  }
 </style>
