@@ -156,9 +156,12 @@
       :style="{background: inMediasPage ? '' : $store.state.vularApp.content.color}"
     >
       <div class="d-flex justify-center align-center upload-button-area">
-        <v-btn color="primary" rounded >
+        <v-btn color="primary" rounded @click="uploadClick">
           <v-icon class="mr-3">mdi-cloud-upload-outline</v-icon> {{$t("media.upload-files")}}
         </v-btn>
+        <input ref="uploadInput" hidden multiple type="file" :accept="acceptMatch" 
+           @change='addFile'
+         />
       </div>
       <div class="right-folder-list">
         <MediaFolderList 
@@ -192,6 +195,10 @@
     },
     props: {
       inMediasPage:false,
+      acceptMatch:{
+        type:String,
+        default:'image/*',
+      },
     },
 
     data: () => ({
@@ -434,6 +441,11 @@
 
         this.selectedMedias = []
       },
+
+      uploadClick(){
+        this.$refs.uploadInput.click()
+      },
+
     }
   }
 </script>
