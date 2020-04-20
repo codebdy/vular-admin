@@ -54,14 +54,19 @@
 
     methods: {
       onClick(index){
-        if(index == 'root'){
+
+        if(index == 'root' && !this.selectRoot){
+          this.$emit('selectFolder', null)
           this.selectRoot = true
         }
         else{
           this.selectRoot = false
-        }
-        for(var i = 0; i < this.ownFolders.length; i ++){
-          this.$set(this.ownFolders[i], 'selected' ,i === index )
+          if(!this.ownFolders[index].selected){
+            this.$emit('selectFolder', this.ownFolders[index])
+            for(var i = 0; i < this.ownFolders.length; i ++){
+              this.$set(this.ownFolders[i], 'selected' ,i === index )
+            }
+          }
         }
       }
     }

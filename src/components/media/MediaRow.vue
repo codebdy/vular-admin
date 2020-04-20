@@ -21,7 +21,7 @@
             <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
           </v-row>
         </template>
-        <div v-if="selectable" class="image-checkbar">
+        <div class="image-checkbar">
           <v-btn fab x-small depressed light color="white"
             class="check-button"
             v-if="inputValue.selected"

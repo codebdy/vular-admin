@@ -6,7 +6,7 @@
           <v-icon>mdi-folder-home-outline</v-icon>
         </v-btn>
         <v-icon class="mr-2">mdi-chevron-right</v-icon>          
-        <div>产品</div>
+        <div v-if="currentFolder">{{currentFolder.title}}</div>
         <div 
           :style="{width: searchboxWidth + 'px'}"
           class="list-search-box ml-5"
@@ -89,7 +89,7 @@
       <v-card-text style="flex:1; overflow-y: auto;">
         <v-row>
           <MediaFolderCell
-            v-if="!isList"
+            v-if="!isList && !currentFolder"
             v-for = "(folder, index) in folders"
             :key = "folder.id"
             v-model="folders[index]"
@@ -102,7 +102,7 @@
           >
           </MediaFolderCell>
           <MediaFolderRow
-            v-else
+            v-else-if = "!currentFolder"
             :key = "folder.id"
             v-model="folders[index]"
             :folders = "folders"
@@ -149,7 +149,10 @@
         </v-btn>
       </div>
       <div class="right-folder-list">
-        <MediaFolderList :folders="folders"></MediaFolderList>
+        <MediaFolderList 
+          :folders = "folders"
+          @selectFolder = "onSelectFolder"
+        ></MediaFolderList>
       </div>
     </div>
     <MediaView v-model="mediaViewer" :media="viewedMedia"></MediaView>
@@ -412,6 +415,11 @@
           } 
         }
 
+      },
+
+      onSelectFolder(folder){
+        console.log(folder)
+        this.currentFolder = folder
       },
     }
   }
