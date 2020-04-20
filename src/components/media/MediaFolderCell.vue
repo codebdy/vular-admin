@@ -13,16 +13,31 @@
           <v-icon size="60">mdi-folder-outline</v-icon>
         </div>
       </div>
-      <v-card-text class="d-flex justify-center align-center image-text">{{inputValue.title}}</v-card-text>
+      <v-card-text class="d-flex justify-center align-center image-text">
+        <input v-model="inputValue.title" 
+          v-show="inputValue.editing"
+          @keyup.13 = "onStopEdit"
+          ref="titleInput"
+          class="media-title-input"
+        />
+        <span v-show="!inputValue.editing">
+          {{inputValue.title}}
+        </span>
+      </v-card-text>
       <div v-if="hover" class="image-toolbar">
         <v-btn dark fab x-small class="image-button move-button" depressed>
           <v-icon size="16"  dark>mdi-arrow-all</v-icon>
         </v-btn>
         <v-spacer></v-spacer>
-        <v-btn dark fab x-small depressed class="image-button">
-          <v-icon size="13"  dark>mdi-pencil</v-icon>
+        <v-btn dark fab x-small depressed class="image-button"
+          @click.stop = "onEdit"
+        >
+          <v-icon size="13" v-if="inputValue.editing"  dark>mdi-pencil-remove-outline</v-icon>
+          <v-icon size="13" v-else dark>mdi-pencil-outline</v-icon>
         </v-btn>
-        <v-btn dark fab x-small depressed class="image-button ml-1">
+        <v-btn dark fab x-small depressed class="image-button ml-1"
+          @click.stop = "onRemove"
+        >
           <v-icon size="13"  dark>mdi-delete-outline</v-icon>
         </v-btn>
       </div>
@@ -36,7 +51,7 @@
     components: {
     },
     props: {
-      value:{default: ()=>{return {}}}
+      value:{default: ()=>{return {}}},
     },
 
     data: () => ({
@@ -54,6 +69,23 @@
     },
 
     methods: {
+      onEdit(event){
+        this.$set(this.inputValue, 'editing', !this.inputValue.editing)
+        this.oldTitle = this.inputValue.title
+        this.$refs.titleInput.focus()
+      },
+
+      onStopEdit(){
+        this.$set(this.inputValue, 'editing', false)
+        if(this.oldTitle !== this.inputValue.title){
+          //@@@数据更改提交后台
+          console.log('@@@数据更改提交后台')
+        }
+      },
+
+      onRemove(){
+        this.$emit('remove', this.inputValue)
+      },
     }
   }
 </script>

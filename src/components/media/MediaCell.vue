@@ -37,10 +37,9 @@
         <v-card-text class="d-flex justify-center align-center image-text">
           <input v-model="inputValue.title" 
             v-show="inputValue.editing"
-            @blur = "onStopEdit"
             @keyup.13 = "onStopEdit"
             ref="titleInput"
-            style="outline: rgba(0,0,255,0.3) solid 2px;" 
+            class="media-title-input"
           />
           <span v-show="!inputValue.editing">
             {{inputValue.title}}
@@ -60,7 +59,8 @@
         <v-btn dark fab x-small depressed class="image-button ml-1"
           @click.stop = "onEdit"
         >
-          <v-icon size="13"  dark>mdi-pencil</v-icon>
+          <v-icon size="13" v-if="inputValue.editing"  dark>mdi-pencil-remove-outline</v-icon>
+          <v-icon size="13" v-else dark>mdi-pencil-outline</v-icon>
         </v-btn>
         <v-btn dark fab x-small depressed class="image-button ml-1"
           @click.stop = "onRemove"
@@ -112,7 +112,7 @@
       },
 
       onEdit(event){
-        this.$set(this.inputValue, 'editing', true)
+        this.$set(this.inputValue, 'editing', !this.inputValue.editing)
         this.oldTitle = this.inputValue.title
         this.$refs.titleInput.focus()
       },

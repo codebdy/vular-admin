@@ -1,6 +1,6 @@
 <template>
   <v-dialog
-    if="media"
+    v-if="media"
     v-model="inputValue"
     max-width="800px"
     max-height="calc(100% - 200px)"

@@ -100,8 +100,10 @@
           <v-row>
             <MediaFolderCell
               v-for = "(folder, index) in folders"
-              :key = "folder.title"
+              :key = "folder.id"
               v-model="folders[index]"
+              :folders = "folders"
+              @remove = "onRemoveFolder"
             >
             </MediaFolderCell>
             <MediaCell
@@ -223,7 +225,7 @@
           type : "image",
           title : "图片4",
           src : "/images/pics/114-500x300.jpg",
-          thumbSrc : '/images/pics/113-500x300.jpg',
+          thumbSrc : '/images/pics/114-500x300.jpg',
           lazySrc : "/images/lazy-pics/114-500x300.jpg",
         },
         {
@@ -323,6 +325,11 @@
         console.log("@@@调用从后台删除数据节口")
       },
 
+      onRemoveFolder(folder){
+        remove(folder, this.folders)
+        console.log("@@@调用从后台删除数据节口")
+      },
+
       onView(media){
         this.viewedMedia = media
         this.mediaViewer = true
@@ -416,5 +423,9 @@
 
   .media-select-dialog .image-text{
     font-size: 13px;
+  }
+
+  .media-select-dialog .media-title-input{
+    outline: rgba(0,0,255,0.3) solid 2px;
   }
 </style>
