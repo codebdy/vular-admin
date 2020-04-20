@@ -93,7 +93,7 @@
               <MediaFolderList></MediaFolderList>
               <v-divider></v-divider>
               <v-subheader>文件夹</v-subheader>
-              <MediaFolderList></MediaFolderList>
+              <MediaFolderList :folders="folders"></MediaFolderList>
             </v-card>
           </v-menu>
         </div>
@@ -136,7 +136,7 @@
           </v-btn>
         </div>
         <div style="flex: 1; overflow-y: auto; padding:15px 15px;">
-          <MediaFolderList></MediaFolderList>
+          <MediaFolderList :folders="folders"></MediaFolderList>
         </div>
       </div>
     </v-card-text>
