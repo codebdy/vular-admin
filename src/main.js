@@ -11,7 +11,9 @@ import store from './store'
 
 import VularNode from './VularNode'
 import VularLogin from "./components/VularLogin.vue"
+import VularMediasPage from "./components/VularMediasPage.vue"
 import VularAdmin from "./components/VularAdmin.vue"
+import VularMediaWidget from "./components/media/VularMediaWidget.vue"
 import VularMediaSelect from "./components/media/VularMediaSelect.vue"
 import VularPage from "./components/VularPage.vue"
 import VularListPage from "./components/VularListPage.vue"
@@ -34,6 +36,8 @@ Vue.component(VePie.name, VePie)
 Vue.component('VularNode',VularNode);
 Vue.component('VularLogin', VularLogin)
 Vue.component('VularAdmin', VularAdmin)
+Vue.component('VularMediasPage', VularMediasPage)
+Vue.component('VularMediaWidget', VularMediaWidget)
 Vue.component('VularMediaSelect', VularMediaSelect)
 Vue.component('VularPage', VularPage)
 Vue.component('VularListPage', VularListPage)
@@ -50,6 +54,7 @@ const routes = [
   //{ path: '/form2', component: VularForm },
   { path: '/', redirect: {name:'login'} },
   { path: '/dashboard', name:'dashboard', component: Dashboard },
+  { path: '/medias', name:'medias', component: VularMediasPage },
   { path: '/inquiry-list', name:'inquiry-list', component: InquiryListPage },
   { path: '/post-list', name:'post-list', component: PostListPage },
   { path: '/post-edit', name:'post-edit', component: PostEditPage },

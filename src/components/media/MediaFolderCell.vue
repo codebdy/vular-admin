@@ -120,12 +120,12 @@
 </script>
 
 <style scoped>
-  .media-select-dialog .media-folder{
+  .medias-widget .media-folder{
     position: relative;
     padding-bottom: 100%;
   }
 
-  .media-select-dialog .media-folder-inner{
+  .medias-widget .media-folder-inner{
     position: absolute;
     top:0;
     left: 0;
@@ -139,7 +139,7 @@
     cursor: move;
   }
 
-  .media-select-dialog .media-folder-inner:hover{
+  .medias-widget .media-folder-inner:hover{
     background: rgba(0, 0, 255, 0.05);
     border:rgba(0, 0, 255, 0.1) solid 1px;
   }

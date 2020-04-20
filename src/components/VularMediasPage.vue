@@ -1,43 +1,21 @@
 <template>
-  <v-content 
-    :style="{
-      background: $store.state.vularApp.content.color + ' url(' + $store.state.vularApp.content.src +')',
-      'font-family': $store.state.vularApp.content.fontFamily
-    }"
-  >
-    <VularPageHeader 
-      :title="title"
-      :titleIcon = "titleIcon"
-      :persistent = "persistent" 
-      @stick="onStick" 
-      @heightPercent="onHeightPercent"
-      v-model="inputValue.header"
-    >
-      <template slot="breadcrumbs-area">
-        <slot name="breadcrumbs-area"></slot>
-      </template>
-      <slot name="header-extension"></slot>
-    </VularPageHeader>
-    <v-container fluid class="pt-0"
-      :style="{'margin-top': (inputValue.header.breadcrumbHeight + inputValue.header.listHeaderHeight + 0) + 'px'}"
-    >
-      <slot></slot>
-    </v-container>
-  </v-content>
-
+  <VularPage :title="$t('drawer.medias')" titleIcon="mdi-image-auto-adjust" :persistent="true">
+    <v-card :style="{background: $store.state.vularApp.content.card.color}">
+      <VularMediaWidget :inMediasPage="true"></VularMediaWidget>
+    </v-card>
+  </VularPage>
 </template>
 
 <script>
   //import VularBackgrounInput from "./VularBackgrounInput"
 
   export default {
-    name: 'vular-page',
+    name: 'vular-medias-page',
     components: {
     },
     props: {
       title : { default: ''},
       titleIcon:{ default: ''},
-      persistent: {default: false},
       value : { default: ()=>{
         return {
           header:{

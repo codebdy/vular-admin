@@ -1,6 +1,7 @@
 {
   "drawer": {
     "dashboard" : "仪表盘",
+    "medias" : "媒体库",
     "leads" : "询盘",
     "posts" : "文章管理",
     "post-list" : "全部文章"

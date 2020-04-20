@@ -1,6 +1,7 @@
 {
   "drawer": {
     "dashboard" : "Dashboard",
+    "medias" : "Medias",
     "leads" : "Leads",
     "posts" : "Posts",
     "post-list" : "Post List"

@@ -61,6 +61,12 @@ export default {
         },
         {
           name:"vular-menu-item",
+          prependIcon: 'mdi-image-auto-adjust',
+          title:this.$t('drawer.medias'),
+          to:"medias",
+        },
+        {
+          name:"vular-menu-item",
           prependIcon: 'mdi-email-outline',
           title:this.$t('drawer.leads'),
           badge:{

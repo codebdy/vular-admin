@@ -41,7 +41,8 @@
     props: {
       title: {default: "untitled"},
       titleIcon: {default: ""},
-      value : { default: ()=>{return {}}}
+      value : { default: ()=>{return {}}},
+      persistent: {default: false},
     },
 
     data () {
@@ -108,6 +109,9 @@
 
     methods: {
       onScroll(e){
+        if(this.persistent){
+          return
+        }
         this.topOffset = parseInt(window.pageYOffset || document.documentElement.offsetTop || 0)
         this.isStick = this.baseHeight < this.smallLimit
         this.inputValue.isStick = this.isStick
