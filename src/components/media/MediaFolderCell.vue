@@ -25,7 +25,6 @@
         <input v-model="inputValue.title" 
           v-show="inputValue.editing"
           @keyup.13 = "onStopEdit"
-          @blur = "onStopEdit"
           ref="titleInput"
           class="media-title-input"
         />
@@ -35,7 +34,14 @@
       </v-card-text>
       <div v-if="hover" class="image-toolbar">
         <v-spacer></v-spacer>
-        <v-btn dark fab x-small depressed class="image-button"
+        <v-btn dark fab x-small depressed class="image-button ml-1"
+          v-if="inputValue.editing"
+          @click.stop = "onStopEdit"
+        >
+          <v-icon size="13" dark>mdi-pencil-remove-outline</v-icon>
+        </v-btn>
+        <v-btn dark fab x-small depressed class="image-button ml-1"
+          v-else
           @click.stop = "onEdit"
         >
           <v-icon size="13" dark>mdi-pencil-outline</v-icon>

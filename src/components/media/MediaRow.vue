@@ -36,7 +36,6 @@
         v-model="inputValue.title"
         v-show="inputValue.editing"
         @keyup.13 = "onStopEdit"
-        @blur = "onStopEdit"
         ref="titleInput"
         class="title-input"
         @click.stop=""
@@ -52,6 +51,13 @@
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
       <v-btn icon
+        v-if="inputValue.editing"
+        @click.stop = "onStopEdit"
+      >
+        <v-icon>mdi-pencil-remove-outline</v-icon>
+      </v-btn>
+      <v-btn icon
+        v-else
         @click.stop = "onEdit"
       >
         <v-icon>mdi-pencil-outline</v-icon>
