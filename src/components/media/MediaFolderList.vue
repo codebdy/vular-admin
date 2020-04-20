@@ -38,6 +38,7 @@
     },
     props: {
       folders:{default:()=>{return []}},
+      selectAble:{ default:true },
     },
 
     data: () => ({
@@ -50,30 +51,27 @@
 
     mounted(){
       this.ownFolders = JSON.parse(JSON.stringify(this.folders))
+      this.selectRoot = this.selectAble
     },
 
     methods: {
       onClick(index){
-
         if(index == 'root'){
-          if(!this.selectRoot){
-            this.$emit('selectFolder', null)
-            this.selectRoot = true
-            this.selectRealFolder(index)
-          }
+          this.$emit('selectFolder', null)
+          this.selectRoot = true
         }
         else{
           this.selectRoot = false
-          if(!this.ownFolders[index].selected){
-            this.$emit('selectFolder', this.ownFolders[index])
-            this.selectRealFolder(index)
-          }
+          this.$emit('selectFolder', this.ownFolders[index])
         }
+        this.selectRealFolder(index)
       },
 
       selectRealFolder(index){
-        for(var i = 0; i < this.ownFolders.length; i ++){
-          this.$set(this.ownFolders[i], 'selected' ,i === index )
+        if(this.selectAble){
+          for(var i = 0; i < this.ownFolders.length; i ++){
+            this.$set(this.ownFolders[i], 'selected' ,i === index )
+          }
         }
       }
     }

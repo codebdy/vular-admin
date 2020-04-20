@@ -59,7 +59,11 @@
               </v-btn>
             </template>
             <v-card :color="$store.state.vularApp.content.card.color" class="pop-menu">
-              <MediaFolderList :folders="folders"></MediaFolderList>
+              <MediaFolderList 
+                :folders="folders" 
+                :selectAble = "false"
+                @selectFolder = "onAddtoFolder"
+              ></MediaFolderList>
             </v-card>
           </v-menu>
           <v-btn icon color="primary">
@@ -420,6 +424,15 @@
       onSelectFolder(folder){
         this.currentFolder = folder
         this.onClear()
+      },
+
+      onAddtoFolder(folder){
+        this.selectedMedias.forEach(media=>{
+          this.$set(media, 'selected', false)
+          this.$set(media, 'belongsTo', folder ? folder.id : '')
+        })
+
+        this.selectedMedias = []
       },
     }
   }
