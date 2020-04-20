@@ -101,6 +101,7 @@
           >
           </MediaFolderCell>
           <MediaCell
+            v-if="!isList"
             v-for = "(media, index) in medias"
             :key = "media.src"
             v-model="medias[index]"
@@ -110,6 +111,17 @@
             @view = "onView"
           >
           </MediaCell>
+          <MediaRow
+            v-else
+            v-for = "(media, index) in medias"
+            :key = "media.src"
+            v-model="medias[index]"
+            @select = "onSelect"
+            @unselect = "onUnselect"
+            @remove = "onRemove"
+            @view = "onView"
+          >
+          </MediaRow>
         </v-row>
       </v-card-text>
     </div>
@@ -137,6 +149,8 @@
   import MediaFolderCell from "./MediaFolderCell"
   import MediaCell from "./MediaCell"
   import MediaView from "./MediaView"
+  import MediaRow from "./MediaRow"
+
   export default {
     name: "VularMediaWidget",
     components: {
@@ -144,6 +158,7 @@
       MediaFolderCell,
       MediaCell,
       MediaView,
+      MediaRow,
     },
     props: {
       value:{default : ()=>{return []}},
@@ -402,11 +417,6 @@
 
   .medias-widget  .right-column{
     width: 250px;
-  }
-
-  .medias-widget-actions{
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-    height: 50px;
   }
 
   .medias-widget .image{

@@ -85,7 +85,7 @@ export default {
         },
         {
           name:"vular-menu-item-group",
-          prependIcon:'mdi-text-box-multiple-outline',
+          prependIcon:'mdi-post-outline',
           //appendIcon: 'home',
           title:this.$t('drawer.posts'),
           active: false,
