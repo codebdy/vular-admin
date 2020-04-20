@@ -2,34 +2,17 @@
   <v-col
     class="d-flex flex-row align-end"
     cols="12"
-    @click="onClick"
   >
     <div class="image-area">
-      <v-img
-        :src="inputValue.thumbSrc"
-        :lazy-src="inputValue.lazySrc"
-        aspect-ratio="1"
-        class="image real-image"
-        :class = "inputValue.selected ? 'selected' :''"
+      <div class="media-folder"
+        draggable='true'
+        @dragstart="onDragStart($event)"
+        @dragend="onDragEnd($event)"
       >
-        <template v-slot:placeholder>
-          <v-row
-            class="fill-height ma-0"
-            align="center"
-            justify="center"
-          >
-            <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
-          </v-row>
-        </template>
-        <div v-if="selectable" class="image-checkbar">
-          <v-btn fab x-small depressed light color="white"
-            class="check-button"
-            v-if="inputValue.selected"
-          >
-            <v-icon x-small dark>mdi-check</v-icon>
-          </v-btn>
+        <div class="media-folder-inner image">
+          <v-icon size="30">mdi-folder-outline</v-icon>
         </div>
-      </v-img>
+      </div>
     </div>
     <div class="ml-2 input-area">
       <input 
@@ -47,11 +30,6 @@
     </div>
     <div class="image-toolbar">
       <v-btn icon
-        @click.stop="onView"
-      >
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-      <v-btn icon
         @click.stop = "onEdit"
       >
         <v-icon>mdi-pencil-outline</v-icon>
@@ -66,10 +44,10 @@
 </template>
 
 <script>
-  import MediaCell from "./MediaCell"
+  import MediaFolderCell from "./MediaFolderCell"
   export default {
-    name: "media-row",
-    extends: MediaCell,
+    name: "media-folder-row",
+    extends : MediaFolderCell,
     components: {
     },
     props: {

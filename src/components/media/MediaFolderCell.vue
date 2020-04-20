@@ -11,7 +11,7 @@
       @dragleave="onDragLeave($event)"
       @drop="onDrop($event)"
     >
-      <div aspect-ratio="1" class="media-folder"
+      <div class="media-folder"
         draggable='true'
         @dragstart="onDragStart($event)"
         @dragend="onDragEnd($event)"

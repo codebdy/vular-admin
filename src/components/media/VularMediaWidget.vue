@@ -89,6 +89,7 @@
       <v-card-text style="flex:1; overflow-y: auto;">
         <v-row>
           <MediaFolderCell
+            v-if="!isList"
             v-for = "(folder, index) in folders"
             :key = "folder.id"
             v-model="folders[index]"
@@ -100,6 +101,19 @@
             @changePosition = "onChangePosition"
           >
           </MediaFolderCell>
+          <MediaFolderRow
+            v-else
+            :key = "folder.id"
+            v-model="folders[index]"
+            :folders = "folders"
+            :draggedFolder = "draggedFolder"
+            @remove = "onRemoveFolder"
+            @dragFolder = "draggedFolder = folder"
+            @endDragFolder = "draggedFolder = null"
+            @changePosition = "onChangePosition"
+          >
+            
+          </MediaFolderRow>
           <MediaCell
             v-if="!isList"
             v-for = "(media, index) in medias"
@@ -113,7 +127,6 @@
           </MediaCell>
           <MediaRow
             v-else
-            v-for = "(media, index) in medias"
             :key = "media.src"
             v-model="medias[index]"
             @select = "onSelect"
@@ -150,6 +163,7 @@
   import MediaCell from "./MediaCell"
   import MediaView from "./MediaView"
   import MediaRow from "./MediaRow"
+  import MediaFolderRow from "./MediaFolderRow"
 
   export default {
     name: "VularMediaWidget",
@@ -159,6 +173,7 @@
       MediaCell,
       MediaView,
       MediaRow,
+      MediaFolderRow,
     },
     props: {
       value:{default : ()=>{return []}},
