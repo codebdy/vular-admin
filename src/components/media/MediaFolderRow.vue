@@ -8,6 +8,7 @@
     @dragover="onDragOver($event)"
     @dragleave="onDragLeave($event)"
     @drop="onDrop($event)"
+    @dblclick = "onDblClick($event)"
   >
     <div class="image-area">
       <div class="media-folder"

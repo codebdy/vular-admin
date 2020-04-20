@@ -99,6 +99,7 @@
             @dragFolder = "draggedFolder = folder"
             @endDragFolder = "draggedFolder = null"
             @changePosition = "onChangePosition"
+            @selectFolder = "onSelectFolder"
           >
           </MediaFolderCell>
           <MediaFolderRow
@@ -111,6 +112,7 @@
             @dragFolder = "draggedFolder = folder"
             @endDragFolder = "draggedFolder = null"
             @changePosition = "onChangePosition"
+            @selectFolder = "onSelectFolder"
           >
             
           </MediaFolderRow>

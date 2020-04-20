@@ -15,6 +15,7 @@
         draggable='true'
         @dragstart="onDragStart($event)"
         @dragend="onDragEnd($event)"
+        @dblclick = "onDblClick($event)"
       >
         <div class="media-folder-inner image">
           <v-icon size="60">mdi-folder-outline</v-icon>
@@ -114,6 +115,10 @@
         if(this.draggedFolder !== this.inputValue){
           this.$emit('changePosition', this.inputValue)
         }
+      },
+
+      onDblClick(){
+        this.$emit('selectFolder', this.inputValue)
       },
     }
   }
