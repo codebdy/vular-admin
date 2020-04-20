@@ -3,7 +3,7 @@
     <div class="slect-left-area">
       <div class="small-toolbar" color="transparent">
         <div v-if="isSmall">
-          <v-menu offset-y v-if="isSmall && selectedMedias.length == 0">
+          <v-menu offset-y v-if="isSmall">
             <template v-slot:activator="{ on }">
               <v-btn icon v-on="on">
                 <v-icon>mdi-folder-home-outline</v-icon>
