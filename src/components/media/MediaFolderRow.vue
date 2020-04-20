@@ -2,12 +2,15 @@
   <v-col
     class="d-flex flex-row align-end"
     cols="12"
+    draggable='true'
+    @dragstart="onDragStart($event)"
+    @dragend="onDragEnd($event)"
+    @dragover="onDragOver($event)"
+    @dragleave="onDragLeave($event)"
+    @drop="onDrop($event)"
   >
     <div class="image-area">
       <div class="media-folder"
-        draggable='true'
-        @dragstart="onDragStart($event)"
-        @dragend="onDragEnd($event)"
       >
         <div class="media-folder-inner image">
           <v-icon size="30">mdi-folder-outline</v-icon>
