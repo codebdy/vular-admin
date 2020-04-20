@@ -66,7 +66,9 @@
               ></MediaFolderMenu>
             </v-card>
           </v-menu>
-          <v-btn icon color="primary">
+          <v-btn icon color="primary"
+            @click.stop = "onRemoveSelected"
+          >
             <v-icon :size="toolIconSize">mdi-delete-sweep-outline</v-icon>
           </v-btn>
         </div>
@@ -452,6 +454,14 @@
         })
 
         this.selectedMedias = []
+      },
+
+      onRemoveSelected(){
+        this.selectedMedias.forEach(media=>{
+          remove(media, this.medias)
+        })
+
+        console.log("@@@ 通过后台API更新数据")
       },
 
       uploadClick(){
