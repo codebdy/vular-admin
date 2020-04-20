@@ -10,6 +10,8 @@
   "media":{
     "images" : "图片",
     "videos" : "视频",
+    "files" : "文件",
+    "folder" : "文件夹",
     "edit-alt" : "编辑图片Alt文本",
     "remove-all" : "删除所有图片和视频",
     "alt-tips" : "为图片添加Alt文本， 以提高在搜索引擎中的表现，注意每个图片的文本是唯一的。",
@@ -24,7 +26,11 @@
     "root" : "根目录",
     "selected-counts" : "已选中 {0} 个文件",
     "new-folder" : "新文件夹",
-    "drag-here" : "把文件拖放到此处"
+    "drag-here" : "把文件拖放到此处",
+    "last-modified":"更新日期",
+    "name" : "名字",
+    "descending" : "由新到旧",
+    "ascending" : "由旧到新"
   },
 
   "debug":{

@@ -10,6 +10,8 @@
   "media":{
     "images" : "Images",
     "videos" : "Videos",
+    "files" : "Files",
+    "folder" : "Folder",
     "edit-alt" : "Edit Alt Text for Images",
     "remove-all" : "Remove All Images & Videos",
     "alt-tips" : "Add alt text to your images to optimize search engine results and rank higher in Google. Try and make the text unique for each image.",
@@ -24,7 +26,10 @@
     "root" : "Root folder",
     "selected-counts" : "{0} files are selected",
     "new-folder" : "New folder",
-    "drag-here" : "Drag files to here"
+    "drag-here" : "Drag files to here",
+    "last-modified":"Last Modified",
+    "descending" : "Descending",
+    "ascending" : "Ascending"
   },
 
   "debug":{

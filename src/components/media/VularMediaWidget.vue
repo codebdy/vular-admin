@@ -10,7 +10,7 @@
               </v-btn>
             </template>
             <v-card :color="$store.state.vularApp.content.card.color" class="pop-menu">
-              <v-subheader>文件夹</v-subheader>
+              <v-subheader>{{$t('media.folder')}}</v-subheader>
               <MediaFolderList 
                 v-model = "folders"
                 @selectFolder = "onSelectFolder"
@@ -52,7 +52,7 @@
                   <v-icon>mdi-image-outline</v-icon>
                 </v-list-item-icon>
                 <v-list-item-content>
-                  <v-list-item-title>图片</v-list-item-title>
+                  <v-list-item-title>{{$t('media.images')}}</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
               <v-list-item link>
@@ -60,7 +60,7 @@
                   <v-icon>mdi-video-outline</v-icon>
                 </v-list-item-icon>
                 <v-list-item-content>
-                  <v-list-item-title>视频</v-list-item-title>
+                  <v-list-item-title>{{$t('media.videos')}}</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
               <v-list-item link>
@@ -68,7 +68,7 @@
                   <v-icon>mdi-file-outline</v-icon>
                 </v-list-item-icon>
                 <v-list-item-content>
-                  <v-list-item-title>文件</v-list-item-title>
+                  <v-list-item-title>{{$t('media.files')}}</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
             </v-list>
@@ -80,27 +80,27 @@
               </v-btn>
             </template>
             <v-list class="px-2" :color="$store.state.vularApp.content.card.color">
-              <v-subheader>时间</v-subheader>
-              <v-list-item link>
-                <v-list-item-icon>
-                  <v-icon>mdi-sort-ascending</v-icon>
-                </v-list-item-icon>
-                <v-list-item-content>
-                  <v-list-item-title>最新</v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
+              <v-subheader>{{$t('media.last-modified')}}</v-subheader>
               <v-list-item link>
                 <v-list-item-icon>
                   <v-icon>mdi-sort-descending</v-icon>
                 </v-list-item-icon>
                 <v-list-item-content>
-                  <v-list-item-title>最旧</v-list-item-title>
+                  <v-list-item-title>{{$t('media.descending')}}</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
-              <v-subheader>名字</v-subheader>
               <v-list-item link>
                 <v-list-item-icon>
-                  <v-icon>mdi-sort-alphabetical-ascending</v-icon>
+                  <v-icon>mdi-sort-ascending</v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title>{{$t('media.ascending')}}</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-subheader>{{$t('media.name')}}</v-subheader>
+              <v-list-item link>
+                <v-list-item-icon>
+                  <v-icon>mdi-sort-alphabetical-descending</v-icon>
                 </v-list-item-icon>
                 <v-list-item-content>
                   <v-list-item-title>A~Z</v-list-item-title>
@@ -108,7 +108,7 @@
               </v-list-item>
               <v-list-item link>
                 <v-list-item-icon>
-                  <v-icon>mdi-sort-alphabetical-descending</v-icon>
+                  <v-icon>mdi-sort-alphabetical-ascending</v-icon>
                 </v-list-item-icon>
                 <v-list-item-content>
                   <v-list-item-title>Z~A</v-list-item-title>
