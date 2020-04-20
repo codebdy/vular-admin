@@ -27,12 +27,82 @@
         </v-btn>
         <v-divider vertical class="mx-3" v-if="selectedMedias.length == 0"></v-divider>
         <div v-if="!isSmall && selectedMedias.length == 0">
-          <v-btn icon >
-            <v-icon :size="toolIconSize">mdi-filter-outline</v-icon>
-          </v-btn>
-          <v-btn icon>
-            <v-icon :size="toolIconSize">mdi-sort-ascending</v-icon>
-          </v-btn>
+          <v-menu offset-y>
+            <template v-slot:activator="{ on }">
+              <v-btn icon v-on="on">
+                <v-icon :size="toolIconSize">mdi-filter-outline</v-icon>
+              </v-btn>
+            </template>
+            <v-list class="px-2" :color="$store.state.vularApp.content.card.color">
+              <v-list-item link>
+                <v-list-item-icon>
+                  <v-icon>mdi-image-outline</v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title>图片</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item link>
+                <v-list-item-icon>
+                  <v-icon>mdi-video-outline</v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title>视频</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item link>
+                <v-list-item-icon>
+                  <v-icon>mdi-file-outline</v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title>文件</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+          <v-menu offset-y>
+            <template v-slot:activator="{ on }">
+              <v-btn icon v-on="on">
+                <v-icon :size="toolIconSize">mdi-sort-ascending</v-icon>
+              </v-btn>
+            </template>
+            <v-list class="px-2" :color="$store.state.vularApp.content.card.color">
+              <v-subheader>时间</v-subheader>
+              <v-list-item link>
+                <v-list-item-icon>
+                  <v-icon>mdi-sort-ascending</v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title>最新</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item link>
+                <v-list-item-icon>
+                  <v-icon>mdi-sort-descending</v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title>最旧</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-subheader>名字</v-subheader>
+              <v-list-item link>
+                <v-list-item-icon>
+                  <v-icon>mdi-sort-alphabetical-ascending</v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title>A~Z</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item link>
+                <v-list-item-icon>
+                  <v-icon>mdi-sort-alphabetical-descending</v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title>Z~A</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
+          </v-menu>
           <v-btn icon 
             v-if="!isList"
             @click="isList = !isList"
@@ -92,7 +162,7 @@
         </v-menu>
       </div>
       <v-divider></v-divider>
-      <v-card-text style="flex:1; overflow-y: auto;">
+      <v-card-text style="flex:1; overflow-y: auto; position: relative;">
         <v-row>
           <MediaFolderCell
             v-if="!isList && !currentFolder"
@@ -150,6 +220,10 @@
           >
           </MediaRow>
         </v-row>
+        <div v-if="isEmperty" class="emperty-area">
+          <v-icon size="120" color="primary">mdi-camera-outline</v-icon>
+          <span>{{$t('media.drag-here')}}</span>
+        </div>
       </v-card-text>
     </div>
     <v-divider vertical></v-divider>
@@ -214,6 +288,7 @@
       draggedFolder: null,
       draggedMedia: null,
       selectedMedias:[],
+      //folders:[],
       folders:[
         {
           id : 1,
@@ -225,22 +300,22 @@
         },
         {
           id : 3,
-          title : "文章照片",
+          title : "文章照片1",
         },
         {
           id : 4,
-          title : "文章照片",
+          title : "文章照片2",
         },
         {
           id : 5,
-          title : "文章照片",
+          title : "文章照片3",
         },
         {
           id : 6,
-          title : "文章照片",
+          title : "文章照片4",
         },
       ],
-
+      //medias:[],
       medias:[
         {
           id : 999,
@@ -371,7 +446,20 @@
           }
         }
         return null
-      }
+      },
+
+      isEmperty(){
+        if(!this.currentFolder && this.folders.length > 0){
+          return false
+        }
+
+        for(var i = 0; i < this.medias.length; i++){
+          if(this.currentFolder && this.medias[i].belongsTo == this.currentFolder.id){
+            return false
+          }
+        }
+        return true
+      },
 
     },
 
@@ -554,5 +642,18 @@
 
   .medias-widget .media-title-input{
     outline: rgba(0,0,255,0.3) solid 2px;
+  }
+
+  .medias-widget .emperty-area{
+    position: absolute;
+    width: calc(100% - 40px); 
+    height: calc(100% - 40px);
+    top:20px; 
+    left:20px;
+    border:rgba(0, 0, 255, 0.5) dashed 2px; 
+    display: flex; 
+    flex-flow: column; 
+    justify-content: center; 
+    align-items: center;opacity: 0.5;
   }
 </style>

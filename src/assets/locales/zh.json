@@ -23,7 +23,8 @@
     "upload-files" : "上传文件",
     "root" : "根目录",
     "selected-counts" : "已选中 {0} 个文件",
-    "new-folder" : "新文件夹"
+    "new-folder" : "新文件夹",
+    "drag-here" : "把文件拖放到此处"
   },
 
   "debug":{

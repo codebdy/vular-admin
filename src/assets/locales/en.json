@@ -23,7 +23,8 @@
     "upload-files" : "Upload files",
     "root" : "Root folder",
     "selected-counts" : "{0} files are selected",
-    "new-folder" : "New folder"
+    "new-folder" : "New folder",
+    "drag-here" : "Drag files to here"
   },
 
   "debug":{

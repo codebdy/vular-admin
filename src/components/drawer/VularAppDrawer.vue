@@ -67,7 +67,7 @@ export default {
         },
         {
           name:"vular-menu-item",
-          prependIcon: 'mdi-email-outline',
+          prependIcon: 'mdi-message-text-outline',
           title:this.$t('drawer.leads'),
           badge:{
             title:'6',
@@ -120,7 +120,7 @@ export default {
         },
         {
           name:"vular-menu-item-group",
-          prependIcon:'mdi-gift-outline',
+          prependIcon:'mdi-shopping-outline',
           //appendIcon: 'home',
           title:'产品管理',
           active: false,
