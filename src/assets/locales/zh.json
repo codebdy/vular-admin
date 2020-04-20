@@ -17,7 +17,8 @@
     "cancel" : "取消",
     "confirm" : "确定",
     "select" : "选择",
-    "select-images" : "选择图片",
+    "select-medias" : "选择媒体",
+    "view-media" : "查看媒体",
     "upload-files" : "上传文件",
     "root" : "根目录",
     "selected-counts" : "已选中 {0} 个文件"

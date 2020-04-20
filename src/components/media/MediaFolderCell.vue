@@ -58,7 +58,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .media-select-dialog .media-folder{
     position: relative;
     padding-bottom: 100%;

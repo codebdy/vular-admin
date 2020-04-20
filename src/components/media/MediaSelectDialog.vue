@@ -4,7 +4,7 @@
     :color="$store.state.vularApp.content.card.color" 
   >
     <v-toolbar flat dark color="primary">
-      <v-toolbar-title>{{$t('media.select-images')}}</v-toolbar-title>
+      <v-toolbar-title>{{$t('media.select-medias')}}</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon @click="onCancel">
         <v-icon>mdi-close</v-icon>
@@ -110,6 +110,8 @@
               v-model="medias[index]"
               @select = "onSelect"
               @unselect = "onUnselect"
+              @remove = "onRemove"
+              @view = "onView"
             >
             </MediaCell>
           </v-row>
@@ -133,10 +135,13 @@
     <v-card-actions class="pa-5 media-select-dialog-actions">
       <v-spacer></v-spacer>
       <v-btn class="mr-5" outlined rounded @click="onCancel">{{$t('media.cancel')}}</v-btn>
-      <v-btn color="primary" class="mr-5" rounded @click="onConfirm">{{$t('media.select')}}</v-btn>
+      <v-btn color="primary" class="mr-5" rounded
+        :disabled = "selectedMedias.length == 0"
+        @click="onConfirm">{{$t('media.select')}}</v-btn>
       <span v-if="selectedMedias.length > 0">{{$t('media.selected-counts').replace('{0}', selectedMedias.length)}}</span>
       <v-spacer></v-spacer>
     </v-card-actions>
+    <MediaView v-model="mediaViewer" :media="viewedMedia"></MediaView>
   </v-card>
 </template>
 
@@ -145,6 +150,7 @@
   import MediaFolderList from "./MediaFolderList"
   import MediaFolderCell from "./MediaFolderCell"
   import MediaCell from "./MediaCell"
+  import MediaView from "./MediaView"
 
   export default {
     name: "media-select-dialog",
@@ -152,10 +158,13 @@
       MediaFolderList,
       MediaFolderCell,
       MediaCell,
+      MediaView,
     },
 
     data: () => ({
       searchboxFocused : false,
+      mediaViewer : false,
+      viewedMedia : null,
       isList: false,
       toolIconSize:21,
       folders:[
@@ -182,6 +191,7 @@
           type : "image",
           title : "图片X",
           src : "/images/pics/110-500x300.jpg",
+          thumbSrc : '/images/pics/110-500x300.jpg',
           lazySrc : "/images/lazy-pics/110-500x300.jpg",
         },
         {
@@ -189,6 +199,7 @@
           type : "image",
           title : "图片1",
           src : "/images/pics/111-500x300.jpg",
+          thumbSrc : '/images/pics/111-500x300.jpg',
           lazySrc : "/images/lazy-pics/111-500x300.jpg",
         },
         {
@@ -196,6 +207,7 @@
           type : "image",
           title : "图片2",
           src : "/images/pics/112-500x300.jpg",
+          thumbSrc : '/images/pics/112-500x300.jpg',
           lazySrc : "/images/lazy-pics/112-500x300.jpg",
         },
         {
@@ -203,6 +215,7 @@
           type : "image",
           title : "图片3",
           src : "/images/pics/113-500x300.jpg",
+          thumbSrc : '/images/pics/113-500x300.jpg',
           lazySrc : "/images/lazy-pics/113-500x300.jpg",
         },
         {
@@ -210,6 +223,7 @@
           type : "image",
           title : "图片4",
           src : "/images/pics/114-500x300.jpg",
+          thumbSrc : '/images/pics/113-500x300.jpg',
           lazySrc : "/images/lazy-pics/114-500x300.jpg",
         },
         {
@@ -217,6 +231,7 @@
           type : "image",
           title : "图片5",
           src : "/images/pics/115-500x300.jpg",
+          thumbSrc : '/images/pics/115-500x300.jpg',
           lazySrc : "/images/lazy-pics/115-500x300.jpg",
         },
         {
@@ -224,6 +239,7 @@
           type : "image",
           title : "图片6",
           src : "/images/pics/116-500x300.jpg",
+          thumbSrc : '/images/pics/116-500x300.jpg',
           lazySrc : "/images/lazy-pics/116-500x300.jpg",
         },
         {
@@ -231,6 +247,7 @@
           type : "image",
           title : "图片7",
           src : "/images/pics/117-500x300.jpg",
+          thumbSrc : '/images/pics/117-500x300.jpg',
           lazySrc : "/images/lazy-pics/117-500x300.jpg",
         },
         {
@@ -238,6 +255,7 @@
           type : "image",
           title : "图片8",
           src : "/images/pics/118-500x300.jpg",
+          thumbSrc : '/images/pics/118-500x300.jpg',
           lazySrc : "/images/lazy-pics/118-500x300.jpg",
         },
         {
@@ -245,6 +263,7 @@
           type : "image",
           title : "图片9",
           src : "/images/pics/119-500x300.jpg",
+          thumbSrc : '/images/pics/119-500x300.jpg',
           lazySrc : "/images/lazy-pics/119-500x300.jpg",
         },
         {
@@ -252,6 +271,7 @@
           type : "image",
           title : "图片10",
           src : "/images/pics/120-500x300.jpg",
+          thumbSrc : '/images/pics/120-500x300.jpg',
           lazySrc : "/images/lazy-pics/120-500x300.jpg",
         },
         {
@@ -259,6 +279,7 @@
           type : "image",
           title : "图片11",
           src : "/images/pics/121-500x300.jpg",
+          thumbSrc : '/images/pics/121-500x300.jpg',
           lazySrc : "/images/lazy-pics/121-500x300.jpg",
         },
       ],
@@ -294,6 +315,17 @@
       },
       onUnselect(media){
         remove(media, this.selectedMedias)
+      },
+
+      onRemove(media){
+        remove(media, this.medias)
+        remove(media, this.selectedMedias)
+        console.log("@@@调用从后台删除数据节口")
+      },
+
+      onView(media){
+        this.viewedMedia = media
+        this.mediaViewer = true
       },
 
       onClear(){

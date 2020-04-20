@@ -11,7 +11,7 @@
     >
       <v-card flat tile class="d-flex flex-column" color="transparent">
         <v-img
-          :src="inputValue.src"
+          :src="inputValue.thumbSrc"
           :lazy-src="inputValue.lazySrc"
           aspect-ratio="1"
           class="image real-image"
@@ -52,7 +52,9 @@
           <v-icon size="16"  dark>mdi-arrow-all</v-icon>
         </v-btn>
         <v-spacer></v-spacer>
-        <v-btn dark fab x-small depressed class="image-button">
+        <v-btn dark fab x-small depressed class="image-button"
+          @click.stop="onView"
+        >
           <v-icon size="13"  dark>mdi-magnify</v-icon>
         </v-btn>
         <v-btn dark fab x-small depressed class="image-button ml-1"
@@ -60,7 +62,9 @@
         >
           <v-icon size="13"  dark>mdi-pencil</v-icon>
         </v-btn>
-        <v-btn dark fab x-small depressed class="image-button ml-1">
+        <v-btn dark fab x-small depressed class="image-button ml-1"
+          @click.stop = "onRemove"
+        >
           <v-icon size="13"  dark>mdi-delete-outline</v-icon>
         </v-btn>
       </div>
@@ -115,17 +119,24 @@
 
       onStopEdit(){
         this.$set(this.inputValue, 'editing', false)
-
         if(this.oldTitle !== this.inputValue.title){
           //@@@数据更改提交后台
           console.log('@@@数据更改提交后台')
         }
       },
+
+      onRemove(){
+        this.$emit('remove', this.inputValue)
+      },
+
+      onView(){
+        this.$emit('view', this.inputValue)
+      }
     }
   }
 </script>
 
-<style>
+<style scoped>
   .real-image.selected{
     border: rgba(0, 0, 255, 0.5) solid 2px; 
   }

@@ -17,7 +17,8 @@
     "cancel" : "Cancel",
     "confirm" : "Confirm",
     "select" : "Select",
-    "select-images" : "Select Images",
+    "select-medias" : "Select Medias",
+    "view-media" : "View Media",
     "upload-files" : "Upload files",
     "root" : "Root folder",
     "selected-counts" : "{0} files are selected"
