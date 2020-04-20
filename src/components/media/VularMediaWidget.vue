@@ -58,8 +58,8 @@
                 <v-icon :size="toolIconSize">mdi-folder-move-outline</v-icon>
               </v-btn>
             </template>
-            <v-card :color="$store.state.vularApp.content.card.color" style="flex: 1; overflow: auto; max-height: calc(100vh - 50px);">
-              <MediaFolderList></MediaFolderList>
+            <v-card :color="$store.state.vularApp.content.card.color" class="pop-menu">
+              <MediaFolderList :folders="folders"></MediaFolderList>
             </v-card>
           </v-menu>
           <v-btn icon color="primary">
@@ -74,7 +74,7 @@
               <v-icon :size="toolIconSize">mdi-dots-horizontal</v-icon>
             </v-btn>
           </template>
-          <v-card :color="$store.state.vularApp.content.card.color" style="flex: 1; overflow: auto; max-height: calc(100vh - 50px);">
+          <v-card :color="$store.state.vularApp.content.card.color" class="pop-menu">
             <v-subheader>过滤</v-subheader>
             <MediaFolderList></MediaFolderList>
             <v-subheader>排序</v-subheader>
@@ -148,7 +148,7 @@
           <v-icon class="mr-3">mdi-cloud-upload-outline</v-icon> {{$t("media.upload-files")}}
         </v-btn>
       </div>
-      <div style="flex: 1; overflow-y: auto; padding:15px 15px;">
+      <div class="right-folder-list">
         <MediaFolderList :folders="folders"></MediaFolderList>
       </div>
     </div>
@@ -188,6 +188,7 @@
       toolIconSize:21,
       draggedFolder: null,
       draggedMedia: null,
+      currentFolder: null,
       folders:[
         {
           id : 1,
@@ -407,6 +408,14 @@
 <style>
   .medias-widget{
     height: calc(100vh - 200px);
+  }
+
+  .medias-widget .pop-menu{
+    flex: 1; overflow: auto; max-height: calc(100vh - 50px);
+  }
+
+  .medias-widget .right-folder-list{
+    flex: 1; overflow-y: auto; padding:15px 15px;
   }
 
   .medias-widget .slect-left-area{
