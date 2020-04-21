@@ -1,28 +1,22 @@
 <template>
-  <div :class="{fullscreen:fullscreen}" class="mt-5" :style="{width:containerWidth}">
+  <div :class="{fullscreen:fullscreen}" class="mt-5">
     <textarea :id="tinymceId" class="tinymce-textarea" />
-    <div class="editor-custom-btn-container">
-      <editorImage color="#1890ff" class="editor-upload-btn" @successCBK="imageSuccessCBK" />
-    </div>
   </div>
 </template>
 
 <script>
 /**
- * docs:
- * https://panjiachen.github.io/vue-element-admin-site/feature/component/rich-editor.html#tinymce
+ * docs: 本代码修改自vue-element-admin
  */
-import editorImage from './components/EditorImage'
 import plugins from './plugins'
 import toolbar from './toolbar'
 import load from './dynamicLoadScript'
 
-// why use this cdn, detail see https://github.com/PanJiaChen/tinymce-all-in-one
 const tinymceCDN = '/vendor/tinymce/js/tinymce/tinymce.min.js'
 
 export default {
   name: 'VularTinymce',
-  components: { editorImage },
+  components: {  },
   props: {
     id: {
       type: String,
@@ -114,11 +108,13 @@ export default {
     },
     initTinymce() {
       const _this = this
+      let lang = navigator.language || navigator.userLanguage
+      lang = lang.substr(0, 2)
+
       window.tinymce.init({
         selector: `#${this.tinymceId}`,
-        language: this.languageTypeList['en'],
+        language: this.languageTypeList['zh'],
         height: this.height,
-        body_class: 'panel-body ',
         object_resizing: false,
         toolbar: this.toolbar.length > 0 ? this.toolbar : toolbar,
         menubar: this.menubar,
