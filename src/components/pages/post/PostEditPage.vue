@@ -90,9 +90,10 @@
                 </v-row>
               </VularFormCard>
               
-              <VularTinymce></VularTinymce>
 
-              <VularFormCard title="内容">
+
+              <VularFormCard title="内容" pa="pa-0">
+                <VularTinymce></VularTinymce>
               </VularFormCard>
             </v-col>          
             <v-col

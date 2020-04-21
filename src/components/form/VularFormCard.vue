@@ -1,6 +1,6 @@
 <template>
   <v-card
-    class="pa-2 mt-5"
+    class="mt-5"
     flat
     :color="$store.state.vularApp.content.card.color" 
     :style="$store.state.vularApp.content.card.style"
@@ -19,7 +19,7 @@
       </v-btn>
     </v-toolbar>
     <v-divider v-if="showBody"></v-divider>
-    <v-card-text v-if="showBody">
+    <v-card-text v-if="showBody" :class="pa">
       <slot>No slot</slot>
     </v-card-text>
   </v-card>
@@ -33,6 +33,7 @@
     props: {
       title:{default: ''},
       collapsable:{default: true},
+      pa:{default: ''},
     },
 
     data: () => ({

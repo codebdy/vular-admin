@@ -1,13 +1,5 @@
 <template>
-  <v-card      
-    class="pa-0 mt-5"
-    flat
-    :class="{fullscreen:fullscreen}"
-    :color="$store.state.vularApp.content.card.color" 
-    :style="$store.state.vularApp.content.card.style"
->
-    <textarea :id="tinymceId" class="tinymce-textarea" />
-  </v-card>
+  <textarea :id="tinymceId" class="tinymce-textarea" />
 </template>
 
 <script>
@@ -104,6 +96,7 @@ export default {
 
       window.tinymce.init({
         selector: `#${this.tinymceId}`,
+        skin: 'oxide-dark',
         language: this.languageTypeList[lang],
         height: this.height,
         object_resizing: false,
@@ -132,6 +125,8 @@ export default {
             this.hasChange = true
             this.$emit('input', editor.getContent())
           })
+
+          editor.getBody().style.backgroundColor = this.$store.state.vularApp.content.card.color
         },
         setup(editor) {
           editor.on('FullscreenStateChanged', (e) => {
@@ -160,9 +155,17 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .tinymce-textarea {
   visibility: hidden;
   z-index: -1;
+}
+
+.my_class{
+  background: #000 !important;
+}
+
+.tox-editor-header{
+  background: #000 !important;
 }
 </style>
