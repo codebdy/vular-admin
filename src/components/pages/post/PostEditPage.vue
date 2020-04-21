@@ -24,23 +24,84 @@
         </div>
       </div>
       <v-container fluid style="margin-top:120px;">
-        <v-row>
-          <v-col
-            cols="12"
-            md="8"
-          >
+        <v-form>
+          <v-row>
+            <v-col
+              cols="12"
+              md="8"
+            >
+              <VularFormCard title="基本信息">
+                <v-text-field
+                  label="标题"
+                  prepend-icon="mdi-format-title"
+                ></v-text-field>
+                <v-text-field
+                  label="Slug"
+                  prepend-icon="mdi-identifier"
+                ></v-text-field>
+                <v-row>
+                  <v-col>
+                    <v-select
+                      :items="['Foo', 'Bar', 'Fizz', 'Buzz']"
+                      label="作者"
+                      prepend-icon="mdi-account-outline"
+                    ></v-select>
+                  </v-col>
+                  <v-col>
+                    <v-menu
+                      ref="menu"
+                      v-model="menu"
+                      :close-on-content-click="false"
+                      :return-value.sync="date"
+                      transition="scale-transition"
+                      offset-y
+                      min-width="290px"
+                    >
+                      <template v-slot:activator="{ on }">
+                        <v-text-field
+                          v-model="date"
+                          label="创作日期"
+                          prepend-icon="mdi-calendar"
+                          readonly
+                          v-on="on"
+                        ></v-text-field>
+                      </template>
+                      <v-date-picker v-model="date" no-title scrollable>
+                        <v-spacer></v-spacer>
+                        <v-btn text color="primary" @click="menu = false">Cancel</v-btn>
+                        <v-btn text color="primary" @click="$refs.menu.save(date)">OK</v-btn>
+                      </v-date-picker>
+                    </v-menu>
+                  </v-col>
+                </v-row>
+                <v-row>
+                  <v-col>
+                     <v-text-field
+                      label="来源"
+                      prepend-icon="mdi-map-marker-multiple-outline"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col>
+                    <v-text-field
+                      label="来源网址"
+                      prepend-icon="mdi-link"
+                    ></v-text-field>
+                  </v-col>
+                </v-row>
+              </VularFormCard>
 
-            <VularFormCard title="基本信息"></VularFormCard>
-
-          </v-col>          
-          <v-col
-            cols="12"
-            md="4"
-          >
-            <VularMediaSelectCard cols="2"></VularMediaSelectCard>
-            <VularFormCard title="属性"></VularFormCard>
-          </v-col>          
-        </v-row>
+              <VularFormCard title="内容">
+              </VularFormCard>
+            </v-col>          
+            <v-col
+              cols="12"
+              md="4"
+            >
+              <VularMediaSelectCard cols="3"></VularMediaSelectCard>
+              <VularFormCard title="属性"></VularFormCard>
+            </v-col>          
+          </v-row>
+        </v-form>
       </v-container>
   </v-content>
 </template>
@@ -64,6 +125,7 @@
     },
     data () {
       return {
+        date:new Date().toISOString().substr(0, 10),
       }
     },
     computed:{
