@@ -145,63 +145,6 @@
       altDialog : false,
       draggedMedia : null,
       medias:[
-        {
-          id : 1,
-          type : "image",
-          title : "图片1",
-          src : "/images/pics/111-500x300.jpg",
-          thumbSrc : '/images/pics/111-500x300.jpg',
-          lazySrc : "/images/lazy-pics/111-500x300.jpg",
-        },
-        {
-          id : 999,
-          type : "image",
-          title : "图片X",
-          src : "/images/pics/110-500x300.jpg",
-          thumbSrc : '/images/pics/110-500x300.jpg',
-          lazySrc : "/images/lazy-pics/110-500x300.jpg",
-          belongsTo : 1,
-        },
-        {
-          id : 2,
-          type : "image",
-          title : "图片2",
-          src : "/images/pics/112-500x300.jpg",
-          thumbSrc : '/images/pics/112-500x300.jpg',
-          lazySrc : "/images/lazy-pics/112-500x300.jpg",
-        },
-        {
-          id : 3,
-          type : "image",
-          title : "图片3",
-          src : "/images/pics/113-500x300.jpg",
-          thumbSrc : '/images/pics/113-500x300.jpg',
-          lazySrc : "/images/lazy-pics/113-500x300.jpg",
-        },
-        {
-          id : 4,
-          type : "image",
-          title : "图片4",
-          src : "/images/pics/114-500x300.jpg",
-          thumbSrc : '/images/pics/114-500x300.jpg',
-          lazySrc : "/images/lazy-pics/114-500x300.jpg",
-        },
-        {
-          id : 5,
-          type : "image",
-          title : "图片5",
-          src : "/images/pics/115-500x300.jpg",
-          thumbSrc : '/images/pics/115-500x300.jpg',
-          lazySrc : "/images/lazy-pics/115-500x300.jpg",
-        },
-        {
-          id : 6,
-          type : "image",
-          title : "图片6",
-          src : "/images/pics/116-500x300.jpg",
-          thumbSrc : '/images/pics/116-500x300.jpg',
-          lazySrc : "/images/lazy-pics/116-500x300.jpg",
-        },
       ],
     }),
 
@@ -252,7 +195,9 @@
 
     methods: {
       onSelectMedias(medias){
-
+        medias.forEach(media=>{
+          this.addMedia(media)
+        })
       },
 
       onDragMedia(media){
@@ -277,6 +222,22 @@
 
       onRemove(media){
         remove(media, this.medias)
+      },
+
+      addMedia(media){
+        if(!this.ifContains(media)){
+          this.medias.push(media)
+        }
+      },
+
+      ifContains(media){
+        for(var i = 0; i < this.medias.length; i++){
+          if(this.medias[i].id == media.id){
+            return true
+          }
+        }
+
+        return false
       },
 
     },

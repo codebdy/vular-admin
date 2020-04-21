@@ -8,7 +8,7 @@
         <div class="add-icon"></div>
       </v-img>
     </template>
-    <MediaSelectDialog @close="selectDialog = false"></MediaSelectDialog>
+    <MediaSelectDialog @close="selectDialog = false" @selectMedias = "onSelectMedias"></MediaSelectDialog>
   </v-dialog>
 </template>
 
