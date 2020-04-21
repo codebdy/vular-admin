@@ -29,7 +29,7 @@
             cols="12"
             md="8"
           >
-            <VularMediaSelect></VularMediaSelect>
+            <VularMediaSelectCard></VularMediaSelectCard>
 
             <v-card
               class="pa-2 mt-5"
@@ -49,6 +49,9 @@
                 </v-btn>
               </v-toolbar>
               <v-divider></v-divider>
+              <v-card-text>
+                <slot>No slot</slot>
+              </v-card-text>
             </v-card>
 
           </v-col>          

@@ -128,7 +128,7 @@
   import {remove} from "../../basic/vular-array"
 
   export default {
-    name: "vular-media-select",
+    name: "vular-media-select-card",
     components: {
       AltDialog,
       MediaAddCell,

@@ -14,7 +14,7 @@ import VularLogin from "./components/VularLogin.vue"
 import VularMediasPage from "./components/VularMediasPage.vue"
 import VularAdmin from "./components/VularAdmin.vue"
 import VularMediaWidget from "./components/media/VularMediaWidget.vue"
-import VularMediaSelect from "./components/media/VularMediaSelect.vue"
+import VularMediaSelectCard from "./components/media/VularMediaSelectCard.vue"
 import VularPage from "./components/VularPage.vue"
 import VularListPage from "./components/VularListPage.vue"
 import ThemeSettings from "./components/pages/theme/ThemeSettings"
@@ -38,7 +38,7 @@ Vue.component('VularLogin', VularLogin)
 Vue.component('VularAdmin', VularAdmin)
 Vue.component('VularMediasPage', VularMediasPage)
 Vue.component('VularMediaWidget', VularMediaWidget)
-Vue.component('VularMediaSelect', VularMediaSelect)
+Vue.component('VularMediaSelectCard', VularMediaSelectCard)
 Vue.component('VularPage', VularPage)
 Vue.component('VularListPage', VularListPage)
 Vue.component('VularPageHeader', VularPageHeader)
