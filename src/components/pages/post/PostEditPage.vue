@@ -95,7 +95,7 @@
                   value="轻轻的，我走了，正如我轻轻的来。"
                   hint="显示在列表页面的简要描述"
                 ></v-textarea>
-                <v-select
+                <v-combobox
                   v-model="tags"
                   :items="['foo', 'bar', 'fizz', 'buzz']"
                   attach
@@ -104,7 +104,7 @@
                   prepend-icon="mdi-tag-multiple-outline"
                   multiple
                   hint="可添加多个标签，回车分割"
-                ></v-select>
+                ></v-combobox>
 
               </VularFormCard>
 
@@ -122,13 +122,13 @@
                   label="显示顺序"
                   prepend-icon="mdi-sort"
                 ></v-text-field>
-                <v-combobox
+                <v-select
                   :items="['首页', '热门', '推荐', '置顶']"
                   label="附加属性"
                   prepend-icon="mdi-bookmark-plus-outline"
                   multiple
                   chips
-                ></v-combobox>                
+                ></v-select>                
               </VularFormCard>
               <VularFormCard title="分类">
                 <v-treeview
@@ -184,6 +184,14 @@
             children: [
               { id: 5, name: '辣妹' },
               { id: 6, name: '淑女' },
+            ],
+          },
+          {
+            id:7,
+            name:"运动",
+            children: [
+              { id: 8, name: '滑板' },
+              { id: 9, name: '拖鞋' },
             ],
           },
         ],          
