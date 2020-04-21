@@ -126,6 +126,7 @@
     data () {
       return {
         date:new Date().toISOString().substr(0, 10),
+        menu:false,//@@@以后要删除
       }
     },
     computed:{
