@@ -76,6 +76,8 @@ const router = new VueRouter({
   routes 
 })
 
+window.$bus= new Vue();
+
 new Vue({
   el: '#app',
   i18n,

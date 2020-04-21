@@ -1,15 +1,8 @@
 <template>
-  <v-dialog v-model="selectDialog" persistent scrollable tile 
-    max-width="calc(100vw - 100px)" 
-    @selectMedias = "onSelectMedias"
-  >
-    <template v-slot:activator="{ on }">
-      <v-img aspect-ratio="1" class="new-image-placeholder image" v-on="on">
-        <div class="add-icon"></div>
-      </v-img>
-    </template>
-    <MediaSelectDialog @close="selectDialog = false" @selectMedias = "onSelectMedias"></MediaSelectDialog>
-  </v-dialog>
+  <v-img aspect-ratio="1" class="new-image-placeholder image" @click="selectDialog=true">
+    <div class="add-icon"></div>
+    <MediaSelectDialog @selectMedias = "onSelectMedias" v-model="selectDialog"></MediaSelectDialog>
+  </v-img>
 </template>
 
 <script>

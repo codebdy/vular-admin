@@ -1,5 +1,8 @@
 <template>
-  <textarea :id="tinymceId" class="tinymce-textarea" />
+  <div>
+    <textarea :id="tinymceId" class="tinymce-textarea" />
+    <MediaSelectDialog @selectMedias = "onSelectMedias" v-model="mediaSelectDialog"></MediaSelectDialog>
+  </div>
 </template>
 
 <script>
@@ -9,12 +12,13 @@
 import plugins from './plugins'
 import toolbar from './toolbar'
 import load from './dynamicLoadScript'
+import MediaSelectDialog from "../media/MediaSelectDialog"
 
 const tinymceCDN = '/vendor/tinymce/js/tinymce/tinymce.min.js'
 
 export default {
   name: 'VularTinymce',
-  components: {  },
+  components: { MediaSelectDialog },
   props: {
     id: {
       type: String,
@@ -40,7 +44,7 @@ export default {
     height: {
       type: [Number, String],
       required: false,
-      default: 360
+      default: 560
     },
     width: {
       type: [Number, String],
@@ -59,12 +63,15 @@ export default {
         'zh': 'zh_CN',
         'es': 'es_MX',
         'ja': 'ja'
-      }
+      },
+
+      mediaSelectDialog: false,
     }
   },
   computed: {
   },
   mounted() {
+    $bus.$on('selectImage', this.onSelectImage)
     this.init()
   },
   activated() {
@@ -74,9 +81,11 @@ export default {
   },
   deactivated() {
     this.destroyTinymce()
+    $bus.$off('selectImage', this.onSelectImage)
   },
   destroyed() {
     this.destroyTinymce()
+    $bus.$off('selectImage', this.onSelectImage)
   },
   methods: {
     init() {
@@ -96,7 +105,7 @@ export default {
 
       window.tinymce.init({
         selector: `#${this.tinymceId}`,
-        skin: 'oxide-dark',
+        //skin: 'oxide-dark',
         language: this.languageTypeList[lang],
         height: this.height,
         object_resizing: false,
@@ -126,7 +135,9 @@ export default {
             this.$emit('input', editor.getContent())
           })
 
-          editor.getBody().style.backgroundColor = this.$store.state.vularApp.content.card.color
+          //editor.getBody().style.backgroundColor = this.$store.state.vularApp.content.card.color
+
+          editor.vularId = this.id
         },
         setup(editor) {
           editor.on('FullscreenStateChanged', (e) => {
@@ -151,6 +162,16 @@ export default {
     getContent() {
       window.tinymce.get(this.tinymceId).getContent()
     },
+
+    onSelectImage(id){
+      if(id == this.id){
+        this.mediaSelectDialog = true
+      }
+    },
+
+    onSelectMedias(medias){
+      $bus.$emit('selectedImages', medias, this.id)
+    },
   }
 }
 </script>
@@ -159,13 +180,5 @@ export default {
 .tinymce-textarea {
   visibility: hidden;
   z-index: -1;
-}
-
-.my_class{
-  background: #000 !important;
-}
-
-.tox-editor-header{
-  background: #000 !important;
 }
 </style>

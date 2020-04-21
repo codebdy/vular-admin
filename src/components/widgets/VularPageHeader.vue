@@ -6,6 +6,7 @@
         background: $store.state.vularApp.content.color,
         'box-shadow': isStick ? '2px 2px 5px rgba(0,0,0,0.1)' :'',
       }"
+
       v-scroll="onScroll"
       class="py-0 header-container"
     >
