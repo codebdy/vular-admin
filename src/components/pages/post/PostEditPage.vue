@@ -88,12 +88,28 @@
                     ></v-text-field>
                   </v-col>
                 </v-row>
-              </VularFormCard>
-              
+                <v-textarea
+                  name="input-7-1"
+                  label="简介"
+                  prepend-icon="mdi-card-text-outline"
+                  value="轻轻的，我走了，正如我轻轻的来。"
+                  hint="显示在列表页面的简要描述"
+                ></v-textarea>
+                <v-select
+                  v-model="tags"
+                  :items="['foo', 'bar', 'fizz', 'buzz']"
+                  attach
+                  chips
+                  label="标签"
+                  prepend-icon="mdi-tag-multiple-outline"
+                  multiple
+                  hint="可添加多个标签，回车分割"
+                ></v-select>
 
+              </VularFormCard>
 
               <VularFormCard title="内容" pa="pa-0">
-                <VularTinymce></VularTinymce>
+                <VularTinymce height="700px"></VularTinymce>
               </VularFormCard>
             </v-col>          
             <v-col
@@ -101,7 +117,29 @@
               md="4"
             >
               <VularMediaSelectCard cols="3"></VularMediaSelectCard>
-              <VularFormCard title="属性"></VularFormCard>
+              <VularFormCard title="外观">
+                <v-text-field
+                  label="显示顺序"
+                  prepend-icon="mdi-sort"
+                ></v-text-field>
+                <v-combobox
+                  :items="['首页', '热门', '推荐', '置顶']"
+                  label="附加属性"
+                  prepend-icon="mdi-bookmark-plus-outline"
+                  multiple
+                  chips
+                ></v-combobox>                
+              </VularFormCard>
+              <VularFormCard title="分类">
+                <v-treeview
+                  :items="treeItems"
+                  selection-type="leaf"
+                  selectable
+                  return-object
+                ></v-treeview>                
+              </VularFormCard>
+              <VularFormCard title="相关产品"></VularFormCard>
+              <VularFormCard title="附加信息"></VularFormCard>
             </v-col>          
           </v-row>
         </v-form>
@@ -130,6 +168,25 @@
       return {
         date:new Date().toISOString().substr(0, 10),
         menu:false,//@@@以后要删除
+        tags:['foo', 'bar', 'fizz', 'buzz'],
+        treeItems: [
+          {
+            id: 1,
+            name: '男装',
+            children: [
+              { id: 2, name: '绅士' },
+              { id: 3, name: '休闲' },
+            ],
+          },
+          {
+            id: 4,
+            name: '女鞋',
+            children: [
+              { id: 5, name: '辣妹' },
+              { id: 6, name: '淑女' },
+            ],
+          },
+        ],          
       }
     },
     computed:{
