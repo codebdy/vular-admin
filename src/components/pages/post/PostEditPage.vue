@@ -89,6 +89,8 @@
                   </v-col>
                 </v-row>
               </VularFormCard>
+              
+              <VularTinymce></VularTinymce>
 
               <VularFormCard title="内容">
               </VularFormCard>

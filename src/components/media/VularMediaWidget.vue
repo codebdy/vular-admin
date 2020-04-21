@@ -154,6 +154,11 @@
           >
             <v-icon :size="toolIconSize">mdi-delete-sweep-outline</v-icon>
           </v-btn>
+          <v-btn icon color="primary"
+            @click.stop = "onReplace"
+          >
+            <v-icon :size="17">mdi-file-replace-outline</v-icon>
+          </v-btn>
         </div>
       </div>
       <v-divider></v-divider>
@@ -561,6 +566,11 @@
 
       addFile(){
 
+      },
+
+      onReplace(){
+        this.$refs.uploadInput.click()
+        console.log("@@@ 通过后台API更新数据")
       },
 
     }

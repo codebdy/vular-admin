@@ -23,6 +23,8 @@ import VularListHead from "./components/widgets/VularListHead"
 import VularListBody from "./components/widgets/VularListBody"
 import VularFormCard from "./components/form/VularFormCard.vue"
 
+import VularTinymce from "./components/tinymce"
+
 import ThemeSettings from "./components/pages/theme/ThemeSettings"
 import Dashboard from "./components/pages/dashboard/Dashboard"
 import InquiryListPage from "./components/pages/inquiry/InquiryListPage"
@@ -42,6 +44,7 @@ Vue.component('VularAdmin', VularAdmin)
 Vue.component('VularMediasPage', VularMediasPage)
 Vue.component('VularMediaWidget', VularMediaWidget)
 Vue.component('VularMediaSelectCard', VularMediaSelectCard)
+Vue.component('VularTinymce', VularTinymce)
 Vue.component('VularPage', VularPage)
 Vue.component('VularListPage', VularListPage)
 Vue.component('VularPageHeader', VularPageHeader)
