@@ -37,10 +37,10 @@ export default {
         return []
       }
     },
-    menubar: {
-      type: String,
-      default: 'file edit insert view format table'
-    },
+    //menubar: {
+    //  type: String,
+    //  default: 'file edit insert view format table'
+    //},
     height: {
       type: [Number, String],
       required: false,
@@ -109,9 +109,8 @@ export default {
         language: this.languageTypeList[lang],
         height: this.height,
         object_resizing: true,
-        menubar: false,
         toolbar: this.toolbar.length > 0 ? this.toolbar : toolbar,
-        menubar: this.menubar,
+        menubar: false,
         plugins: plugins,
         external_plugins: {
           'vimages': '/tinymce/plugins/vimages/plugin.min.js',
