@@ -52,7 +52,14 @@
           class="image-col"
           v-if="feathureMedia"
         >
-          <MediaSelectCell :media="feathureMedia"></MediaSelectCell>
+          <MediaSelectCell 
+            :media="feathureMedia"
+            :draggedMedia = "draggedMedia"
+            @dragMedia="onDragMedia"
+            @endDragMedia = "onEndDragMedia"
+            @changePosition = "onChangePosition"
+            @remove = "onRemove"
+          ></MediaSelectCell>
         </v-col>
         <v-col
           v-if="hasFeathureRow"
@@ -66,14 +73,21 @@
               sm="3"
               class="image-col"
             >
-              <MediaSelectCell :media="media"></MediaSelectCell>
+              <MediaSelectCell 
+                :media="media" 
+                :draggedMedia = "draggedMedia"
+                @dragMedia="onDragMedia"
+                @endDragMedia = "onEndDragMedia"
+                @changePosition = "onChangePosition"
+                @remove = "onRemove"
+              ></MediaSelectCell>
             </v-col>
             <v-col
               v-if="feachureRightMedias.length < 8"
               sm="3"
               class="image-col"
             >
-              <MediaAddMenu @selectMedias= "onSelectMedias"></MediaAddMenu>
+              <MediaAddCell @selectMedias= "onSelectMedias"></MediaAddCell>
             </v-col>
           </v-row>
         </v-col>
@@ -84,7 +98,14 @@
           :cols="cols ? cols : 4"
           :sm="cols ? cols : 2"
         >
-          <MediaSelectCell :media="media"></MediaSelectCell>          
+          <MediaSelectCell 
+            :media="media"
+            :draggedMedia = "draggedMedia"
+            @dragMedia="onDragMedia"
+            @endDragMedia = "onEndDragMedia"
+            @changePosition = "onChangePosition"
+            @remove = "onRemove"
+          ></MediaSelectCell>          
         </v-col>
         <v-col
           v-if="feachureRightMedias.length == 8 || !hasFeathureRow"
@@ -92,7 +113,7 @@
           :cols="cols ? cols : 4"
           :sm="cols ? cols : 2"
         >
-          <MediaAddMenu @selectMedias= "onSelectMedias"></MediaAddMenu>
+          <MediaAddCell @selectMedias= "onSelectMedias"></MediaAddCell>
         </v-col>
       </v-row>
 
@@ -102,23 +123,27 @@
 
 <script>
   import AltDialog from "./AltDialog"
-  import MediaAddMenu from "./MediaAddMenu"
+  import MediaAddCell from "./MediaAddCell"
   import MediaSelectCell from "./MediaSelectCell"
+  import {remove} from "../../basic/vular-array"
+
   export default {
     name: "vular-media-select",
     components: {
       AltDialog,
-      MediaAddMenu,
+      MediaAddCell,
       MediaSelectCell
     },
     props: {
       small: { default: false },
       cols:{ default : ''/*"6"*/ },
+      single: {default : false},
     },
 
     data: () => ({
       menu : false,
       altDialog : false,
+      draggedMedia : null,
       medias:[
         {
           id : 1,
@@ -229,6 +254,31 @@
       onSelectMedias(medias){
 
       },
+
+      onDragMedia(media){
+        this.draggedMedia = media
+      },
+
+      onEndDragMedia(){
+        this.draggedMedia = null
+      },
+
+      onChangePosition(media){
+        for(var i=0; i<this.medias.length; i++)
+        {
+          if(this.medias[i].id == this.draggedMedia.id){
+            this.$set(this.medias, i, media)
+          } 
+          else if(this.medias[i].id == media.id){
+            this.$set(this.medias, i, this.draggedMedia)
+          } 
+        }
+      },
+
+      onRemove(media){
+        remove(media, this.medias)
+      },
+
     },
 
     watch:{
