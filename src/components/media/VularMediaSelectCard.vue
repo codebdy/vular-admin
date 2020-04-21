@@ -1,6 +1,6 @@
 <template>
   <v-card
-    class="pa-2 media-select"
+    class="pa-2 mt-5 media-select"
     flat
     :color="$store.state.vularApp.content.card.color" 
     :style="$store.state.vularApp.content.card.style"

@@ -2,6 +2,7 @@
   <VularListPage 
     :schema = "schema"
     v-model = "rows"
+    editPath = "product-edit"
   ></VularListPage>
 </template>
 

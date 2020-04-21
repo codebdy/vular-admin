@@ -5,7 +5,7 @@
       'font-family': $store.state.vularApp.content.fontFamily
     }"
   >
-    <VularEditPageHeader :title="'文章编辑'" v-model="inputValue.header">
+    <VularEditPageHeader :title="'产品编辑'" v-model="inputValue.header">
     </VularEditPageHeader>
       <div class="header-image-container"
         v-if="this.$store.state.vularApp.content.breadcurmbsImage"
@@ -47,7 +47,7 @@
 
 <script>
   export default {
-    name: 'post-edit-page',
+    name: 'product-edit-page',
     components: {
     },
     props: {

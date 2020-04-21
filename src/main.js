@@ -17,15 +17,18 @@ import VularMediaWidget from "./components/media/VularMediaWidget.vue"
 import VularMediaSelectCard from "./components/media/VularMediaSelectCard.vue"
 import VularPage from "./components/VularPage.vue"
 import VularListPage from "./components/VularListPage.vue"
-import ThemeSettings from "./components/pages/theme/ThemeSettings"
-import Dashboard from "./components/pages/dashboard/Dashboard"
 import VularPageHeader from "./components/widgets/VularPageHeader"
 import VularEditPageHeader from "./components/widgets/VularEditPageHeader"
 import VularListHead from "./components/widgets/VularListHead"
 import VularListBody from "./components/widgets/VularListBody"
+import VularFormCard from "./components/form/VularFormCard.vue"
+
+import ThemeSettings from "./components/pages/theme/ThemeSettings"
+import Dashboard from "./components/pages/dashboard/Dashboard"
 import InquiryListPage from "./components/pages/inquiry/InquiryListPage"
 import PostListPage from "./components/pages/post/PostListPage"
 import PostEditPage from "./components/pages/post/PostEditPage"
+import ProductEditPage from "./components/pages/product/ProductEditPage"
 import ProductModule from "./components/pages/product/ProductModule"
 
 Vue.use(VueRouter)
@@ -45,10 +48,12 @@ Vue.component('VularPageHeader', VularPageHeader)
 Vue.component('VularEditPageHeader', VularEditPageHeader)
 Vue.component('VularListHead', VularListHead)
 Vue.component('VularListBody', VularListBody)
+Vue.component('VularFormCard', VularFormCard)
 Vue.component('InquiryListPage', InquiryListPage)
 Vue.component('ProductModule', ProductModule)
 Vue.component('PostListPage', PostListPage)
 Vue.component('PostEditPage', PostEditPage)
+Vue.component('ProductEditPage', ProductEditPage)
 
 const routes = [
   //{ path: '/form2', component: VularForm },
@@ -59,6 +64,7 @@ const routes = [
   { path: '/post-list', name:'post-list', component: PostListPage },
   { path: '/post-edit', name:'post-edit', component: PostEditPage },
   { path: '/product-list', name:'product-list', component: ProductModule },
+  { path: '/product-edit', name:'product-edit', component: ProductEditPage },
   { path: '/theme-settings', name:'theme-settings', component: ThemeSettings },
   { path: '/login', name:'login', component: VularLogin },
 ]

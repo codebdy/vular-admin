@@ -2,22 +2,24 @@
   <v-card
     class="pa-2 mt-5"
     flat
-    style="height: 500px;"
     :color="$store.state.vularApp.content.card.color" 
     :style="$store.state.vularApp.content.card.style"
-
   >
     <v-toolbar flat color="transparent">
-      <v-toolbar-title>基本信息</v-toolbar-title>
+      <v-toolbar-title>{{title}}</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
-      <v-btn icon>
-        <v-icon>mdi-chevron-up</v-icon>
+      <v-btn icon
+        v-if="collapsable"
+        @click = "showBody = !showBody"
+      >
+        <v-icon v-if="showBody">mdi-chevron-up</v-icon>
+        <v-icon v-else>mdi-chevron-down</v-icon>
       </v-btn>
     </v-toolbar>
-    <v-divider></v-divider>
-    <v-card-text>
+    <v-divider v-if="showBody"></v-divider>
+    <v-card-text v-if="showBody">
       <slot>No slot</slot>
     </v-card-text>
   </v-card>
@@ -29,9 +31,12 @@
     components: {
     },
     props: {
+      title:{default: ''},
+      collapsable:{default: true},
     },
 
     data: () => ({
+      showBody: true,
     }),
 
     methods: {
