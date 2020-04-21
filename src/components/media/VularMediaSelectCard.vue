@@ -95,8 +95,8 @@
           class="image-col"
           v-for="(media,index) in secondRowMedias"
           :key="media.src"
-          :cols="cols ? cols : 4"
-          :sm="cols ? cols : 2"
+          :cols="colWidth ? colWidth : 4"
+          :sm="colWidth ? colWidth : 2"
         >
           <MediaSelectCell 
             :media="media"
@@ -110,8 +110,8 @@
         <v-col
           v-if="feachureRightMedias.length == 8 || !hasFeathureRow"
           class="d-flex child-flex image-col"
-          :cols="cols ? cols : 4"
-          :sm="cols ? cols : 2"
+          :cols="colWidth ? colWidth : 4"
+          :sm="colWidth ? colWidth : 2"
         >
           <MediaAddCell @selectMedias= "onSelectMedias"></MediaAddCell>
         </v-col>
@@ -145,6 +145,7 @@
       menu : false,
       altDialog : false,
       draggedMedia : null,
+      colWidth:'',
     }),
 
     computed:{
@@ -198,6 +199,12 @@
         }
 
         return rowMedias
+      }
+    },
+
+    mounted(){
+      if(this.cols){
+        this.colWidth = parseInt(12/this.cols)
       }
     },
 

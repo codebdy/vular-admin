@@ -29,7 +29,6 @@
             cols="12"
             md="8"
           >
-            <VularMediaSelectCard></VularMediaSelectCard>
 
             <VularFormCard title="基本信息"></VularFormCard>
 
@@ -38,6 +37,7 @@
             cols="12"
             md="4"
           >
+            <VularMediaSelectCard cols="2"></VularMediaSelectCard>
             <VularFormCard title="属性"></VularFormCard>
           </v-col>          
         </v-row>
