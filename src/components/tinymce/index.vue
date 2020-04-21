@@ -1,7 +1,13 @@
 <template>
-  <div :class="{fullscreen:fullscreen}" class="mt-5">
+  <v-card      
+    class="pa-0 mt-5"
+    flat
+    :class="{fullscreen:fullscreen}"
+    :color="$store.state.vularApp.content.card.color" 
+    :style="$store.state.vularApp.content.card.style"
+>
     <textarea :id="tinymceId" class="tinymce-textarea" />
-  </div>
+  </v-card>
 </template>
 
 <script>
@@ -65,21 +71,6 @@ export default {
     }
   },
   computed: {
-    containerWidth() {
-      const width = this.width
-      if (/^[\d]+(\.[\d]+)?$/.test(width)) { // matches `100`, `'100'`
-        return `${width}px`
-      }
-      return width
-    }
-  },
-  watch: {
-    value(val) {
-      if (!this.hasChange && this.hasInit) {
-        this.$nextTick(() =>
-          window.tinymce.get(this.tinymceId).setContent(val || ''))
-      }
-    }
   },
   mounted() {
     this.init()
@@ -113,7 +104,7 @@ export default {
 
       window.tinymce.init({
         selector: `#${this.tinymceId}`,
-        language: this.languageTypeList['zh'],
+        language: this.languageTypeList[lang],
         height: this.height,
         object_resizing: false,
         toolbar: this.toolbar.length > 0 ? this.toolbar : toolbar,
@@ -165,39 +156,13 @@ export default {
     getContent() {
       window.tinymce.get(this.tinymceId).getContent()
     },
-    imageSuccessCBK(arr) {
-      const _this = this
-      arr.forEach(v => {
-        window.tinymce.get(_this.tinymceId).insertContent(`<img class="wscnph" src="${v.url}" >`)
-      })
-    }
   }
 }
 </script>
 
 <style scoped>
-.tinymce-container {
-  position: relative;
-  line-height: normal;
-}
-.tinymce-container>>>.mce-fullscreen {
-  z-index: 10000;
-}
 .tinymce-textarea {
   visibility: hidden;
   z-index: -1;
-}
-.editor-custom-btn-container {
-  position: absolute;
-  right: 4px;
-  top: 4px;
-  /*z-index: 2005;*/
-}
-.fullscreen .editor-custom-btn-container {
-  z-index: 10000;
-  position: fixed;
-}
-.editor-upload-btn {
-  display: inline-block;
 }
 </style>
