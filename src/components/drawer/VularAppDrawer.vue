@@ -165,7 +165,7 @@ export default {
         },
         {
           name:"vular-menu-item",
-          prependIcon: 'mdi-diamond-outline',
+          prependIcon: 'mdi-currency-usd-circle-outline',
           title:'订单管理',
           to:"orders",
         },
@@ -177,7 +177,7 @@ export default {
         },
         {
           name:"vular-menu-item",
-          prependIcon: 'mdi-archive-outline',
+          prependIcon: 'mdi-diamond-outline',
           title:'产品管理',
           to:"orders2",
         },

@@ -53,7 +53,7 @@
 
         </VularFormCard>
         <VularHasManyTableCard title="规格库存"></VularHasManyTableCard>
-        <VularFormCard title="内容" pa="pa-0">
+        <VularFormCard title="详情" pa="pa-0">
           <VularTinymce height="700px"></VularTinymce>
         </VularFormCard>
       </v-col>          

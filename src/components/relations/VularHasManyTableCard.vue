@@ -105,12 +105,11 @@
           text:'',
           value:'image',
           sortable: false,
-          width:50,
+          width:'50px',
         },
         {
           text: '名称',
           align: 'start',
-          sortable: false,
           value: 'name',
         },
         { text: '数量', value: 'calories' },
