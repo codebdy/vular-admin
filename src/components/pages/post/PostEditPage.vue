@@ -17,7 +17,7 @@
           opacity:inputValue.header.heightPercent,
         }" 
       >
-        <div style=" background-image:url(/images/pics/110-500x300.jpg); " class="header-image"
+        <div :style=" 'background-image:url(' + headerImageSrc + ');' " class="header-image"
         >
           <div class="header-image-mask">
           </div>
@@ -146,7 +146,7 @@
               cols="12"
               md="4"
             >
-              <VularMediaSelectCard cols="3"></VularMediaSelectCard>
+              <VularMediaSelectCard cols="3" v-model="inputValue.model.medias"></VularMediaSelectCard>
               <VularFormCard title="外观">
                 <v-text-field
                   label="显示顺序"
@@ -194,8 +194,13 @@
             listHeaderHeight: 0,
             heightPercent: 1,
           },
+          model:{
+            medias:[],
+          },
+
         }}
       },
+      headerImageField:{default:'medias'},
     },
     data () {
       return {
@@ -238,6 +243,21 @@
         set:function(val) {
           this.$emit('input', val);
         },
+      },
+
+      headerImageSrc(){
+        let image = null
+        if(this.headerImageField){
+          let medias = this.inputValue.model[this.headerImageField]
+          for(var i = 0; i < medias.length; i++){
+            if(medias[i].type === 'image'){
+              image = medias[i]
+              break
+            }
+          }
+        }
+
+        return image ? image.src : '/images/login.jpg'
       },
 
       headerImageTop(){
