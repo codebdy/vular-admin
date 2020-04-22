@@ -1,7 +1,10 @@
 <template>
   <v-img aspect-ratio="1" class="new-image-placeholder image" @click="selectDialog=true">
     <div class="add-icon"></div>
-    <MediaSelectDialog @selectMedias = "onSelectMedias" v-model="selectDialog"></MediaSelectDialog>
+    <MediaSelectDialog 
+      :single="single"
+      @selectMedias = "onSelectMedias" 
+      v-model="selectDialog"></MediaSelectDialog>
   </v-img>
 </template>
 
@@ -12,6 +15,7 @@
       MediaSelectDialog
     },
     props: {
+      single:{default:false},
     },
 
     data: () => ({

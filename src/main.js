@@ -15,6 +15,7 @@ import VularMediasPage from "./components/VularMediasPage.vue"
 import VularAdmin from "./components/VularAdmin.vue"
 import VularMediaWidget from "./components/media/VularMediaWidget.vue"
 import VularMediaSelectCard from "./components/media/VularMediaSelectCard.vue"
+import VularSingleImageInput from "./components/media/VularSingleImageInput.vue"
 import VularPage from "./components/VularPage.vue"
 import VularListPage from "./components/VularListPage.vue"
 import VularPageHeader from "./components/widgets/VularPageHeader"
@@ -23,6 +24,7 @@ import VularListHead from "./components/widgets/VularListHead"
 import VularListBody from "./components/widgets/VularListBody"
 import VularFormCard from "./components/form/VularFormCard.vue"
 import VularToManySelect from "./components/relations/VularToManySelect.vue"
+import VularHasOneDialog from "./components/relations/VularHasOneDialog.vue"
 
 import VularTinymce from "./components/tinymce"
 
@@ -46,6 +48,7 @@ Vue.component('VularAdmin', VularAdmin)
 Vue.component('VularMediasPage', VularMediasPage)
 Vue.component('VularMediaWidget', VularMediaWidget)
 Vue.component('VularMediaSelectCard', VularMediaSelectCard)
+Vue.component('VularSingleImageInput', VularSingleImageInput)
 Vue.component('VularTinymce', VularTinymce)
 Vue.component('VularPage', VularPage)
 Vue.component('VularListPage', VularListPage)
@@ -55,6 +58,7 @@ Vue.component('VularListHead', VularListHead)
 Vue.component('VularListBody', VularListBody)
 Vue.component('VularFormCard', VularFormCard)
 Vue.component('VularToManySelect', VularToManySelect)
+Vue.component('VularHasOneDialog', VularHasOneDialog)
 Vue.component('InquiryListPage', InquiryListPage)
 Vue.component('ProductModule', ProductModule)
 Vue.component('PostListPage', PostListPage)

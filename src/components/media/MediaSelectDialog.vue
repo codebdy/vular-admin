@@ -36,6 +36,7 @@
     },
     props: {
       value:{default: false},
+      single:{default:false},
     },
 
     data: () => ({
@@ -62,8 +63,10 @@
       onConfirm(){
         this.inputValue = false
         this.clearMediasSelection()
-        let medias = [...this.selectedMedias]
-        this.$emit('selectMedias', medias)
+        if(this.selectedMedias.length > 0){
+          let medias = [...this.selectedMedias]
+          this.$emit('selectMedias', this.single ? medias[0] : medias)
+        }
         this.selectedMedias = []
       },
 

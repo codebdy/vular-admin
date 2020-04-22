@@ -57,7 +57,7 @@
       attach: null,
       index: -1,
       items: [
-        { header: '改成动态加载' },
+        { header: '做成动态加载' },
         {
           id:'1',
           name: '手机123',
