@@ -16,7 +16,15 @@
           <v-textarea
             label="Description"
           ></v-textarea>
-          <VularSingleImageInput></VularSingleImageInput>
+          <v-row>
+            <v-col sm="6">
+              <VularSingleImageInput></VularSingleImageInput>
+            </v-col>
+            <v-col sm="6">
+              <v-text-field label="宽"></v-text-field>
+              <v-text-field label="高"></v-text-field>
+            </v-col>
+          </v-row>
         </v-card-text>
         <v-divider></v-divider>
         <v-card-actions class="pa-5 media-alt-dialog-actions">
