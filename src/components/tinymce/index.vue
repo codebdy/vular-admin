@@ -135,7 +135,7 @@ export default {
             this.$emit('input', editor.getContent())
           })
 
-          //editor.getBody().style.backgroundColor = this.$store.state.vularApp.content.card.color
+          editor.getBody().style.backgroundColor = this.$store.state.vularApp.content.card.color
 
           editor.vularId = this.id
         },
@@ -180,5 +180,13 @@ export default {
 .tinymce-textarea {
   visibility: hidden;
   z-index: -1;
+}
+
+.tox .tox-toolbar-overlord{
+  background: transparent !important;
+}
+
+.tox .tox-toolbar{
+  background-color: transparent !important;
 }
 </style>
