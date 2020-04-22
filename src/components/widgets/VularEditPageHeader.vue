@@ -26,8 +26,10 @@
         style="transition: height 0.3s"
         class="d-flex flex-row align-center"
       >
-        <v-btn text rounded :dark="dark" class="ml-n4">文章列表</v-btn>
-        <v-icon :dark="dark">mdi-chevron-right</v-icon>
+        <template v-for="(crumb, i) in inputValue.breadcrumbs">
+          <v-btn text rounded :dark="dark" class="ml-n4">{{crumb.title}}</v-btn>
+          <v-icon :dark="dark">mdi-chevron-right</v-icon>
+        </template>
         <v-chip rounded :dark="dark" color="transparent">{{title}}</v-chip>
       </div>
       <div
