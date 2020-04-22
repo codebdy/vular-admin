@@ -26,6 +26,7 @@ import VularListBody from "./components/widgets/VularListBody"
 import VularFormCard from "./components/form/VularFormCard.vue"
 import VularToManySelect from "./components/relations/VularToManySelect.vue"
 import VularHasOneDialog from "./components/relations/VularHasOneDialog.vue"
+import VularHasManyTableCard from "./components/relations/VularHasManyTableCard.vue"
 
 import VularTinymce from "./components/tinymce"
 
@@ -61,6 +62,7 @@ Vue.component('VularListBody', VularListBody)
 Vue.component('VularFormCard', VularFormCard)
 Vue.component('VularToManySelect', VularToManySelect)
 Vue.component('VularHasOneDialog', VularHasOneDialog)
+Vue.component('VularHasManyTableCard', VularHasManyTableCard)
 Vue.component('InquiryListPage', InquiryListPage)
 Vue.component('ProductModule', ProductModule)
 Vue.component('PostListPage', PostListPage)

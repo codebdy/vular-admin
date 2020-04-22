@@ -17,55 +17,6 @@
             label="Slug"
             prepend-icon="mdi-identifier"
           ></v-text-field>
-          <v-row>
-            <v-col>
-              <v-select
-                :items="['Foo', 'Bar', 'Fizz', 'Buzz']"
-                label="作者"
-                prepend-icon="mdi-account-outline"
-              ></v-select>
-            </v-col>
-            <v-col>
-              <v-menu
-                ref="menu"
-                v-model="menu"
-                :close-on-content-click="false"
-                :return-value.sync="date"
-                transition="scale-transition"
-                offset-y
-                min-width="290px"
-              >
-                <template v-slot:activator="{ on }">
-                  <v-text-field
-                    v-model="date"
-                    label="创作日期"
-                    prepend-icon="mdi-calendar"
-                    readonly
-                    v-on="on"
-                  ></v-text-field>
-                </template>
-                <v-date-picker v-model="date" no-title scrollable>
-                  <v-spacer></v-spacer>
-                  <v-btn text color="primary" @click="menu = false">Cancel</v-btn>
-                  <v-btn text color="primary" @click="$refs.menu.save(date)">OK</v-btn>
-                </v-date-picker>
-              </v-menu>
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col>
-               <v-text-field
-                label="来源"
-                prepend-icon="mdi-map-marker-multiple-outline"
-              ></v-text-field>
-            </v-col>
-            <v-col>
-              <v-text-field
-                label="来源网址"
-                prepend-icon="mdi-link"
-              ></v-text-field>
-            </v-col>
-          </v-row>
           <v-textarea
             name="input-7-1"
             label="简介"
@@ -101,21 +52,7 @@
           </v-combobox>
 
         </VularFormCard>
-        <VularFormCard title="SEO Meta">
-          <div>
-            <div>预览</div>
-            <div style="color:blue;">https://vular.cn/one-good-framework</div>
-          </div>
-          <v-text-field
-            label="Title"
-          ></v-text-field>
-          <v-text-field
-            label="Keywords"
-          ></v-text-field>
-          <v-textarea
-            label="Description"
-          ></v-textarea>
-        </VularFormCard>
+        <VularHasManyTableCard title="规格库存"></VularHasManyTableCard>
         <VularFormCard title="内容" pa="pa-0">
           <VularTinymce height="700px"></VularTinymce>
         </VularFormCard>
@@ -124,7 +61,10 @@
         cols="12"
         md="4"
       >
-        <VularFormCard title="外观">
+        <VularFormCard title="显示">
+            <v-switch
+              label="上架"
+            ></v-switch>
           <v-text-field
             label="显示顺序"
             prepend-icon="mdi-sort"
