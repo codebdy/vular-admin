@@ -154,31 +154,9 @@
                   return-object
                 ></v-treeview>                
               </VularFormCard>
-              <VularFormCard title="相关产品">
-                <v-select
-                  :items="['foo', 'bar', 'fizz', 'buzz']"
-                  attach
-                  chips
-                  multiple
-                >
-                  <template v-slot:selection="{ attrs, item, parent, selected }">
-                    <v-chip
-                      v-bind="attrs"
-                      :input-value="selected"
-                    >
-                      <span class="pr-2">
-                        {{ item }}
-                      </span>
-                      <v-icon
-                        small
-                        @click.stop="parent.selectItem(item)"
-                      >mdi-close</v-icon>
-                    </v-chip>
-                  </template>                  
-
-                </v-select>
+              <VularFormCard title="附加信息">
+                <VularToManySelect prepend-icon="mdi-shopping-search"></VularToManySelect>
               </VularFormCard>
-              <VularFormCard title="附加信息"></VularFormCard>
             </v-col>          
           </v-row>
         </v-form>

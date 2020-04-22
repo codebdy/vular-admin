@@ -22,8 +22,10 @@ import VularEditPageHeader from "./components/widgets/VularEditPageHeader"
 import VularListHead from "./components/widgets/VularListHead"
 import VularListBody from "./components/widgets/VularListBody"
 import VularFormCard from "./components/form/VularFormCard.vue"
+import VularToManySelect from "./components/relations/VularToManySelect.vue"
 
 import VularTinymce from "./components/tinymce"
+
 
 import ThemeSettings from "./components/pages/theme/ThemeSettings"
 import Dashboard from "./components/pages/dashboard/Dashboard"
@@ -52,6 +54,7 @@ Vue.component('VularEditPageHeader', VularEditPageHeader)
 Vue.component('VularListHead', VularListHead)
 Vue.component('VularListBody', VularListBody)
 Vue.component('VularFormCard', VularFormCard)
+Vue.component('VularToManySelect', VularToManySelect)
 Vue.component('InquiryListPage', InquiryListPage)
 Vue.component('ProductModule', ProductModule)
 Vue.component('PostListPage', PostListPage)
