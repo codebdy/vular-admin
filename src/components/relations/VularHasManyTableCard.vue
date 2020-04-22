@@ -154,7 +154,7 @@
         this.desserts = [
           {
             image: '/images/1.jpg',
-            name: 'Frozen Yogurt',
+            name: '白色',
             calories: 159,
             fat: 6.0,
             carbs: 24,
@@ -162,7 +162,7 @@
           },
           {
             image: '/images/2.jpg',
-            name: 'Ice cream sandwich',
+            name: '红色',
             calories: 237,
             fat: 9.0,
             carbs: 37,
@@ -170,7 +170,7 @@
           },
           {
             image: '/images/3.jpg',
-            name: 'Eclair',
+            name: '黄色',
             calories: 262,
             fat: 16.0,
             carbs: 23,
@@ -178,7 +178,7 @@
           },
           {
             image: '/images/4.jpg',
-            name: 'Cupcake',
+            name: '银色',
             calories: 305,
             fat: 3.7,
             carbs: 67,
@@ -186,7 +186,7 @@
           },
           {
             image: '/images/5.jpg',
-            name: 'Gingerbread',
+            name: '金色',
             calories: 356,
             fat: 16.0,
             carbs: 49,

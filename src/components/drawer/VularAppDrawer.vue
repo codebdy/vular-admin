@@ -93,11 +93,6 @@ export default {
             {
               name:"vular-menu-item",
               title:this.$t('drawer.post-list'),
-              to:"post-list",
-            },
-            {
-              name:"vular-menu-item",
-              title:'草稿箱',
               badge:{
                 title:'4',
                 props:{
@@ -106,6 +101,7 @@ export default {
                   small:false,
                 }
               },
+              to:"post-list",
             },
             {
               name:"vular-menu-item",
