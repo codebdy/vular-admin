@@ -296,9 +296,10 @@
     filter: blur(15px);
     position:absolute;
     width: 100%;
-    height: 500px; 
+    height: 400px; 
     background-repeat: no-repeat; 
     background-size: cover ;
+    background-position: center center;
   }
   .header-image-mask{
     width: 120%;
