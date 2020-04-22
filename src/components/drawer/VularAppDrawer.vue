@@ -24,7 +24,7 @@
       <v-list class="drawer-list">
       <component     
         v-for="schema in items"
-        :key="schema.title"
+        :key="schema.title + schema.to"
         :is="schema.name" 
         :schema="schema"
         :drawer="inputValue"
@@ -81,7 +81,7 @@ export default {
         },
         {
           name:"vular-subheader",
-          title:"CMS模块"
+          title:"Vular CMS"
         },
         {
           name:"vular-menu-item-group",
@@ -162,6 +162,34 @@ export default {
             },
 
           ]          
+        },
+        {
+          name:"vular-subheader",
+          title:"外贸管理"
+        },
+        {
+          name:"vular-menu-item",
+          prependIcon: 'mdi-diamond-outline',
+          title:'订单管理',
+          to:"orders",
+        },
+        {
+          name:"vular-menu-item",
+          prependIcon: 'mdi-account-supervisor-outline',
+          title:'客户管理',
+          to:"orders",
+        },
+        {
+          name:"vular-menu-item",
+          prependIcon: 'mdi-archive-outline',
+          title:'产品管理',
+          to:"orders2",
+        },
+        {
+          name:"vular-menu-item",
+          prependIcon: 'mdi-factory',
+          title:'供应商管理',
+          to:"orders",
         },
         {
           name:"vular-subheader",
