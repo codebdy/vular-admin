@@ -193,4 +193,8 @@ export default {
 .tox .tox-statusbar{
   background-color: transparent !important;
 }
+
+.tox-editor-header{
+  z-index: 0 !important;
+}
 </style>
