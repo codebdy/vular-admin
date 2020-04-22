@@ -175,6 +175,12 @@
             medias:[],
             title:"我是一阵风",
           },
+          breadcrumbs:[
+            {
+              title : "文章列表",
+              pageId:'test',
+            }
+          ],
         },
         date:new Date().toISOString().substr(0, 10),
         menu:false,//@@@以后要删除

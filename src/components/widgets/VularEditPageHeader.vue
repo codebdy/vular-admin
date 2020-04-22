@@ -42,9 +42,11 @@
         <template
           v-if="!large && !this.$vuetify.breakpoint.xs"
         >
-          <v-btn text rounded  class="ml-n4"
-          >文章列表</v-btn>
-          <v-icon>mdi-chevron-right</v-icon>
+          <template v-for="(crumb, i) in inputValue.breadcrumbs">
+            <v-btn text rounded  class="ml-n4"
+            >{{crumb.title}}</v-btn>
+            <v-icon>mdi-chevron-right</v-icon>
+          </template>
           <v-chip rounded color="transparent"
           >{{title}}</v-chip>
           <v-icon class="mr-4"
