@@ -189,4 +189,8 @@ export default {
 .tox .tox-toolbar{
   background-color: transparent !important;
 }
+
+.tox .tox-statusbar{
+  background-color: transparent !important;
+}
 </style>
