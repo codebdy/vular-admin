@@ -11,7 +11,7 @@
       :persistent = "persistent" 
       @stick="onStick" 
       @heightPercent="onHeightPercent"
-      v-model="inputValue.header"
+      v-model="inputValue"
     >
       <template slot="breadcrumbs-area">
         <slot name="breadcrumbs-area"></slot>

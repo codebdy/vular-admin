@@ -53,7 +53,7 @@
         </template>
         <v-text-field
           :dark="dark"
-          value="我是一阵风"
+          v-model="inputValue.model[titleField]"
           :style="{'font-size': titleFontSize + 'px'}"
         ></v-text-field>
         <v-spacer></v-spacer>
@@ -89,10 +89,22 @@ import VularPageHeader from "./VularPageHeader"
   export default {
     name: "vular-edit-page-header",
     extends:VularPageHeader,
+    props: {
+      titleField:{default: "title"},
+    },
     data: () => ({
     }),
     
     computed:{
+      inputValue: {
+        get:function() {
+          return this.value;
+        },
+        set:function(val) {
+          this.$emit('input', val);
+        },
+      },
+
       large(){
         return this.heightPercent >= 0.1
       },
@@ -100,6 +112,9 @@ import VularPageHeader from "./VularPageHeader"
       dark(){
         return this.heightPercent >= 0.5 && this.$store.state.vularApp.content.breadcurmbsImage
       }
+    },
+
+    mounted(){
     },
 
     methods: {

@@ -42,7 +42,11 @@
     props: {
       title: {default: "untitled"},
       titleIcon: {default: ""},
-      value : { default: ()=>{return {}}},
+      value : { default: ()=>{
+        return {
+          header:{}
+        }
+      }},
       persistent: {default: false},
     },
 
@@ -96,7 +100,7 @@
       }
     },
     mounted () {
-      this.inputValue.breadcrumbHeight = 90
+      this.inputValue.header.breadcrumbHeight = 90
       //let height = 90
 
       //if(this.$slots['list-head']){
@@ -115,8 +119,8 @@
         }
         this.topOffset = parseInt(window.pageYOffset || document.documentElement.offsetTop || 0)
         this.isStick = this.baseHeight < this.smallLimit
-        this.inputValue.isStick = this.isStick
-        this.inputValue.heightPercent = this.heightPercent
+        this.inputValue.header.isStick = this.isStick
+        this.inputValue.header.heightPercent = this.heightPercent
       }
     },
   }
