@@ -9,12 +9,12 @@
       multiple
       chips
       clearable
+      item-text="name"
     >
       <template v-slot:no-data>
         <v-list-item>
           <span class="subheading">Create</span>
           <v-chip
-            :color="`${colors[nonce - 1]} lighten-3`"
             label
             small
           >
@@ -29,7 +29,7 @@
           :input-value="selected"
         >
           <span class="pr-2">
-            {{ item.text }}
+            {{ item.name }}
           </span>
           <v-icon
             small
@@ -38,7 +38,7 @@
         </v-chip>
       </template>
       <template v-slot:item="{ index, item }">
-         {{ item.text }}
+         {{ item.name }}
       </template>
     </v-combobox>
 </template>
@@ -55,26 +55,24 @@
     data: () => ({
       activator: null,
       attach: null,
-      colors: ['green', 'purple', 'indigo', 'cyan', 'teal', 'orange'],
-      editing: null,
       index: -1,
       items: [
-        { header: 'Select an option or create one' },
+        { header: '改成动态加载' },
         {
-          text: 'Foo',
-          color: 'blue',
+          id:'1',
+          name: '手机123',
         },
         {
-          text: 'Bar',
-          color: 'red',
+          id:'2',
+          name: '插座121',
         },
       ],
       nonce: 1,
       menu: false,
       model: [
         {
-          text: 'Foo',
-          color: 'blue',
+          id:'x',
+          name: 'Foo',
         },
       ],
       x: 0,
@@ -88,14 +86,7 @@
 
         this.model = val.map(v => {
           if (typeof v === 'string') {
-            v = {
-              text: v,
-              color: this.colors[this.nonce - 1],
-            }
-
-            this.items.push(v)
-
-            this.nonce++
+            return null
           }
 
           return v
@@ -104,15 +95,6 @@
     },
 
     methods: {
-      edit (index, item) {
-        if (!this.editing) {
-          this.editing = item
-          this.index = index
-        } else {
-          this.editing = null
-          this.index = -1
-        }
-      },
       filter (item, queryText, itemText) {
         if (item.header) return false
 
