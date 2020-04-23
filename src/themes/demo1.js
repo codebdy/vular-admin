@@ -61,7 +61,8 @@ export default {
     src: "",
     flat: true,
     card:{
-      color:"#f4f5fa",
+      //color:"#f4f5fa",
+      color:"#ffffff",
       style:"box-shadow: 2px 2px 5px rgba(0,0,0,0.05);",
     },
     breadcurmbsImage:true,
