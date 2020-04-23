@@ -19,7 +19,7 @@
       <slot name="header-extension"></slot>
     </VularPageHeader>
     <v-container fluid class="pt-0"
-      :style="{'margin-top': (inputValue.header.breadcrumbHeight + inputValue.header.listHeaderHeight + 0) + 'px'}"
+      :style="{'margin-top': breadcrumbHeight + 'px'}"
     >
       <slot></slot>
     </v-container>
@@ -54,6 +54,10 @@
       }
     },
 
+    mounted () {
+      console.log(this.inputValue.header.breadcrumbHeight  + 'px')
+    },
+
     computed:{
       inputValue: {
         get:function() {
@@ -63,6 +67,10 @@
           this.$emit('input', val);
         },
       },
+
+      breadcrumbHeight(){
+        return this.inputValue.header.breadcrumbHeight ? this.inputValue.header.breadcrumbHeight : 90
+      }
     },
 
     methods: {

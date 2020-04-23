@@ -23,6 +23,7 @@ import VularPageHeader from "./components/widgets/VularPageHeader"
 import VularEditPageHeader from "./components/widgets/VularEditPageHeader"
 import VularListHead from "./components/widgets/VularListHead"
 import VularListBody from "./components/widgets/VularListBody"
+import VularTreeEditor from "./components/widgets/VularTreeEditor.vue"
 import VularFormCard from "./components/form/VularFormCard.vue"
 import VularToManySelect from "./components/relations/VularToManySelect.vue"
 import VularHasOneDialog from "./components/relations/VularHasOneDialog.vue"
@@ -37,6 +38,7 @@ import InquiryListPage from "./components/pages/inquiry/InquiryListPage"
 import PostListPage from "./components/pages/post/PostListPage"
 import PostEditPage from "./components/pages/post/PostEditPage"
 import ProductEditPage from "./components/pages/product/ProductEditPage"
+import ProductCategory from "./components/pages/product/ProductCategory"
 import ProductModule from "./components/pages/product/ProductModule"
 
 Vue.use(VueRouter)
@@ -60,6 +62,7 @@ Vue.component('VularListHead', VularListHead)
 Vue.component('VularEditPage', VularEditPage)
 Vue.component('VularListBody', VularListBody)
 Vue.component('VularFormCard', VularFormCard)
+Vue.component('VularTreeEditor', VularTreeEditor)
 Vue.component('VularToManySelect', VularToManySelect)
 Vue.component('VularHasOneDialog', VularHasOneDialog)
 Vue.component('VularHasManyTableCard', VularHasManyTableCard)
@@ -67,6 +70,7 @@ Vue.component('InquiryListPage', InquiryListPage)
 Vue.component('ProductModule', ProductModule)
 Vue.component('PostListPage', PostListPage)
 Vue.component('PostEditPage', PostEditPage)
+Vue.component('ProductCategory', ProductCategory)
 Vue.component('ProductEditPage', ProductEditPage)
 
 const routes = [
@@ -79,6 +83,7 @@ const routes = [
   { path: '/post-edit', name:'post-edit', component: PostEditPage },
   { path: '/product-list', name:'product-list', component: ProductModule },
   { path: '/product-edit', name:'product-edit', component: ProductEditPage },
+  { path: '/product-category', name:'product-category', component: ProductCategory },
   { path: '/theme-settings', name:'theme-settings', component: ThemeSettings },
   { path: '/login', name:'login', component: VularLogin },
 ]

@@ -129,6 +129,7 @@ export default {
             {
               name:"vular-menu-item",
               title:'产品分类',
+              to:"product-category",
             },
             {
               name:"vular-menu-item",
