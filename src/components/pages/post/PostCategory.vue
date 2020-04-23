@@ -1,5 +1,5 @@
 <template>
-  <VularPage :title="'产品分类'" :titleIcon="'mdi-select-group'" v-model="page">
+  <VularPage :title="'文章分类'" :titleIcon="'mdi-select-group'" v-model="page">
       <v-row
         justify="start">
         <v-col cols="6">
@@ -23,7 +23,7 @@
 
 <script>
   export default {
-    name: 'product-category',
+    name: 'post-category',
     components: {
     },
     props: {

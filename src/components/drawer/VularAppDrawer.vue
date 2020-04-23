@@ -106,6 +106,7 @@ export default {
             {
               name:"vular-menu-item",
               title:'文章分类',
+              to:"post-category",
             },
             {
               name:"vular-menu-item",

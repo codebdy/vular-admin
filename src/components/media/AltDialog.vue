@@ -49,7 +49,7 @@
     </v-card-text>
     <v-card-actions class="pa-5 media-alt-dialog-actions">
       <v-spacer></v-spacer>
-      <v-btn color="primary" class="mr-5" text rounded @click="onCancel">{{$t('media.cancel')}}</v-btn>
+      <v-btn class="mr-5" outlined rounded @click="onCancel">{{$t('media.cancel')}}</v-btn>
       <v-btn color="primary" class="mr-5" rounded @click="onConfirm">{{$t('media.confirm')}}</v-btn>
     </v-card-actions>
   </v-card>

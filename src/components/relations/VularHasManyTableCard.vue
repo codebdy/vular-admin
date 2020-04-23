@@ -41,10 +41,10 @@
                   </v-container>
                 </v-card-text>
 
-                <v-card-actions>
+                <v-card-actions class="pa-5 media-alt-dialog-actions">
                   <v-spacer></v-spacer>
-                  <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
-                  <v-btn color="blue darken-1" text @click="save">Save</v-btn>
+                  <v-btn class="mr-5" outlined rounded @click="close">{{$t('media.cancel')}}</v-btn>
+                  <v-btn color="primary" class="mr-5" rounded @click="save">{{$t('media.confirm')}}</v-btn>
                 </v-card-actions>
               </v-card>
             </v-dialog>
