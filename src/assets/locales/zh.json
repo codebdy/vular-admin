@@ -1,4 +1,7 @@
 {
+  "base":{
+    "save":"保存"
+  },
   "drawer": {
     "dashboard" : "仪表盘",
     "medias" : "媒体库",

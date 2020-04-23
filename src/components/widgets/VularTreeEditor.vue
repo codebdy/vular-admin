@@ -1,10 +1,38 @@
 <template>
-  <v-treeview
-    rounded
-    hoverable
-    activatable
-    :items="items"
-  ></v-treeview>
+  <div>
+    <v-treeview
+      rounded
+      hoverable
+      :items="items"
+    >
+      <template v-slot:label="{ item, active }">
+        <v-hover v-slot:default = "{hover}">
+          <div 
+            class="tree-item"
+            draggable='true'
+          >
+            {{item.name}}
+            <div v-if="hover" class="ml-3">
+              <v-btn x-small icon>
+                <v-icon>mdi-plus</v-icon>
+              </v-btn>
+              <v-btn x-small icon>
+                <v-icon small>mdi-pencil</v-icon>
+              </v-btn>
+              <v-btn x-small icon>
+                <v-icon small>mdi-trash-can-outline</v-icon>
+              </v-btn>
+            </div>
+          </div>
+        </v-hover>
+      </template>
+    </v-treeview>
+    <div>
+      <v-btn icon class="ml-1">
+        <v-icon>mdi-plus</v-icon>
+      </v-btn>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -85,3 +113,14 @@
     }),
   }
 </script>
+
+<style>
+  .tree-item{
+    display: flex; 
+    flex-flow: row;
+    -moz-user-select:none; 
+    -webkit-user-select:none; 
+    -ms-user-select:none; 
+    user-select:none;
+  }
+</style>

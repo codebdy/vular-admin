@@ -1,4 +1,8 @@
 {
+  "base":{
+    "save":"Save"
+  },
+
   "drawer": {
     "dashboard" : "Dashboard",
     "medias" : "Medias",
