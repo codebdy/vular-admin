@@ -43,7 +43,7 @@ export default {
     logoText: false,
     dark: false,
     light: false,
-    color: "#f4f5fa",
+    color: "#ffffff",
     src: "",
     flat:true,
     style:"border-bottom:#dbdfef solid 1px; box-shadow: 2px 2px 5px rgba(0,0,0,0.05);"
@@ -57,11 +57,11 @@ export default {
   },
   content:{
     fontFamily:"",
-    color: "#ecebf2",
+    color: "#f4f5fa",
     src: "",
     flat: true,
     card:{
-      color:"#f4f5fa",
+      color:"#ffffff",
       style:"box-shadow: 2px 2px 5px rgba(0,0,0,0.05);",
     },
     breadcurmbsImage:true,
