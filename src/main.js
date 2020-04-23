@@ -37,6 +37,7 @@ import Dashboard from "./components/pages/dashboard/Dashboard"
 import InquiryListPage from "./components/pages/inquiry/InquiryListPage"
 import PostListPage from "./components/pages/post/PostListPage"
 import PostCategory from "./components/pages/post/PostCategory"
+import PostAttributes from "./components/pages/post/PostAttributes"
 import PostEditPage from "./components/pages/post/PostEditPage"
 import ProductEditPage from "./components/pages/product/ProductEditPage"
 import ProductCategory from "./components/pages/product/ProductCategory"
@@ -72,6 +73,7 @@ Vue.component('ProductModule', ProductModule)
 Vue.component('PostListPage', PostListPage)
 Vue.component('PostEditPage', PostEditPage)
 Vue.component('PostCategory', PostCategory)
+Vue.component('PostAttributes', PostAttributes)
 Vue.component('ProductCategory', ProductCategory)
 Vue.component('ProductEditPage', ProductEditPage)
 
@@ -84,6 +86,7 @@ const routes = [
   { path: '/post-list', name:'post-list', component: PostListPage },
   { path: '/post-edit', name:'post-edit', component: PostEditPage },
   { path: '/post-category', name:'post-category', component: PostCategory },
+  { path: '/post-attributes', name:'post-attributes', component: PostAttributes },
   { path: '/product-list', name:'product-list', component: ProductModule },
   { path: '/product-edit', name:'product-edit', component: ProductEditPage },
   { path: '/product-category', name:'product-category', component: ProductCategory },

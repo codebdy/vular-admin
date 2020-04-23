@@ -111,6 +111,7 @@ export default {
             {
               name:"vular-menu-item",
               title:'文章属性',
+              to:"post-attributes",
             },
 
           ]          
