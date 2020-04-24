@@ -1,5 +1,5 @@
 <template>
-   <v-list-item link :to="schema.to">
+   <v-list-item link :to="schema.to" @click="onClick">
       <v-list-item-icon
         v-if="schema.prependIcon"
       >
@@ -48,8 +48,10 @@ export default {
     }
   },
 
-
   methods: {
+    onClick(){
+      $bus.$emit('openPage', this.schema.pageUrl)
+    }
   },
 }
 </script>

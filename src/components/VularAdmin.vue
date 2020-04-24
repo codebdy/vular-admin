@@ -52,6 +52,33 @@
       </v-btn>
       <VularNotifications></VularNotifications>
       <VularAppbarProfile></VularAppbarProfile>
+      <template v-slot:extension>
+        <v-tabs align-with-title>
+          <v-tab>首页
+          </v-tab>
+          <v-tab>
+            <v-badge
+              color="pink"
+              dot
+            >
+              文章列表
+            </v-badge> 
+            <v-btn icon x-small class="ml-2">
+              <v-icon small >mdi-close</v-icon> 
+            </v-btn>
+          </v-tab>
+          <v-tab>新建文章
+            <v-btn icon x-small class="ml-2">
+              <v-icon small >mdi-close</v-icon> 
+            </v-btn>
+          </v-tab>
+          <v-tab>编辑文章
+            <v-btn icon x-small class="ml-2">
+              <v-icon small >mdi-close</v-icon> 
+            </v-btn>
+          </v-tab>
+        </v-tabs>
+      </template>
     </v-app-bar>
 
     <router-view/>

@@ -19,7 +19,7 @@
       <slot name="header-extension"></slot>
     </VularPageHeader>
     <v-container fluid class="pt-0"
-      :style="{'margin-top': breadcrumbHeight + 'px'}"
+      :style="{'margin-top': (breadcrumbHeight + this.inputValue.header.listHeaderHeight) + 'px'}"
     >
       <slot></slot>
     </v-container>
