@@ -61,6 +61,12 @@ export default {
         },
         {
           name:"vular-menu-item",
+          prependIcon: 'mdi-karate',
+          title:'Form Test',
+          to:"test",
+        },
+        {
+          name:"vular-menu-item",
           prependIcon: 'mdi-image-auto-adjust',
           title:this.$t('drawer.medias'),
           to:"medias",

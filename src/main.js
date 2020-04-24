@@ -31,7 +31,6 @@ import VularHasManyTableCard from "./components/relations/VularHasManyTableCard.
 
 import VularTinymce from "./components/tinymce"
 
-
 import ThemeSettings from "./components/pages/theme/ThemeSettings"
 import Dashboard from "./components/pages/dashboard/Dashboard"
 import InquiryListPage from "./components/pages/inquiry/InquiryListPage"
@@ -42,6 +41,8 @@ import PostEditPage from "./components/pages/post/PostEditPage"
 import ProductEditPage from "./components/pages/product/ProductEditPage"
 import ProductCategory from "./components/pages/product/ProductCategory"
 import ProductModule from "./components/pages/product/ProductModule"
+
+import FormTest from "./components/FormTest"
 
 Vue.use(VueRouter)
 
@@ -77,6 +78,8 @@ Vue.component('PostAttributes', PostAttributes)
 Vue.component('ProductCategory', ProductCategory)
 Vue.component('ProductEditPage', ProductEditPage)
 
+Vue.component('FormTest', FormTest)
+
 const routes = [
   //{ path: '/form2', component: VularForm },
   { path: '/', redirect: {name:'login'} },
@@ -92,6 +95,7 @@ const routes = [
   { path: '/product-category', name:'product-category', component: ProductCategory },
   { path: '/theme-settings', name:'theme-settings', component: ThemeSettings },
   { path: '/login', name:'login', component: VularLogin },
+  { path: '/test', name:'test', component: FormTest },
 ]
 
 const router = new VueRouter({

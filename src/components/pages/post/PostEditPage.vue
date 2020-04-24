@@ -99,7 +99,7 @@
           </v-combobox>
 
         </VularFormCard>
-        <VularFormCard title="SEO Meta">
+        <VularFormCard title="搜索引擎优化">
           <div>
             <div>预览</div>
             <div style="color:blue;">https://vular.cn/one-good-framework</div>
@@ -146,8 +146,8 @@
         </VularFormCard>
         <VularFormCard title="附加信息">
           <VularToManySelect prepend-icon="mdi-shopping-search"></VularToManySelect>
-          <VularHasOneDialog title="SEO Meta" icon="mdi-trending-up"></VularHasOneDialog>
-          <VularHasOneDialog title="OG Meta" icon="mdi-share-variant"></VularHasOneDialog>
+          <VularHasOneDialog title="搜索引擎优化" icon="mdi-trending-up"></VularHasOneDialog>
+          <VularHasOneDialog title="社交分享优化" icon="mdi-share-variant"></VularHasOneDialog>
         </VularFormCard>
       </v-col>          
     </v-row>
