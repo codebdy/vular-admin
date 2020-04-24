@@ -1,6 +1,6 @@
 <template>
   <VularPage :title="'嘿哈测试'" :titleIcon="'mdi-karate'" v-model="page">
-    <VularFormCard>
+    <VularFormCard title="表单验证">
       <ValidationObserver ref="observer" v-slot="{ validate, reset }">
         <form>
           <ValidationProvider v-slot="{ errors }" name="Name" rules="required|max:10">
