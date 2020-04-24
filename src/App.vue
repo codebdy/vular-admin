@@ -8,51 +8,6 @@
   export default {
     name: 'app',
     data: () => ({
-      admins: [
-      ['Management', 'people_outline'],
-      ['Settings', 'settings'],
-      ],
-      cruds: [
-      ['Create', 'add'],
-      ['Read', 'insert_drive_file'],
-      ['Update', 'update'],
-      ['Delete', 'delete'],
-      ],
-      drawers: ['Default (no property)', 'Permanent', 'Temporary'],
-      primaryDrawer: {
-        model: null,
-        type: 'default (no property)',
-        clipped: false,
-        floating: false,
-        mini: false,
-      },
-      footer: {
-        inset: false,
-      },
-
-      adminApp:{
-        fontFamily:"",
-        logo: {
-          src: "images/logo.png",
-          title:"Vular",
-          alt: "An amazing framework",
-        },
-        drawer: {
-          showLogo: true,
-          color: "#1b1b28",
-          logoColor: "#1a1a27",
-          textColor:"",
-          activeTextColor:"",
-          subheaderColor:"",
-          fontSize:"0.825rem",
-          dark:true,
-          logoDark:true,
-        },
-        appbar:{
-          showLogo:false,
-          dark:true,
-        },
-      }
     }),
   }
 </script>

@@ -66,7 +66,7 @@
     >
     <v-dialog v-model="debug" fullscreen hide-overlay transition="dialog-bottom-transition">
       <template v-slot:activator="{ on }">
-        <v-btn x-small fab dark falt absolute bottom left color="red" class="mb-4 ml-n4" v-on="on">
+        <v-btn x-small fab dark falt absolute bottom left color="grey" class="mb-4 ml-n4" v-on="on">
           <v-icon>mdi-android-debug-bridge</v-icon>
         </v-btn>
       </template>

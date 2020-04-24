@@ -40,7 +40,7 @@
               required
             ></v-checkbox>
           </ValidationProvider>
-
+          <InputTest></InputTest>
           <v-btn class="mr-4" @click="submit">submit</v-btn>
           <v-btn @click="clear">clear</v-btn>
         </form>
@@ -52,6 +52,9 @@
 <script>
   import { required, email, max } from 'vee-validate/dist/rules'
   import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from 'vee-validate'
+
+  import InputTest from "./InputTest.vue"
+
   setInteractionMode('eager')
   extend('required', {
     ...required,
@@ -69,6 +72,7 @@
     components: {
       ValidationProvider,
       ValidationObserver,
+      InputTest,
     },
     data: () => ({
       name: '',
@@ -103,9 +107,3 @@
     },
   }
 </script>
-
-<codepen-resources lang="json">
-  {
-    "js": ["https://cdn.jsdelivr.net/npm/vee-validate@3.x/dist/vee-validate.js"]
-  }
-</codepen-resources>
