@@ -182,7 +182,7 @@
     methods: {
       onVularAction(action){
         if(action.name === 'openPage'){
-          $axios.get('/api/page/' + action.viewSlug)
+          $axios.get('/api/view/' + action.viewSlug)
           .then((res)=>{
             this.pages.push(res.data)
             this.currenPage = this.pages.length - 1
