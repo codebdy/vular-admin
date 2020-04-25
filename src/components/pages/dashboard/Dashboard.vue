@@ -20,7 +20,7 @@
               </v-card-title>
               <v-divider></v-divider>
               <v-card-text>
-                <HistogramChart></HistogramChart>
+                <!--HistogramChart></HistogramChart-->
               </v-card-text>
           </v-card>
         </v-col>
@@ -41,7 +41,7 @@
               </v-card-title>
               <v-divider></v-divider>
               <v-card-text>
-                <PieChart></PieChart>
+                <!--PieChart></PieChart-->
               </v-card-text>
           </v-card>
         </v-col>
@@ -85,15 +85,15 @@
 </template>
 
 <script>
-  import HistogramChart from "./charts/HistogramChart"
-  import PieChart from "./charts/PieChart"
+  //import HistogramChart from "./charts/HistogramChart"
+  //import PieChart from "./charts/PieChart"
   import Orders from "./tables/Orders"
   import Projects from "./tables/Projects"
   export default {
     name: 'dashboard',
     components: {
-      HistogramChart,
-      PieChart,
+      //HistogramChart,
+      //PieChart,
       Orders,
       Projects,
     },

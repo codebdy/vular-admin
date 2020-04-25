@@ -3,9 +3,9 @@ import Vue from 'vue'
 import App from './App.vue'
 //import VueRouter from 'vue-router'
 import vuetify from './plugins/vuetify' // path to vuetify export
-import VeLine from 'v-charts/lib/line.common'
-import VeHistogram from 'v-charts/lib/histogram.common'
-import VePie from 'v-charts/lib/pie.common'
+//import VeLine from 'v-charts/lib/line.common'
+//import VeHistogram from 'v-charts/lib/histogram.common'
+//import VePie from 'v-charts/lib/pie.common'
 
 import store from './store'    
 import axios from 'axios'
@@ -47,9 +47,9 @@ import FormTest from "./components/FormTest"
 
 //Vue.use(VueRouter)
 
-Vue.component(VeLine.name, VeLine)
-Vue.component(VeHistogram.name, VeHistogram)
-Vue.component(VePie.name, VePie)
+//Vue.component(VeLine.name, VeLine)
+//Vue.component(VeHistogram.name, VeHistogram)
+//Vue.component(VePie.name, VePie)
 Vue.component('VularNode',VularNode);
 Vue.component('VularLogin', VularLogin)
 Vue.component('VularAdmin', VularAdmin)
