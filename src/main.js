@@ -58,6 +58,7 @@ Vue.component('VularMediaSelectCard', VularMediaSelectCard)
 Vue.component('VularSingleImageInput', VularSingleImageInput)
 Vue.component('VularTinymce', VularTinymce)
 Vue.component('VularPage', VularPage)
+Vue.component('Dashboard', Dashboard)
 Vue.component('VularListPage', VularListPage)
 Vue.component('VularPageHeader', VularPageHeader)
 Vue.component('VularEditPageHeader', VularEditPageHeader)
@@ -80,7 +81,7 @@ Vue.component('ProductEditPage', ProductEditPage)
 
 Vue.component('FormTest', FormTest)
 
-const routes = [
+/*const routes = [
   //{ path: '/form2', component: VularForm },
   { path: '/', redirect: {name:'login'} },
   { path: '/dashboard', name:'dashboard', component: Dashboard },
@@ -100,14 +101,14 @@ const routes = [
 
 const router = new VueRouter({
   routes 
-})
+})*/
 
 window.$bus= new Vue();
 
 new Vue({
   el: '#app',
   i18n,
-  router,
+  //router,
   store,
   vuetify,
   render: h => h(App)

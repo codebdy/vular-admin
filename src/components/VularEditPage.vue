@@ -94,6 +94,22 @@
         return (this.inputValue.header.heightPercent*150 + 100) + 'px'
       },
     },
+    created(){
+      console.log('created')
+    },
+    
+    mounted() {
+      console.log('mounted')
+    },
+    activated() {
+      console.log('activated')
+    },
+    deactivated() {
+      console.log('deactivated')
+    },
+    destroyed() {
+      console.log('destroyed')
+    },
 
     methods: {
     },

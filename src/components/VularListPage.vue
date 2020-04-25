@@ -12,7 +12,6 @@
       <v-spacer></v-spacer>
       <v-btn rounded color="primary new-button" dark 
         :small="page.header.isStick"
-        :to="editPath"
       >
         <v-icon left>mdi-plus</v-icon> 新建
       </v-btn>

@@ -1,5 +1,5 @@
 <template>
-   <v-list-item link :to="schema.to" @click="onClick">
+   <v-list-item link @click="onClick">
       <v-list-item-icon
         v-if="schema.prependIcon"
       >

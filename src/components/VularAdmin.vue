@@ -1,5 +1,7 @@
 <template>
-  <v-app id="admin-app" :style="{'font-family': $store.state.vularApp.fontFamily}">
+  <v-app id="admin-app" :style="{'font-family': $store.state.vularApp.fontFamily}"
+    v-scroll="onScroll"
+  >
     <v-navigation-drawer
       v-model="$store.state.vularApp.drawer.model"
       :clipped="$store.state.vularApp.drawer.clipped"
@@ -52,27 +54,22 @@
       </v-btn>
       <VularNotifications></VularNotifications>
       <VularAppbarProfile></VularAppbarProfile>
-      <template v-slot:extension>
-        <v-tabs align-with-title>
-          <v-tab>首页
-          </v-tab>
-          <v-tab>
+      <template v-if="!hideToolbar" v-slot:extension>
+        <v-tabs align-with-title v-model="currenPage">
+          <v-tab 
+            v-for="page in pages"
+            :key="page.pageUrl"
+          >
             <v-badge
               color="pink"
               dot
+              v-if="page.isChanged"
             >
-              文章列表
-            </v-badge> 
-            <v-btn icon x-small class="ml-2">
-              <v-icon small >mdi-close</v-icon> 
-            </v-btn>
-          </v-tab>
-          <v-tab>新建文章
-            <v-btn icon x-small class="ml-2">
-              <v-icon small >mdi-close</v-icon> 
-            </v-btn>
-          </v-tab>
-          <v-tab>编辑文章
+              {{page.title}}
+            </v-badge>
+            <template v-else>
+              {{page.title}}
+            </template>
             <v-btn icon x-small class="ml-2">
               <v-icon small >mdi-close</v-icon> 
             </v-btn>
@@ -81,7 +78,8 @@
       </template>
     </v-app-bar>
 
-    <router-view/>
+    <VularNode :schema = "activePage.schema"></VularNode>
+   
     <VularAppFab></VularAppFab>
     <v-footer
       :inset="$store.state.vularApp.footer.inset"
@@ -114,7 +112,7 @@
           </v-btn>
         </v-toolbar>
         <v-list three-line subheader>
-          <v-subheader>User Controls</v-subheader>
+          <v-subheader>调试界面</v-subheader>
           <v-list-item>
             <v-list-item-content>
               <v-list-item-title>Content filtering</v-list-item-title>
@@ -150,10 +148,58 @@
     },
     data: () => ({
       debug: false,
+      hideToolbar:false,
+      currenPage:2,
+      pages:[
+        {
+          title:"仪表盘",
+          schema:{
+            name:"dashboard",
+          },
+          model:{},
+          actived:true,
+          pageUrl:"1",
+        },
+        {
+          title:"文章列表",
+          schema:{
+            name:"post-list-page",
+          },
+          model:{},
+          pageUrl:"2",
+        },
+        {
+          title:"新建文章",
+          schema:{
+            name:"vular-edit-page",
+            props:{
+              title:"文章编辑",
+            }
+          },
+          model:{},
+          pageUrl:"3",
+          isChanged: true,
+        },
+      ],
     }),
+
+    computed:{
+      activePage(){
+        return this.pages[this.currenPage]
+      }
+    },
 
     created(){
       console.log(this.$vuetify)
+    },
+
+    methods: {
+      onScroll(e){
+        if (typeof window === "undefined") return
+
+        const top = window.pageYOffset || document.documentElement.offsetTop || 0
+        this.hideToolbar = top > 100
+      }
     },
   }
 </script>
