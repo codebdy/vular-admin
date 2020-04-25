@@ -2,9 +2,16 @@
   "name" : "vular-list-page",
   "props" : {
     "title" : "文章列表",
-    "canSelect":true,
-    "transshapeBreakPoint": "sm",
-    "batchActions":[
+    "vularId" : "post-list-1",
+    "initAction" : {
+      "name" : "doAction",
+      "actionSlug" : "post-list.json",
+      "method" : "get",
+      "belongsTo" : "post-list-1"
+    },
+    "canSelect" : true,
+    "transshapeBreakPoint" : "sm",
+    "batchActions" : [
       {
         "icon": "mdi-delete-sweep-outline",
         "title": "删除",

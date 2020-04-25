@@ -148,7 +148,7 @@
     },
     data: () => ({
       debug: false,
-      hideToolbar:false,
+      hideToolbar:true,
       currenPage:0,
       pages:[
         {
@@ -188,13 +188,20 @@
             this.currenPage = this.pages.length - 1
           })
         }
+
+        if(action.name === "doAction"){
+          $axios.get('/api/action/' + action.actionSlug)
+          .then((res)=>{
+            $bus.$emit('dispatchModel', action.blongsTo, res.data)
+          })
+        }
       },
 
       onScroll(e){
-        if (typeof window === "undefined") return
+        //if (typeof window === "undefined") return
 
-        const top = window.pageYOffset || document.documentElement.offsetTop || 0
-        this.hideToolbar = top > 100
+        //const top = window.pageYOffset || document.documentElement.offsetTop || 0
+        //this.hideToolbar = top > 100
       }
     },
   }

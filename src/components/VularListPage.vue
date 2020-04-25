@@ -7,10 +7,10 @@
         vertical
       ></v-divider>
       <div>
-        <span>共{{inputValue.length}}条</span>
+        <span>共{{model.rows.length}}条</span>
       </div>
       <v-spacer></v-spacer>
-      <v-btn rounded color="primary new-button" dark 
+      <v-btn rounded color="primary" dark 
         :small="page.header.isStick"
       >
         <v-icon left>mdi-plus</v-icon> 新建
@@ -55,7 +55,7 @@
         :isStick = "page.header.isStick"
         :heightPercent = "page.header.heightPercent"
         :transshape = "transshape"
-        v-model="inputValue"
+        v-model="model.rows"
         @selectAll = "onSelectAll" 
         @listHeaderHeight = "onListHeaderHeight"
       ></VularListHead>
@@ -78,7 +78,7 @@
             :canSelect = "canSelect"
             :transshape = "transshape"
             :actionsColumn = "actionsColumn"
-            v-model="inputValue"
+            v-model="model.rows"
           ></VularListBody>
           <v-card-actions justify="start">
             <v-pagination
@@ -104,6 +104,7 @@
     components: {
     },
     props: {
+      initAction :{ default:null },
       batchActions: { default: ()=>{return []} },
       filters : { default:()=>{return []} },
       columns : { default:()=>{return []} },
@@ -133,6 +134,10 @@
         },
         selectedRows: [],
         transshape:false,
+        model:{
+          formModel:{},
+          rows:[],
+        },
       }
     },
     computed:{
@@ -147,11 +152,25 @@
     },
     mounted () {
       this.checkTransshape()
+      if(this.initAction){
+        $bus.$emit("VularAction", this.initAction)
+      }
+
+      $bus.$on('dispatchModel', this.onDispatchModel)
+    },
+
+    destroyed() {
+      $bus.$off('dispatchModel', this.onDispatchModel)
     },
 
     methods: {
+      onDispatchModel(vularId, model){
+        if(vularId == this.vularId){
+          this.model = model
+        }
+      },
       onSelectAll(selected){
-        this.inputValue.forEach(row=>{
+        this.model.rows.forEach(row=>{
           this.$set(row, 'selected', selected)
         })
       },
@@ -241,10 +260,6 @@
 <style>
   .top-small-button{
     opacity: 0.7;
-  }
-
-  .new-button{
-    padding:0 28px !import;
   }
 
   .theme--light.v-pagination .v-pagination__item, .theme--light.v-pagination .v-pagination__navigation{
