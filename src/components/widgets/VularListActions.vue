@@ -24,7 +24,7 @@
       </div>
       <div v-if="!collopsed">
         <template 
-          v-for="(filter, index) in schema.filters"
+          v-for="(filter, index) in filters"
           v-if="filter.shortcut"
         >
           {{filter.title}}
@@ -83,7 +83,7 @@
         <v-card :color="$store.state.vularApp.content.color">
           <v-list class="pt-0 vular-filter-list" :color="$store.state.vularApp.content.card.color">
             <template 
-              v-for="(filter, index) in schema.filters"
+              v-for="(filter, index) in filters"
               v-if="!filter.shortcut || collopsed"
             >
               <v-subheader 
@@ -116,21 +116,13 @@
     </template>
     <template v-else>
       <v-btn text rounded color="primary" class="mx-3"
-        v-for="(action, index) in schema.batchActions"
+        v-for="(action, index) in batchActions"
         v-if="action.shortcut && !collopsed"
         :key = "action.action"
         :small="isStick"
         >
         {{action.title}}
         <v-icon right dark v-text="action.icon"></v-icon>
-      </v-btn>
-      <v-btn fab elevation="0" class="mx-3"
-        v-if="schema.canBatchDelete"
-        :color="$store.state.vularApp.content.card.color"
-        :small="!isStick"
-        :x-small="isStick"
-      >
-         <v-icon color="primary" class="top-small-button">mdi-delete-sweep-outline</v-icon>
       </v-btn>
       <v-menu offset-y>
         <template v-slot:activator="{ on }">
@@ -144,7 +136,7 @@
         </template>
         <v-list :color="$store.state.vularApp.content.card.color" class="px-2">
           <v-list-item link
-            v-for="(action, index) in schema.batchActions"
+            v-for="(action, index) in batchActions"
             v-if="!action.shortcut || collopsed"
             :key = "action.action"
           >
@@ -166,7 +158,8 @@
   export default {
     name: 'vular-list-actions',
     props: {
-      schema: {default : ()=>{return {}}},
+      batchActions: { default: ()=>{return []} },
+      filters : { default:()=>{return []} },
       isStick: {default : false},
       value: {default: ()=>{return []}},
     },
@@ -174,8 +167,6 @@
     data () {
       return {
         searchBoxFocused: false,
-        obviousFilters: this.schema.obviousFilters,
-        popFilters: this.schema.popFilters,
         isPopedFilters : false,
       }
     },
@@ -189,6 +180,7 @@
           this.$emit('input', val);
         },
       },
+
       selectedSome: {
         get:function() {
           return this.selectedCounts != 0;
@@ -222,8 +214,8 @@
       },
 
       popFilersSelected(){
-        for(var i = 0; i < this.schema.filters.length; i++){
-          let filter = this.schema.filters[i]
+        for(var i = 0; i < this.filters.length; i++){
+          let filter = this.filters[i]
           if(filter.blankValue != filter.model && (!filter.shortcut || this.collopsed)){
             return true
           }
@@ -239,8 +231,8 @@
 
       onClear(){
         this.isPopedFilters = false
-         for(var i = 0; i < this.schema.filters.length; i++){
-          let filter = this.schema.filters[i]
+         for(var i = 0; i < this.filters.length; i++){
+          let filter = this.filters[i]
           if(!filter.shortcut || this.collopsed){
             filter.model = filter.blankValue
           }

@@ -48,9 +48,13 @@
 
     <template slot="header-extension">
       <VularListHead
-        :schema="schema"
+        :batchActions="batchActions"
+        :filters = "filters"
+        :columns = "columns"
+        :canSelect = "canSelect"
         :isStick = "page.header.isStick"
         :heightPercent = "page.header.heightPercent"
+        :transshape = "transshape"
         v-model="inputValue"
         @selectAll = "onSelectAll" 
         @listHeaderHeight = "onListHeaderHeight"
@@ -69,7 +73,11 @@
           :style="$store.state.vularApp.content.card.style"
         >
           <VularListBody 
-            :schema="schema" 
+            :columns="columns"
+            :rowActionsv = "rowActions" 
+            :canSelect = "canSelect"
+            :transshape = "transshape"
+            :actionsColumn = "actionsColumn"
             v-model="inputValue"
           ></VularListBody>
           <v-card-actions justify="start">
@@ -96,11 +104,23 @@
     components: {
     },
     props: {
-      schema: { default: ()=>{return {}}},
+      batchActions: { default: ()=>{return []} },
+      filters : { default:()=>{return []} },
+      columns : { default:()=>{return []} },
+      rowActions : { defalut:()=>{return []} },
+      canSelect: {default: true},
+      actionsColumn: {
+        default : ()=>{
+          return {
+            width:'150px',
+          }
+        }
+      },
       value: {default: ()=>{return []}},
       titleIcon: {default:''},
       title: {default:''},
       editPath:{default: ''},
+      transshapeBreakPoint:{defalut: 'sm'},
     },
     data () {
       return {
@@ -112,6 +132,7 @@
           },
         },
         selectedRows: [],
+        transshape:false,
       }
     },
     computed:{
@@ -125,22 +146,7 @@
       },
     },
     mounted () {
-      if(!this.schema.transshapeBreakPoint){
-        this.schema.transshapeBreakPoint = 'xs'
-      }
-
-      if(this.schema.transshapeBreakPoint == 'xs'){
-        this.checkXs()
-      }
-      if(this.schema.transshapeBreakPoint == 'sm'){
-        this.checkSm()
-      }
-      if(this.schema.transshapeBreakPoint == 'md'){
-        this.checkMd()
-      }
-      if(this.schema.transshapeBreakPoint == 'lg'){
-        this.checkLg()
-      }
+      this.checkTransshape()
     },
 
     methods: {
@@ -156,69 +162,75 @@
 
       checkXs(){
         if(this.$vuetify.breakpoint.xs){
-          if(this.schema.transshapeBreakPoint === 'xs'){
-            this.schema.transshape = true
+          if(this.transshapeBreakPoint === 'xs'){
+            this.transshape = true
           }
           else{
-            this.schema.transshape = false
+            this.transshape = false
           }
+        }
+      },
+
+      checkTransshape(){
+        if(this.transshapeBreakPoint == 'xs'){
+          this.checkXs()
+        }
+        if(this.transshapeBreakPoint == 'sm'){
+          this.checkSm()
+        }
+        if(this.transshapeBreakPoint == 'md'){
+          this.checkMd()
+        }
+        if(this.transshapeBreakPoint == 'lg'){
+          this.checkLg()
         }
       },
 
       checkSm(){
-        if(this.$vuetify.breakpoint.sm){
-          if(this.schema.transshapeBreakPoint === 'sm'
-            ||this.schema.transshapeBreakPoint === 'md'
-            ||this.schema.transshapeBreakPoint === 'lg'){
-            this.schema.transshape = true
-          }
-          else{
-            this.schema.transshape = false
-          }
+        if(this.$vuetify.breakpoint.sm || this.$vuetify.breakpoint.xs){
+          this.transshape = true
+        }
+        else{
+          this.transshape = false
         }
       },
 
       checkMd(){
-        if(this.$vuetify.breakpoint.md){
-          if(this.schema.transshapeBreakPoint === 'md'
-            ||this.schema.transshapeBreakPoint === 'lg'){
-            this.schema.transshape = true
-          }
-          else{
-            this.schema.transshape = false
-          }
+        if(this.$vuetify.breakpoint.md || this.$vuetify.breakpoint.sm || this.$vuetify.breakpoint.xs){
+          this.transshape = true
+        }
+        else{
+          this.transshape = false
         }
       },
 
       checkLg(){
-        if(this.$vuetify.breakpoint.lg){
-          if(this.schema.transshapeBreakPoint === 'lg'){
-            this.schema.transshape = true
-          }
-          else{
-            this.schema.transshape = false
-          }
+        if(this.$vuetify.breakpoint.lg ||this.$vuetify.breakpoint.md || this.$vuetify.breakpoint.sm || this.$vuetify.breakpoint.xs){
+          this.transshape = true
+        }
+        else{
+          this.transshape = false
         }
       },
     },
 
     watch:{
       "$vuetify.breakpoint.xs": function(val){
-        this.checkXs()
+        this.checkTransshape()
       },
       "$vuetify.breakpoint.sm":function(val){
-        this.checkSm()
+        this.checkTransshape()
       },
       "$vuetify.breakpoint.md":function (val){
-        this.checkMd()
+        this.checkTransshape()
       },
       "$vuetify.breakpoint.lg":function (val){
-        this.checkLg()
+        this.checkTransshape()
       },
 
-      "$vuetify.breakpoint.lg":function (val){
+      "$vuetify.breakpoint.xl":function (val){
         if(val){
-          this.schema.transshape = false
+          this.transshape = false
         }
       }
     },

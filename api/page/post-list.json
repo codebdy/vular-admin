@@ -1,0 +1,6 @@
+{
+  "name" : "post-list-page",
+  "props" : {
+    "title" : "文章列表"
+  }
+}

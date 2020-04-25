@@ -1,13 +1,14 @@
 import i18n from './assets/locales'
 import Vue from 'vue'
 import App from './App.vue'
-import VueRouter from 'vue-router'
+//import VueRouter from 'vue-router'
 import vuetify from './plugins/vuetify' // path to vuetify export
 import VeLine from 'v-charts/lib/line.common'
 import VeHistogram from 'v-charts/lib/histogram.common'
 import VePie from 'v-charts/lib/pie.common'
 
 import store from './store'    
+import axios from 'axios'
 
 import VularNode from './VularNode'
 import VularLogin from "./components/VularLogin.vue"
@@ -44,7 +45,7 @@ import ProductModule from "./components/pages/product/ProductModule"
 
 import FormTest from "./components/FormTest"
 
-Vue.use(VueRouter)
+//Vue.use(VueRouter)
 
 Vue.component(VeLine.name, VeLine)
 Vue.component(VeHistogram.name, VeHistogram)
@@ -104,6 +105,7 @@ const router = new VueRouter({
 })*/
 
 window.$bus= new Vue();
+window.$axios = axios
 
 new Vue({
   el: '#app',

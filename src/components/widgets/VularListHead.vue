@@ -11,7 +11,8 @@
             style = "box-shadow: 2px 2px 5px rgba(0,0,0,0.05);transition: height 0.3s;"
           >
             <VularListActions 
-              :schema="schema"
+              :batchActions="batchActions"
+              :filters = "filters"
               :isStick = "isStick"
               v-model="inputValue"
               @selectAll = "onSelectAll" 
@@ -23,14 +24,14 @@
         align="center"
         justify="center"
         class="py-0" 
-        v-if = "!schema.transshape"
+        v-if = "!transshape"
         :style= "{height : tableTitleHeight + 'px'}"
       >
         <v-col cols="12" justify="center" 
           class="py-0 list-title-col"
         >
           <div class="list-title-wrap px-6">
-            <VularListTitle :schema="schema"></VularListTitle>
+            <VularListTitle :columns="columns"></VularListTitle>
           </div>
         </v-col>
       </v-row>
@@ -48,7 +49,11 @@
     },
 
     props: {
-      schema: { default: ()=>{return {}}},
+      batchActions: { default: ()=>{return []} },
+      filters : { default:()=>{return []} },
+      columns : { default:()=>{return []} },
+      canSelect: {default: true},
+      transshape : {default :'false'},
       isStick: {default: false},
       value: {default: ()=>{return []}},
       heightPercent: { default : 1 },
@@ -93,7 +98,7 @@
     },
 
     mounted () {
-      this.$emit('listHeaderHeight', this.schema.transshape ? 90 :130)
+      this.$emit('listHeaderHeight', this.transshape ? 90 :130)
     },
 
     methods: {
@@ -103,7 +108,7 @@
     },
 
     watch:{
-      "schema.transshape":function(val){
+      "transshape":function(val){
         this.$emit('listHeaderHeight', val ? 90 :130)
       }
     },

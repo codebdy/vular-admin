@@ -65,10 +65,10 @@
               dot
               v-if="page.isChanged"
             >
-              {{page.title}}
+              {{page.props.title}}
             </v-badge>
             <template v-else>
-              {{page.title}}
+              {{page.props.title}}
             </template>
             <v-btn icon x-small class="ml-2">
               <v-icon small >mdi-close</v-icon> 
@@ -78,7 +78,7 @@
       </template>
     </v-app-bar>
 
-    <VularNode :schema = "activePage.schema"></VularNode>
+    <VularNode :schema = "activePage"></VularNode>
    
     <VularAppFab></VularAppFab>
     <v-footer
@@ -149,36 +149,13 @@
     data: () => ({
       debug: false,
       hideToolbar:false,
-      currenPage:2,
+      currenPage:0,
       pages:[
         {
-          title:"仪表盘",
-          schema:{
-            name:"dashboard",
-          },
-          model:{},
-          actived:true,
-          pageUrl:"1",
-        },
-        {
-          title:"文章列表",
-          schema:{
-            name:"post-list-page",
-          },
-          model:{},
-          pageUrl:"2",
-        },
-        {
-          title:"新建文章",
-          schema:{
-            name:"vular-edit-page",
-            props:{
-              title:"文章编辑",
-            }
-          },
-          model:{},
-          pageUrl:"3",
-          isChanged: true,
+          name:"dashboard",
+          props:{
+            title:"仪表盘",
+          }
         },
       ],
     }),
@@ -191,9 +168,28 @@
 
     created(){
       console.log(this.$vuetify)
+
+      $bus.$on('VularAction', this.onVularAction)
+    },
+
+    mounted() {
+    },
+
+    destroyed() {
+      $bus.$off('VularAction', this.onVularAction)
     },
 
     methods: {
+      onVularAction(action){
+        if(action.name === 'openPage'){
+          $axios.get('/api/page/' + action.viewSlug)
+          .then((res)=>{
+            this.pages.push(res.data)
+            this.currenPage = this.pages.length - 1
+          })
+        }
+      },
+
       onScroll(e){
         if (typeof window === "undefined") return
 

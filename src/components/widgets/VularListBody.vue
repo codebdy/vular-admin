@@ -13,24 +13,24 @@
           row['vular-styles']
         )"
 
-        :class="schema.transshape ? 'vular-list-body-small' : 'vular-list-body'"
+        :class="transshape ? 'vular-list-body-small' : 'vular-list-body'"
       >
-        <li v-if="schema.canSelect" class="select-col">
+        <li v-if="canSelect" class="select-col">
           <v-checkbox
             v-model="row.selected"
           ></v-checkbox>
         </li>
         <li 
-          v-for="(column, index) in schema.columns"
+          v-for="(column, index) in columns"
           :key="column.field"
           :style="{
-            flex: schema.transshape ? '' : column.flex,
-            width: schema.transshape ? '' : column.width,
+            flex: transshape ? '' : column.flex,
+            width: transshape ? '' : column.width,
           }"
           class="py-5"
         >
           <div
-            v-if="schema.transshape"
+            v-if="transshape"
             class="column-title"
           >
             {{column.title}}
@@ -46,11 +46,11 @@
         </li>
         <li class="list-action"         
         :style="{
-            width: !schema.transshape ? schema.actionsColumn.width :'',
+            width: !transshape ? actionsColumn.width :'',
           }"
         >
           <v-tooltip top
-            v-for="(action, index) in schema.rowActions"
+            v-for="(action, index) in rowActions"
             v-if="hover && action.shortcut"
             :key="index"
           >
@@ -74,7 +74,7 @@
             </template>
             <v-list :color="$store.state.vularApp.content.card.color" class="px-2">
               <v-list-item link
-                v-for="(action, index) in schema.rowActions"
+                v-for="(action, index) in rowActions"
                 v-if="!action.shortcut"
                 :key = "action.id"
               >
@@ -97,8 +97,16 @@
   export default {
     name: 'vular-list-body',
     props: {
-      schema: {default : ()=>{return {}}},
-      value:{default:[]}
+      columns: {default : ()=>{return {}}},
+      rowActions : {default : ()=>{return {}}},
+      canSelect : {default:true},
+      actionsColumn: {
+        default : ()=>{
+          return {}
+        }
+      },
+      value:{default:[]},
+      transshape : {default :'false'},
     },
 
     data () {

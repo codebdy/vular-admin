@@ -107,7 +107,10 @@ export default {
                   small:false,
                 }
               },
-              to:"post-list",
+              action:{
+                name:"openPage",
+                viewSlug:'post-list.json',
+              }
             },
             {
               name:"vular-menu-item",

@@ -1,10 +1,10 @@
 <template>
   <ul class="vular-list-title">
     <li 
-      v-for="(column, index) in schema.columns"
+      v-for="(column, index) in columns"
       :key="column.field"
       :style="{
-        'margin-left' : schema.canSelect && index===0 ? '50px' : '',
+        'margin-left' : canSelect && index===0 ? '50px' : '',
         flex: column.flex,
         width: column.width,
       }"
@@ -19,7 +19,8 @@
   export default {
     name: 'vular-list-title',
     props: {
-      schema: {default : ()=>{return {}}},
+      columns: {default : ()=>{return []}},
+      canSelect: {default: true},
     },
 
     data () {

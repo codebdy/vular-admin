@@ -50,7 +50,7 @@ export default {
 
   methods: {
     onClick(){
-      $bus.$emit('openPage', this.schema.pageUrl)
+      $bus.$emit('VularAction', this.schema.action)
     }
   },
 }

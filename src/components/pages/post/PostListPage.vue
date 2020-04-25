@@ -1,6 +1,12 @@
 <template>
   <VularListPage 
-    :schema = "schema"
+    :batchActions = "schema.batchActions"
+    :rowActions = "schema.rowActions"
+    :filters = "schema.filters"
+    :columns = "schema.columns"
+    :canSelect = "schema.canSelect"
+    :actionsColumn = "schema.actionsColumn"
+    :transshapeBreakPoint = "schema.transshapeBreakPoint"
     title = "文章列表"
     v-model = "rows"
     editPath = "post-edit"
@@ -20,10 +26,14 @@
       return {
         schema:{
           canSelect:true,
-          canBatchDelete: true,
-          transshapeBreakPoint: 'xs',
-          transshape: false,
+          transshapeBreakPoint: 'sm',
           batchActions:[
+            {
+              icon: 'mdi-delete-sweep-outline',
+              title: '删除',
+              shortcut: true,
+              action:'action_iddelteed',
+            },
             {
               icon: 'mdi-arrow-collapse-down',
               title: '下载',
