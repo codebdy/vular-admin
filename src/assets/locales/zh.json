@@ -2,6 +2,13 @@
   "base":{
     "save":"保存"
   },
+
+  "list":{
+    "list-counts":"共 {0} 条",
+    "selected-counts":"已选中{0}条",
+    "select-all":"全选"
+  },
+
   "drawer": {
     "dashboard" : "仪表盘",
     "medias" : "媒体库",

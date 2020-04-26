@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex flex-row align-center flex-1">
     <v-checkbox
-      :label="selectedCounts > 0 ? '已选中' + selectedCounts + '条' : '全选'"
+      :label="selectedCounts > 0 ? $t('list.selected-counts').replace('{0}', selectedCounts) :  $t('list.select-all')"
       class ="mt-5"
       v-model = "selectedSome"
       :indeterminate = "selectedCounts > 0 && selectedCounts != inputValue.length"

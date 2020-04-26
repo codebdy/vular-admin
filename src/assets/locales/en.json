@@ -3,6 +3,12 @@
     "save":"Save"
   },
 
+  "list":{
+    "list-counts":"All {0} records",
+    "selected-counts":"{0} are selected",
+    "select-all":"Select All"
+  },
+
   "drawer": {
     "dashboard" : "Dashboard",
     "medias" : "Medias",

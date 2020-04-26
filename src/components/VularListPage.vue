@@ -7,7 +7,7 @@
         vertical
       ></v-divider>
       <div>
-        <span>共{{model.rows.length}}条</span>
+        <span>{{$t('list.list-counts').replace('{0}', model.rows.length)}}</span>
       </div>
       <v-spacer></v-spacer>
       <v-btn rounded color="primary" dark 
