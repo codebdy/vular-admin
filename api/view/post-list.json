@@ -9,6 +9,10 @@
       "method" : "get",
       "belongsTo" : "post-list-1"
     },
+    "addNewAction":{
+      "name":"openPage",
+      "viewSlug":"post-edit.json"
+    },
     "canSelect" : true,
     "transshapeBreakPoint" : "sm",
     "batchActions" : [

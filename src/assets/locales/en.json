@@ -4,6 +4,7 @@
   },
 
   "list":{
+    "add-new":"Add New",
     "list-counts":"All {0} records",
     "selected-counts":"{0} are selected",
     "select-all":"Select All"

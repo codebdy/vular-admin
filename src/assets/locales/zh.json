@@ -4,6 +4,7 @@
   },
 
   "list":{
+    "add-new":"新建",
     "list-counts":"共 {0} 条",
     "selected-counts":"已选中{0}条",
     "select-all":"全选"

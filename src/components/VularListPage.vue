@@ -10,12 +10,14 @@
         <span>{{$t('list.list-counts').replace('{0}', model.rows.length)}}</span>
       </div>
       <v-spacer></v-spacer>
-      <v-btn rounded color="primary" dark 
+      <v-btn rounded color="primary" dark
+        v-if="addNewAction" 
         :small="page.header.isStick"
+        @click="onAddNew"
       >
-        <v-icon left>mdi-plus</v-icon> 新建
+        <v-icon left>mdi-plus</v-icon> {{$t('list.add-new')}}
       </v-btn>
-      <v-menu offset-y>
+      <!--v-menu offset-y>
         <template v-slot:activator="{ on }">
           <v-btn class="ml-2" fab elevation="0" :color="$store.state.vularApp.content.card.color"
             :small="!page.header.isStick"
@@ -43,7 +45,7 @@
             </v-list-item-content>
           </v-list-item>
         </v-list>
-      </v-menu>
+      </v-menu-->
     </template>
 
     <template slot="header-extension">
@@ -122,6 +124,7 @@
       title: {default:''},
       editPath:{default: ''},
       transshapeBreakPoint:{defalut: 'sm'},
+      addNewAction:{default:null},
     },
     data () {
       return {
@@ -164,6 +167,9 @@
     },
 
     methods: {
+      onAddNew(){
+        $bus.$emit('VularAction', this.addNewAction)
+      },
       onDispatchModel(vularId, model){
         if(vularId == this.vularId){
           this.model = model
