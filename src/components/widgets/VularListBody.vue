@@ -57,7 +57,8 @@
             <template v-slot:activator="{ on }">
               <v-btn icon color="primary" 
                 v-on="on"
-                :key = "action.id"
+                :key = "index"
+                @click = "onRowAction(action, row)"
               >
                 <v-icon small v-text="action.icon"></v-icon>
               </v-btn>
@@ -76,7 +77,8 @@
               <v-list-item link
                 v-for="(action, index) in rowActions"
                 v-if="!action.shortcut"
-                :key = "action.id"
+                :key = "index"
+                @click = "onRowAction(action, row)"
               >
                 <v-list-item-icon>
                   <v-icon color="primary" v-text="action.icon"></v-icon>
@@ -126,6 +128,9 @@
     },
 
     methods: {
+      onRowAction(actionCtrl, row){
+        $bus.$emit("VularAction", actionCtrl.action, row)
+      },
     },
   }
 </script>

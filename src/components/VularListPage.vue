@@ -77,7 +77,7 @@
         >
           <VularListBody 
             :columns="columns"
-            :rowActionsv = "rowActions" 
+            :rowActions = "rowActions" 
             :canSelect = "canSelect"
             :transshape = "transshape"
             :actionsColumn = "actionsColumn"

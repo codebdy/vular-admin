@@ -14,8 +14,9 @@ export default {
       status:'none',
     },
     "addNewAction":{
-      "name":"openPage",
-      "api":"post-edit"
+      name:"openPage",
+      api:"/api/view",
+      view:'\\Water\\Vular\\View\\PostEdit',
     },
     "queryAction":{
       "name" : "doAction",
@@ -105,11 +106,18 @@ export default {
         "icon": "mdi-pencil",
         "title": "编辑",
         "shortcut": true,
-        "action":"action_id2"
+        "action": {
+          name:"openPage",
+          api:"/api/view",
+          view:'\\Water\\Vular\\View\\PostEdit',
+          params : {
+            modelName:"/Water/Vular/Model/Posts",
+          }
+        },
       },
       {
         "icon": "mdi-eye-outline",
-        "title": "隐藏",
+        "title": "查看",
         "shortcut": false,
         "action":"action_id1"
       },
