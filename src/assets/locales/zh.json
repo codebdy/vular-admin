@@ -1,6 +1,8 @@
 {
   "base":{
-    "save":"保存"
+    "save":"保存",
+    "close":"关闭",
+    "clear":"清空"
   },
 
   "list":{

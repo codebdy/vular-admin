@@ -96,7 +96,7 @@ export default {
         },
         "blankTitle":"全部分类",
         "blankValue":"",
-        "model":""
+        "field":"cagegory"
       },
       {
         "title":"属性",
@@ -111,7 +111,7 @@ export default {
         },
         "blankTitle":"全部属性",
         "blankValue":"",
-        "model":""
+        "field":"attribute"
       },
       {
         "title":"阅读量",
@@ -122,7 +122,7 @@ export default {
         },
         "blankTitle":"全部",
         "blankValue":"",
-        "model":""
+        "field":"readings"
       },
       {
         "title":"状态",
@@ -134,7 +134,7 @@ export default {
         },
         "blankTitle":"全部",
         "blankValue":"",
-        "model":""
+        "field":"status"
       }
     ],
     "columns":[

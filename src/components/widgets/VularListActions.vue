@@ -18,8 +18,12 @@
           prepend-inner-icon="mdi-magnify"
           style="padding-top:0px;"
           class="mt-n1"
+          v-model="keywords"
+          :clearable = "!!inputValue.formModel.keywords"
+          @click:clear = "onClearKeywords"
           @focus="searchBoxFocused = true"
           @blur = "searchBoxFocused = false"
+          @keyup.13 = "onSearch"
         ></v-text-field>
       </div>
       <div v-if="!collopsed">
@@ -31,20 +35,20 @@
           <v-menu offset-y>
             <template v-slot:activator="{ on }">
               <v-btn
-                :color="filter.model === filter.blankValue ? '' : 'primary'"
+                :color="inputValue.formModel[filter.field] === filter.blankValue ? '' : 'primary'"
                 class="ml-2 mr-3 filter-button"
                 outlined
                 rounded
                 :small="isStick"
                 v-on="on"
               >
-                {{filter.blankValue === filter.model ? filter.blankTitle : filter.rules[filter.model]}}
+                {{filter.blankValue === inputValue.formModel[filter.field] ? filter.blankTitle : filter.rules[inputValue.formModel[filter.field]]}}
                 <v-icon right dark>mdi-chevron-down</v-icon>
               </v-btn>
             </template>
             <v-list>
               <v-list-item link color="primary" 
-                v-model="filter.blankValue === filter.model"
+                v-model="filter.blankValue === inputValue.formModel[filter.field]"
                 @click = "onFilter(filter, filter.blankValue)"
               >
                 <v-list-item-content>
@@ -54,7 +58,7 @@
               <v-list-item link color="primary"
                 v-for="(label, value) in filter.rules"
                 :key = 'value'
-                v-model="value === filter.model"
+                v-model="value === inputValue.formModel[filter.field]"
                 @click = "onFilter(filter, value)"
               >
                 <v-list-item-content>
@@ -90,7 +94,7 @@
                 :style="{background: $store.state.vularApp.content.color}">
               {{filter.title}}
               </v-subheader>
-              <v-radio-group class="px-3" v-model="filter.model">
+              <v-radio-group class="px-3" v-model="inputValue.formModel[filter.field]">
                 <v-radio
                   :label="filter.blankTitle"
                   :value="filter.blankValue"
@@ -108,8 +112,8 @@
           <v-card-actions>
             <v-spacer></v-spacer>
 
-            <v-btn text @click="isPopedFilters = false">关闭</v-btn>
-            <v-btn color="primary" text @click="onClear">清空</v-btn>
+            <v-btn text @click="isPopedFilters = false">{{$t('base.close')}}</v-btn>
+            <v-btn color="primary" text @click="onClear">{{$t('base.clear')}}</v-btn>
           </v-card-actions>
         </v-card>
       </v-menu>
@@ -169,6 +173,7 @@
       return {
         searchBoxFocused: false,
         isPopedFilters : false,
+        keywords:"",
       }
     },
 
@@ -217,7 +222,7 @@
       popFilersSelected(){
         for(var i = 0; i < this.filters.length; i++){
           let filter = this.filters[i]
-          if(filter.blankValue != filter.model && (!filter.shortcut || this.collopsed)){
+          if(filter.blankValue != this.inputValue.formModel[filter.field] && (!filter.shortcut || this.collopsed)){
             return true
           }
         }
@@ -225,9 +230,21 @@
       }
     },
 
+    mounted(){
+      this.keywords = this.inputValue.formModel.keywords
+    },
+
     methods: {
+      onSearch(){
+        this.inputValue.formModel.keywords = this.keywords.trim()
+      },
+
+      onClearKeywords(){
+        this.inputValue.formModel.keywords = ""
+      },
       onFilter(filter, model){
-        filter.model = model
+        //this.$set(filter, 'model', model)
+        this.inputValue.formModel[filter.field] = model
       },
 
       onClear(){
@@ -235,7 +252,7 @@
          for(var i = 0; i < this.filters.length; i++){
           let filter = this.filters[i]
           if(!filter.shortcut || this.collopsed){
-            filter.model = filter.blankValue
+            this.inputValue.formModel[filter.field] = filter.blankValue
           }
         }
       },

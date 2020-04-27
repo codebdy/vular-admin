@@ -7,7 +7,11 @@ export default {
       keywords:'',
       page:'',
       pagination:'',
-      filters:{},
+      //fliters
+      cagegory:'none',
+      attribute:'none',
+      readings:'none',
+      status:'none',
     },
     "addNewAction":{
       "name":"openPage",
@@ -95,8 +99,8 @@ export default {
           "cat6" : "Category6"
         },
         "blankTitle":"全部分类",
-        "blankValue":"",
-        "model":""
+        "blankValue":"none",
+        "field":"cagegory"
       },
       {
         "title":"属性",
@@ -110,8 +114,8 @@ export default {
           "attr6" : "Attribute6"
         },
         "blankTitle":"全部属性",
-        "blankValue":"",
-        "model":""
+        "blankValue":"none",
+        "field":"attribute"
       },
       {
         "title":"阅读量",
@@ -121,8 +125,8 @@ export default {
           "sales3" : "一般"
         },
         "blankTitle":"全部",
-        "blankValue":"",
-        "model":""
+        "blankValue":"none",
+        "field":"readings"
       },
       {
         "title":"状态",
@@ -133,8 +137,8 @@ export default {
           "ststus4" : "被拒绝"
         },
         "blankTitle":"全部",
-        "blankValue":"",
-        "model":""
+        "blankValue":"none",
+        "field":"status"
       }
     ],
     "columns":[
