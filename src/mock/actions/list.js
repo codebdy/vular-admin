@@ -1,8 +1,4 @@
-export default {
-  "formModel":{
-    
-  },
-  "rows":[
+export default [
     {
       "id":"1",
       "avatar" : {
@@ -174,4 +170,3 @@ export default {
       }
     }
   ]
-}

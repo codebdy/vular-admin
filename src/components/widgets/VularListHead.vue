@@ -14,6 +14,7 @@
               :batchActions="batchActions"
               :filters = "filters"
               :isStick = "isStick"
+              :queryAction = "queryAction"
               v-model="inputValue"
               @selectAll = "onSelectAll" 
             ></VularListActions>
@@ -57,6 +58,7 @@
       isStick: {default: false},
       value: {default: ()=>{return []}},
       heightPercent: { default : 1 },
+      queryAction:{default:null},
     },
 
     data () {

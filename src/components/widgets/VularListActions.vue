@@ -4,7 +4,7 @@
       :label="selectedCounts > 0 ? $t('list.selected-counts').replace('{0}', selectedCounts) :  $t('list.select-all')"
       class ="mt-5"
       v-model = "selectedSome"
-      :indeterminate = "selectedCounts > 0 && selectedCounts != inputValue.length"
+      :indeterminate = "selectedCounts > 0 && selectedCounts != inputValue.rows.length"
       @change = "onSelectedChange"
     ></v-checkbox>
     <v-spacer></v-spacer>
@@ -162,6 +162,7 @@
       filters : { default:()=>{return []} },
       isStick: {default : false},
       value: {default: ()=>{return []}},
+      queryAction:{default:null},
     },
 
     data () {
@@ -204,7 +205,7 @@
 
       selectedCounts(){
         let counts = 0
-        this.inputValue.forEach(row=>{
+        this.inputValue.rows.forEach(row=>{
           if(row.selected){
             counts ++
           }

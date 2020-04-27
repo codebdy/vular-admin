@@ -57,7 +57,8 @@
         :isStick = "page.header.isStick"
         :heightPercent = "page.header.heightPercent"
         :transshape = "transshape"
-        v-model="model.rows"
+        :queryAction = "queryAction"
+        v-model="model"
         @selectAll = "onSelectAll" 
         @listHeaderHeight = "onListHeaderHeight"
       ></VularListHead>
@@ -157,9 +158,6 @@
     mounted () {
       this.model.formModel = Object.assign({}, this.defaultModel)
       this.checkTransshape()
-      if(this.queryAction){
-        $bus.$emit("VularAction", this.queryAction, this.model.formModel)
-      }
 
       $bus.$on('dispatchModel', this.onDispatchModel)
     },
@@ -174,7 +172,7 @@
       },
       onDispatchModel(vularId, model){
         if(vularId == this.vularId){
-          this.model = model
+          this.model.rows = model
         }
       },
       onSelectAll(selected){
@@ -242,6 +240,14 @@
     },
 
     watch:{
+      "model.formModel": {
+        handler(val){
+          if(this.queryAction){
+            $bus.$emit("VularAction", this.queryAction, val)
+          }
+        },
+        deep: true,        
+      }, 
       "$vuetify.breakpoint.xs": function(val){
         this.checkTransshape()
       },
