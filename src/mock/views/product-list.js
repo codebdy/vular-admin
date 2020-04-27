@@ -2,28 +2,25 @@ export default {
   "name" : "vular-list-page",
   "props" : {
     "title" : "产品列表",
-    "vularId" : "post-list-1",
-    "initAction" : {
-      "name" : "doAction",
-      "api" : "/api/action",
-      "belongsTo" : "post-list-1",
-      params : {
-        actionName:"queryModel",
-        modelName:"/Water/Vular/Model/Posts",
-        viewModel:{
-          keywords:'',
-          page:'',
-          pagination:'',
-          filters:{},
-        }
-      }
+    "vularId" : "product-list-1",
+    defaultModel:{
+      keywords:'',
+      page:'',
+      pagination:'',
+      filters:{},
     },
     "addNewAction":{
       "name":"openPage",
       "api":"post-edit"
     },
     "queryAction":{
-
+      "name" : "doAction",
+      "api" : "/api/action",
+      "belongsTo" : "product-list-1",
+      params : {
+        actionName:"/Water/Vular/Actions/Query",
+        modelName:"/Water/Vular/Model/Posts",
+      }
     },
     "canSelect" : true,
     "transshapeBreakPoint" : "sm",

@@ -106,7 +106,8 @@
     components: {
     },
     props: {
-      initAction :{ default:null },
+      defaultModel:{default : ()=>{return {} }},
+      queryAction :{ default:null },
       batchActions: { default: ()=>{return []} },
       filters : { default:()=>{return []} },
       columns : { default:()=>{return []} },
@@ -154,9 +155,10 @@
       },
     },
     mounted () {
+      this.model.formModel = Object.assign({}, this.defaultModel)
       this.checkTransshape()
-      if(this.initAction){
-        $bus.$emit("VularAction", this.initAction)
+      if(this.queryAction){
+        $bus.$emit("VularAction", this.queryAction, this.model.formModel)
       }
 
       $bus.$on('dispatchModel', this.onDispatchModel)

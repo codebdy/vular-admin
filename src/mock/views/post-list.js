@@ -3,28 +3,24 @@ export default {
   "props" : {
     "title" : "文章列表",
     "vularId" : "post-list-1",
-    "initAction" : {
+    defaultModel:{
+      keywords:'',
+      page:'',
+      pagination:'',
+      filters:{},
+    },
+    "addNewAction":{
+      "name":"openPage",
+      "api":"post-edit"
+    },
+    "queryAction":{
       "name" : "doAction",
       "api" : "/api/action",
       "belongsTo" : "post-list-1",
       params : {
-        actionName:"queryModel",
+        actionName:"/Water/Vular/Actions/Query",
         modelName:"/Water/Vular/Model/Posts",
-        viewModel:{
-          keywords:'',
-          page:'',
-          pagination:'',
-          filters:{},
-        }
       }
-    },
-    "addNewAction":{
-      name:"openPage",
-      api:"/api/view",
-      view:'\\Water\\Vular\\View\\PostEdit',
-    },
-    "queryAction":{
-
     },
     "canSelect" : true,
     "transshapeBreakPoint" : "sm",
