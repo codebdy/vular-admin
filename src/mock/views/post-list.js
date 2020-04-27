@@ -5,15 +5,19 @@ export default {
     "vularId" : "post-list-1",
     "initAction" : {
       "name" : "doAction",
-      "actionSlug" : "list",
+      "api" : "/api/action/query",
       "belongsTo" : "post-list-1",
       params:{
+        modelName:"/Water/Vular/Model/Posts",
         keywords:'',
+        page:'',
+        pagination:'',
+        filters:{},
       }
     },
     "addNewAction":{
       "name":"openPage",
-      "viewSlug":"post-edit"
+      "api":"post-edit"
     },
     "queryAction":{
 

@@ -4,7 +4,7 @@ import postListView from './views/post-list'
 import postEditView from './views/post-edit'
 import listAction from './actions/list'
 
-Mock.mock('/api/action/list', 'post', (options)=>{
+Mock.mock('/api/action/query', 'post', (options)=>{
 	console.log(options.body)
 	return listAction
 })

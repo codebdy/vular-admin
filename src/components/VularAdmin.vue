@@ -190,7 +190,7 @@
         }
 
         if(action.name === "doAction"){
-          $axios.post('/api/action/' + action.actionSlug, action.params)
+          $axios.post(action.api, action.params)
           .then((res)=>{
             $bus.$emit('dispatchModel', action.blongsTo, res.data)
           })
