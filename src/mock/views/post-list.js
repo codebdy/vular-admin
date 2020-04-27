@@ -33,31 +33,71 @@ export default {
         "icon": "mdi-delete-sweep-outline",
         "title": "删除",
         "shortcut": true,
-        "action":"action_iddelteed"
+        "action": {
+          "name" : "doAction",
+          "api" : "/api/action",
+          "belongsTo" : "post-list-1",
+          params : {
+            actionName:"/Water/Vular/Actions/Delete",
+            modelName:"/Water/Vular/Model/Posts",
+          }
+        },
       },
       {
         "icon": "mdi-arrow-collapse-down",
         "title": "下载",
         "shortcut": true,
-        "action":"action_id1"
+        "action": {
+          "name" : "doAction",
+          "api" : "/api/action",
+          "belongsTo" : "post-list-1",
+          params : {
+            actionName:"/Water/Vular/Actions/Download",
+            modelName:"/Water/Vular/Model/Posts",
+          }
+        },
       },
       {
         "icon": "mdi-publish",
         "title": "发布",
         "shortcut": true,
-        "action":"action_id2"
+        "action": {
+          "name" : "doAction",
+          "api" : "/api/action",
+          "belongsTo" : "post-list-1",
+          params : {
+            actionName:"/Water/Vular/Actions/Publis",
+            modelName:"/Water/Vular/Model/Posts",
+          }
+        },
       },
       {
         "icon": "mdi-shield-check-outline",
         "title": "审核",
         "shortcut": false,
-        "action":"action_id3"
+        "action": {
+          "name" : "doAction",
+          "api" : "/api/action",
+          "belongsTo" : "post-list-1",
+          params : {
+            actionName:"/Water/Vular/Actions/Confirm",
+            modelName:"/Water/Vular/Model/Posts",
+          }
+        },
       },
       {
         "icon": "mdi-content-copy",
         "title": "克隆",
         "shortcut": false,
-        "action":"action_id4"
+        "action": {
+          "name" : "doAction",
+          "api" : "/api/action",
+          "belongsTo" : "post-list-1",
+          params : {
+            actionName:"/Water/Vular/Actions/Duplicate",
+            modelName:"/Water/Vular/Model/Posts",
+          }
+        },
       }
     ],
     "rowActions":[

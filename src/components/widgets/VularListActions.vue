@@ -122,8 +122,9 @@
       <v-btn text rounded color="primary" class="mx-3"
         v-for="(action, index) in batchActions"
         v-if="action.shortcut && !collopsed"
-        :key = "action.action"
+        :key = "index"
         :small="isStick"
+        @click="onBatchAction(action)"
         >
         {{action.title}}
         <v-icon right dark v-text="action.icon"></v-icon>
@@ -142,7 +143,8 @@
           <v-list-item link
             v-for="(action, index) in batchActions"
             v-if="!action.shortcut || collopsed"
-            :key = "action.action"
+            :key = "index"
+            @click="onBatchAction(action)"
           >
             <v-list-item-icon>
               <v-icon color="primary" v-text="action.icon"></v-icon>
@@ -219,6 +221,17 @@
         return counts
       },
 
+      selectedRows(){
+        let rows = []
+        this.inputValue.rows.forEach(row=>{
+          if(row.selected){
+            rows.push(row)
+          }
+        })
+
+        return rows
+      },
+
       popFilersSelected(){
         for(var i = 0; i < this.filters.length; i++){
           let filter = this.filters[i]
@@ -259,7 +272,11 @@
 
       onSelectedChange(value){
         this.$emit('selectAll', value)
-      }
+      },
+
+      onBatchAction(actionCtrl){
+        $bus.$emit("VularAction", actionCtrl.action, this.selectedRows)
+      },
     },
   }
 </script>
