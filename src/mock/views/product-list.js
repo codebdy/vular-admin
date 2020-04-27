@@ -1,7 +1,7 @@
 export default {
   "name" : "vular-list-page",
   "props" : {
-    "title" : "文章列表",
+    "title" : "产品列表",
     "vularId" : "post-list-1",
     "initAction" : {
       "name" : "doAction",

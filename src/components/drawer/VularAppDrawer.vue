@@ -109,7 +109,8 @@ export default {
               },
               action:{
                 name:"openPage",
-                viewSlug:'post-list',
+                api:"/api/view",
+                view:'\\Water\\Vular\\View\\PostList',
               }
             },
             {
