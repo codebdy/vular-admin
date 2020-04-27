@@ -109,7 +109,7 @@ export default {
               },
               action:{
                 name:"openPage",
-                viewSlug:'post-list.json',
+                viewSlug:'post-list',
               }
             },
             {

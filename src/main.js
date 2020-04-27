@@ -10,6 +10,8 @@ import vuetify from './plugins/vuetify' // path to vuetify export
 import store from './store'    
 import axios from 'axios'
 
+import "./mock"
+
 import VularNode from './VularNode'
 import VularLogin from "./components/VularLogin.vue"
 import VularMediasPage from "./components/VularMediasPage.vue"

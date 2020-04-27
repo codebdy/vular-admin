@@ -182,15 +182,16 @@
     methods: {
       onVularAction(action){
         if(action.name === 'openPage'){
-          $axios.get('/api/view/' + action.viewSlug)
+          $axios.post('/api/view/' + action.viewSlug)
           .then((res)=>{
+            console.log(res.data)
             this.pages.push(res.data)
             this.currenPage = this.pages.length - 1
           })
         }
 
         if(action.name === "doAction"){
-          $axios.get('/api/action/' + action.actionSlug)
+          $axios.post('/api/action/' + action.actionSlug)
           .then((res)=>{
             $bus.$emit('dispatchModel', action.blongsTo, res.data)
           })

@@ -1,16 +1,16 @@
-{
+export default {
   "name" : "vular-list-page",
   "props" : {
     "title" : "文章列表",
     "vularId" : "post-list-1",
     "initAction" : {
       "name" : "doAction",
-      "actionSlug" : "list.json",
+      "actionSlug" : "list",
       "belongsTo" : "post-list-1"
     },
     "addNewAction":{
       "name":"openPage",
-      "viewSlug":"post-edit.json"
+      "viewSlug":"post-edit"
     },
     "queryAction":{
 
