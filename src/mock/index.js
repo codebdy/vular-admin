@@ -8,7 +8,7 @@ import productListView from './views/product-list'
 
 
 Mock.mock('/api/action', 'post', (options)=>{
-  console.log(options.body)
+  //console.log(options.body)
   return listAction
 })
 Mock.mock('/api/view', 'post', (options)=>{

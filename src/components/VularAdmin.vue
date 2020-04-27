@@ -177,7 +177,7 @@
     },
 
     methods: {
-      onVularAction(action){
+      onVularAction(action, formModel){
         if(action.name === 'openPage'){
           $axios.post(action.api, action.view)
           .then((res)=>{
@@ -187,7 +187,7 @@
         }
 
         if(action.name === "doAction"){
-          $axios.post(action.api, action.params)
+          $axios.post(action.api, {params: action.params, formModel : formModel})
           .then((res)=>{
             $bus.$emit('dispatchModel', action.blongsTo, res.data)
           })
