@@ -6,7 +6,10 @@ export default {
     "initAction" : {
       "name" : "doAction",
       "actionSlug" : "list",
-      "belongsTo" : "post-list-1"
+      "belongsTo" : "post-list-1",
+      params:{
+        keywords:'',
+      }
     },
     "addNewAction":{
       "name":"openPage",
