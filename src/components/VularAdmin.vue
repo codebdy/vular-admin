@@ -46,9 +46,6 @@
         <span class="hidden-sm-and-down">{{$store.state.vularApp.logo.title}}</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon medium>mdi-magnify</v-icon>
-      </v-btn>
       <v-btn icon href="https://github.com/vularsoft/vular-admin" target="_blank">
         <v-icon medium>mdi-github</v-icon>
       </v-btn>

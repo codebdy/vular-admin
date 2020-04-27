@@ -19,8 +19,9 @@ export default {
       }
     },
     "addNewAction":{
-      "name":"openPage",
-      "api":"post-edit"
+      name:"openPage",
+      api:"/api/view",
+      view:'\\Water\\Vular\\View\\PostEdit',
     },
     "queryAction":{
 

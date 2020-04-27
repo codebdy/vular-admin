@@ -17,5 +17,9 @@ Mock.mock('/api/view', 'post', (options)=>{
   if(options.body === '\\Water\\Vular\\View\\ProductList'){
     return productListView
   }
+
+  if(options.body ==='\\Water\\Vular\\View\\PostEdit'){
+    return postEditView
+  }
 })
-Mock.mock('/api/view/post-edit', 'post', postEditView)
+//Mock.mock('/api/view/post-edit', 'post', postEditView)
