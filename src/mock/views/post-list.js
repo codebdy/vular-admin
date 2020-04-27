@@ -38,7 +38,7 @@ export default {
           "api" : "/api/action",
           "belongsTo" : "post-list-1",
           params : {
-            actionName:"/Water/Vular/Actions/Delete",
+            actionName:"/Water/Vular/Actions/BatchDelete",
             modelName:"/Water/Vular/Model/Posts",
           }
         },
@@ -52,7 +52,7 @@ export default {
           "api" : "/api/action",
           "belongsTo" : "post-list-1",
           params : {
-            actionName:"/Water/Vular/Actions/Download",
+            actionName:"/Water/Vular/Actions/BatchDownload",
             modelName:"/Water/Vular/Model/Posts",
           }
         },
@@ -66,7 +66,7 @@ export default {
           "api" : "/api/action",
           "belongsTo" : "post-list-1",
           params : {
-            actionName:"/Water/Vular/Actions/Publis",
+            actionName:"/Water/Vular/Actions/BatchPublics",
             modelName:"/Water/Vular/Model/Posts",
           }
         },
@@ -80,7 +80,7 @@ export default {
           "api" : "/api/action",
           "belongsTo" : "post-list-1",
           params : {
-            actionName:"/Water/Vular/Actions/Confirm",
+            actionName:"/Water/Vular/Actions/BatchConfirm",
             modelName:"/Water/Vular/Model/Posts",
           }
         },
@@ -94,7 +94,7 @@ export default {
           "api" : "/api/action",
           "belongsTo" : "post-list-1",
           params : {
-            actionName:"/Water/Vular/Actions/Duplicate",
+            actionName:"/Water/Vular/Actions/BatchDuplicate",
             modelName:"/Water/Vular/Model/Posts",
           }
         },
