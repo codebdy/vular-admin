@@ -88,7 +88,9 @@
               :length="15"
               :total-visible="7"
               circle
-              color="success"
+              color="primary"
+              :page = "model.formModel.page"
+              v-model = "model.formModel.page"
             ></v-pagination>
           </v-card-actions>
 
@@ -140,7 +142,9 @@
         selectedRows: [],
         transshape:false,
         model:{
-          formModel:{},
+          formModel:{
+            page : 1,
+          },
           rows:[],
         },
       }
