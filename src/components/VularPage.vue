@@ -55,7 +55,7 @@
     },
 
     mounted () {
-      console.log(this.inputValue.header.breadcrumbHeight  + 'px')
+      //console.log(this.inputValue.header.breadcrumbHeight  + 'px')
     },
 
     computed:{
