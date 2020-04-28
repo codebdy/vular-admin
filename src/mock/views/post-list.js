@@ -5,7 +5,7 @@ export default {
     "vularId" : "post-list-1",
     defaultModel:{
       keywords:'',
-      page:'',
+      page:1,
       pagination:'',
       //fliters
       cagegory:'none',
