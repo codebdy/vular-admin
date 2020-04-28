@@ -5,7 +5,7 @@
       'font-family': $store.state.vularApp.content.fontFamily
     }"
   >
-    <VularEditPageHeader :title="title" v-model="inputValue">
+    <VularEditPageHeader :title="title" :breadcrumbs="breadcrumbs" v-model="inputValue">
     </VularEditPageHeader>
       <div class="header-image-container"
         v-if="this.$store.state.vularApp.content.breadcurmbsImage"
@@ -50,6 +50,9 @@
           },
         }}
       },
+      breadcrumbs : {default: ()=>{
+        return []
+      }},
       headerImageField:{default:'medias'},
       title: {default:''},
     },

@@ -26,8 +26,10 @@
         style="transition: height 0.3s"
         class="d-flex flex-row align-center"
       >
-        <template v-for="(crumb, i) in inputValue.breadcrumbs">
-          <v-btn text rounded :dark="dark" class="ml-n4">{{crumb.title}}</v-btn>
+        <template v-for="(crumb, i) in breadcrumbs">
+          <v-btn text rounded class="ml-n4"
+            :dark="dark" 
+            @click="onBreadcrumbClick(crumb)">{{crumb.title}}</v-btn>
           <v-icon :dark="dark">mdi-chevron-right</v-icon>
         </template>
         <v-chip rounded :dark="dark" color="transparent">{{title}}</v-chip>
@@ -44,7 +46,7 @@
         <template
           v-if="!large && !this.$vuetify.breakpoint.xs"
         >
-          <template v-for="(crumb, i) in inputValue.breadcrumbs">
+          <template v-for="(crumb, i) in breadcrumbs">
             <v-btn text rounded  class="ml-n4"
             >{{crumb.title}}</v-btn>
             <v-icon>mdi-chevron-right</v-icon>
@@ -61,12 +63,35 @@
           :style="{'font-size': titleFontSize + 'px'}"
         ></v-text-field>
         <v-spacer></v-spacer>
-        <v-btn outlined fab 
-          :dark="dark" 
-          :small = "large"
-          :x-small ="!large">
-          <v-icon>mdi-dots-horizontal</v-icon>
-        </v-btn>
+        <v-menu offset-y>
+          <template v-slot:activator="{ on }">
+            <v-btn outlined fab 
+              :dark="dark" 
+              :small = "large"
+              :x-small ="!large"
+              v-on="on">
+              <v-icon>mdi-dots-horizontal</v-icon>
+            </v-btn>
+          </template>
+          <v-list class="px-2" :color="$store.state.vularApp.content.card.color">
+            <v-list-item link>
+              <v-list-item-icon>
+                <v-icon color="primary">mdi-shield-check</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title>审核</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item link>
+              <v-list-item-icon>
+                <v-icon color="primary">mdi-publish</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title>发布</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </v-menu>
         <v-btn outlined rounded 
           :dark="dark" 
           :large="large" 
@@ -94,7 +119,10 @@ import VularPageHeader from "./VularPageHeader"
     name: "vular-edit-page-header",
     extends:VularPageHeader,
     props: {
-      titleField:{default: "title"},
+      titleField : {default: "title"},
+      breadcrumbs : {default: ()=>{
+        return []
+      }},
     },
     data: () => ({
     }),
@@ -122,6 +150,9 @@ import VularPageHeader from "./VularPageHeader"
     },
 
     methods: {
+      onBreadcrumbClick(crumb){
+        $bus.$emit('VularAction', crumb.action)
+      },
     }
   }
 </script>
