@@ -43,6 +43,27 @@ export default {
         view:'\\Water\\Vular\\View\\PostList',
       },
     },
+
+    menuItems:[
+      {
+        icon:"mdi-shield-check",
+        title:"审核",
+        action:{
+          name:"openPage",
+          api:"/api/view",
+          view:'\\Water\\Vular\\View\\PostList',
+        },
+      },     
+      {
+        icon:"mdi-publish",
+        title:"发布",
+        action:{
+          //name:"openPage",
+          //api:"/api/view",
+          //view:'\\Water\\Vular\\View\\PostList',
+        },
+      }     
+    ],
   },
   children:[
   ],

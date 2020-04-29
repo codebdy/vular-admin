@@ -63,7 +63,9 @@
           :style="{'font-size': titleFontSize + 'px'}"
         ></v-text-field>
         <v-spacer></v-spacer>
-        <v-menu offset-y>
+        <v-menu offset-y
+          v-if="menuItems.length > 0"
+        >
           <template v-slot:activator="{ on }">
             <v-btn outlined fab 
               :dark="dark" 
@@ -74,20 +76,16 @@
             </v-btn>
           </template>
           <v-list class="px-2" :color="$store.state.vularApp.content.card.color">
-            <v-list-item link>
+            <v-list-item link
+              v-for="(item, index) in menuItems"
+              :key = "index"
+              @click = "onMenuItemClick(item)"
+            >
               <v-list-item-icon>
-                <v-icon color="primary">mdi-shield-check</v-icon>
+                <v-icon color="primary">{{item.icon}}</v-icon>
               </v-list-item-icon>
               <v-list-item-content>
-                <v-list-item-title>审核</v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item link>
-              <v-list-item-icon>
-                <v-icon color="primary">mdi-publish</v-icon>
-              </v-list-item-icon>
-              <v-list-item-content>
-                <v-list-item-title>发布</v-list-item-title>
+                <v-list-item-title>{{item.title}}</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -131,6 +129,7 @@ import VularPageHeader from "./VularPageHeader"
       value:{default:()=>{ return{} }},
       saveButton:{default:null},
       cancelButton:{default:null},
+      menuItems:{default:()=>{ return[] }},
     },
     data: () => ({
     }),
@@ -169,6 +168,10 @@ import VularPageHeader from "./VularPageHeader"
 
       onCancel(){
         $bus.$emit('VularAction', this.cancelButton.action)
+      },
+
+      onMenuItemClick(item){
+        $bus.$emit('VularAction', item.action)
       },
     }
   }

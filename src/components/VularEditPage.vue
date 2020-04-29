@@ -11,6 +11,7 @@
       :titleField="titleField" 
       :saveButton = "saveButton"
       :cancelButton = "cancelButton"
+      :menuItems = "menuItems"
       v-model="inputValue">
     </VularEditPageHeader>
       <div class="header-image-container"
@@ -55,6 +56,7 @@
       title: {default:''},
       saveButton:{default:null},
       cancelButton:{default:null},
+      menuItems:{default:()=>{ return[] }},
     },
     data () {
       return {
