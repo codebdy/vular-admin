@@ -24,7 +24,7 @@
       <v-list class="drawer-list">
       <component     
         v-for="schema in items"
-        :key="schema.title + schema.to"
+        :key="schema.id"
         :is="schema.name" 
         :schema="schema"
         :drawer="inputValue"
@@ -54,24 +54,29 @@ export default {
     return{
       items:[
         {
+          id:"1",
           name:"vular-menu-item",
           prependIcon:'mdi-speedometer',
           title:this.$t('drawer.dashboard'),
           to:"dashboard",
+          active:true,
         },
         {
+          id:"2",
           name:"vular-menu-item",
           prependIcon: 'mdi-karate',
           title:'Form Test',
           to:"test",
         },
         {
+          id:"3",
           name:"vular-menu-item",
           prependIcon: 'mdi-image-auto-adjust',
           title:this.$t('drawer.medias'),
           to:"medias",
         },
         {
+          id:"4",
           name:"vular-menu-item",
           prependIcon: 'mdi-message-text-outline',
           title:this.$t('drawer.leads'),
@@ -90,6 +95,7 @@ export default {
           title:"Vular CMS"
         },
         {
+          id:"5",
           name:"vular-menu-item-group",
           prependIcon:'mdi-newspaper-variant-outline',
           //appendIcon: 'home',
@@ -97,8 +103,10 @@ export default {
           active: false,
           children: [
             {
+              id:"6",
               name:"vular-menu-item",
               title:this.$t('drawer.post-list'),
+              active: true,
               badge:{
                 title:'4',
                 props:{
@@ -114,11 +122,13 @@ export default {
               }
             },
             {
+              id:"7",
               name:"vular-menu-item",
               title:'文章分类',
               to:"post-category",
             },
             {
+              id:"8",
               name:"vular-menu-item",
               title:'文章属性',
               to:"post-attributes",
@@ -127,6 +137,7 @@ export default {
           ]          
         },
         {
+          id:"9",
           name:"vular-menu-item-group",
           prependIcon:'mdi-shopping-outline',
           //appendIcon: 'home',
@@ -134,16 +145,19 @@ export default {
           active: false,
           children: [
             {
+              id:"10",
               name:"vular-menu-item",
               title:'产品列表',
               to:"product-list",
             },
             {
+              id:"11",
               name:"vular-menu-item",
               title:'产品分类',
               to:"product-category",
             },
             {
+              id:"12",
               name:"vular-menu-item",
               title:'产品属性',
             },
@@ -151,6 +165,7 @@ export default {
           ]          
         },
         {
+          id:"13",
           name:"vular-menu-item-group",
           prependIcon:'mdi-semantic-web',
           //appendIcon: 'home',
@@ -173,38 +188,45 @@ export default {
           ]          
         },
         {
+          id:"14",
           name:"vular-subheader",
           title:"外贸管理"
         },
         {
+          id:"15",
           name:"vular-menu-item",
           prependIcon: 'mdi-currency-usd-circle-outline',
           title:'订单管理',
           to:"orders",
         },
         {
+          id:"16",
           name:"vular-menu-item",
           prependIcon: 'mdi-account-supervisor-outline',
           title:'客户管理',
           to:"orders",
         },
         {
+          id:"17",
           name:"vular-menu-item",
           prependIcon: 'mdi-diamond-outline',
           title:'产品管理',
           to:"orders2",
         },
         {
+          id:"18",
           name:"vular-menu-item",
           prependIcon: 'mdi-factory',
           title:'供应商管理',
           to:"orders",
         },
         {
+          id:"19",
           name:"vular-subheader",
           title:"菜单演示"
         },
         {
+          id:"20",
           name:"vular-menu-item",
           prependIcon: 'mdi-ab-testing',
           appendIcon: 'mdi-bug',
@@ -219,6 +241,7 @@ export default {
           }
         },
         {
+          id:"21",
           name:"vular-menu-item-group",
           prependIcon:'mdi-blur',
           //appendIcon: 'home',
@@ -271,6 +294,7 @@ export default {
           ]          
         },
         {
+          id:"22",
           name:"vular-menu-item-group",
           prependIcon:'mdi-basket',
           //appendIcon: 'home',
@@ -286,6 +310,7 @@ export default {
           },
           children: [
             {
+              id:"23",
               name:"vular-menu-item",
               prependIcon: 'mdi-apple-finder',
               appendIcon: 'mdi-bug',
@@ -300,6 +325,7 @@ export default {
               }
             },
             {
+              id:"24",
               name:"vular-menu-item",
               title:'菜单Badge测试',
               badge:{
@@ -315,10 +341,12 @@ export default {
           ]          
         },
         {
+          id:"25",
           name:"vular-subheader",
           title:"系统设置"
         },
         {
+          id:"26",
           name:"vular-menu-item",
           prependIcon:'mdi-compare',
           to:"theme-settings",
@@ -332,8 +360,6 @@ export default {
               }
             }
         },
-
-
       ],
     }    
   },

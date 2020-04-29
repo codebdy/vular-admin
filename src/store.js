@@ -9,12 +9,17 @@ export default
 new Vuex.Store({
   state:{
     vularApp: JSON.parse(JSON.stringify(defaultTheme)),
+    activedMenuItem: '',
   },
 
   mutations:{
     changeTheme(state, theme){
       state.vularApp = JSON.parse(JSON.stringify(theme))
     },
+
+    activeMenuItem(state, id){
+      state.activedMenuItem = id
+    }
   },
  
   actions: {

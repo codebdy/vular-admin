@@ -75,7 +75,7 @@
       </template>
     </v-app-bar>
 
-    <VularNode :schema = "activePage"></VularNode>
+    <VularNode :schema = "activePage" v-model="activePage.defaultModel"></VularNode>
    
     <VularAppFab></VularAppFab>
     <v-footer
@@ -182,6 +182,7 @@
           $axios.post(action.api, action.view)
           .then((res)=>{
             this.pages.push(res.data)
+            //console.log(this.activePage)
             this.currenPage = this.pages.length - 1
           })
         }

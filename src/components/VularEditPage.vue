@@ -5,7 +5,7 @@
       'font-family': $store.state.vularApp.content.fontFamily
     }"
   >
-    <VularEditPageHeader :title="title" :breadcrumbs="breadcrumbs" v-model="inputValue">
+    <VularEditPageHeader :title="title" :breadcrumbs="breadcrumbs" :titleField="titleField" v-model="inputValue">
     </VularEditPageHeader>
       <div class="header-image-container"
         v-if="this.$store.state.vularApp.content.breadcurmbsImage"
@@ -14,7 +14,7 @@
           left : $vuetify.application.left + 'px',
           height : headerImageHeight,
           top : headerImageTop + 'px',
-          opacity:inputValue.header.heightPercent,
+          opacity:page.header.heightPercent,
         }" 
       >
         <div :style=" 'background-image:url(' + headerImageSrc + ');' " class="header-image"
@@ -38,7 +38,19 @@
     },
     props: {
       value : { default: ()=>{
-        return {
+          return {}
+        }
+      },
+      breadcrumbs : {default: ()=>{
+        return []
+      }},
+      titleField : {default : "title"},
+      headerImageField:{default:'medias'},
+      title: {default:''},
+    },
+    data () {
+      return {
+        page:{
           header:{
             isStick: false,
             breadcrumbHeight: 90,
@@ -48,16 +60,7 @@
           model:{
             medias:[],
           },
-        }}
-      },
-      breadcrumbs : {default: ()=>{
-        return []
-      }},
-      headerImageField:{default:'medias'},
-      title: {default:''},
-    },
-    data () {
-      return {
+        }
       }
     },
     computed:{
@@ -73,7 +76,7 @@
       headerImageSrc(){
         let image = null
         if(this.headerImageField){
-          let medias = this.inputValue.model[this.headerImageField]
+          let medias = this.page.model[this.headerImageField]
           for(var i = 0; i < medias.length; i++){
             if(medias[i].type === 'image'){
               image = medias[i]
@@ -94,7 +97,7 @@
       },
 
       headerImageHeight(){
-        return (this.inputValue.header.heightPercent*150 + 100) + 'px'
+        return (this.page.header.heightPercent*150 + 100) + 'px'
       },
     },
     created(){
@@ -102,7 +105,6 @@
     },
     
     mounted() {
-      console.log('mounted')
     },
     activated() {
       console.log('activated')

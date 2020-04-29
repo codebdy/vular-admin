@@ -59,7 +59,7 @@
         </template>
         <v-text-field
           :dark="dark"
-          v-model="inputValue.model[titleField]"
+          v-model="inputValue[titleField]"
           :style="{'font-size': titleFontSize + 'px'}"
         ></v-text-field>
         <v-spacer></v-spacer>
@@ -119,10 +119,11 @@ import VularPageHeader from "./VularPageHeader"
     name: "vular-edit-page-header",
     extends:VularPageHeader,
     props: {
-      titleField : {default: "title"},
       breadcrumbs : {default: ()=>{
         return []
       }},
+      titleField : {},
+      value:{default:()=>{ return{} }},
     },
     data: () => ({
     }),
@@ -147,6 +148,7 @@ import VularPageHeader from "./VularPageHeader"
     },
 
     mounted(){
+      //console.log(this.inputValue)
     },
 
     methods: {

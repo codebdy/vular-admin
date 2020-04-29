@@ -100,7 +100,7 @@
       }
     },
     mounted () {
-      this.inputValue.header.breadcrumbHeight = 90
+      //this.inputValue.header.breadcrumbHeight = 90
       //let height = 90
 
       //if(this.$slots['list-head']){
