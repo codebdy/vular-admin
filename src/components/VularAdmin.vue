@@ -191,6 +191,9 @@
           $axios.post(action.api, {params: action.params, data : data})
           .then((res)=>{
             $bus.$emit('dispatchModel', action.blongsTo, res.data)
+            if(action.successAction){
+              $bus.$emit('VularAction', action.successAction)
+            }
           })
         }
       },

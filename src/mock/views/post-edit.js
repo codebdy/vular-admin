@@ -18,6 +18,31 @@ export default {
       }
     ],
     titleField:'title',
+    saveButton:{
+        action:{
+        "name" : "doAction",
+        "api" : "/api/action",
+        "belongsTo" : "post-edit-1",
+        params : {
+          actionName:"/Water/Vular/Actions/Save",
+          modelName:"/Water/Vular/Model/Posts",
+        },
+
+        successAction:{
+          name:"openPage",
+          api:"/api/view",
+          view:'\\Water\\Vular\\View\\PostList',
+        },
+      },
+    },
+
+    cancelButton:{
+      action:{
+        name:"openPage",
+        api:"/api/view",
+        view:'\\Water\\Vular\\View\\PostList',
+      },
+    },
   },
   children:[
   ],

@@ -5,7 +5,13 @@
       'font-family': $store.state.vularApp.content.fontFamily
     }"
   >
-    <VularEditPageHeader :title="title" :breadcrumbs="breadcrumbs" :titleField="titleField" v-model="inputValue">
+    <VularEditPageHeader 
+      :title="title" 
+      :breadcrumbs="breadcrumbs" 
+      :titleField="titleField" 
+      :saveButton = "saveButton"
+      :cancelButton = "cancelButton"
+      v-model="inputValue">
     </VularEditPageHeader>
       <div class="header-image-container"
         v-if="this.$store.state.vularApp.content.breadcurmbsImage"
@@ -47,6 +53,8 @@
       titleField : {default : "title"},
       headerImageField:{default:'medias'},
       title: {default:''},
+      saveButton:{default:null},
+      cancelButton:{default:null},
     },
     data () {
       return {

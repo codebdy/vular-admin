@@ -1,6 +1,7 @@
 {
   "base":{
     "save":"Save",
+    "cancel":"Cancel",
     "close":"Close",
     "clear":"Clear"
   },

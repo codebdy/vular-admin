@@ -93,20 +93,25 @@
           </v-list>
         </v-menu>
         <v-btn outlined rounded 
+          v-if="cancelButton"
           :dark="dark" 
           :large="large" 
-          class="ml-6">
-          取消
+          class="ml-6"
+          @click="onCancel">
+          {{$t('base.cancel')}}
+
         </v-btn>
 
-        <v-btn rounded 
+        <v-btn rounded
+          v-if="saveButton" 
           class="ml-6"
           :large="large"
           color="primary"
           :text = "dark && !$vuetify.theme.dark" 
           :style="{background: $store.state.vularApp.content.card.color}"
+          @click="onSave"
         >
-          保存
+          {{$t('base.save')}}
         </v-btn>
       </div>
     </v-container>
@@ -124,6 +129,8 @@ import VularPageHeader from "./VularPageHeader"
       }},
       titleField : {},
       value:{default:()=>{ return{} }},
+      saveButton:{default:null},
+      cancelButton:{default:null},
     },
     data: () => ({
     }),
@@ -154,6 +161,14 @@ import VularPageHeader from "./VularPageHeader"
     methods: {
       onBreadcrumbClick(crumb){
         $bus.$emit('VularAction', crumb.action)
+      },
+
+      onSave(){
+        $bus.$emit('VularAction', this.saveButton.action)
+      },
+
+      onCancel(){
+        $bus.$emit('VularAction', this.cancelButton.action)
       },
     }
   }
