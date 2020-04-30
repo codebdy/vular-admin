@@ -31,17 +31,40 @@
         </div>
       </div>
       <v-container fluid style="margin-top:120px;">
-        <v-form>
-          <slot></slot>
-        </v-form>
+        <ValidationObserver ref="observer" v-slot="{ validate, reset }">
+          <v-form>
+            <slot></slot>
+          </v-form>
+        </ValidationObserver>
       </v-container>
   </v-content>
 </template>
 
 <script>
+  import { required, email, max } from 'vee-validate/dist/rules'
+  import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from 'vee-validate'
+
+  import InputTest from "./InputTest.vue"
+
+  setInteractionMode('eager')
+  extend('required', {
+    ...required,
+    message: '{_field_} can not be empty',
+  })
+  extend('max', {
+    ...max,
+    message: '{_field_} may not be greater than {length} characters',
+  })
+  extend('email', {
+    ...email,
+    message: 'Email must be valid',
+  })
+  
   export default {
     name: 'vular-edit-page',
     components: {
+      ValidationProvider,
+      ValidationObserver,
     },
     props: {
       value : { default: ()=>{

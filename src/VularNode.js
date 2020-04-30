@@ -65,9 +65,9 @@ export default {
       //self.vularViewModel = this.schema.viewModel ? this.schema.viewModel : this.viewModel
       self.schema.props = self.schema.props ? self.schema.props : {}
 
-      if(self.schema.props && self.schema.props['rules']){
-        self.schema.props.rules = eval(self.schema.props.rules)
-      }
+      //if(self.schema.props && self.schema.props['rules']){
+      //  self.schema.props.rules = eval(self.schema.props.rules)
+      //
 
       //if(self.schema.field){
         //let val = self.schema.defaultValue

@@ -6,10 +6,9 @@
           <div>
             <v-text-field
               v-model="name2"
-              :counter="10"
               :error-messages="errors"
-              label="Name2"
-              required
+              v-bind="propsTest"
+              counter="12"
             ></v-text-field>
           </div>
         </ValidationProvider>
@@ -32,6 +31,10 @@
 
     data: () => ({
       name2:'',
+      propsTest:{
+        label:"Test",
+        required:true,
+      },
     }),
 
     methods: {

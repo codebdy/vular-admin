@@ -66,5 +66,43 @@ export default {
     ],
   },
   children:[
+    {
+      name:"v-row",
+      children:[
+        {
+          name:"v-col",
+          props:{
+            cols:"12",
+            md:"8",
+          },
+
+          children:[
+            {
+              name:"VularFormCard",
+              props:{
+                title:"基本信息",
+              },
+              children:[
+                {
+                  name:"vular-input",
+                  props:{
+                    rules:"required|max:10",
+                    vInput:{
+                      name:"v-text-field",
+                      props:{
+                        label:"标题",
+                        "prepend-icon":"mdi-format-title",
+                      },
+                      field:"title",
+                    },
+                  },
+                },
+              ],
+            },
+          ],
+
+        },
+      ]
+    },
   ],
 }
