@@ -139,6 +139,7 @@
       cols:{ default : ''/*"6"*/ },
       single: {default : false},
       value:{default: ()=>{return []}},
+      field:{default:''},
     },
 
     data: () => ({
@@ -163,8 +164,8 @@
       },
 
       feathureMedia(){
-        if(this.inputValue.length > 0 && this.hasFeathureRow){
-          return this.inputValue[0]
+        if(this.inputValue[this.field].length > 0 && this.hasFeathureRow){
+          return this.inputValue[this.field][0]
         }
       },
 
@@ -174,10 +175,10 @@
           return rightMedias
         }
 
-        let counts = this.inputValue.length >= 9 ? 9 : this.inputValue.length
+        let counts = this.inputValue[this.field].length >= 9 ? 9 : this.inputValue[this.field].length
 
         for(var i = 1; i < counts; i ++){
-          rightMedias.push(this.inputValue[i])
+          rightMedias.push(this.inputValue[this.field][i])
         }
 
         return rightMedias
@@ -187,15 +188,15 @@
         let rowMedias = []
         let startIndex = 0
         if(this.hasFeathureRow){
-          if(this.inputValue.length <= 9){
+          if(this.inputValue[this.field].length <= 9){
             return rowMedias
           }
 
           startIndex = 9
         }
 
-        for(startIndex; startIndex < this.inputValue.length; startIndex ++){
-          rowMedias.push(this.inputValue[startIndex])
+        for(startIndex; startIndex < this.inputValue[this.field].length; startIndex ++){
+          rowMedias.push(this.inputValue[this.field][startIndex])
         }
 
         return rowMedias
@@ -224,30 +225,30 @@
       },
 
       onChangePosition(media){
-        for(var i=0; i<this.inputValue.length; i++)
+        for(var i=0; i<this.inputValue[this.field].length; i++)
         {
-          if(this.inputValue[i].id == this.draggedMedia.id){
-            this.$set(this.inputValue, i, media)
+          if(this.inputValue[this.field][i].id == this.draggedMedia.id){
+            this.$set(this.inputValue[this.field], i, media)
           } 
-          else if(this.inputValue[i].id == media.id){
-            this.$set(this.inputValue, i, this.draggedMedia)
+          else if(this.inputValue[this.field][i].id == media.id){
+            this.$set(this.inputValue[this.field], i, this.draggedMedia)
           } 
         }
       },
 
       onRemove(media){
-        remove(media, this.inputValue)
+        remove(media, this.inputValue[this.field])
       },
 
       addMedia(media){
         if(!this.ifContains(media)){
-          this.inputValue.push(media)
+          this.inputValue[this.field].push(media)
         }
       },
 
       ifContains(media){
-        for(var i = 0; i < this.inputValue.length; i++){
-          if(this.inputValue[i].id == media.id){
+        for(var i = 0; i < this.inputValue[this.field].length; i++){
+          if(this.inputValue[this.field][i].id == media.id){
             return true
           }
         }

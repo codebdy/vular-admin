@@ -10,6 +10,7 @@ export default {
     title:"有时像蒲公英，看似自由自在，实则身不由己",
     url:"https://vular.cn/test-sewfw",
     "seo.description":"描述Meta，has one 关联数据测试",
+    medias:[],
   },
   props:{
     title : "文章编辑",
@@ -91,6 +92,22 @@ export default {
           ],
 
         },
+        {
+          name:"v-col",
+          props:{
+            cols:"12",
+            md:"4",
+          },
+          children:[
+            {
+              name:'VularMediaSelectCard',
+              props:{
+                cols:"3",
+                field:"medias",
+              },
+            }
+          ]
+        }
       ]
     },
   ],
