@@ -1,7 +1,7 @@
 export default {
   name:"VularFormCard",
   props:{
-    title:"基本信息",
+    title:"内容",
   },
   children:[
     {

@@ -17,5 +17,41 @@ export default {
         },
       },
     },
+    {
+      name:"vular-input",
+      props:{
+        field:"seo.keywords",
+        vInput:{
+          name:"v-text-field",
+          props:{
+            label:"Keywords",
+          },
+        },
+      },
+    },
+    {
+      name:"vular-input",
+      props:{
+        field:"seo.title",
+        vInput:{
+          name:"v-text-field",
+          props:{
+            label:"Title",
+          },
+        },
+      },
+    },
+    {
+      name:"vular-input",
+      props:{
+        field:"seo.description",
+        vInput:{
+          name:"v-textarea",
+          props:{
+            label:"Deacription",
+          },
+        },
+      },
+    },
   ]
 }
