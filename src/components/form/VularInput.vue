@@ -42,7 +42,6 @@
     },
 
     mounted(){
-      //console.log(this.value)
     },
 
     methods: {

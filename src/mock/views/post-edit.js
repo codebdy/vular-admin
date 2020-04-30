@@ -1,3 +1,5 @@
+import postBaseCard from "./post-base-card"
+
 export default {
   "name" : "vular-edit-page",
   "vularId" : "post-edit-1",
@@ -79,29 +81,7 @@ export default {
           },
 
           children:[
-            {
-              name:"VularFormCard",
-              props:{
-                title:"基本信息",
-              },
-              children:[
-                {
-                  name:"vular-input",
-                  props:{
-                    rules:"required|max:10",
-                    field:"title",
-                    vInput:{
-                      name:"v-text-field",
-                      props:{
-                        label:"标题",
-                        "prepend-icon":"mdi-format-title",
-                      },
-                      field:"title",
-                    },
-                  },
-                },
-              ],
-            },
+            postBaseCard,
           ],
 
         },
