@@ -33,6 +33,8 @@ export default {
           api:"/api/view",
           view:'\\Water\\Vular\\View\\PostList',
         },
+
+        validate:true,
       },
     },
 

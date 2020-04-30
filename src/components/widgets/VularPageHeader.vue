@@ -119,8 +119,8 @@
         }
         this.topOffset = parseInt(window.pageYOffset || document.documentElement.offsetTop || 0)
         this.isStick = this.baseHeight < this.smallLimit
-        this.inputValue.header.isStick = this.isStick
-        this.inputValue.header.heightPercent = this.heightPercent
+        //this.inputValue.header.isStick = this.isStick
+        //this.inputValue.header.heightPercent = this.heightPercent
       }
     },
   }

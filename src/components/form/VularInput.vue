@@ -1,5 +1,5 @@
 <template>
-  <ValidationProvider v-slot="{ errors }" :name="vInput.props.label" :rules="vInput.rules">
+  <ValidationProvider v-slot="{ errors }" :name="vInput.props.label" :rules="rules">
     <component
       :is="vInput.name" 
       v-bind="vInput.props"
@@ -21,6 +21,7 @@
     },
     props: {
       vInput:{default:()=>{ return{} }},
+      rules:{default:''},
     },
 
     data: () => ({

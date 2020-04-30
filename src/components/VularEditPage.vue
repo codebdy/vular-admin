@@ -12,7 +12,8 @@
       :saveButton = "saveButton"
       :cancelButton = "cancelButton"
       :menuItems = "menuItems"
-      v-model="inputValue">
+      v-model="inputValue"
+      @action = "onAction">
     </VularEditPageHeader>
       <div class="header-image-container"
         v-if="this.$store.state.vularApp.content.breadcurmbsImage"
@@ -150,6 +151,13 @@
     },
 
     methods: {
+      onAction(action){
+        if(action.validate){
+          this.$refs.observer.validate()
+          return
+        }
+        $bus.$emit('VularAction', action)
+      },
     },
   }
 </script>

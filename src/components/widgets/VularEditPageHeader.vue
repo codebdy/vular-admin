@@ -159,19 +159,19 @@ import VularPageHeader from "./VularPageHeader"
 
     methods: {
       onBreadcrumbClick(crumb){
-        $bus.$emit('VularAction', crumb.action)
+        this.$emit('action', crumb.action)
       },
 
       onSave(){
-        $bus.$emit('VularAction', this.saveButton.action)
+        this.$emit('action', this.saveButton.action)
       },
 
       onCancel(){
-        $bus.$emit('VularAction', this.cancelButton.action)
+        this.$emit('action', this.cancelButton.action)
       },
 
       onMenuItemClick(item){
-        $bus.$emit('VularAction', item.action)
+        this.$emit('action', item.action)
       },
     }
   }
