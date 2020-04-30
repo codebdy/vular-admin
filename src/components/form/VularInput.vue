@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import { ValidationProvider } from 'vee-validate'
+  import { extend, ValidationProvider } from 'vee-validate'
   
   export default {
     name: "vular-input",

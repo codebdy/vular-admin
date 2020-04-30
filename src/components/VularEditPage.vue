@@ -42,29 +42,26 @@
 </template>
 
 <script>
-  import { required, email, max } from 'vee-validate/dist/rules'
-  import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from 'vee-validate'
+  //import { required, email, max } from 'vee-validate/dist/rules'
+  import { extend, ValidationObserver, setInteractionMode } from 'vee-validate'
 
-  import InputTest from "./InputTest.vue"
+  import * as rules from 'vee-validate/dist/rules';
+  import { messages as enMessages } from 'vee-validate/dist/locale/en.json';
+  import { messages as zhMessages } from 'vee-validate/dist/locale/zh_CN.json';
+
+  var messages = i18n.locale==='zh' ? zhMessages : enMessages
+  Object.keys(rules).forEach(rule => {
+    extend(rule, {
+      ...rules[rule], // copies rule configuration
+      message: messages[rule] // assign message
+    });
+  });
 
   setInteractionMode('eager')
-  extend('required', {
-    ...required,
-    message: '{_field_} can not be empty',
-  })
-  extend('max', {
-    ...max,
-    message: '{_field_} may not be greater than {length} characters',
-  })
-  extend('email', {
-    ...email,
-    message: 'Email must be valid',
-  })
   
   export default {
     name: 'vular-edit-page',
     components: {
-      ValidationProvider,
       ValidationObserver,
     },
     props: {

@@ -55,10 +55,10 @@
 
   import InputTest from "./InputTest.vue"
 
-  setInteractionMode('eager')
+  /*setInteractionMode('eager')
   extend('required', {
     ...required,
-    message: '{_field_} can not be empty',
+    message: '{_field_} 呜啦啦',
   })
   extend('max', {
     ...max,
@@ -67,7 +67,7 @@
   extend('email', {
     ...email,
     message: 'Email must be valid',
-  })
+  })*/
   export default {
     components: {
       ValidationProvider,
