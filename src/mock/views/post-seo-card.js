@@ -1,0 +1,21 @@
+export default {
+  name:"VularFormCard",
+  props:{
+    title:"搜索引擎优化",
+  },
+  children:[
+    {
+      name:"vular-input",
+      props:{
+        field:"url",
+        vInput:{
+          name:"vular-label",
+          props:{
+            label:"预览",
+            color:"blue",
+          },
+        },
+      },
+    },
+  ]
+}

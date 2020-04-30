@@ -121,6 +121,7 @@
         this.isStick = this.baseHeight < this.smallLimit
         //this.inputValue.header.isStick = this.isStick
         //this.inputValue.header.heightPercent = this.heightPercent
+        this.$emit('heightPercent', this.heightPercent)
       }
     },
   }

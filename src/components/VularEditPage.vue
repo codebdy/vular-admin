@@ -13,7 +13,9 @@
       :cancelButton = "cancelButton"
       :menuItems = "menuItems"
       v-model="inputValue"
-      @action = "onAction">
+      @heightPercent = "onHeaderHeightPercent"
+      @action = "onAction"
+    >
     </VularEditPageHeader>
       <div class="header-image-container"
         v-if="this.$store.state.vularApp.content.breadcurmbsImage"
@@ -22,7 +24,7 @@
           left : $vuetify.application.left + 'px',
           height : headerImageHeight,
           top : headerImageTop + 'px',
-          opacity:page.header.heightPercent,
+          opacity: 0.3 + headerHeightPercent,
         }" 
       >
         <div :style=" 'background-image:url(' + headerImageSrc + ');' " class="header-image"
@@ -80,17 +82,7 @@
     },
     data () {
       return {
-        page:{
-          header:{
-            isStick: false,
-            breadcrumbHeight: 90,
-            listHeaderHeight: 0,
-            heightPercent: 1,
-          },
-          model:{
-            medias:[],
-          },
-        }
+        headerHeightPercent: 1,
       }
     },
     computed:{
@@ -106,11 +98,13 @@
       headerImageSrc(){
         let image = null
         if(this.headerImageField){
-          let medias = this.page.model[this.headerImageField]
-          for(var i = 0; i < medias.length; i++){
-            if(medias[i].type === 'image'){
-              image = medias[i]
-              break
+          let medias = this.inputValue[this.headerImageField]
+          if(medias){
+            for(var i = 0; i < medias.length; i++){
+              if(medias[i].type === 'image'){
+                image = medias[i]
+                break
+              }
             }
           }
         }
@@ -127,7 +121,7 @@
       },
 
       headerImageHeight(){
-        return (this.page.header.heightPercent*150 + 100) + 'px'
+        return (this.headerHeightPercent*140 + 100) + 'px'
       },
     },
     created(){
@@ -148,6 +142,10 @@
     },
 
     methods: {
+      onHeaderHeightPercent(percent){
+        this.headerHeightPercent = percent
+      },  
+
       onAction(action){
         if(action.validate){
           this.$refs.observer.validate()

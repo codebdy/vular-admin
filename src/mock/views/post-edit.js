@@ -1,4 +1,6 @@
 import postBaseCard from "./post-base-card"
+import contentCard from "./post-content-card"
+import seoCard from "./post-seo-card"
 
 export default {
   "name" : "vular-edit-page",
@@ -6,6 +8,7 @@ export default {
   defaultModel:{
     id:"1",
     title:"有时像蒲公英，看似自由自在，实则身不由己",
+    url:"https://vular.cn/test-sewfw",
   },
   props:{
     title : "文章编辑",
@@ -82,6 +85,8 @@ export default {
 
           children:[
             postBaseCard,
+            seoCard,
+            contentCard
           ],
 
         },
