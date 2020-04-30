@@ -1,7 +1,7 @@
 import Mock from 'mockjs'
 
-import postListView from './views/post-list'
-import postEditView from './views/post-edit'
+import postListView from './views/post/post-list'
+import postEditView from './views/post/post-edit'
 import listAction from './actions/list'
 
 import productListView from './views/product-list'

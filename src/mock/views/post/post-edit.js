@@ -1,6 +1,9 @@
 import postBaseCard from "./post-base-card"
 import contentCard from "./post-content-card"
 import seoCard from "./post-seo-card"
+import appearCard from "./post-appearance-card"
+import categoryCard from "./post-category-card"
+import additionCard from "./post-addition-card"
 
 export default {
   "name" : "vular-edit-page",
@@ -105,7 +108,10 @@ export default {
                 cols:"3",
                 field:"medias",
               },
-            }
+            },
+            appearCard,
+            categoryCard,
+            additionCard
           ]
         }
       ]
