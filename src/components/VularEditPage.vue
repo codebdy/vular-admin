@@ -42,7 +42,6 @@
 </template>
 
 <script>
-  //import { required, email, max } from 'vee-validate/dist/rules'
   import { extend, ValidationObserver, setInteractionMode } from 'vee-validate'
 
   import * as rules from 'vee-validate/dist/rules';
