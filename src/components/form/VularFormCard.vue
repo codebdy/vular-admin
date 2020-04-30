@@ -18,8 +18,8 @@
         <v-icon v-else>mdi-chevron-down</v-icon>
       </v-btn>
     </v-toolbar>
-    <v-divider v-if="showBody"></v-divider>
-    <v-card-text v-if="showBody" :class="pa">
+    <v-divider v-show="showBody"></v-divider>
+    <v-card-text v-show="showBody" :class="pa">
       <slot>No slot</slot>
     </v-card-text>
   </v-card>

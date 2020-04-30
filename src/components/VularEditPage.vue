@@ -135,6 +135,7 @@
     },
     
     mounted() {
+      //console.log('vular edit page', this.value)
     },
     activated() {
       console.log('activated')

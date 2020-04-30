@@ -89,6 +89,7 @@ export default {
                   name:"vular-input",
                   props:{
                     rules:"required|max:10",
+                    field:"title",
                     vInput:{
                       name:"v-text-field",
                       props:{

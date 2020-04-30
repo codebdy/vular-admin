@@ -26,15 +26,11 @@ export default {
     if(self.schema.children){
       self.schema.children.forEach(function (com) {
         if(com){
-          if(com.text){
-            children.push(com.text)
-          }
-          else{
             //console.log(com.model)
             children.push(createElement(
                 'vular-node', 
                 {
-                  props:{ schema:com },
+                  props:{ schema:com, value: self.inputValue },
                   on: {
                     //input: function (event) {
                     //  self.$emit('input', event.target.value)
@@ -54,7 +50,6 @@ export default {
                 }
               )
             )
-          }
         }
       })
     }

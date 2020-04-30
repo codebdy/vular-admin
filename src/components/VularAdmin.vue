@@ -51,28 +51,6 @@
       </v-btn>
       <VularNotifications></VularNotifications>
       <VularAppbarProfile></VularAppbarProfile>
-      <template v-if="!hideToolbar" v-slot:extension>
-        <v-tabs align-with-title v-model="currenPage">
-          <v-tab 
-            v-for="page in pages"
-            :key="page.pageUrl"
-          >
-            <v-badge
-              color="pink"
-              dot
-              v-if="page.isChanged"
-            >
-              {{page.props.title}}
-            </v-badge>
-            <template v-else>
-              {{page.props.title}}
-            </template>
-            <v-btn icon x-small class="ml-2">
-              <v-icon small >mdi-close</v-icon> 
-            </v-btn>
-          </v-tab>
-        </v-tabs>
-      </template>
     </v-app-bar>
 
     <VularNode :schema = "activePage" v-model="activePage.defaultModel"></VularNode>
@@ -145,7 +123,6 @@
     },
     data: () => ({
       debug: false,
-      hideToolbar:true,
       currenPage:0,
       pages:[
         {
