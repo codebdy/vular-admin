@@ -42,7 +42,7 @@
     },
     methods: {
       querySelections (v) {
-        //console.log(v)
+        //console.log('querySelections:' + v)
         this.loading = true
         let action = this.queryAction
         $axios.post(action.api, {params: action.params, data : {keywords:v}})
