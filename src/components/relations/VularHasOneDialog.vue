@@ -10,21 +10,25 @@
         <v-card-title>{{title}}</v-card-title>
         <v-divider></v-divider>
         <v-card-text style="max-height: calc(100vh -300px)">
-          <v-text-field
-            label="Title"
-          ></v-text-field>
-          <v-textarea
-            label="Description"
-          ></v-textarea>
-          <v-row>
-            <v-col sm="6">
-              <VularSingleImageInput></VularSingleImageInput>
-            </v-col>
-            <v-col sm="6">
-              <v-text-field label="宽"></v-text-field>
-              <v-text-field label="高"></v-text-field>
-            </v-col>
-          </v-row>
+          <ValidationObserver ref="observer" v-slot="{ validate, reset }">
+            <v-form>
+              <v-text-field
+                label="Title"
+              ></v-text-field>
+              <v-textarea
+                label="Description"
+              ></v-textarea>
+              <v-row>
+                <v-col sm="6">
+                  <VularSingleImageInput></VularSingleImageInput>
+                </v-col>
+                <v-col sm="6">
+                  <v-text-field label="宽"></v-text-field>
+                  <v-text-field label="高"></v-text-field>
+                </v-col>
+              </v-row>
+            </v-form>
+          </ValidationObserver>
         </v-card-text>
         <v-divider></v-divider>
         <v-card-actions class="pa-5 media-alt-dialog-actions">
@@ -36,9 +40,12 @@
     </v-dialog>
 </template>
 <script>
+  import { ValidationObserver } from 'vee-validate'
+
   export default {
     name: "vular-has-one-dialog",
     components: {
+      ValidationObserver,
     },
     props: {
       title:{default: '1 to 1 Dialog'},
