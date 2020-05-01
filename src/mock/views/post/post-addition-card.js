@@ -23,8 +23,8 @@ export default {
               "api" : "/api/action",
               "belongsTo" : "to-many-slect-1",
               params : {
-                actionName:"/Water/Vular/Actions/Query",
-                modelName:"/Water/Vular/Model/Posts",
+                actionName:"/Water/Vular/Actions/SelectQuery",
+                modelName:"/Water/Vular/Model/Products",
               },
             },
           },

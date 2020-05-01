@@ -1,48 +1,18 @@
 <template>
-    <v-combobox
-      v-model="model"
-      :filter="filter"
-      :items="items"
-      :search-input.sync="search"
-      item-text="name"
-      v-bind="attributes"
-    >
-      <template v-slot:no-data>
-        <v-list-item>
-          <span class="subheading">Create</span>
-          <v-chip
-            label
-            small
-          >
-            {{ search }}
-          </v-chip>
-        </v-list-item>
-      </template>
-      <template v-slot:selection="{ attrs, item, parent, selected }">
-        <v-chip
-          v-if="item === Object(item)"
-          v-bind="attrs"
-          :input-value="selected"
-        >
-          <span class="pr-2">
-            {{ item.name }}
-          </span>
-          <v-icon
-            small
-            @click="parent.selectItem(item)"
-          >mdi-close</v-icon>
-        </v-chip>
-      </template>
-      <template v-slot:item="{ index, item }">
-         {{ item.name }}
-      </template>
-    </v-combobox>
+  <v-autocomplete
+    v-model="select"
+    :loading="loading"
+    :items="items"
+    :search-input.sync="search"
+    cache-items
+    v-bind="attributes"
+  ></v-autocomplete>
 </template>
 
 <script>
   export default {
     name: "vular-to-many-select",
-    extends:"v-combobox",
+    extends:"v-autocomplete",
     components: {
     },
     props: {
@@ -56,60 +26,91 @@
         return attrs
       }
     },
-    data: () => ({
-      activator: null,
-      attach: null,
-      index: -1,
-      items: [
-        { header: '做成动态加载' },
-        {
-          id:'1',
-          name: '手机123',
-        },
-        {
-          id:'2',
-          name: '插座121',
-        },
-      ],
-      nonce: 1,
-      menu: false,
-      model: [
-        {
-          id:'x',
-          name: 'Foo',
-        },
-      ],
-      x: 0,
-      search: null,
-      y: 0,
-    }),
 
+    data () {
+      return {
+        loading: false,
+        items: [],
+        search: null,
+        select: null,
+        states: [
+          'Alabama',
+          'Alaska',
+          'American Samoa',
+          'Arizona',
+          'Arkansas',
+          'California',
+          'Colorado',
+          'Connecticut',
+          'Delaware',
+          'District of Columbia',
+          'Federated States of Micronesia',
+          'Florida',
+          'Georgia',
+          'Guam',
+          'Hawaii',
+          'Idaho',
+          'Illinois',
+          'Indiana',
+          'Iowa',
+          'Kansas',
+          'Kentucky',
+          'Louisiana',
+          'Maine',
+          'Marshall Islands',
+          'Maryland',
+          'Massachusetts',
+          'Michigan',
+          'Minnesota',
+          'Mississippi',
+          'Missouri',
+          'Montana',
+          'Nebraska',
+          'Nevada',
+          'New Hampshire',
+          'New Jersey',
+          'New Mexico',
+          'New York',
+          'North Carolina',
+          'North Dakota',
+          'Northern Mariana Islands',
+          'Ohio',
+          'Oklahoma',
+          'Oregon',
+          'Palau',
+          'Pennsylvania',
+          'Puerto Rico',
+          'Rhode Island',
+          'South Carolina',
+          'South Dakota',
+          'Tennessee',
+          'Texas',
+          'Utah',
+          'Vermont',
+          'Virgin Island',
+          'Virginia',
+          'Washington',
+          'West Virginia',
+          'Wisconsin',
+          'Wyoming',
+        ],
+      }
+    },
     watch: {
-      model (val, prev) {
-        if (val.length === prev.length) return
-
-        this.model = val.map(v => {
-          if (typeof v === 'string') {
-            return null
-          }
-
-          return v
-        })
+      search (val) {
+        val && val !== this.select && this.querySelections(val)
       },
     },
-
     methods: {
-      filter (item, queryText, itemText) {
-        if (item.header) return false
-
-        const hasValue = val => val != null ? val : ''
-
-        const text = hasValue(itemText)
-        const query = hasValue(queryText)
-
-        return text.toString()
-          .toLowerCase()
-          .indexOf(query.toString().toLowerCase()) > -1
+      querySelections (v) {
+        this.loading = true
+        // Simulated ajax query
+        setTimeout(() => {
+          this.items = this.states.filter(e => {
+            return (e || '').toLowerCase().indexOf((v || '').toLowerCase()) > -1
+          })
+          this.loading = false
+        }, 500)
       },
     },
   }
