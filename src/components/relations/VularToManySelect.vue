@@ -4,12 +4,8 @@
       :filter="filter"
       :items="items"
       :search-input.sync="search"
-      :prepend-icon = "prependIcon"
-      label="相关产品"
-      multiple
-      chips
-      clearable
       item-text="name"
+      v-bind="attributes"
     >
       <template v-slot:no-data>
         <v-list-item>
@@ -46,12 +42,20 @@
 <script>
   export default {
     name: "vular-to-many-select",
+    extends:"v-combobox",
     components: {
     },
     props: {
-      prependIcon : {default:''},
+      queryAction : { default:null },
     },
 
+    computed:{
+      attributes(){
+        let attrs = Object.assign( {}, this.$attrs )
+        delete attrs.queryAction
+        return attrs
+      }
+    },
     data: () => ({
       activator: null,
       attach: null,

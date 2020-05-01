@@ -13,6 +13,20 @@ export default {
           name:"VularToManySelect",
           props:{
             "prepend-icon":"mdi-shopping-search",
+            label:"相关产品",
+            multiple:true,
+            chips:true,
+            clearable:true,
+            "vularId":"to-many-slect-1",
+            queryAction:{
+              "name" : "doAction",
+              "api" : "/api/action",
+              "belongsTo" : "to-many-slect-1",
+              params : {
+                actionName:"/Water/Vular/Actions/Query",
+                modelName:"/Water/Vular/Model/Posts",
+              },
+            },
           },
         },
       },
