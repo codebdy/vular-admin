@@ -4,8 +4,8 @@
     :loading="loading"
     :items="items"
     :search-input.sync="search"
-    cache-items
     v-bind="attributes"
+    item-text="title"
   ></v-autocomplete>
 </template>
 
@@ -33,67 +33,6 @@
         items: [],
         search: null,
         select: null,
-        states: [
-          'Alabama',
-          'Alaska',
-          'American Samoa',
-          'Arizona',
-          'Arkansas',
-          'California',
-          'Colorado',
-          'Connecticut',
-          'Delaware',
-          'District of Columbia',
-          'Federated States of Micronesia',
-          'Florida',
-          'Georgia',
-          'Guam',
-          'Hawaii',
-          'Idaho',
-          'Illinois',
-          'Indiana',
-          'Iowa',
-          'Kansas',
-          'Kentucky',
-          'Louisiana',
-          'Maine',
-          'Marshall Islands',
-          'Maryland',
-          'Massachusetts',
-          'Michigan',
-          'Minnesota',
-          'Mississippi',
-          'Missouri',
-          'Montana',
-          'Nebraska',
-          'Nevada',
-          'New Hampshire',
-          'New Jersey',
-          'New Mexico',
-          'New York',
-          'North Carolina',
-          'North Dakota',
-          'Northern Mariana Islands',
-          'Ohio',
-          'Oklahoma',
-          'Oregon',
-          'Palau',
-          'Pennsylvania',
-          'Puerto Rico',
-          'Rhode Island',
-          'South Carolina',
-          'South Dakota',
-          'Tennessee',
-          'Texas',
-          'Utah',
-          'Vermont',
-          'Virgin Island',
-          'Virginia',
-          'Washington',
-          'West Virginia',
-          'Wisconsin',
-          'Wyoming',
-        ],
       }
     },
     watch: {
@@ -103,14 +42,23 @@
     },
     methods: {
       querySelections (v) {
+        //console.log(v)
         this.loading = true
+        let action = this.queryAction
+        $axios.post(action.api, {params: action.params, data : {keywords:v}})
+        .then((res)=>{
+          this.loading = false
+          this.items = res.data
+        })
+
+
         // Simulated ajax query
-        setTimeout(() => {
+        /*setTimeout(() => {
           this.items = this.states.filter(e => {
             return (e || '').toLowerCase().indexOf((v || '').toLowerCase()) > -1
           })
           this.loading = false
-        }, 500)
+        }, 500)*/
       },
     },
   }

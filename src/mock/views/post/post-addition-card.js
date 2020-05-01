@@ -18,6 +18,8 @@ export default {
             chips:true,
             clearable:true,
             "vularId":"to-many-slect-1",
+            "hide-no-data":true,
+            "hide-details":true,
             queryAction:{
               "name" : "doAction",
               "api" : "/api/action",
