@@ -1,3 +1,4 @@
+import socialDialog from "./post-social-dialog"
 export default {
   name:"VularFormCard",
   props:{
@@ -47,20 +48,7 @@ export default {
         },
       },
     },
-    {
-      name:"vular-input",
-      props:{
-        rules:"",
-        field:"seo-dialog2",
-        vInput:{
-          name:"VularHasOneDialog",
-          props:{
-            "icon":"mdi-share-variant",
-            title:"社交分享优化",
-          },
-        },
-      },
-    },
+    socialDialog,
   ]
 
 }

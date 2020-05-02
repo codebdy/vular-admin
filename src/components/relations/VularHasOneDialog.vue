@@ -12,21 +12,12 @@
         <v-card-text style="max-height: calc(100vh -300px)">
           <ValidationObserver ref="observer" v-slot="{ validate, reset }">
             <v-form>
-              <v-text-field
-                label="Title"
-              ></v-text-field>
-              <v-textarea
-                label="Description"
-              ></v-textarea>
-              <v-row>
-                <v-col sm="6">
-                  <VularSingleImageInput></VularSingleImageInput>
-                </v-col>
-                <v-col sm="6">
-                  <v-text-field label="宽"></v-text-field>
-                  <v-text-field label="高"></v-text-field>
-                </v-col>
-              </v-row>
+              <VularNode
+                v-for="(schema, index) in layout" 
+                :schema = "schema"
+                :key = "index" 
+                v-model="model">
+              </VularNode>
             </v-form>
           </ValidationObserver>
         </v-card-text>
@@ -34,30 +25,44 @@
         <v-card-actions class="pa-5 media-alt-dialog-actions">
           <v-spacer></v-spacer>
           <v-btn color="primary" class="mr-5" text rounded @click="dialog = false">{{$t('media.cancel')}}</v-btn>
-          <v-btn color="primary" class="mr-5" rounded @click="dialog = false">{{$t('media.confirm')}}</v-btn>
+          <v-btn color="primary" class="mr-5" rounded @click="onConfirm">{{$t('media.confirm')}}</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
 </template>
 <script>
   import { ValidationObserver } from 'vee-validate'
+  import { ValidationProvider } from 'vee-validate'
 
   export default {
     name: "vular-has-one-dialog",
     components: {
       ValidationObserver,
+      ValidationProvider
     },
     props: {
       title:{default: '1 to 1 Dialog'},
       width:{default: "600px"},
       icon:{default : ''},
+      defaultModel:{default:()=>{ return{} }},
+      layout:{default:()=>{ return[] }},
     },
 
     data: () => ({
       dialog:false,
+      model:{},
     }),
 
     methods: {
-    }
+      onConfirm(){
+        this.$refs.observer.validate()
+        return
+        //this.dialog = false
+      }
+    },
+
+    mounted(){
+      this.model = Object.assign({}, this.defaultModel)
+    },
   }
 </script>
