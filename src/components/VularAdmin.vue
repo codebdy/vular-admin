@@ -164,6 +164,7 @@
 
     methods: {
       onVularAction(action, data){
+        let self = this
         if(action.name === 'openPage'){
           this.loading = true
           //this.$set(this, 'page', null)
@@ -172,6 +173,10 @@
               this.$set(this, 'page', res.data)
               this.loading = false
           })
+          .catch((error)=>{
+            this.loading = false
+            console.log(error);
+          });
         }
 
         if(action.name === "doAction"){

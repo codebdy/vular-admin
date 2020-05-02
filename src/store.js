@@ -10,6 +10,7 @@ new Vuex.Store({
   state:{
     vularApp: JSON.parse(JSON.stringify(defaultTheme)),
     activedMenuItem: '',
+    errors: [],
   },
 
   mutations:{
@@ -19,7 +20,15 @@ new Vuex.Store({
 
     activeMenuItem(state, id){
       state.activedMenuItem = id
-    }
+    },
+
+    error(state, error){
+      state.errors.push(error)
+    },
+
+    clearErrors(state){
+      state.errors = []
+    },
   },
  
   actions: {
