@@ -51,7 +51,19 @@
       <VularNotifications></VularNotifications>
       <VularAppbarProfile></VularAppbarProfile>
     </v-app-bar>
-    <VularNode v-if="page" :schema = "page" v-model="page.defaultModel"></VularNode>
+    <v-content v-if="loading">
+      <v-container>
+        <v-skeleton-loader
+          type="table-heading, list-item-two-line, image, table-tfoot" 
+        >
+        </v-skeleton-loader>
+        <!--v-skeleton-loader
+          type="table-heading, table-thead, table-tbody, table-tfoot"
+        >
+        </v-skeleton-loader-->
+      </v-container>
+    </v-content>
+    <VularNode v-else :schema = "page" v-model="page.defaultModel"></VularNode>
    
     <VularAppFab></VularAppFab>
     <v-footer
@@ -127,6 +139,8 @@
           title:"仪表盘",
         }
       },
+
+      loading:false,
     }),
 
     computed:{
@@ -151,10 +165,12 @@
     methods: {
       onVularAction(action, data){
         if(action.name === 'openPage'){
-          this.$set(this, 'page', null)
+          this.loading = true
+          //this.$set(this, 'page', null)
           $axios.post(action.api, action.view)
           .then((res)=>{
               this.$set(this, 'page', res.data)
+              this.loading = false
           })
         }
 

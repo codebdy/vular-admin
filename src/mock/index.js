@@ -32,4 +32,8 @@ Mock.mock('/api/view', 'post', (options)=>{
     return postEditView
   }
 })
+
+Mock.setup({
+    timeout: 400
+})
 //Mock.mock('/api/view/post-edit', 'post', postEditView)
