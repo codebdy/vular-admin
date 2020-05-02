@@ -5,9 +5,12 @@ export default {
     "vularId" : "product-list-1",
     defaultModel:{
       keywords:'',
-      page:'',
+      page:1,
       pagination:'',
-      filters:{},
+      cagegory:'none',
+      attribute:'none',
+      readings:'none',
+      status:'none',
     },
     "addNewAction":{
       "name":"openPage",
@@ -19,7 +22,7 @@ export default {
       "belongsTo" : "product-list-1",
       params : {
         actionName:"/Water/Vular/Actions/Query",
-        modelName:"/Water/Vular/Model/Posts",
+        modelName:"/Water/Vular/Model/Products",
       }
     },
     "canSelect" : true,

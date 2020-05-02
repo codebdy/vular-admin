@@ -5,6 +5,7 @@
       'font-family': $store.state.vularApp.content.fontFamily
     }"
   >
+    
     <VularEditPageHeader 
       :title="title" 
       :breadcrumbs="breadcrumbs" 

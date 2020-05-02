@@ -62,13 +62,6 @@ export default {
           active:true,
         },
         {
-          id:"2",
-          name:"vular-menu-item",
-          prependIcon: 'mdi-karate',
-          title:'Form Test',
-          to:"test",
-        },
-        {
           id:"3",
           name:"vular-menu-item",
           prependIcon: 'mdi-image-auto-adjust',
@@ -89,6 +82,13 @@ export default {
             }
           },
           to:"inquiry-list",
+        },
+        {
+          id:"2",
+          name:"vular-menu-item",
+          prependIcon: 'mdi-currency-usd-circle-outline',
+          title:'订单管理',
+          to:"test",
         },
         {
           name:"vular-subheader",
@@ -148,7 +148,11 @@ export default {
               id:"10",
               name:"vular-menu-item",
               title:'产品列表',
-              to:"product-list",
+              action:{
+                name:"openPage",
+                api:"/api/view",
+                view:'\\Water\\Vular\\View\\ProductList',
+              }
             },
             {
               id:"11",

@@ -1,6 +1,5 @@
 <template>
   <v-app id="admin-app" :style="{'font-family': $store.state.vularApp.fontFamily}"
-    v-scroll="onScroll"
   >
     <v-navigation-drawer
       v-model="$store.state.vularApp.drawer.model"
@@ -52,8 +51,7 @@
       <VularNotifications></VularNotifications>
       <VularAppbarProfile></VularAppbarProfile>
     </v-app-bar>
-
-    <VularNode :schema = "activePage" v-model="activePage.defaultModel"></VularNode>
+    <VularNode v-if="page" :schema = "page" v-model="page.defaultModel"></VularNode>
    
     <VularAppFab></VularAppFab>
     <v-footer
@@ -123,21 +121,18 @@
     },
     data: () => ({
       debug: false,
-      currenPage:0,
-      pages:[
-        {
-          name:"dashboard",
-          props:{
-            title:"仪表盘",
-          }
-        },
-      ],
+      page:{
+        name:"dashboard",
+        props:{
+          title:"仪表盘",
+        }
+      },
     }),
 
     computed:{
-      activePage(){
-        return this.pages[this.currenPage]
-      }
+      //activePage(){
+      //  return this.pages[this.currenPage]
+      //}
     },
 
     created(){
@@ -156,11 +151,10 @@
     methods: {
       onVularAction(action, data){
         if(action.name === 'openPage'){
+          this.$set(this, 'page', null)
           $axios.post(action.api, action.view)
           .then((res)=>{
-            this.pages.push(res.data)
-            //console.log(this.activePage)
-            this.currenPage = this.pages.length - 1
+              this.$set(this, 'page', res.data)
           })
         }
 
@@ -174,13 +168,6 @@
           })
         }
       },
-
-      onScroll(e){
-        //if (typeof window === "undefined") return
-
-        //const top = window.pageYOffset || document.documentElement.offsetTop || 0
-        //this.hideToolbar = top > 100
-      }
     },
   }
 </script>
