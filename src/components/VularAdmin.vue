@@ -156,6 +156,14 @@
               $bus.$emit('VularAction', action.successAction)
             }
           })
+          .catch((error)=>{
+            this.loading = false
+            this.$store.commit('error', {
+              error:error,
+              action:action,
+              data:data
+            })
+          })
         }
       },
     },
