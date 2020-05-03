@@ -48,8 +48,6 @@ import ProductEditPage from "./components/pages/product/ProductEditPage"
 import ProductCategory from "./components/pages/product/ProductCategory"
 import ProductModule from "./components/pages/product/ProductModule"
 
-import FormTest from "./components/FormTest"
-
 //Vue.use(VueRouter)
 
 //Vue.component(VeLine.name, VeLine)
@@ -87,8 +85,6 @@ Vue.component('PostCategory', PostCategory)
 Vue.component('PostAttributes', PostAttributes)
 Vue.component('ProductCategory', ProductCategory)
 Vue.component('ProductEditPage', ProductEditPage)
-
-Vue.component('FormTest', FormTest)
 
 /*const routes = [
   //{ path: '/form2', component: VularForm },
