@@ -57,10 +57,6 @@
           type="table-heading, list-item-two-line, image, table-tfoot" 
         >
         </v-skeleton-loader>
-        <!--v-skeleton-loader
-          type="table-heading, table-thead, table-tbody, table-tfoot"
-        >
-        </v-skeleton-loader-->
       </v-container>
     </v-content>
     <VularNode v-else :schema = "page" v-model="page.defaultModel"></VularNode>

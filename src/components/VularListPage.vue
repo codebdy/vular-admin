@@ -75,7 +75,13 @@
           :color="$store.state.vularApp.content.card.color" 
           :style="$store.state.vularApp.content.card.style"
         >
+          <v-skeleton-loader
+            type="table-heading, table-thead, table-tbody, table-tfoot"
+            v-if="loading"
+          >
+          </v-skeleton-loader>
           <VularListBody 
+            v-else
             :columns="columns"
             :rowActions = "rowActions" 
             :canSelect = "canSelect"
@@ -147,6 +153,7 @@
           },
           rows:[],
         },
+        loading:false,
       }
     },
     computed:{
@@ -243,8 +250,10 @@
       },
 
       submitAction(action, data){
+        this.loading = true
         $axios.post(action.api, {params: action.params, data : data})
         .then((res)=>{
+          this.loading = false
           $bus.$emit('dispatchModel', action.blongsTo, res.data)
           if(action.successAction){
             $bus.$emit('VularAction', action.successAction)
