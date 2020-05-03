@@ -20,7 +20,7 @@
         </v-divider>
         <v-subheader><v-icon color="primary">mdi-android-debug-bridge</v-icon> {{$t('debug.slogan')}}</v-subheader>
         <v-spacer></v-spacer>
-        <v-btn text @click="onClear">
+        <v-btn text @click="onClear" :disabled="$store.state.errors.length == 0">
           <v-icon>mdi-broom</v-icon>
           {{$t('debug.clear')}}
         </v-btn>
