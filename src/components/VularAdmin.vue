@@ -85,7 +85,7 @@
   import VularAppbarProfile from "./VularAppbarProfile"
   import VularNotifications from "./VularNotifications"
   import VularAppFab from "./VularAppFab"
-  import VularDebug from "./debug/VularDebug.vue"
+  import VularDebug from "./tools/VularDebug.vue"
   export default {
     components: {
       VularAppDrawer,
