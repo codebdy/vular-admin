@@ -241,13 +241,31 @@
           this.transshape = false
         }
       },
+
+      submitAction(action, data){
+        $axios.post(action.api, {params: action.params, data : data})
+        .then((res)=>{
+          $bus.$emit('dispatchModel', action.blongsTo, res.data)
+          if(action.successAction){
+            $bus.$emit('VularAction', action.successAction)
+          }
+        })
+        .catch((error)=>{
+          this.loading = false
+          this.$store.commit('error', {
+            error:error,
+            action:action,
+            data:data
+          })
+        })
+      }
     },
 
     watch:{
       "model.formModel": {
         handler(val){
           if(this.queryAction){
-            $bus.$emit("VularAction", this.queryAction, val)
+            this.submitAction(this.queryAction, val)
           }
         },
         deep: true,        
