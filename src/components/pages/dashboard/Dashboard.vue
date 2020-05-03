@@ -1,6 +1,6 @@
 <template>
   <VularPage :title="'仪表盘'" :titleIcon="'mdi-speedometer'" v-model="page">
-        <v-row
+      <v-row
         justify="start"
       >
         <v-col cols="12" lg="8" md="6">

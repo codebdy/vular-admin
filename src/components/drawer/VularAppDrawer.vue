@@ -58,15 +58,23 @@ export default {
           name:"vular-menu-item",
           prependIcon:'mdi-speedometer',
           title:this.$t('drawer.dashboard'),
-          to:"dashboard",
           active:true,
+          action:{
+            name:"openPage",
+            api:"/api/view",
+            view:'\\Water\\Vular\\View\\Dashboard',
+          }
         },
         {
           id:"3",
           name:"vular-menu-item",
           prependIcon: 'mdi-image-auto-adjust',
           title:this.$t('drawer.medias'),
-          to:"medias",
+          action:{
+            name:"openPage",
+            api:"/api/view",
+            view:'\\Water\\Vular\\View\\Medias',
+          }
         },
         {
           id:"4",

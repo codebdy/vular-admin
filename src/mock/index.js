@@ -5,7 +5,9 @@ import postEditView from './views/post/post-edit'
 import articleList from './actions/article-list'
 import productList from './actions/product-list'
 
-import productListView from './views/product-list'
+import productListView from './views/product/product-list'
+import dashboardView from './views/dashboard'
+import mediasView from './views/medias'
 
 
 Mock.mock('/api/action', 'post', (options)=>{
@@ -30,6 +32,14 @@ Mock.mock('/api/view', 'post', (options)=>{
 
   if(options.body ==='\\Water\\Vular\\View\\PostEdit'){
     return postEditView
+  }
+
+  if(options.body ==='\\Water\\Vular\\View\\Dashboard'){
+    return dashboardView
+  }
+  
+  if(options.body ==='\\Water\\Vular\\View\\Medias'){
+    return mediasView
   }
 })
 
