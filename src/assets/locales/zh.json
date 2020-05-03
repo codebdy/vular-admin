@@ -4,7 +4,8 @@
     "cancel":"取消",
     "close":"关闭",
     "clear":"清空",
-    "confirm":"确定"
+    "confirm":"确定",
+    "error" : "错误"
   },
 
   "list":{

@@ -11,6 +11,8 @@ new Vuex.Store({
     vularApp: JSON.parse(JSON.stringify(defaultTheme)),
     activedMenuItem: '',
     errors: [],
+    errorMsg:'',
+    showError:false,
   },
 
   mutations:{
@@ -23,12 +25,18 @@ new Vuex.Store({
     },
 
     error(state, error){
+      state.showError = true
+      state.errorMsg = error.error
       state.errors.push(error)
     },
 
     clearErrors(state){
       state.errors = []
     },
+
+    hideError(state){
+      state.showError = false
+    }
   },
  
   actions: {

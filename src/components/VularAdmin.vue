@@ -64,7 +64,7 @@
       </v-container>
     </v-content>
     <VularNode v-else :schema = "page" v-model="page.defaultModel"></VularNode>
-   
+    <ErrorDialog></ErrorDialog>
     <VularAppFab></VularAppFab>
     <v-footer
       :inset="$store.state.vularApp.footer.inset"
@@ -74,7 +74,7 @@
       :src = "$store.state.vularApp.footer.src"
       app
     >
-      <VularDebug></VularDebug>
+      <DebugDialog></DebugDialog>
       <span class="px-4">&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
@@ -85,13 +85,16 @@
   import VularAppbarProfile from "./VularAppbarProfile"
   import VularNotifications from "./VularNotifications"
   import VularAppFab from "./VularAppFab"
-  import VularDebug from "./tools/VularDebug.vue"
+  import DebugDialog from "./tools/DebugDialog.vue"
+  import ErrorDialog from "./tools/ErrorDialog.vue"
+
   export default {
     components: {
       VularAppDrawer,
       VularAppbarProfile,
       VularNotifications,
-      VularDebug,
+      DebugDialog,
+      ErrorDialog,
       VularAppFab
     },
     data: () => ({

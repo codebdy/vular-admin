@@ -4,7 +4,8 @@
     "cancel":"Cancel",
     "close":"Close",
     "clear":"Clear",
-    "confirm":"Confirm"
+    "confirm":"Confirm",
+    "error" : "Error"
   },
 
   "list":{
