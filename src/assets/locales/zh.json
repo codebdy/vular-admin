@@ -52,7 +52,8 @@
   "debug":{
     "debug":"调试",
     "slogan" : "抓虫、抓虫，其乐无穷",
-    "report-bug" : "提交Bug"
+    "report-bug" : "提交Bug",
+    "clear":"清空"
   },
 
   "login":{
@@ -62,4 +63,5 @@
     "forgot":"忘记密码？",
     "login":"登录"
   }
+
 }

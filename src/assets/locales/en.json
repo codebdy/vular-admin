@@ -51,7 +51,8 @@
   "debug":{
     "debug":"Debug",
     "slogan" : "Find a bug is funny",
-    "report-bug" : "Report Bug"
+    "report-bug" : "Report Bug",
+    "clear":"Clear"
   },
 
   "login":{

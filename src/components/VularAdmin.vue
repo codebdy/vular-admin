@@ -140,7 +140,6 @@
           })
           .catch((error)=>{
             this.loading = false
-            console.log(error);
             this.$store.commit('error', {
               error:error,
               action:action,

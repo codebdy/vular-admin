@@ -20,23 +20,52 @@
         </v-divider>
         <v-subheader><v-icon color="primary">mdi-android-debug-bridge</v-icon> {{$t('debug.slogan')}}</v-subheader>
         <v-spacer></v-spacer>
+        <v-btn text @click="onClear">
+          <v-icon>mdi-broom</v-icon>
+          {{$t('debug.clear')}}
+        </v-btn>
         <v-btn text href="https://github.com/vularsoft/vular-admin/issues" target="_blank">
           <v-icon medium class="mr-1">mdi-github</v-icon>
           {{$t('debug.report-bug')}}
         </v-btn>
       </v-toolbar>
       <v-list three-line subheader>
-        <v-subheader>调试界面</v-subheader>
-        <v-list-item>
+        <v-list-item
+          v-for="(error, index) in $store.state.errors"
+          :key="index"
+        >
           <v-list-item-content>
-            <v-list-item-title>Content filtering</v-list-item-title>
-            <v-list-item-subtitle>Set the content filtering level to restrict apps that can be downloaded</v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item>
-          <v-list-item-content>
-            <v-list-item-title>Password</v-list-item-title>
-            <v-list-item-subtitle>Require password for purchase or use password to restrict purchase</v-list-item-subtitle>
+            <v-list-item-title><b>#{{index + 1}} </b>{{error.error.message}}</v-list-item-title>
+            <div>
+              <v-btn text small class="ml-n3"
+                @click="onAction(error)"
+              >
+                Action:
+                <v-icon v-if="error.showAction">mdi-menu-down</v-icon>
+                <v-icon v-else>mdi-menu-right</v-icon>
+              </v-btn>
+              <pre v-if="error.showAction">{{error.action}}</pre>
+            </div>
+            <div v-if="error.data">
+                <v-btn text small class="ml-n3"
+                  @click="onActionData(error)"
+                >
+                  Action Data:
+                  <v-icon v-if="error.showActionData">mdi-menu-down</v-icon>
+                  <v-icon v-else>mdi-menu-right</v-icon>
+                </v-btn>
+              <pre v-if="error.showActionData">{{error.data}}</pre>
+            </div>
+            <div>
+              <v-btn text small class="ml-n3"
+                @click="onRequest(error)"
+              >Request 
+                <v-icon v-if="error.showRequest">mdi-menu-down</v-icon>
+                <v-icon v-else>mdi-menu-right</v-icon>
+              </v-btn>
+              <pre v-if="error.showRequest" style="color:green;">{{error.error.request}}</pre>
+            </div>
+            <div style="color:red;"><pre>{{error.error.stack}}</pre></div>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -59,6 +88,21 @@
     }),
 
     methods: {
+      onClear(){
+        this.$store.commit('clearErrors')
+      },
+
+      onAction(error){
+        this.$set(error, 'showAction', !error.showAction)
+      },
+
+      onActionData(error){
+        this.$set(error, 'showActionData', !error.showActionData)
+      },
+
+      onRequest(error){
+        this.$set(error, 'showRequest', !error.showRequest)
+      },
     }
   }
 </script>

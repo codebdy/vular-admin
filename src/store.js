@@ -27,7 +27,7 @@ new Vuex.Store({
     error(state, error){
       state.showError = true
       state.errorMsg = error.error
-      state.errors.push(error)
+      state.errors.unshift(error)
     },
 
     clearErrors(state){
