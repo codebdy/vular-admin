@@ -24,6 +24,7 @@
           <v-icon
             :large="!isStick"
             v-if="titleIcon"
+            color="primary"
           >{{titleIcon}}</v-icon>
           {{title}}
         </h1>
