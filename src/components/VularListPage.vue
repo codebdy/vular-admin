@@ -76,7 +76,7 @@
           :style="$store.state.vularApp.content.card.style"
         >
           <v-skeleton-loader
-            type="table-heading, table-thead, table-tbody, table-tfoot"
+            type="table-tbody, table-tfoot"
             v-if="loading"
           >
           </v-skeleton-loader>

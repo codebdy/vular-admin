@@ -1,5 +1,13 @@
 <template>
-  <v-app id="admin-app" :style="{'font-family': $store.state.vularApp.fontFamily}"
+  <v-app v-if="!$store.state.loggedIn"
+    :style="{'font-family': $store.state.vularApp.fontFamily}"
+  >
+    <VularLogin 
+    ></VularLogin>
+  </v-app>
+  <v-app id="admin-app" 
+    :style="{'font-family': $store.state.vularApp.fontFamily}"
+    v-else
   >
     <v-navigation-drawer
       v-model="$store.state.vularApp.drawer.model"

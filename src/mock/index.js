@@ -8,6 +8,8 @@ import productList from './actions/product-list'
 import productListView from './views/product/product-list'
 import dashboardView from './views/dashboard'
 import mediasView from './views/medias'
+import inquiresView from './views/inquires'
+import ordersView from './views/orders'
 
 
 Mock.mock('/api/action', 'post', (options)=>{
@@ -37,9 +39,16 @@ Mock.mock('/api/view', 'post', (options)=>{
   if(options.body ==='\\Water\\Vular\\View\\Dashboard'){
     return dashboardView
   }
-  
+
   if(options.body ==='\\Water\\Vular\\View\\Medias'){
     return mediasView
+  }
+
+  if(options.body ==='\\Water\\Vular\\View\\Inquires'){
+    return inquiresView
+  }
+  if(options.body ==='\\Water\\Vular\\View\\Orders'){
+    return ordersView
   }
 })
 

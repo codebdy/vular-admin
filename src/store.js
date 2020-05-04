@@ -13,6 +13,7 @@ new Vuex.Store({
     errors: [],
     errorMsg:'',
     showError:false,
+    loggedIn:false,
   },
 
   mutations:{
@@ -36,7 +37,15 @@ new Vuex.Store({
 
     hideError(state){
       state.showError = false
-    }
+    },
+
+    login(state){
+      state.loggedIn = true
+    },
+
+    logout(state){
+      state.loggedIn = false
+    },
   },
  
   actions: {

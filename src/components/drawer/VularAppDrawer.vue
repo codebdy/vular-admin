@@ -21,7 +21,14 @@
         </v-btn>
       </v-toolbar>
 
-      <v-list class="drawer-list">
+      <v-skeleton-loader
+        type="list-item-avatar, list-item-avatar, list-item-avatar, list-item-avatar, list-item-avatar, list-item-avatar, list-item-avatar, list-item-avatar, list-item-avatar"
+        v-if="loading" 
+      >
+      </v-skeleton-loader>
+      <v-list class="drawer-list"
+        v-else
+      >
       <component     
         v-for="schema in items"
         :key="schema.id"
@@ -52,6 +59,7 @@ export default {
   },
   data: function () {
     return{
+      loading:false,
       items:[
         {
           id:"1",
@@ -89,14 +97,22 @@ export default {
               small:false,
             }
           },
-          to:"inquiry-list",
+          action:{
+            name:"openPage",
+            api:"/api/view",
+            view:'\\Water\\Vular\\View\\Inquires',
+          }
         },
         {
           id:"2",
           name:"vular-menu-item",
           prependIcon: 'mdi-currency-usd-circle-outline',
           title:'订单管理',
-          to:"test",
+          action:{
+            name:"openPage",
+            api:"/api/view",
+            view:'\\Water\\Vular\\View\\Orders',
+          }
         },
         {
           name:"vular-subheader",

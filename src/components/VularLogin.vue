@@ -59,7 +59,7 @@
                     <v-btn text dark style="text-transform:capitalize;">{{$t('login.forgot')}}</v-btn>
                   </div>
 
-                  <v-btn color="primary" class="mt-5" x-large to="dashboard" style="text-transform:capitalize;width: 100%;">{{$t('login.login')}}</v-btn>
+                  <v-btn color="primary" class="mt-5" x-large @click="onLogin" style="text-transform:capitalize;width: 100%;">{{$t('login.login')}}</v-btn>
                 </v-form>
               </v-card-text>
             </v-card>
@@ -82,6 +82,9 @@
     }),
 
     methods: {
+      onLogin(){
+        this.$store.commit('login')
+      }
     }
   }
 </script>
