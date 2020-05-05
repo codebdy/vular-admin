@@ -13,10 +13,11 @@ export default {
       readings:'none',
       status:'none',
     },
-    "addNewAction":{
-      name:"openPage",
-      api:"/api/view",
-      view:'\\Water\\Vular\\View\\PostEdit',
+    "addNewPage":{
+      name:'page',
+      params:{
+        pageId:'water-vualr-view-post-edit',
+      }
     },
     "queryAction":{
       "name" : "doAction",

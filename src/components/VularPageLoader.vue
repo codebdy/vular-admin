@@ -1,0 +1,61 @@
+<template>
+  <v-content 
+    :style="{
+      background: $store.state.vularApp.content.color + ' url(' + $store.state.vularApp.content.src +')',
+      'font-family': $store.state.vularApp.content.fontFamily
+    }"
+    v-if="loading"
+  >
+      <v-container>
+        <v-skeleton-loader
+          type="table-heading, list-item-two-line, image, table-tfoot" 
+        >
+        </v-skeleton-loader>
+      </v-container>
+  </v-content>
+  <VularNode v-else-if="page" :schema = "page" v-model="page.defaultModel"></VularNode>
+</template>
+
+<script>
+  export default {
+    name: "vular-page-loader",
+    components: {
+    },
+    props: {
+    },
+
+    data: () => ({
+      loading:false,
+      page:null,
+    }),
+
+    methods: {
+      init(){
+        console.log('init page:' + this.$route.params.pageId)
+        this.loading = true
+        $axios.post('/api/view', this.$route.params)
+        .then((res)=>{
+            this.$set(this, 'page', res.data)
+            this.loading = false
+        })
+        .catch((error)=>{
+          this.loading = false
+          this.$store.commit('error', {
+            error:error,
+            action:action,
+            data:data
+          })
+        });
+      }
+    },
+
+    mounted(){
+      console.log('Pageloader mounted')
+      this.init()
+    },
+
+    watch: {
+      "$route": "init",
+    }
+  }
+</script>

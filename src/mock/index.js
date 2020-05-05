@@ -25,22 +25,24 @@ Mock.mock('/api/action', 'post', (options)=>{
   }
 })
 Mock.mock('/api/view', 'post', (options)=>{
-  if(options.body === '\\Water\\Vular\\View\\PostList'){
+  let opBody = JSON.parse(options.body)
+  //console.log(opBody)
+  if(opBody.pageId === 'water-vular-view-post_list'){
     return Object.assign({}, postListView) 
   }
-  if(options.body === '\\Water\\Vular\\View\\ProductList'){
+  if(opBody.pageId === '\\Water\\Vular\\View\\ProductList'){
     return Object.assign({}, productListView) 
   }
 
-  if(options.body ==='\\Water\\Vular\\View\\PostEdit'){
+  if(opBody.pageId ==='water-vualr-view-post-edit'){
     return postEditView
   }
 
-  if(options.body ==='\\Water\\Vular\\View\\Dashboard'){
+  if(opBody.pageId ==='\\Water\\Vular\\View\\Dashboard'){
     return dashboardView
   }
 
-  if(options.body ==='\\Water\\Vular\\View\\Medias'){
+  if(opBody.pageId ==='\\Water\\Vular\\View\\Medias'){
     return mediasView
   }
 

@@ -29,7 +29,7 @@
                 Vular
               </h1>
               <v-card-text style="overflow: auto;">
-                <v-form>
+                <!--v-form-->
 
                   <input type="password" style="display: none;"/>
                   <v-text-field
@@ -60,7 +60,7 @@
                   </div>
 
                   <v-btn color="primary" class="mt-5" x-large @click="onLogin" style="text-transform:capitalize;width: 100%;">{{$t('login.login')}}</v-btn>
-                </v-form>
+                <!--/v-form-->
               </v-card-text>
             </v-card>
           </v-col>

@@ -1,5 +1,5 @@
 <template>
-   <v-list-item link @click="onClick" color="primary" v-model="active">
+   <v-list-item link :to="schema.to" color="primary">
       <v-list-item-icon
         v-if="schema.prependIcon"
       >
@@ -48,14 +48,14 @@
       }
     },
     computed:{
-      active(){
-        return this.schema.id == this.$store.state.activedMenuItem
-      }
+      //active(){
+      //  return this.schema.id == this.$store.state.activedMenuItem
+      //}
     },
     methods: {
       onClick(){
-        $bus.$emit('VularAction', this.schema.action)
-        this.$store.commit('activeMenuItem', this.schema.id)
+        //$bus.$emit('VularAction', this.schema.action)
+        //this.$store.commit('activeMenuItem', this.schema.id)
       }
     },
   }

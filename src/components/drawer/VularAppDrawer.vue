@@ -67,22 +67,24 @@ export default {
           prependIcon:'mdi-speedometer',
           title:this.$t('drawer.dashboard'),
           active:true,
-          action:{
+          to:{name:'dashboard'},
+          /*action:{
             name:"openPage",
             api:"/api/view",
             view:'\\Water\\Vular\\View\\Dashboard',
-          }
+          }*/
         },
         {
           id:"3",
           name:"vular-menu-item",
           prependIcon: 'mdi-image-auto-adjust',
           title:this.$t('drawer.medias'),
-          action:{
+          to:{name:'medias'},
+          /*action:{
             name:"openPage",
             api:"/api/view",
             view:'\\Water\\Vular\\View\\Medias',
-          }
+          }*/
         },
         {
           id:"4",
@@ -139,11 +141,18 @@ export default {
                   small:false,
                 }
               },
-              action:{
+              to:{ 
+                name: 'module', 
+                params: { 
+                  pageId: 'water-vular-view-post_list',
+                  moduleId:'posts', 
+                }
+              }
+              /*action:{
                 name:"openPage",
                 api:"/api/view",
                 view:'\\Water\\Vular\\View\\PostList',
-              }
+              }*/
             },
             {
               id:"7",

@@ -14,6 +14,8 @@ new Vuex.Store({
     errorMsg:'',
     showError:false,
     loggedIn:false,
+    //pages schema cache
+    pagesCache:[],
   },
 
   mutations:{
