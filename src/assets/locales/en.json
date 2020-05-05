@@ -16,6 +16,7 @@
   },
 
   "media":{
+    "medias":"Medias",
     "images" : "Images",
     "videos" : "Videos",
     "files" : "Files",

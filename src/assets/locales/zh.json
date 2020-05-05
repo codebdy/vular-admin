@@ -16,6 +16,7 @@
   },
 
   "media":{
+    "medias":"媒体库",
     "images" : "图片",
     "videos" : "视频",
     "files" : "文件",
