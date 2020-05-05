@@ -15,5 +15,11 @@ export default[
         text:'mdi-github',
       }
     ]
+  },
+  {
+    name:'VularNotifications',
+  },
+  {
+    name:'VularAppbarAccount',
   }
 ]
