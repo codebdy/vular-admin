@@ -112,11 +112,12 @@ export default {
         "shortcut": true,
         "action": {
           name:"openPage",
-          api:"/api/view",
-          view:'\\Water\\Vular\\View\\PostEdit',
-          params : {
-            modelName:"/Water/Vular/Model/Posts",
-          }
+          to:{
+            name: 'page', 
+            params: { 
+              pageId: 'water-vualr-view-post-edit',
+            }
+          },
         },
       },
       {

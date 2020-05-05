@@ -179,7 +179,7 @@
 
     methods: {
       onAddNew(){
-        this.$router.push(this.addNewAction.to)
+        $bus.$emit('VularAction', this.addNewAction)
       },
       onDispatchModel(vularId, model){
         if(vularId == this.vularId){

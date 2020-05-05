@@ -29,6 +29,7 @@ export default [
       }
     },
     {
+      "id":"2",
       "avatar" : {
         "name":"v-avatar",
         "props":{

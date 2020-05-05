@@ -26,10 +26,10 @@ export default new Router({
       path: '/module/:moduleId',
       name: 'module',
       component: VularModule,
-      redirect:'/module/:moduleId/page/:pageId',
+      redirect:'/module/:moduleId/page/:pageId/data/:data?',
       children: [
         {
-          path: 'page/:pageId',
+          path: 'page/:pageId/data/:data?',
           name: 'page',
           component: VularPageLoader
         },

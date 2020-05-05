@@ -129,7 +129,10 @@
 
     methods: {
       onRowAction(actionCtrl, row){
-        $bus.$emit("VularAction", actionCtrl.action, row)
+        let action = Object.assign({}, actionCtrl.action)
+        action.to.params.data = row.id
+        console.log(action)
+        $bus.$emit("VularAction", action)
       },
     },
   }

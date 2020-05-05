@@ -59,6 +59,15 @@
       <VularNotifications></VularNotifications>
       <VularAppbarProfile></VularAppbarProfile>
     </v-app-bar>
+    <!--v-content v-if="loading">
+      <v-container>
+        <v-skeleton-loader
+          type="table-heading, list-item-two-line, image, table-tfoot" 
+        >
+        </v-skeleton-loader>
+      </v-container>
+    </v-content>
+    <VularNode v-else :schema = "page" v-model="page.defaultModel"></VularNode-->
     <router-view/>
     <ErrorDialog></ErrorDialog>
     <VularAppFab></VularAppFab>
@@ -100,22 +109,36 @@
           title:"仪表盘",
         }
       },
+
+      //loading:false,
     }),
 
     computed:{
+      //activePage(){
+      //  return this.pages[this.currenPage]
+      //}
     },
 
     created(){
       console.log(this.$vuetify)
+
+      $bus.$on('VularAction', this.onVularAction)
     },
 
     mounted() {
     },
 
     destroyed() {
+      $bus.$off('VularAction', this.onVularAction)
     },
 
     methods: {
+      onVularAction(action, data){
+        let self = this
+        if(action.name === 'openPage'){
+          this.$router.push(action.to)
+        }
+      },
     },
   }
 </script>
