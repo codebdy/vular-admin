@@ -13,11 +13,14 @@ export default {
       readings:'none',
       status:'none',
     },
-    "addNewPage":{
-      name:'page',
-      params:{
-        pageId:'water-vualr-view-post-edit',
-      }
+    "addNewAction":{
+      name:"openPage",
+      to:{
+        name: 'page', 
+        params: { 
+          pageId: 'water-vualr-view-post-edit',
+        }
+      },
     },
     "queryAction":{
       "name" : "doAction",

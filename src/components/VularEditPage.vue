@@ -148,6 +148,10 @@
       },  
 
       onAction(action){
+        if(action.name == 'openPage'){
+          this.$router.push(action.to)
+          return
+        }
         if(action.validate){
           this.$refs.observer.validate()
           return

@@ -22,8 +22,12 @@ export default {
         title : "文章列表",
         action:{
           name:"openPage",
-          api:"/api/view",
-          view:'\\Water\\Vular\\View\\PostList',
+          to:{
+            name: 'page', 
+            params: { 
+              pageId: 'water-vular-view-post_list',
+            }
+          },
         },
       }
     ],
@@ -39,9 +43,15 @@ export default {
         },
 
         successAction:{
-          name:"openPage",
-          api:"/api/view",
-          view:'\\Water\\Vular\\View\\PostList',
+          action:{
+            name:"openPage",
+            to:{
+              name: 'page', 
+              params: { 
+                pageId: 'water-vular-view-post_list',
+              }
+            },
+          },
         },
 
         validate:true,
@@ -51,8 +61,12 @@ export default {
     cancelButton:{
       action:{
         name:"openPage",
-        api:"/api/view",
-        view:'\\Water\\Vular\\View\\PostList',
+        to:{
+          name: 'page', 
+          params: { 
+            pageId: 'water-vular-view-post_list',
+          }
+        },
       },
     },
 

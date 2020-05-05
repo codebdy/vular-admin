@@ -48,6 +48,7 @@
         >
           <template v-for="(crumb, i) in breadcrumbs">
             <v-btn text rounded  class="ml-n4"
+              @click="onBreadcrumbClick(crumb)"
             >{{crumb.title}}</v-btn>
             <v-icon>mdi-chevron-right</v-icon>
           </template>

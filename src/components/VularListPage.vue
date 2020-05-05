@@ -11,9 +11,9 @@
       </div>
       <v-spacer></v-spacer>
       <v-btn rounded color="primary" dark
-        v-if="addNewPage" 
+        v-if="addNewAction" 
         :small="page.header.isStick"
-        :to="addNewPage"
+        @click="onAddNew"
       >
         <v-icon left>mdi-plus</v-icon> {{$t('list.add-new')}}
       </v-btn>
@@ -134,7 +134,7 @@
       title: {default:''},
       editPath:{default: ''},
       transshapeBreakPoint:{defalut: 'sm'},
-      addNewPage:{default:null},
+      addNewAction:{default:null},
     },
     data () {
       return {
@@ -167,7 +167,6 @@
       },
     },
     mounted () {
-      console.log(this.addNewPage)
       this.model.formModel = Object.assign({}, this.defaultModel)
       this.checkTransshape()
 
@@ -179,9 +178,9 @@
     },
 
     methods: {
-      //onAddNew(){
-      //  $bus.$emit('VularAction', this.addNewAction)
-      //},
+      onAddNew(){
+        this.$router.push(this.addNewAction.to)
+      },
       onDispatchModel(vularId, model){
         if(vularId == this.vularId){
           this.model.rows = model
