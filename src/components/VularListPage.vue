@@ -54,7 +54,6 @@
         :filters = "filters"
         :columns = "columns"
         :canSelect = "canSelect"
-        :isStick = "page.header.isStick"
         :heightPercent = "page.header.heightPercent"
         :transshape = "transshape"
         :queryAction = "queryAction"

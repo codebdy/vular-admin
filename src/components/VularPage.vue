@@ -9,7 +9,7 @@
       :title="title"
       :titleIcon = "titleIcon"
       :persistent = "persistent" 
-      @stick="onStick" 
+      @isStick="onStick" 
       @heightPercent="onHeightPercent"
       v-model="inputValue"
     >

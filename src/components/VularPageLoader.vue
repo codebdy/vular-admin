@@ -65,7 +65,6 @@
     },
 
     mounted(){
-      console.log('Pageloader mounted')
       this.init()
     },
 

@@ -55,7 +55,6 @@
       columns : { default:()=>{return []} },
       canSelect: {default: true},
       transshape : {default :'false'},
-      isStick: {default: false},
       value: {default: ()=>{return []}},
       heightPercent: { default : 1 },
       queryAction:{default:null},
@@ -74,6 +73,10 @@
         set:function(val) {
           this.$emit('input', val);
         },
+      },
+
+      isStick(){
+        return this.heightPercent < 0.5
       },
 
       tableHeaderHeight(){

@@ -126,20 +126,14 @@
       },
     },
     created(){
-      console.log('created')
+      //console.log('created')
     },
     
     mounted() {
       //console.log('vular edit page', this.value)
     },
-    activated() {
-      console.log('activated')
-    },
-    deactivated() {
-      console.log('deactivated')
-    },
     destroyed() {
-      console.log('destroyed')
+      //console.log('destroyed')
     },
 
     methods: {
