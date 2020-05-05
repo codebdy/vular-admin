@@ -12,7 +12,8 @@ import inquiresView from './views/inquires'
 import ordersView from './views/orders'
 
 import postBlank from './actions/post-blank'
-import post1 from '././actions/post1'
+import post1 from './actions/post1'
+import postXX from './actions/post-xx'
 
 
 Mock.mock('/api/action', 'post', (options)=>{
@@ -36,6 +37,8 @@ Mock.mock('/api/action', 'post', (options)=>{
     if(opBody.data == 1){
       return post1
     }
+
+    return postXX
   }
 })
 
