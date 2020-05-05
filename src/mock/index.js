@@ -1,5 +1,7 @@
 import Mock from 'mockjs'
 
+import drawer from './actions/drawer'
+
 import postListView from './views/post/post-list'
 import postEditView from './views/post/post-edit'
 import articleList from './actions/article-list'
@@ -11,9 +13,12 @@ import mediasView from './views/medias'
 import inquiresView from './views/inquires'
 import ordersView from './views/orders'
 
+
 import postBlank from './actions/post-blank'
 import post1 from './actions/post1'
 import postXX from './actions/post-xx'
+
+Mock.mock('/api/drawer', 'get', drawer)
 
 
 Mock.mock('/api/action', 'post', (options)=>{

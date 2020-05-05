@@ -48,14 +48,9 @@
       }
     },
     computed:{
-      //active(){
-      //  return this.schema.id == this.$store.state.activedMenuItem
-      //}
     },
     methods: {
       onClick(){
-        //$bus.$emit('VularAction', this.schema.action)
-        //this.$store.commit('activeMenuItem', this.schema.id)
       }
     },
   }
