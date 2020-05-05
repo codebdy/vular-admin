@@ -8,20 +8,19 @@
       </v-btn>
     </template>
     <v-list>
-      <v-list-item-group color="primary">
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-        >
-          <v-list-item-icon>
-            <v-icon v-text="item.icon"></v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.text"></v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list-item-group>
+      <v-list-item
+        v-for="(item, i) in items"
+        :key="i"
+        :to="item.to"
+        link
+      >
+        <v-list-item-icon>
+          <v-icon v-text="item.icon"></v-icon>
+        </v-list-item-icon>
+        <v-list-item-content>
+          <v-list-item-title v-text="item.title"></v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
     </v-list>
   </v-menu>
 </template>
@@ -32,9 +31,9 @@ export default {
   data () {
     return {
       items: [
-        { text: '个人信息', icon: 'mdi-account' },
-        { text: '修改密码', icon: 'mdi-lock-open-outline' },
-        { text: '退出', icon: 'mdi-logout' , to:"login",},
+        { title: '个人信息', icon: 'mdi-account' },
+        { title: '修改密码', icon: 'mdi-lock-open-outline' },
+        { title: '退出', icon: 'mdi-logout' , to:"login",},
       ],      
     }
   },

@@ -8,6 +8,11 @@
     "error" : "Error"
   },
 
+  "notification":{
+    "all" : "All",
+    "list" : "Notifications"
+  },
+
   "list":{
     "add-new":"Add New",
     "list-counts":"All {0} records",

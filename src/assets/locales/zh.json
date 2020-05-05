@@ -15,6 +15,11 @@
     "select-all":"全选"
   },
 
+  "notification":{
+    "all" : "全部",
+    "list" : "消息列表"
+  },
+
   "media":{
     "medias":"媒体库",
     "images" : "图片",

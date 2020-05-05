@@ -63,7 +63,6 @@
         $axios.get(api)
         .then((res)=>{
           this.tools = res.data
-          console.log(res.data)
           this.loading = false
         })
         .catch((error)=>{

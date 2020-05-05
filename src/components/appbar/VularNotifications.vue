@@ -10,7 +10,7 @@
     </template>
     <v-card class="elevation-0">
       <v-toolbar dense flat color="transparent">
-        <v-toolbar-title><h4>消息列表</h4></v-toolbar-title>
+        <v-toolbar-title><h4>{{$t("notification.list")}}</h4></v-toolbar-title>
       </v-toolbar>
       <v-divider></v-divider>
       <v-card-text class="pa-0">
@@ -18,19 +18,20 @@
           <template v-for="(item, index) in items">
             <v-subheader v-if="item.header" :key="item.header">{{ item.header }}</v-subheader>
             <v-divider v-else-if="item.divider" :key="index"></v-divider>
-            <v-list-item v-else :key="item.title">
-              <v-list-item-avatar :color="item.color">
-                <v-icon dark>{{ item.icon }}</v-icon>
+            <v-list-item v-else :key="item.title" link>
+              <v-list-item-avatar>
+                <v-icon v-if="item.unread">mdi-email-outline</v-icon>
+                <v-icon v-else>mdi-email-open-outline</v-icon>
               </v-list-item-avatar>
               <v-list-item-content>
-                <v-list-item-title :class="{'font-weight-bold' : index===0}"  v-text="item.title"></v-list-item-title>
+                <v-list-item-title :class="{'font-weight-bold' : item.unread}"  v-text="item.title"></v-list-item-title>
                 <v-list-item-subtitle v-text="item.timeLabel"></v-list-item-subtitle>
               </v-list-item-content>
              </v-list-item>
           </template>
         </v-list>
         <v-divider></v-divider>
-        <v-btn block tile class="ma-0">All</v-btn>
+        <v-btn block tile class="ma-0">{{$t("notification.all")}}</v-btn>
         <v-divider></v-divider>
       </v-card-text>
     </v-card>
@@ -45,30 +46,23 @@ export default {
       items: [
         {
           title: "New user registered",
-          color: "light-green",
-          icon: "account_circle",
-          timeLabel: "Just now"
+          timeLabel: "Just now",
+          unread:true,
         },
         { divider: true, inset: true },
         {
           title: "New order received",
-          color: "light-blue",
-          icon: "shopping_cart",
-          timeLabel: "2 min ago"
+          timeLabel: "2分钟前"
         },
         { divider: true, inset: true },
         {
           title: "New payment made",
-          color: "cyan",
-          icon: "payment",
-          timeLabel: "24 min ago"
+          timeLabel: "24分钟前"
         },
         { divider: true, inset: true },
         {
           title: "New message from Michael",
-          color: "red",
-          icon: "email",
-          timeLabel: "1 hour ago"
+          timeLabel: "1小时前"
         }
       ]
       ,      
