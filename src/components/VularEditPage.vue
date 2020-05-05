@@ -148,10 +148,10 @@
       },  
 
       onAction(action){
-        //if(action.validate){
-        //  this.$refs.observer.validate()
-        //  return
-        //}
+        if(action.validate){
+          this.$refs.observer.validate()
+          return
+        }
         $bus.$emit('VularAction', action)
       },
     },

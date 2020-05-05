@@ -9,13 +9,13 @@ export default
 new Vuex.Store({
   state:{
     vularApp: JSON.parse(JSON.stringify(defaultTheme)),
-    activedMenuItem: '',
+    //activedMenuItem: '',
     errors: [],
     errorMsg:'',
     showError:false,
     loggedIn:false,
     //pages schema cache
-    pagesCache:[],
+    pagesCache:new Map,
   },
 
   mutations:{
@@ -23,8 +23,12 @@ new Vuex.Store({
       state.vularApp = JSON.parse(JSON.stringify(theme))
     },
 
-    activeMenuItem(state, id){
-      state.activedMenuItem = id
+    //activeMenuItem(state, id){
+    //  state.activedMenuItem = id
+    //},
+
+    cachePage(state, data){
+      state.pagesCache.set(data.pageId, data.page)
     },
 
     error(state, error){

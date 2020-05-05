@@ -31,19 +31,34 @@
 
     methods: {
       init(){
-        console.log('init page:' + this.$route.params.pageId)
+        //console.log('init page:' + this.$route.params.pageId)
+        let page = this.$store.state.pagesCache.get(this.$route.params.pageId)
+        if(page){
+          this.page = page
+          //console.log('从缓存中取页面')
+          return
+        }
+
+        this.load()
+      },
+
+      load(){
         this.loading = true
         $axios.post('/api/view', this.$route.params)
         .then((res)=>{
-            this.$set(this, 'page', res.data)
-            this.loading = false
+          this.$set(this, 'page', res.data)
+          this.$store.commit('cachePage', {
+            pageId: this.$route.params.pageId, 
+            page: res.data
+          })
+          this.loading = false
         })
         .catch((error)=>{
           this.loading = false
           this.$store.commit('error', {
             error:error,
-            action:action,
-            data:data
+            action:this.$route.params.pageId,
+            //data:data
           })
         });
       }
