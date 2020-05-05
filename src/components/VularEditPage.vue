@@ -152,14 +152,13 @@
       load(){
         let data = this.$route.params.data
         let action = this.loadAction
-        this.loading = true
+        this.model = 'loading'
         $axios.post(action.api, {params: action.params, data : data})
         .then((res)=>{
-          this.loading = false
           this.model = res.data
         })
         .catch((error)=>{
-          this.loading = false
+          this.model = {}
           this.$store.commit('error', {
             error:error,
             action:action,

@@ -2,7 +2,6 @@
   <v-skeleton-loader
     type="card-heading"
     v-if="inputValue == 'loading'" 
-    color="transparent"
   >
   </v-skeleton-loader>
 
