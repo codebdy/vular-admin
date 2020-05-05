@@ -170,10 +170,12 @@
       this.checkTransshape()
 
       $bus.$on('dispatchModel', this.onDispatchModel)
+      $bus.$on('ActionError', this.onActionError)
     },
 
     destroyed() {
       $bus.$off('dispatchModel', this.onDispatchModel)
+      $bus.$off('ActionError', this.onActionError)
     },
 
     methods: {
@@ -183,8 +185,16 @@
       onDispatchModel(vularId, model){
         if(vularId == this.vularId){
           this.model.rows = model
+          this.loading = false
         }
       },
+      
+      onActionError(vularId, error){
+        if(vularId == this.vularId){
+          this.loading = false
+        }
+      },
+
       onSelectAll(selected){
         this.model.rows.forEach(row=>{
           this.$set(row, 'selected', selected)
@@ -247,33 +257,14 @@
           this.transshape = false
         }
       },
-
-      submitAction(action, data){
-        this.loading = true
-        $axios.post(action.api, {params: action.params, data : data})
-        .then((res)=>{
-          this.loading = false
-          $bus.$emit('dispatchModel', action.blongsTo, res.data)
-          if(action.successAction){
-            $bus.$emit('VularAction', action.successAction)
-          }
-        })
-        .catch((error)=>{
-          this.loading = false
-          this.$store.commit('error', {
-            error:error,
-            action:action,
-            data:data
-          })
-        })
-      }
     },
 
     watch:{
       "model.formModel": {
         handler(val){
           if(this.queryAction){
-            this.submitAction(this.queryAction, val)
+            this.loading = true
+            $bus.$emit('VularAction', this.queryAction, val)
           }
         },
         deep: true,        

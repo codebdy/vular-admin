@@ -138,6 +138,25 @@
         if(action.name === 'openPage'){
           this.$router.push(action.to)
         }
+
+        if(action.name === 'doAction'){
+          $axios.post(action.api, {params: action.params, data : data})
+          .then((res)=>{
+            $bus.$emit('dispatchModel', action.blongsTo, res.data)
+            if(action.successAction){
+              $bus.$emit('VularAction', action.successAction)
+            }
+          })
+          .catch((error)=>{
+            $bus.$emit('ActionError', action.blongsTo, error)
+            this.$store.commit('error', {
+              error:error,
+              action:action,
+              data:data
+            })
+          })
+        }
+
       },
     },
   }
