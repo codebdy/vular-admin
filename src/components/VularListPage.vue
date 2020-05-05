@@ -165,14 +165,15 @@
         },
       },
     },
+    created(){
+      $bus.$on('dispatchModel', this.onDispatchModel)
+      $bus.$on('ActionError', this.onActionError)
+    },
     mounted () {
       this.model.formModel = Object.assign({}, this.defaultModel)
       this.checkTransshape()
 
-      $bus.$on('dispatchModel', this.onDispatchModel)
-      $bus.$on('ActionError', this.onActionError)
     },
-
     destroyed() {
       $bus.$off('dispatchModel', this.onDispatchModel)
       $bus.$off('ActionError', this.onActionError)
@@ -188,7 +189,7 @@
           this.loading = false
         }
       },
-      
+
       onActionError(vularId, error){
         if(vularId == this.vularId){
           this.loading = false

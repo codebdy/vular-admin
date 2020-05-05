@@ -124,7 +124,8 @@
       },
     },
     created(){
-      //console.log('created')
+      $bus.$on('dispatchModel', this.onDispatchModel)
+      $bus.$on('ActionError', this.onActionError)
     },
     
     mounted() {
@@ -133,7 +134,8 @@
       this.load()
     },
     destroyed() {
-      //console.log('destroyed')
+      $bus.$off('dispatchModel', this.onDispatchModel)
+      $bus.$off('ActionError', this.onActionError)
     },
 
     methods: {
@@ -149,22 +151,22 @@
         $bus.$emit('VularAction', action)
       },
 
+      onDispatchModel(vularId, model){
+        if(vularId == this.vularId){
+          this.model = model
+        }
+      },
+
+      onActionError(vularId, error){
+        if(vularId == this.vularId){
+          this.model = {}
+        }
+      },
+
       load(){
         let data = this.$route.params.data
-        let action = this.loadAction
         this.model = 'loading'
-        $axios.post(action.api, {params: action.params, data : data})
-        .then((res)=>{
-          this.model = res.data
-        })
-        .catch((error)=>{
-          this.model = {}
-          this.$store.commit('error', {
-            error:error,
-            action:action,
-            data:data
-          })
-        })
+        $bus.$emit('VularAction', this.loadAction, data)
       }
 
     },
