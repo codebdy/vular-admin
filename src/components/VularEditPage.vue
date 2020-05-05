@@ -13,7 +13,7 @@
       :saveButton = "saveButton"
       :cancelButton = "cancelButton"
       :menuItems = "menuItems"
-      v-model="inputValue"
+      v-model="model"
       @heightPercent = "onHeaderHeightPercent"
       @action = "onAction"
     >
@@ -37,7 +37,12 @@
       <v-container fluid style="margin-top:120px;">
         <ValidationObserver ref="observer" v-slot="{ validate, reset }">
           <v-form>
-            <slot></slot>
+            <VularNode
+              v-for="(schema, index) in layout" 
+              :schema = "schema"
+              :key = "index" 
+              v-model="model">
+            </VularNode>          
           </v-form>
         </ValidationObserver>
       </v-container>
@@ -67,8 +72,8 @@
       ValidationObserver,
     },
     props: {
-      value : { default: ()=>{
-          return {}
+      layout : { default: ()=>{
+          return []
         }
       },
       breadcrumbs : {default: ()=>{
@@ -80,26 +85,19 @@
       saveButton:{default:null},
       cancelButton:{default:null},
       menuItems:{default:()=>{ return[] }},
+      loadAction:{default:null},
     },
     data () {
       return {
         headerHeightPercent: 1,
+        model:{},
       }
     },
     computed:{
-      inputValue: {
-        get:function() {
-          return this.value;
-        },
-        set:function(val) {
-          this.$emit('input', val);
-        },
-      },
-
       headerImageSrc(){
         let image = null
         if(this.headerImageField){
-          let medias = this.inputValue[this.headerImageField]
+          let medias = this.model[this.headerImageField]
           if(medias){
             for(var i = 0; i < medias.length; i++){
               if(medias[i].type === 'image'){
@@ -130,7 +128,9 @@
     },
     
     mounted() {
+      //this.modle = "loading"
       //console.log('vular edit page', this.value)
+      this.load()
     },
     destroyed() {
       //console.log('destroyed')
@@ -148,6 +148,26 @@
         }
         $bus.$emit('VularAction', action)
       },
+
+      load(){
+        let data = this.$route.params.data
+        let action = this.loadAction
+        this.loading = true
+        $axios.post(action.api, {params: action.params, data : data})
+        .then((res)=>{
+          this.loading = false
+          this.model = res.data
+        })
+        .catch((error)=>{
+          this.loading = false
+          this.$store.commit('error', {
+            error:error,
+            action:action,
+            data:data
+          })
+        })
+      }
+
     },
   }
 </script>

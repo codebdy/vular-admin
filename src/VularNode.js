@@ -86,11 +86,12 @@ export default {
         attrs:self.schema.attrs,
         props:self.schema.props,
         domProps:self.schema.domProps,
-        on: {
-          input: function (event) {
-            self.$emit('input', event.target.value)
-          }
-        },
+        //on: {
+          //input: function (event) {
+            //console.log(event.target.value)
+            //self.$emit('input', event.target.value)
+          //}
+        //},
         //on: self.getOn(),
         //directives:self.schema.directives,
         scopedSlots:self.schema.scopedSlots,

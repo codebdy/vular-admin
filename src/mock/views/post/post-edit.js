@@ -8,13 +8,13 @@ import additionCard from "./post-addition-card"
 export default {
   "name" : "vular-edit-page",
   "vularId" : "post-edit-1",
-  defaultModel:{
+  /*defaultModel:{
     id:"1",
     title:"有时像蒲公英，看似自由自在，实则身不由己",
     url:"https://vular.cn/test-sewfw",
     "seo.description":"描述Meta，has one 关联数据测试",
     medias:[],
-  },
+  },*/
   props:{
     title : "文章编辑",
     breadcrumbs : [
@@ -32,6 +32,14 @@ export default {
       }
     ],
     titleField:'title',
+    loadAction:{
+      "name" : "doAction",
+      "api" : "/api/action",
+      params : {
+        actionName:"/Water/Vular/Actions/Load",
+        modelName:"/Water/Vular/Model/Posts",
+      }
+    },
     saveButton:{
         action:{
         "name" : "doAction",
@@ -90,45 +98,45 @@ export default {
         },
       }     
     ],
-  },
-  children:[
-    {
-      name:"v-row",
-      children:[
-        {
-          name:"v-col",
-          props:{
-            cols:"12",
-            md:"8",
-          },
-
-          children:[
-            postBaseCard,
-            seoCard,
-            contentCard
-          ],
-
-        },
-        {
-          name:"v-col",
-          props:{
-            cols:"12",
-            md:"4",
-          },
-          children:[
-            {
-              name:'VularMediaSelectCard',
-              props:{
-                cols:"3",
-                field:"medias",
-              },
+    layout:[
+      {
+        name:"v-row",
+        children:[
+          {
+            name:"v-col",
+            props:{
+              cols:"12",
+              md:"8",
             },
-            appearCard,
-            categoryCard,
-            additionCard
-          ]
-        }
-      ]
-    },
-  ],
+
+            children:[
+              postBaseCard,
+              seoCard,
+              contentCard
+            ],
+
+          },
+          {
+            name:"v-col",
+            props:{
+              cols:"12",
+              md:"4",
+            },
+            children:[
+              {
+                name:'VularMediaSelectCard',
+                props:{
+                  cols:"3",
+                  field:"medias",
+                },
+              },
+              appearCard,
+              categoryCard,
+              additionCard
+            ]
+          }
+        ]
+      },
+    ],
+  },
 }

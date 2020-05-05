@@ -1,5 +1,13 @@
 <template>
+  <v-skeleton-loader
+    type="card-heading"
+    v-if="inputValue == 'loading'" 
+    color="transparent"
+    class="mt-5"
+  >
+  </v-skeleton-loader>
   <v-card
+    v-else
     class="mt-5 media-select"
     flat
     :color="$store.state.vularApp.content.card.color" 
@@ -164,7 +172,7 @@
       },
 
       feathureMedia(){
-        if(this.inputValue[this.field].length > 0 && this.hasFeathureRow){
+        if(this.inputValue[this.field] && this.inputValue[this.field].length > 0 && this.hasFeathureRow){
           return this.inputValue[this.field][0]
         }
       },
@@ -175,7 +183,8 @@
           return rightMedias
         }
 
-        let counts = this.inputValue[this.field].length >= 9 ? 9 : this.inputValue[this.field].length
+        let counts = this.inputValue[this.field] ? this.inputValue[this.field].length : 0
+        counts = counts >= 9 ? 9 : counts
 
         for(var i = 1; i < counts; i ++){
           rightMedias.push(this.inputValue[this.field][i])
@@ -187,6 +196,10 @@
       secondRowMedias(){
         let rowMedias = []
         let startIndex = 0
+        if(!this.inputValue[this.field]){
+          return rowMedias
+        }
+        
         if(this.hasFeathureRow){
           if(this.inputValue[this.field].length <= 9){
             return rowMedias
@@ -225,6 +238,10 @@
       },
 
       onChangePosition(media){
+        if(!this.inputValue[this.field]){
+          return
+        }
+
         for(var i=0; i<this.inputValue[this.field].length; i++)
         {
           if(this.inputValue[this.field][i].id == this.draggedMedia.id){

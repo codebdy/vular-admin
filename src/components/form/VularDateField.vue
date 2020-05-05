@@ -57,7 +57,7 @@
     },
 
     mounted(){
-      console.log(this.inputValue)
+      //console.log(this.inputValue)
     },
   }
 </script>

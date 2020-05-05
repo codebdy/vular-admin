@@ -13,7 +13,7 @@
         </v-skeleton-loader>
       </v-container>
   </v-content>
-  <VularNode v-else-if="page" :schema = "page" v-model="page.defaultModel"></VularNode>
+  <VularNode v-else-if="page" :schema = "page"></VularNode>
 </template>
 
 <script>

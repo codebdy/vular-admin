@@ -1,5 +1,16 @@
 <template>
-  <ValidationProvider v-slot="{ errors }" :name="vInput.props.label" :rules="rules">
+  <v-skeleton-loader
+    type="card-heading"
+    v-if="inputValue == 'loading'" 
+    color="transparent"
+  >
+  </v-skeleton-loader>
+
+  <ValidationProvider v-slot="{ errors }" 
+    :name="vInput.props.label" 
+    :rules="rules"
+    v-else
+  >
     <component
       :is="vInput.name" 
       v-bind="vInput.props"
@@ -42,6 +53,7 @@
     },
 
     mounted(){
+      //console.log(this.field,this.inputValue[this.field])
     },
 
     methods: {
