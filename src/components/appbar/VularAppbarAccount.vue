@@ -28,7 +28,7 @@
 
 <script>
 export default {
-  name: 'vular-appbar-profile',
+  name: 'vular-appbar-account',
   data () {
     return {
       items: [

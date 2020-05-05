@@ -1,0 +1,19 @@
+export default[
+  {
+    name:'v-btn',
+    props:{
+      icon:true,
+      href:'https://github.com/vularsoft/vular-admin',
+      target:"_blank"
+    },
+    children:[
+      {
+        name:'v-icon',
+        props:{
+          medium:true,
+        },
+        text:'mdi-github',
+      }
+    ]
+  }
+]

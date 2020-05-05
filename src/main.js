@@ -1,7 +1,6 @@
 import i18n from './assets/locales'
 import Vue from 'vue'
 import App from './App.vue'
-//import VueRouter from 'vue-router'
 import vuetify from './plugins/vuetify' // path to vuetify export
 //import VeLine from 'v-charts/lib/line.common'
 //import VeHistogram from 'v-charts/lib/histogram.common'
@@ -47,6 +46,9 @@ import ProductEditPage from "./components/pages/product/ProductEditPage"
 import ProductCategory from "./components/pages/product/ProductCategory"
 import ProductModule from "./components/pages/product/ProductModule"
 
+import VularAppbarAccount from "./components/appbar/VularAppbarAccount"
+import VularNotifications from "./components/appbar/VularNotifications"
+
 //Vue.use(VueRouter)
 
 //Vue.component(VeLine.name, VeLine)
@@ -84,27 +86,8 @@ Vue.component('PostAttributes', PostAttributes)
 Vue.component('ProductCategory', ProductCategory)
 Vue.component('ProductEditPage', ProductEditPage)
 
-/*const routes = [
-  //{ path: '/form2', component: VularForm },
-  { path: '/', redirect: {name:'login'} },
-  { path: '/dashboard', name:'dashboard', component: Dashboard },
-  { path: '/medias', name:'medias', component: VularMediasPage },
-  { path: '/inquiry-list', name:'inquiry-list', component: InquiryListPage },
-  { path: '/post-list', name:'post-list', component: PostListPage },
-  { path: '/post-edit', name:'post-edit', component: PostEditPage },
-  { path: '/post-category', name:'post-category', component: PostCategory },
-  { path: '/post-attributes', name:'post-attributes', component: PostAttributes },
-  { path: '/product-list', name:'product-list', component: ProductModule },
-  { path: '/product-edit', name:'product-edit', component: ProductEditPage },
-  { path: '/product-category', name:'product-category', component: ProductCategory },
-  { path: '/theme-settings', name:'theme-settings', component: ThemeSettings },
-  { path: '/login', name:'login', component: VularLogin },
-  { path: '/test', name:'test', component: FormTest },
-]
-
-const router = new VueRouter({
-  routes 
-})*/
+Vue.component('VularAppbarAccount', VularAppbarAccount)
+Vue.component('VularNotifications', VularNotifications)
 
 window.$bus= new Vue();
 window.$axios = axios
