@@ -52,7 +52,7 @@
 
 <script>
   import VularAppDrawer from "./drawer/VularAppDrawer.vue"
-  import VularAppbar from "./appbar/VularAppbar.vue"
+  import VularAppbar from "./VularAppbar.vue"
   import VularAppFab from "./VularAppFab"
   import DebugDialog from "./tools/DebugDialog.vue"
   import ErrorDialog from "./tools/ErrorDialog.vue"
@@ -96,7 +96,7 @@
     },
 
     methods: {
-      onVularAction(action, data){
+      onVularAction(action, vularId, data){
         let self = this
         if(action.name === 'openPage'){
           this.$router.push(action.to)
@@ -106,13 +106,13 @@
           $axios.post(action.api, {params: action.params, data : data})
           .then((res)=>{
             this.$store.commit("globals", res.data.globals)
-            $bus.$emit('dispatchModel', action.belongsTo, res.data.pageData)
+            $bus.$emit('dispatchModel', vularId, res.data.pageData)
             if(action.successAction){
-              $bus.$emit('VularAction', action.successAction)
+              $bus.$emit('VularAction', action.successAction, vularId)
             }
           })
           .catch((error)=>{
-            $bus.$emit('ActionError', action.belongsTo, error)
+            $bus.$emit('ActionError', vularId, error)
             this.$store.commit('error', {
               error:error,
               action:action,

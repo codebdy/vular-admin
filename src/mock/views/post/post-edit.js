@@ -44,7 +44,7 @@ export default {
         action:{
         "name" : "doAction",
         "api" : "/api/action",
-        "belongsTo" : "post-edit-1",
+        //"belongsTo" : "post-edit-1",
         params : {
           actionName:"/Water/Vular/Actions/Save",
           modelName:"/Water/Vular/Model/Posts",

@@ -166,7 +166,7 @@
       load(){
         let data = this.$route.params.data
         this.model = 'loading'
-        $bus.$emit('VularAction', this.loadAction, data)
+        $bus.$emit('VularAction', this.loadAction, this.vularId, data)
       }
 
     },

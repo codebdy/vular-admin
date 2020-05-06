@@ -266,7 +266,7 @@
         handler(val){
           if(this.queryAction){
             this.loading = true
-            $bus.$emit('VularAction', this.queryAction, val)
+            $bus.$emit('VularAction', this.queryAction, this.vularId,  val)
           }
         },
         deep: true,        

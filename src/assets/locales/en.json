@@ -10,7 +10,8 @@
 
   "notification":{
     "all" : "All",
-    "list" : "Notifications"
+    "list" : "Notifications",
+    "view" : "View Notification"
   },
 
   "list":{

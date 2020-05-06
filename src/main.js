@@ -46,8 +46,8 @@ import ProductEditPage from "./components/pages/product/ProductEditPage"
 import ProductCategory from "./components/pages/product/ProductCategory"
 import ProductModule from "./components/pages/product/ProductModule"
 
-import VularAppbarAccount from "./components/appbar/VularAppbarAccount"
-import VularNotifications from "./components/appbar/VularNotifications"
+import VularAppbarAccount from "./components/account/VularAppbarAccount"
+import VularNotifications from "./components/notifications/VularNotifications"
 
 //Vue.use(VueRouter)
 

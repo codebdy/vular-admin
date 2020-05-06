@@ -275,7 +275,7 @@
       },
 
       onBatchAction(actionCtrl){
-        $bus.$emit("VularAction", actionCtrl.action, this.selectedRows)
+        $bus.$emit("VularAction", actionCtrl.action, this.vularId, this.selectedRows)
       },
     },
   }

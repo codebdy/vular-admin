@@ -131,7 +131,7 @@
       onRowAction(actionCtrl, row){
         let action = Object.assign({}, actionCtrl.action)
         action.to.params.data = row.id
-        $bus.$emit("VularAction", action)
+        $bus.$emit("VularAction", action, this.vularId)
       },
     },
   }
