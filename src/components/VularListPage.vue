@@ -114,6 +114,7 @@
     components: {
     },
     props: {
+      vularId: {default: ''},
       defaultModel:{default : ()=>{return {} }},
       queryAction :{ default:null },
       batchActions: { default: ()=>{return []} },
