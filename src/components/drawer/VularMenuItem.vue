@@ -6,7 +6,7 @@
         <v-badge
           :color="schema.badge.props.color"
           dot
-          v-if="drawer.mini && schema.badge"
+          v-if="drawer.mini && schema.badge && badge"
         >
           <v-icon v-text="schema.prependIcon"></v-icon>
         </v-badge>
@@ -28,10 +28,10 @@
         v-bind="schema.chip.props"
       >{{schema.chip.title}}</v-chip>
     </div>
-    <div v-if="schema.badge">
+    <div v-if="schema.badge && badge">
       <v-chip
         v-bind="schema.badge.props"
-      >{{schema.badge.title}}</v-chip>
+      >{{badge}}</v-chip>
     </div>
   </v-list-item>
 </template>
@@ -48,6 +48,10 @@
       }
     },
     computed:{
+      badge(){
+        let globalField = this.schema.badge.globalField
+        return globalField ? this.$store.state.globals[globalField] : this.schema.badge.title
+      }
     },
     methods: {
       onClick(){

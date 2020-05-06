@@ -105,7 +105,8 @@
         if(action.name === 'doAction'){
           $axios.post(action.api, {params: action.params, data : data})
           .then((res)=>{
-            $bus.$emit('dispatchModel', action.blongsTo, res.data)
+            this.$store.commit("globals", res.data.globals)
+            $bus.$emit('dispatchModel', action.blongsTo, res.data.pageData)
             if(action.successAction){
               $bus.$emit('VularAction', action.successAction)
             }

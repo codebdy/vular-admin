@@ -30,7 +30,8 @@ export default [
     prependIcon: 'mdi-message-text-outline',
     title:'询盘',
     badge:{
-      title:'6',
+      title:'x',
+      globalField:'inquires',
       props:{
         dark:true,
         color:'red',
@@ -72,7 +73,8 @@ export default [
         title:'文章列表',
         active: true,
         badge:{
-          title:'4',
+          title:'x',
+          globalField:'newArticles',
           props:{
             dark:true,
             color:'blue',

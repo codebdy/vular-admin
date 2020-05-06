@@ -46,10 +46,12 @@
         this.loading = true
         $axios.post('/api/view', this.$route.params)
         .then((res)=>{
-          this.$set(this, 'page', res.data)
+          this.$store.commit("globals", res.data.globals)
+          let page = res.data.pageData
+          this.$set(this, 'page', page)
           this.$store.commit('cachePage', {
             pageId: this.$route.params.pageId, 
-            page: res.data
+            page: page
           })
           this.loading = false
         })

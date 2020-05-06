@@ -28,24 +28,24 @@ Mock.mock('/api/action', 'post', (options)=>{
   //console.log(opBody)
   if(opBody.params.actionName=="/Water/Vular/Actions/Query" && opBody.params.modelName == "/Water/Vular/Model/Posts"){
     //console.log('request post list')
-    return  JSON.parse(JSON.stringify(articleList))
+    return {pageData:JSON.parse(JSON.stringify(articleList)), globals:{inquires:9, newArticles:5, notifications:5}}
   }
   if(opBody.params.actionName=="/Water/Vular/Actions/Query" && opBody.params.modelName == "/Water/Vular/Model/Products"){
     //console.log('request product list')
-    return  JSON.parse(JSON.stringify(productList))
+    return {pageData:JSON.parse(JSON.stringify(productList)), globals:{inquires:12, newArticles:7, notifications:4}}
   }
 
   if(opBody.params.actionName == "/Water/Vular/Actions/Load" 
     && opBody.params.modelName == "/Water/Vular/Model/Posts"){
     if(!opBody.data){
-      return postBlank
+      return {pageData:postBlank, globals:{inquires:7, newArticles:2, notifications:7}}
     }
 
     if(opBody.data == 1){
-      return post1
+      return {pageData:post1, globals:{inquires:6, newArticles:4, notifications:12}}
     }
 
-    return postXX
+    return {pageData:postXX, globals:{inquires:8, newArticles:5, notifications:6}}
   }
 })
 
@@ -53,29 +53,29 @@ Mock.mock('/api/view', 'post', (options)=>{
   let opBody = JSON.parse(options.body)
   //console.log(opBody)
   if(opBody.pageId === 'water-vular-view-post_list'){
-    return Object.assign({}, postListView) 
+    return {pageData:postListView, globals:{inquires:4, newArticles:2, notifications:3}}
   }
   if(opBody.pageId === '\\Water\\Vular\\View\\ProductList'){
-    return Object.assign({}, productListView) 
+    return {pageData:productListView, globals:{inquires:4, newArticles:2, notifications:3}}
   }
 
   if(opBody.pageId ==='water-vualr-view-post-edit'){
-    return postEditView
+    return {pageData:postEditView, globals:{inquires:5, newArticles:3, notifications:2}}
   }
 
   if(opBody.pageId ==='\\Water\\Vular\\View\\Dashboard'){
-    return dashboardView
+    return {pageData:dashboardView, globals:{inquires:4, newArticles:2, notifications:3}}
   }
 
   if(opBody.pageId ==='\\Water\\Vular\\View\\Medias'){
-    return mediasView
+    return {pageData:mediasView, globals:{inquires:4, newArticles:2, notifications:3}}
   }
 
   if(options.body ==='\\Water\\Vular\\View\\Inquires'){
-    return inquiresView
+    return {pageData:inquiresView, globals:{inquires:10, newArticles:2, notifications:3}}
   }
   if(options.body ==='\\Water\\Vular\\View\\Orders'){
-    return ordersView
+    return {pageData:ordersView, globals:{inquires:10, newArticles:2, notifications:3}}
   }
 })
 

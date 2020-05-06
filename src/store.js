@@ -16,6 +16,7 @@ new Vuex.Store({
     loggedIn:false,
     //pages schema cache
     pagesCache:new Map,
+    globals:{},
   },
 
   mutations:{
@@ -52,6 +53,10 @@ new Vuex.Store({
     logout(state){
       state.loggedIn = false
     },
+
+    globals(state, globals){
+      state.globals = globals
+    }
   },
  
   actions: {

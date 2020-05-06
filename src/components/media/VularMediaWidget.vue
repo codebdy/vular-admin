@@ -155,6 +155,7 @@
             <v-icon :size="toolIconSize">mdi-delete-sweep-outline</v-icon>
           </v-btn>
           <v-btn icon color="primary"
+            v-if="inputValue.length == 1"
             @click.stop = "onReplace"
           >
             <v-icon :size="17">mdi-file-replace-outline</v-icon>
