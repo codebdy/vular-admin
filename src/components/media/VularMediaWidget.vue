@@ -556,6 +556,7 @@
         this.inputValue.forEach(media=>{
           remove(media, this.medias)
         })
+        this.inputValue = []
 
         console.log("@@@ 通过后台API更新数据")
       },
