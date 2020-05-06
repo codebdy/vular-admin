@@ -2,10 +2,11 @@
   <v-menu offset-y origin="center center" :nudge-bottom="10" transition="scale-transition">
     <template v-slot:activator="{ on }">
       <v-btn icon v-on="on">
-        <v-badge color="red" overlap>
-          <span slot="badge">3</span>
+        <v-badge color="red" overlap v-if="badge">
+          <span slot="badge">{{badge}}</span>
           <v-icon medium>mdi-bell-outline</v-icon>
         </v-badge>
+        <v-icon v-else medium>mdi-bell-outline</v-icon>
       </v-btn>
     </template>
     <v-card class="elevation-0">
@@ -41,6 +42,9 @@
 <script>
 export default {
   name: 'vular-notifications',
+  props:{
+    globalField: {default : "notifications"},
+  },
   data () {
     return {
       items: [
@@ -66,6 +70,13 @@ export default {
         }
       ]
       ,      
+    }
+  },
+
+  computed:{
+    badge(){
+      let globalField = this.globalField
+      return globalField ? this.$store.state.globals[globalField] : ''
     }
   },
 

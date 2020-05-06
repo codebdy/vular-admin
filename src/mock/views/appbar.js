@@ -18,6 +18,7 @@ export default[
   },
   {
     name:'VularNotifications',
+    globalField:"notifications",
   },
   {
     name:'VularAppbarAccount',
