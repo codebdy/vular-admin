@@ -106,13 +106,13 @@
           $axios.post(action.api, {params: action.params, data : data})
           .then((res)=>{
             this.$store.commit("globals", res.data.globals)
-            $bus.$emit('dispatchModel', action.blongsTo, res.data.pageData)
+            $bus.$emit('dispatchModel', action.belongsTo, res.data.pageData)
             if(action.successAction){
               $bus.$emit('VularAction', action.successAction)
             }
           })
           .catch((error)=>{
-            $bus.$emit('ActionError', action.blongsTo, error)
+            $bus.$emit('ActionError', action.belongsTo, error)
             this.$store.commit('error', {
               error:error,
               action:action,

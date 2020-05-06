@@ -18,7 +18,19 @@ export default[
   },
   {
     name:'VularNotifications',
-    globalField:"notifications",
+    props:{
+      globalField:"notifications",
+      vularId:"notifications",
+      "queryAction":{
+        "name" : "doAction",
+        "api" : "/api/action",
+        "belongsTo" : "notifications",
+        params : {
+          actionName:"/Water/Vular/Actions/Query",
+          modelName:"/Water/Vular/Model/Notifications",
+        }
+      },
+    }
   },
   {
     name:'VularAppbarAccount',

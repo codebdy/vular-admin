@@ -1,5 +1,5 @@
 <template>
-  <v-menu offset-y origin="center center" :nudge-bottom="10" transition="scale-transition">
+  <v-menu offset-y origin="center center" :nudge-bottom="10" transition="scale-transition" v-model="poped">
     <template v-slot:activator="{ on }">
       <v-btn icon v-on="on">
         <v-badge color="red" overlap v-if="badge">
@@ -15,7 +15,13 @@
       </v-toolbar>
       <v-divider></v-divider>
       <v-card-text class="pa-0">
-        <v-list two-line subheader class="pa-0">
+        <v-skeleton-loader
+          type="list-item-avatar-two-line, list-item-avatar-two-line, list-item-avatar-two-line, list-item-avatar-two-line"
+          style="width: 300px;"
+          v-if="loading" 
+        >
+        </v-skeleton-loader>
+        <v-list v-else two-line subheader class="pa-0">
           <template v-for="(item, index) in items">
             <v-subheader v-if="item.header" :key="item.header">{{ item.header }}</v-subheader>
             <v-divider v-else-if="item.divider" :key="index"></v-divider>
@@ -44,32 +50,14 @@ export default {
   name: 'vular-notifications',
   props:{
     globalField: {default : "notifications"},
+    queryAction: {default : null},
+    vularId: {default: ''},
   },
   data () {
     return {
-      items: [
-        {
-          title: "New user registered",
-          timeLabel: "Just now",
-          unread:true,
-        },
-        { divider: true, inset: true },
-        {
-          title: "New order received",
-          timeLabel: "2分钟前"
-        },
-        { divider: true, inset: true },
-        {
-          title: "New payment made",
-          timeLabel: "24分钟前"
-        },
-        { divider: true, inset: true },
-        {
-          title: "New message from Michael",
-          timeLabel: "1小时前"
-        }
-      ]
-      ,      
+      loading:false,
+      poped:false,
+      items: [],      
     }
   },
 
@@ -80,9 +68,41 @@ export default {
     }
   },
 
+  created(){
+    $bus.$on('dispatchModel', this.onDispatchModel)
+    $bus.$on('ActionError', this.onActionError)
+  },
+
+  destroyed() {
+    $bus.$off('dispatchModel', this.onDispatchModel)
+    $bus.$off('ActionError', this.onActionError)
+  },
 
   methods: {
+    onDispatchModel(vularId, model){
+      if(vularId == this.vularId){
+        this.items = model
+        this.loading = false
+      }
+    },
+
+    onActionError(vularId, error){
+      if(vularId == this.vularId){
+        this.loading = false
+      }
+    },
   },
+  watch:{
+    "poped": {
+      handler(val){
+        if(this.queryAction && val){
+          this.loading = true
+          $bus.$emit('VularAction', this.queryAction, val)
+        }
+      },
+      deep: true,        
+    },
+  } 
 }
 </script>
 
