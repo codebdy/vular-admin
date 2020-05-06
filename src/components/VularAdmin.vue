@@ -99,7 +99,7 @@
       onVularAction(action, vularId, data){
         let self = this
         if(action.name === 'openPage'){
-          this.$router.push(action.to)
+          this.$router.push(action.to).catch(err => {err})
         }
 
         if(action.name === 'doAction'){
