@@ -5,7 +5,7 @@
 
 <script>
   export default {
-    name: "vular-simple-list-page",
+    name: "vular-table-page",
     components: {
     },
     props: {

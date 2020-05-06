@@ -1,7 +1,7 @@
 export default {
-  "name" : "vular-simple-list-page",
+  "name" : "vular-table-page",
   props:{
-  	title:'消息列表',
-  	titleIcon:'mdi-bell-circle-outline',
+  	title:'通知列表',
+  	titleIcon:'mdi-bell-outline',
   }
 }
