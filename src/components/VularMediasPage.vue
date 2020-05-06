@@ -4,7 +4,7 @@
       :color="$store.state.vularApp.content.card.color" 
       :style="$store.state.vularApp.content.card.style"
     >
-      <VularMediaWidget :inMediasPage="true"></VularMediaWidget>
+      <VularMediaWidget :inMediasPage="true" v-model="selectedMedias"></VularMediaWidget>
     </v-card>
   </VularPage>
 </template>
@@ -32,6 +32,7 @@
     },
     data () {
       return {
+        selectedMedias:[],
       }
     },
 
