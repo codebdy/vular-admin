@@ -37,6 +37,16 @@ export default[
           modelName:"/Water/Vular/Model/Notifications",
         }
       },
+      "viewAllAction":{
+        name : "openPage",
+        to:{
+          name: 'page', 
+          params: { 
+            pageId: 'water-vualr-view-notification-list',
+            moduleId:'notifications', 
+          }
+        },
+      },
     }
   },
   {

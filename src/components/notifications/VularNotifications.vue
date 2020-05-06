@@ -41,7 +41,7 @@
             </template>
           </v-list>
           <v-divider></v-divider>
-          <v-btn block tile class="ma-0">{{$t("notification.all")}}</v-btn>
+          <v-btn block tile class="ma-0" @click="onVeiwAll">{{$t("notification.all")}}</v-btn>
           <v-divider></v-divider>
         </v-card-text>
       </v-card>
@@ -65,6 +65,7 @@
       globalField: {default : "notifications"},
       queryAction: {default : null},
       viewAction: {default : null},
+      viewAllAction: {default : null},
       vularId: {default: ''},
     },
     data () {
@@ -111,6 +112,12 @@
       onClick(item){
         this.viewItem = item
         this.dialog = true
+      },
+
+      onVeiwAll(){
+        if(this.viewAllAction){
+          $bus.$emit('VularAction', this.viewAllAction, this.vularId)
+        }
       },
     },
     watch:{

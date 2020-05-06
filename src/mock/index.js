@@ -14,6 +14,8 @@ import mediasView from './views/medias'
 import inquiresView from './views/inquires'
 import ordersView from './views/orders'
 
+import notificationListView from './views/notification/notification-list'
+
 
 import postBlank from './actions/post-blank'
 import post1 from './actions/post1'
@@ -67,6 +69,10 @@ Mock.mock('/api/view', 'post', (options)=>{
   if(opBody.pageId === 'water-vular-view-post_list'){
     return {pageData:postListView, globals:{inquires:4, newArticles:2, notifications:3}}
   }
+  if(opBody.pageId ==='water-vualr-view-notification-list'){
+    return {pageData:notificationListView, globals:{inquires:10, newArticles:2, notifications:3}}
+  }
+  
   if(opBody.pageId === '\\Water\\Vular\\View\\ProductList'){
     return {pageData:productListView, globals:{inquires:4, newArticles:2, notifications:3}}
   }
