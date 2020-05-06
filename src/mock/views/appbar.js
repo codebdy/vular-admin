@@ -24,9 +24,16 @@ export default[
       "queryAction":{
         "name" : "doAction",
         "api" : "/api/action",
-        "belongsTo" : "notifications",
         params : {
           actionName:"/Water/Vular/Actions/Query",
+          modelName:"/Water/Vular/Model/Notifications",
+        }
+      },
+      "viewAction":{
+        "name" : "doAction",
+        "api" : "/api/action",
+        params : {
+          actionName:"/Water/Vular/Actions/View",
           modelName:"/Water/Vular/Model/Notifications",
         }
       },

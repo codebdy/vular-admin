@@ -1,14 +1,15 @@
 <template>
     <v-dialog v-model="inputValue" scrollable max-width="500px">
       <v-card>
-        <v-card-title>{{$t('notification.view')}}</v-card-title>
-        <v-divider></v-divider>
         <v-skeleton-loader
             type="article"
             v-if="loading" 
           >
         </v-skeleton-loader>
-        <v-card-text v-else style="max-height: calc(100vh - 300px);" class="pa-5">
+        <v-card-text v-else-if="item" style="max-height: calc(100vh - 300px);" class="pa-5">
+          <h3>{{item.title}}</h3>
+          <pre class="mt-5"><p>{{item.content}}</p></pre>
+          <p class="mt-5">{{item.created_at}}</p>
         </v-card-text>
         <v-divider></v-divider>
         <v-card-actions>
@@ -40,6 +41,7 @@
     },
     data: () => ({
       loading:false,
+      item:null,
     }),
 
     computed:{
@@ -53,8 +55,38 @@
       },
     },
 
+    created(){
+      $bus.$on('dispatchModel', this.onDispatchModel)
+      $bus.$on('ActionError', this.onActionError)
+    },
+
+    destroyed() {
+      $bus.$off('dispatchModel', this.onDispatchModel)
+      $bus.$off('ActionError', this.onActionError)
+    },
 
     methods: {
-    }
+      onDispatchModel(vularId, model){
+        if(vularId == this.vularId){
+          this.item = model
+          this.loading = false
+        }
+      },
+
+      onActionError(vularId, error){
+        if(vularId == this.vularId){
+         this.loading = false
+        }
+      },
+    },
+
+    watch:{
+      inputValue(val){
+        if(this.viewAction && val){
+          this.loading = true
+          $bus.$emit('VularAction', this.viewAction, this.vularId, this.notification)
+        }
+      } 
+    }    
   }
 </script>

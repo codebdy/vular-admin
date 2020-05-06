@@ -118,16 +118,10 @@
         handler(val){
           if(this.queryAction && val){
             this.loading = true
-            $bus.$emit('VularAction', this.queryAction, this.vularId ,val)
+            $bus.$emit('VularAction', this.queryAction, this.vularId)
           }
         },
         deep: true,        
-      },
-
-      dialog(val){
-        if(val){
-
-        }
       },
     } 
   }
