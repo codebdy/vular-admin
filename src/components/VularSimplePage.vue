@@ -24,9 +24,16 @@
             :style="$store.state.vularApp.content.card.style"
           >
             <v-card-text class="pa-5">
-              <h3>新用户注册</h3> 
-              <p class="my-3">2020-05-7 12:30</p>
-              <p >5月6日下午，阅文集团CEO程武、总裁侯晓楠、总编辑杨晨等新管理团队与多位作家参加了首场作家恳谈会，向外界再度进行了解释。<br/>阅文表示，争议合同早在2019年便已经制定，新团队不可能在接手的第二天就做出任何动作。</p>
+              <ValidationObserver ref="observer" v-slot="{ validate, reset }">
+                <v-form>
+                  <VularNode
+                    v-for="(schema, index) in layout" 
+                    :schema = "schema"
+                    :key = "index" 
+                    v-model="model">
+                  </VularNode>          
+                </v-form>
+              </ValidationObserver>
             </v-card-text>
             <v-divider></v-divider>
             <v-card-actions class="pa-5">
@@ -47,9 +54,11 @@
 </template>
 
 <script>
+  import { ValidationObserver} from 'vee-validate'
   export default {
     name: "vular-simple-page",
     components: {
+      ValidationObserver
     },
     props: {
       vularId: {default: ''},
@@ -57,6 +66,7 @@
       backAction:{defalut:null},
       operateButtons:{defalut:()=>{return[]}},
       loadAction:{defalut:null},
+      layout:{defalut:()=>{return[]}},
     },
 
     data: () => ({
@@ -97,7 +107,7 @@
         this.model = 'loading'
         $bus.$emit('VularAction', this.loadAction, this.vularId, data)
       },
-      
+
       onReload(vularId){
         if(vularId == this.vularId){
           this.load()

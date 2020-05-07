@@ -52,5 +52,56 @@ export default {
           }
         },
       ],
+
+      layout:[
+        {
+          name:"vular-input",
+          props:{
+            field:"title",
+            vInput:{
+              name:"vular-label",
+              props:{
+                label:"",
+                styles:{
+                  'font-weight':'bold',
+                  'font-size':'16px',
+                }
+              },
+            },
+          },
+        },
+
+        {
+          name:"vular-input",
+          props:{
+            field:"created_at",
+            vInput:{
+              name:"vular-label",
+              props:{
+                label:"",
+                styles:{
+                  "margin-top":"10px",
+                }
+              },
+            },
+          },
+        },
+
+        {
+          name:"vular-input",
+          props:{
+            field:"content",
+            vInput:{
+              name:"vular-label",
+              props:{
+                label:"",
+                styles:{
+                  "margin-top":"10px",
+                }
+              },
+            },
+          },
+        },
+      ],
     }
 }

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>{{label}}</div>
-    <div :style="{color:color}">{{value}}</div>
+    <div :style="styles" v-html="value"></div>
   </div>
 </template>
 
@@ -13,7 +13,7 @@
     props: {
       label:{default:''},
       value:{default:''},
-      color:{default:''},
+      styles:{default:()=>{ return {} }},
     },
 
     data: () => ({
