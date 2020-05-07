@@ -60,5 +60,14 @@
     "password":"Password",
     "forgot":"Forgot Password?",
     "login":"Login"
+  },
+  
+  "account":{
+    "profile":"Profile",
+    "change-password":"Change Password",
+    "logout":"Logout",
+    "old-password":"Old Password",
+    "new-password":"New Password",
+    "re-new-password":"Input Password Again"
   }
 }

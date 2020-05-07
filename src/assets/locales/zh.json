@@ -61,6 +61,15 @@
     "password":"密码",
     "forgot":"忘记密码？",
     "login":"登录"
+  },
+
+  "account":{
+    "profile":"个人信息",
+    "change-password":"修改密码",
+    "logout":"退出",
+    "old-password":"原密码",
+    "new-password":"新密码",
+    "re-new-password":"重新输入新密码"
   }
 
 }

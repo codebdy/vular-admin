@@ -51,5 +51,10 @@ export default[
   },
   {
     name:'VularAppbarAccount',
+    props:{
+      user: {
+        avatar:"/images/100.jpg",
+      },
+    }
   }
 ]

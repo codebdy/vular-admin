@@ -3,6 +3,7 @@
     :style="{'font-family': $store.state.vularApp.fontFamily}"
   >
     <VularLogin 
+      v-if="!$store.state.loggedIn"
     ></VularLogin>
   </v-app>
   <v-app id="admin-app" 
