@@ -13,6 +13,14 @@ export default {
           }
         },
       },
+      loadAction:{
+        "name" : "doAction",
+        "api" : "/api/action",
+        params : {
+          actionName:"/Water/Vular/Actions/View",
+          modelName:"/Water/Vular/Model/Notifications",
+        }
+      },
       operateButtons:[
         {
           props:{

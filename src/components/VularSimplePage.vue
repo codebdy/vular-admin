@@ -7,7 +7,8 @@
   >
     <v-container class="mt-5">
       <h1 class="page-title">
-        <v-btn class="mr-4" fab dark color="primary"
+        <v-btn class="mr-5" fab dark color="primary"
+          width="46" height="46"
           v-if="backAction"
           @click="onBack"
         >
@@ -55,17 +56,30 @@
       title: {default:''},
       backAction:{defalut:null},
       operateButtons:{defalut:()=>{return[]}},
+      loadAction:{defalut:null},
     },
 
     data: () => ({
-      page:{
-        header:{
-          isStick: false,
-          listHeaderHeight: '',
-          heightPercent: 1,
-        },
-      },
+      model:{},
     }),
+
+    created(){
+      $bus.$on('dispatchModel', this.onDispatchModel)
+      $bus.$on('ActionError', this.onActionError)
+      $bus.$on('reload', this.onReload)
+    },
+
+    mounted() {
+      if(this.loadAction){
+        this.load()
+      }
+    },
+
+    destroyed() {
+      $bus.$off('dispatchModel', this.onDispatchModel)
+      $bus.$off('ActionError', this.onActionError)
+      $bus.$off('reload', this.onReload)
+    },
 
     methods: {
       onBack(){
@@ -77,6 +91,31 @@
       onAction(action){
           $bus.$emit('VularAction', action, this.vularId)
       },
+
+      load(){
+        let data = this.$route.params.data
+        this.model = 'loading'
+        $bus.$emit('VularAction', this.loadAction, this.vularId, data)
+      },
+      
+      onReload(vularId){
+        if(vularId == this.vularId){
+          this.load()
+        }
+      },
+
+      onDispatchModel(vularId, model){
+        if(vularId == this.vularId){
+          this.model = model
+        }
+      },
+
+      onActionError(vularId, error){
+        if(vularId == this.vularId){
+          this.model = {}
+        }
+      },
+
     }
   }
 </script>
