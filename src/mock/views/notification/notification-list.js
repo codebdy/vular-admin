@@ -17,7 +17,6 @@ export default {
     "queryAction":{
       "name" : "doAction",
       "api" : "/api/action",
-      "belongsTo" : "post-list-1",
       params : {
         actionName:"/Water/Vular/Actions/Query",
         modelName:"/Water/Vular/Model/Notification",
@@ -33,7 +32,6 @@ export default {
         "action": {
           "name" : "doAction",
           "api" : "/api/action",
-          "belongsTo" : "post-list-1",
           params : {
             actionName:"/Water/Vular/Actions/BatchDownload",
             modelName:"/Water/Vular/Model/Posts",
@@ -47,7 +45,6 @@ export default {
         "action": {
           "name" : "doAction",
           "api" : "/api/action",
-          "belongsTo" : "post-list-1",
           params : {
             actionName:"/Water/Vular/Actions/BatchDelete",
             modelName:"/Water/Vular/Model/Posts",

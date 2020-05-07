@@ -35,6 +35,9 @@
         let page = this.$store.state.pagesCache.get(this.$route.params.pageId)
         if(page){
           this.page = page
+          this.$nextTick(() => {
+             $bus.$emit('reload', page.props.vularId)
+          })         
           //console.log('从缓存中取页面')
           return
         }

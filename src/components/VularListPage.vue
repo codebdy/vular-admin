@@ -135,6 +135,7 @@
       editPath:{default: ''},
       transshapeBreakPoint:{defalut: 'sm'},
       addNewAction:{default:null},
+      reload: false,
     },
     data () {
       return {
@@ -169,6 +170,7 @@
     created(){
       $bus.$on('dispatchModel', this.onDispatchModel)
       $bus.$on('ActionError', this.onActionError)
+      $bus.$on('reload', this.onReload)
     },
     mounted () {
       this.model.formModel = Object.assign({}, this.defaultModel)
@@ -178,12 +180,14 @@
     destroyed() {
       $bus.$off('dispatchModel', this.onDispatchModel)
       $bus.$off('ActionError', this.onActionError)
+      $bus.$on('reload', this.onReload)
     },
 
     methods: {
       onAddNew(){
         $bus.$emit('VularAction', this.addNewAction)
       },
+
       onDispatchModel(vularId, model){
         if(vularId == this.vularId){
           this.model.rows = model
@@ -194,6 +198,19 @@
       onActionError(vularId, error){
         if(vularId == this.vularId){
           this.loading = false
+        }
+      },
+
+      onReload(vularId){
+        if(vularId == this.vularId){
+          this.query()
+        }
+      },
+
+      query(){
+        if(this.queryAction){
+          this.loading = true
+          $bus.$emit('VularAction', this.queryAction, this.vularId,  this.model.formModel)
         }
       },
 
@@ -263,14 +280,12 @@
 
     watch:{
       "model.formModel": {
-        handler(val){
-          if(this.queryAction){
-            this.loading = true
-            $bus.$emit('VularAction', this.queryAction, this.vularId,  val)
-          }
+        handler(){
+          this.query()
         },
         deep: true,        
-      }, 
+      },
+
       "$vuetify.breakpoint.xs": function(val){
         this.checkTransshape()
       },

@@ -31,7 +31,7 @@ export default new Router({
         {
           path: 'page/:pageId/data/:data?',
           name: 'page',
-          component: VularPageLoader
+          component: VularPageLoader,
         },
         /*{
           path: 'edit/:pageId/:id',
