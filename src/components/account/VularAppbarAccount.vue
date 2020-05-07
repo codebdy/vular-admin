@@ -90,7 +90,7 @@
             rounded
             outlined
             text
-            @click="changePasswordDlg = false"
+            @click="onClose"
           >
             {{$t('base.cancel')}}
           </v-btn>
@@ -124,7 +124,6 @@
     data: () => ({
       changePasswordDlg:false,
       model:{
-        oldPassword:'',
       }
     }),
 
@@ -134,6 +133,12 @@
       },
       onChangePassword(){
         this.$refs.observer.validate()
+      },
+
+      onClose(){
+        this.$refs.observer.reset()
+        this.model = {}
+        this.changePasswordDlg = false
       },
     },
   }
