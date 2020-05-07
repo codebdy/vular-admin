@@ -130,9 +130,6 @@
 </script>
 
 <style>
-  .page-title{
-    font-weight: 500;
-  }
 
   .header-container{
     position: fixed; right:0; z-index: 1;

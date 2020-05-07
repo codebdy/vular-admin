@@ -125,3 +125,10 @@
     },
   }
 </script>
+
+<style>
+  .page-title{
+    font-weight: 400;
+  }
+
+</style>

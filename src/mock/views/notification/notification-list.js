@@ -26,7 +26,7 @@ export default {
     "transshapeBreakPoint" : "sm",
     "batchActions" : [
       {
-        "icon": "mdi-bookmark-check-outline",
+        "icon": "mdi-bell-sleep-outline",
         "title": "标为已读",
         "shortcut": true,
         "action": {
@@ -60,11 +60,12 @@ export default {
         "action":"action_id1",
         "action": {
           name:"openPage",
-          api:"/api/view",
-          view:'\\Water\\Vular\\View\\PostEdit',
-          params : {
-            modelName:"/Water/Vular/Model/Posts",
-          }
+          to:{
+            name: 'page', 
+            params: { 
+              pageId: 'water-vualr-view-notification',
+            }
+          },
         },
       },
       {
