@@ -10,7 +10,7 @@
             'border-bottom': $store.state.vularApp.content.color + ' solid 1px',
             background: hover ? 'rgba(0, 0, 255, 0.1)' : ''
           },
-          row['vular-styles']
+          row['styles']
         )"
 
         :class="transshape ? 'vular-list-body-small' : 'vular-list-body'"
@@ -65,7 +65,7 @@
             </template>
             <span>{{action.title}}</span>
           </v-tooltip>
-          <v-menu offset-y>
+          <v-menu offset-y v-if="popedActions.length > 0">
             <template v-slot:activator="{ on }">
               <v-btn icon color="primary"
                 v-on="on"
@@ -75,8 +75,7 @@
             </template>
             <v-list :color="$store.state.vularApp.content.card.color" class="px-2">
               <v-list-item link
-                v-for="(action, index) in rowActions"
-                v-if="!action.shortcut"
+                v-for="(action, index) in popedActions"
                 :key = "index"
                 @click = "onRowAction(action, row)"
               >
@@ -124,6 +123,17 @@
         set:function(val) {
           this.$emit('input', val);
         },
+      },
+
+      popedActions(){
+        let actions = []
+        this.rowActions.forEach(action=>{
+          if(!action.shortcut){
+            actions.push(action)
+          }
+        })
+
+        return actions
       },
     },
 

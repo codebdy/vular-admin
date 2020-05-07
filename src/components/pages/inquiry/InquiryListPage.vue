@@ -164,7 +164,7 @@
             name : 'Martin Li', 
             email : 'Li@vular.cn', 
             company : 'Vular soft',
-            "vular-styles": {
+            "styles": {
               "font-weight":"bold",
             }
           },

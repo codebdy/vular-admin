@@ -21,6 +21,7 @@ import postBlank from './actions/post-blank'
 import post1 from './actions/post1'
 import postXX from './actions/post-xx'
 import notifications from './actions/notifications'
+import notificationsList from './actions/notifications-list'
 import oneNotification from './actions/one-notification'
 
 Mock.mock('/api/drawer', 'get', drawer)
@@ -42,6 +43,11 @@ Mock.mock('/api/action', 'post', (options)=>{
   if(opBody.params.actionName=="/Water/Vular/Actions/Query" && opBody.params.modelName == "/Water/Vular/Model/Notifications"){
     //console.log('request product list')
     return {pageData:JSON.parse(JSON.stringify(notifications)), globals:{inquires:12, newArticles:4, notifications:2}}
+  }
+
+  if(opBody.params.actionName=="/Water/Vular/Actions/Query" && opBody.params.modelName == "/Water/Vular/Model/Notification"){
+    //console.log('request product list')
+    return {pageData:JSON.parse(JSON.stringify(notificationsList)), globals:{inquires:12, newArticles:4, notifications:2}}
   }
 
   if(opBody.params.actionName=="/Water/Vular/Actions/View" && opBody.params.modelName == "/Water/Vular/Model/Notifications"){

@@ -33,7 +33,6 @@ import VularHasManyTableCard from "./components/relations/VularHasManyTableCard.
 
 import VularListPage from "./components/VularListPage.vue"
 import VularEditPage from "./components/VularEditPage.vue"
-import VularTablePage from "./components/VularTablePage.vue"
 
 import VularTinymce from "./components/tinymce"
 
@@ -77,7 +76,6 @@ Vue.component('VularHasManyTableCard', VularHasManyTableCard)
 
 Vue.component('VularListPage', VularListPage)
 Vue.component('VularEditPage', VularEditPage)
-Vue.component('VularTablePage', VularTablePage)
 
 Vue.component('InquiryListPage', InquiryListPage)
 Vue.component('ProductModule', ProductModule)

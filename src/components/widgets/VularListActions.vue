@@ -129,7 +129,7 @@
         {{action.title}}
         <v-icon right dark v-text="action.icon"></v-icon>
       </v-btn>
-      <v-menu offset-y>
+      <v-menu offset-y v-if="popBatchActions.length > 0">
         <template v-slot:activator="{ on }">
           <v-btn fab elevation="0" :color="$store.state.vularApp.content.card.color"
             :small="!isStick"
@@ -141,8 +141,7 @@
         </template>
         <v-list :color="$store.state.vularApp.content.card.color" class="px-2">
           <v-list-item link
-            v-for="(action, index) in batchActions"
-            v-if="!action.shortcut || collopsed"
+            v-for="(action, index) in popBatchActions"
             :key = "index"
             @click="onBatchAction(action)"
           >
@@ -189,6 +188,17 @@
         },
       },
 
+      popBatchActions(){
+        let actions = []
+        this.batchActions.forEach(action=>{
+          if(!action.shortcut || this.collopsed){
+            actions.push(action)
+          }
+        })
+
+        return actions
+      },
+
       selectedSome: {
         get:function() {
           return this.selectedCounts != 0;
@@ -200,7 +210,6 @@
       collopsed(){
         return this.$vuetify.breakpoint.xs || this.$vuetify.breakpoint.sm
       },
-
 
       searchboxWidth(){
         let width = 120

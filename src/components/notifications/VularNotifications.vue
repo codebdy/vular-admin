@@ -24,9 +24,7 @@
           </v-skeleton-loader>
           <v-list v-else two-line subheader class="pa-0">
             <template v-for="(item, index) in items">
-              <v-subheader v-if="item.header" :key="item.header">{{ item.header }}</v-subheader>
-              <v-divider v-else-if="item.divider" :key="index"></v-divider>
-              <v-list-item v-else :key="item.title" link
+              <v-list-item :key="item.id" link
                 @click="onClick(item)"
               >
                 <v-list-item-avatar>
@@ -38,9 +36,10 @@
                   <v-list-item-subtitle v-text="item.timeLabel"></v-list-item-subtitle>
                 </v-list-item-content>
                </v-list-item>
+               <v-divider></v-divider>
             </template>
           </v-list>
-          <v-divider></v-divider>
+          
           <v-btn block tile class="ma-0" @click="onVeiwAll">{{$t("notification.all")}}</v-btn>
           <v-divider></v-divider>
         </v-card-text>
