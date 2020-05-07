@@ -6,11 +6,6 @@ export default [
     title:'仪表盘',
     active:true,
     to:{name:'dashboard'},
-    /*action:{
-      name:"openPage",
-      api:"/api/view",
-      view:'\\Water\\Vular\\View\\Dashboard',
-    }*/
   },
   {
     id:"3",
@@ -18,11 +13,10 @@ export default [
     prependIcon: 'mdi-image-auto-adjust',
     title:'媒体库',
     to:{name:'medias'},
-    /*action:{
-      name:"openPage",
-      api:"/api/view",
-      view:'\\Water\\Vular\\View\\Medias',
-    }*/
+  },
+  {
+    name:"vular-subheader",
+    title:"Vular CMS"
   },
   {
     id:"4",
@@ -38,26 +32,13 @@ export default [
         small:false,
       }
     },
-    action:{
-      name:"openPage",
-      api:"/api/view",
-      view:'\\Water\\Vular\\View\\Inquires',
-    }
-  },
-  {
-    id:"2",
-    name:"vular-menu-item",
-    prependIcon: 'mdi-currency-usd-circle-outline',
-    title:'订单管理',
-    action:{
-      name:"openPage",
-      api:"/api/view",
-      view:'\\Water\\Vular\\View\\Orders',
-    }
-  },
-  {
-    name:"vular-subheader",
-    title:"Vular CMS"
+    to:{ 
+      name: 'module', 
+      params: { 
+        pageId: 'water-vular-view-inquiry_list',
+        moduleId:'inquires', 
+      }
+    },
   },
   {
     id:"5",

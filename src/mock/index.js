@@ -24,6 +24,8 @@ import notifications from './actions/notifications'
 import notificationsList from './actions/notifications-list'
 import oneNotification from './actions/one-notification'
 
+import inquires from './actions/inquires'
+
 Mock.mock('/api/drawer', 'get', drawer)
 Mock.mock('/api/appbar', 'get', appbar)
 
@@ -50,6 +52,12 @@ Mock.mock('/api/action', 'post', (options)=>{
     return {pageData:JSON.parse(JSON.stringify(notificationsList)), globals:{inquires:12, newArticles:4, notifications:2}}
   }
 
+  if(opBody.params.actionName=="/Water/Vular/Actions/Query" && opBody.params.modelName == "/Water/Vular/Model/Inquiry"){
+    //console.log('request product list')
+    return {pageData:JSON.parse(JSON.stringify(inquires)), globals:{inquires:12, newArticles:4, notifications:2}}
+  }
+
+
   if(opBody.params.actionName=="/Water/Vular/Actions/View" && opBody.params.modelName == "/Water/Vular/Model/Notifications"){
     //console.log('request product list')
     return {pageData:JSON.parse(JSON.stringify(oneNotification)), globals:{inquires:12, newArticles:4, notifications:2}}
@@ -71,7 +79,10 @@ Mock.mock('/api/action', 'post', (options)=>{
 
 Mock.mock('/api/view', 'post', (options)=>{
   let opBody = JSON.parse(options.body)
-  //console.log(opBody)
+  if(opBody.pageId ==='water-vular-view-inquiry_list'){
+    return {pageData:inquiresView, globals:{inquires:10, newArticles:2, notifications:3}}
+  }
+
   if(opBody.pageId === 'water-vular-view-post_list'){
     return {pageData:postListView, globals:{inquires:4, newArticles:2, notifications:3}}
   }
@@ -99,9 +110,6 @@ Mock.mock('/api/view', 'post', (options)=>{
     return {pageData:mediasView, globals:{inquires:4, newArticles:2, notifications:3}}
   }
 
-  if(options.body ==='\\Water\\Vular\\View\\Inquires'){
-    return {pageData:inquiresView, globals:{inquires:10, newArticles:2, notifications:3}}
-  }
   if(options.body ==='\\Water\\Vular\\View\\Orders'){
     return {pageData:ordersView, globals:{inquires:10, newArticles:2, notifications:3}}
   }
