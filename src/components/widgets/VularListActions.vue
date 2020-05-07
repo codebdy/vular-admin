@@ -73,6 +73,7 @@
         :close-on-content-click="false" 
         :nudge-width="150"
         v-model="isPopedFilters"
+        v-if="popFilters.length > 0"
         >
         <template v-slot:activator="{ on }">
           <v-btn icon fab 
@@ -87,8 +88,7 @@
         <v-card :color="$store.state.vularApp.content.color">
           <v-list class="pt-0 vular-filter-list" :color="$store.state.vularApp.content.card.color">
             <template 
-              v-for="(filter, index) in filters"
-              v-if="!filter.shortcut || collopsed"
+              v-for="(filter, index) in popFilters"
             >
               <v-subheader 
                 :style="{background: $store.state.vularApp.content.color}">
@@ -197,6 +197,17 @@
         })
 
         return actions
+      },
+
+      popFilters(){
+        let pops = []
+        this.filters.forEach(aFilter =>{
+          if(!aFilter.shortcut || this.collopsed){
+            pops.push(aFilter)
+          }
+        })
+
+        return pops
       },
 
       selectedSome: {
