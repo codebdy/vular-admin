@@ -9,7 +9,6 @@
       <h1 class="page-title">
         <v-btn class="mr-5" fab dark color="primary"
           width="46" height="46"
-          v-if="backAction"
           @click="onBack"
         >
           <v-icon dark>mdi-arrow-left</v-icon>
@@ -63,7 +62,6 @@
     props: {
       vularId: {default: ''},
       title: {default:''},
-      backAction:{defalut:null},
       operateButtons:{defalut:()=>{return[]}},
       loadAction:{defalut:null},
       layout:{defalut:()=>{return[]}},
@@ -93,9 +91,7 @@
 
     methods: {
       onBack(){
-        if(this.backAction){
-          $bus.$emit('VularAction', this.backAction)
-        }
+        this.$router.go(-1)
       },
 
       onAction(action){

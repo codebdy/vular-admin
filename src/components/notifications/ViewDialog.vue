@@ -8,7 +8,7 @@
         </v-skeleton-loader>
         <v-card-text v-else-if="item" style="max-height: calc(100vh - 300px);" class="pa-5">
           <h3>{{item.title}}</h3>
-          <pre class="mt-5"><p>{{item.content}}</p></pre>
+          <p class="mt-5" v-html="item.content"></p>
           <p class="mt-5">{{item.created_at}}</p>
         </v-card-text>
         <v-divider></v-divider>

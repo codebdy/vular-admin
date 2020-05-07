@@ -3,16 +3,6 @@ export default {
     props : {
       title:'查看通知',
       vularId : "notification-view-1",
-      backAction:{
-        name : "openPage",
-        to:{
-          name: 'page', 
-          params: { 
-            pageId: 'water-vualr-view-notification-list',
-            moduleId:'notifications', 
-          }
-        },
-      },
       loadAction:{
         "name" : "doAction",
         "api" : "/api/action",
