@@ -1,7 +1,7 @@
 export default {
   name:"VularFormCard",
   props:{
-    title:"内容",
+    title:"详情",
   },
   children:[
     {
@@ -11,7 +11,7 @@ export default {
         vInput:{
           name:"VularTinymce",
           props:{
-            height:"700px",
+            height:"500px",
           },
         },
       },

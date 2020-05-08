@@ -117,8 +117,14 @@ export default {
                 },
               },
               productBaseCard,
+              {
+                name:'VularHasManyTableCard',
+                props:{
+                  title:'规格',
+                }
+              },
+              contentCard,
               seoCard,
-              contentCard
             ],
 
           },
