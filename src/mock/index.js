@@ -5,6 +5,7 @@ import appbar from './views/appbar'
 
 import postListView from './views/post/post-list'
 import postEditView from './views/post/post-edit'
+import postCategoriesVeiw from './views/post/post-categories'
 import articleList from './actions/article-list'
 import productList from './actions/product-list'
 
@@ -86,6 +87,11 @@ Mock.mock('/api/view', 'post', (options)=>{
   if(opBody.pageId === 'water-vular-view-post_list'){
     return {pageData:postListView, globals:{inquires:4, newArticles:2, notifications:3}}
   }
+
+  if(opBody.pageId === 'water-vular-view-post_category'){
+    return {pageData:postCategoriesVeiw, globals:{inquires:4, newArticles:2, notifications:3}}
+  }
+
   if(opBody.pageId ==='water-vualr-view-notification-list'){
     return {pageData:notificationListView, globals:{inquires:10, newArticles:2, notifications:3}}
   }

@@ -69,17 +69,18 @@ export default [
             moduleId:'posts', 
           }
         }
-        /*action:{
-          name:"openPage",
-          api:"/api/view",
-          view:'\\Water\\Vular\\View\\PostList',
-        }*/
       },
       {
         id:"7",
         name:"vular-menu-item",
         title:'文章分类',
-        to:"post-category",
+        to:{ 
+          name: 'module', 
+          params: { 
+            pageId: 'water-vular-view-post_category',
+            moduleId:'posts-category', 
+          }
+        }
       },
       {
         id:"8",
@@ -93,7 +94,7 @@ export default [
   {
     id:"9",
     name:"vular-menu-item-group",
-    prependIcon:'mdi-shopping-outline',
+    prependIcon:'mdi-diamond-outline',
     //appendIcon: 'home',
     title:'产品管理',
     active: false,
@@ -163,13 +164,6 @@ export default [
     prependIcon: 'mdi-account-supervisor-outline',
     title:'客户管理',
     to:"orders",
-  },
-  {
-    id:"17",
-    name:"vular-menu-item",
-    prependIcon: 'mdi-diamond-outline',
-    title:'产品管理',
-    to:"orders2",
   },
   {
     id:"18",
