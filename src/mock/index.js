@@ -15,6 +15,8 @@ import postAttributes from './actions/post-attributes'
 
 import productListView from './views/product/product-list'
 import productEditView from './views/product/product-edit'
+import productCategoriesVeiw from './views/product/product-categories'
+import productAttributesView from './views/product/product-attributes'
 
 import dashboardView from './views/dashboard'
 import mediasView from './views/medias'
@@ -105,6 +107,14 @@ Mock.mock('/api/view', 'post', (options)=>{
 
   if(opBody.pageId === 'water-vular-view-post_attributes'){
     return {pageData:postAttributesView, globals:{inquires:4, newArticles:2, notifications:3}}
+  }
+
+  if(opBody.pageId === 'water-vular-view-product_category'){
+    return {pageData:productCategoriesVeiw, globals:{inquires:4, newArticles:2, notifications:3}}
+  }
+
+  if(opBody.pageId === 'water-vular-view-product_attributes'){
+    return {pageData:productAttributesView, globals:{inquires:4, newArticles:2, notifications:3}}
   }
 
   if(opBody.pageId === 'water-vualr-view-post-attribute-edit'){

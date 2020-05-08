@@ -121,12 +121,25 @@ export default [
         id:"11",
         name:"vular-menu-item",
         title:'商品分类',
-        to:"product-category",
+        to:{ 
+          name: 'module', 
+          params: { 
+            pageId: 'water-vular-view-product_category',
+            moduleId:'products-category', 
+          }
+        }
       },
       {
         id:"12",
         name:"vular-menu-item",
         title:'商品属性',
+        to:{ 
+          name: 'module', 
+          params: { 
+            pageId: 'water-vular-view-product_attributes',
+            moduleId:'product-attributes', 
+          }
+        }
       },
 
     ]          
