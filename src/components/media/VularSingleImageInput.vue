@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>图片</div>
+    <div>{{label}}</div>
     <div class="viewer">
       <v-hover
         v-slot:default="{ hover }"
@@ -39,6 +39,7 @@
       MediaAddCell,
     },
     props: {
+      label:{defalut:''},
     },
 
     data: () => ({

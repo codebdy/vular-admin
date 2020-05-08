@@ -47,6 +47,9 @@ export default{
             children:[
               {
                 name:"VularSingleImageInput",
+                props:{
+                  label:"图片",
+                }
               }
             ]
           },

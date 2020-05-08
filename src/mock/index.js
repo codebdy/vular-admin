@@ -23,6 +23,10 @@ import mediasView from './views/medias'
 import inquiresView from './views/inquires'
 import ordersView from './views/orders'
 
+import adminsView from './views/user/admins'
+import rolesView from './views/user/roles'
+import adminEditView from './views/user/admin-edit'
+
 import notificationListView from './views/notification/notification-list'
 import notificationView from './views/notification/notification-view'
 
@@ -138,6 +142,15 @@ Mock.mock('/api/view', 'post', (options)=>{
 
   if(opBody.pageId ==='water-vualr-view-post-edit'){
     return {pageData:postEditView, globals:{inquires:5, newArticles:3, notifications:2}}
+  }
+  if(opBody.pageId ==='water-vular-view-admin_list'){
+    return {pageData:adminsView, globals:{inquires:5, newArticles:3, notifications:2}}
+  }
+  if(opBody.pageId ==='water-vualr-view-post-admin-edit'){
+    return {pageData:adminEditView, globals:{inquires:5, newArticles:3, notifications:2}}
+  }
+  if(opBody.pageId ==='water-vular-view-role_list'){
+    return {pageData:rolesView, globals:{inquires:5, newArticles:3, notifications:2}}
   }
 
   if(opBody.pageId ==='\\Water\\Vular\\View\\Dashboard'){
