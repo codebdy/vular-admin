@@ -7,6 +7,7 @@ import postListView from './views/post/post-list'
 import postEditView from './views/post/post-edit'
 import postCategoriesVeiw from './views/post/post-categories'
 import postAttributesView from './views/post/post-attributes'
+import postAttributeEditView from './views/post/post-attribute-edit'
 
 import articleList from './actions/article-list'
 import productList from './actions/product-list'
@@ -60,7 +61,7 @@ Mock.mock('/api/action', 'post', (options)=>{
     //console.log('request product list')
     return {pageData:JSON.parse(JSON.stringify(inquires)), globals:{inquires:12, newArticles:4, notifications:2}}
   }
-  
+
   if(opBody.params.actionName=="/Water/Vular/Actions/Query" && opBody.params.modelName == "/Water/Vular/Model/PostAttribute"){
     //console.log('request product list')
     return {pageData:JSON.parse(JSON.stringify(postAttributes)), globals:{inquires:12, newArticles:4, notifications:2}}
@@ -104,6 +105,9 @@ Mock.mock('/api/view', 'post', (options)=>{
     return {pageData:postAttributesView, globals:{inquires:4, newArticles:2, notifications:3}}
   }
 
+  if(opBody.pageId === 'water-vualr-view-post-attribute-edit'){
+    return {pageData:postAttributeEditView, globals:{inquires:4, newArticles:2, notifications:3}}
+  }
 
   if(opBody.pageId ==='water-vualr-view-notification-list'){
     return {pageData:notificationListView, globals:{inquires:10, newArticles:2, notifications:3}}
