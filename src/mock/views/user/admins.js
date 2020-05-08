@@ -2,7 +2,6 @@ export default {
   name : "vular-list-page",
   props : {
     title:'管理员列表',
-    titleIcon:'mdi-bell-outline',
     vularId : "inquires-list-1",
     defaultModel:{
       keywords:'',

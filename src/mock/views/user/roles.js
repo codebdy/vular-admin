@@ -2,7 +2,6 @@ export default {
   name : "vular-list-page",
   props : {
     title:'角色列表',
-    titleIcon:'mdi-bell-outline',
     vularId : "inquires-list-1",
     defaultModel:{
       keywords:'',
@@ -22,22 +21,18 @@ export default {
         modelName:"/Water/Vular/Model/Inquiry",
       }
     },
+    "addNewAction":{
+      name:"openPage",
+      to:{
+        name: 'page', 
+        params: { 
+          pageId: 'water-vualr-view-post-role-edit',
+        }
+      },
+    },
     "canSelect" : true,
     "transshapeBreakPoint" : "sm",
     "batchActions" : [
-      {
-        "icon": "mdi-bell-sleep-outline",
-        "title": "标为已读",
-        "shortcut": true,
-        "action": {
-          "name" : "doAction",
-          "api" : "/api/action",
-          params : {
-            actionName:"/Water/Vular/Actions/BatchDownload",
-            modelName:"/Water/Vular/Model/Posts",
-          }
-        },
-      },
       {
         "icon": "mdi-delete-sweep-outline",
         "title": "删除",
@@ -47,15 +42,15 @@ export default {
           "api" : "/api/action",
           params : {
             actionName:"/Water/Vular/Actions/BatchDelete",
-            modelName:"/Water/Vular/Model/Posts",
+            modelName:"/Water/Vular/Model/Admins",
           }
         },
       },
     ],
     "rowActions":[
       {
-        "icon": "mdi-eye-outline",
-        "title": "查看",
+        "icon": "mdi-pencil",
+        "title": "编辑",
         "shortcut": true,
         "action":"action_id1",
         "action": {
@@ -63,7 +58,7 @@ export default {
           to:{
             name: 'page', 
             params: { 
-              pageId: 'water-vualr-view-notification',
+              pageId: 'water-vualr-view-post-role-edit',
             }
           },
         },
@@ -76,38 +71,22 @@ export default {
       }
     ],
     "filters":[
-      {
-        "title":"",
-        "shortcut": true,
-        "rules":{
-          "read" : "未读",
-          "unread" : "已读",
-        },
-        "blankTitle":"全部",
-        "blankValue":"none",
-        "field":"cagegory"
-      },
     ],
     "columns":[
       {
-        "field":"icon",
-        "title": "",
-        "width":"60px"
-      },
-      {
-        "field":"name",
-        "title": "姓名",
+        "field":"loginid",
+        "title": "角色名",
         "flex": "2" 
       },
       {
-        "field":"email",
-        "title": "邮箱",
+        "field":"name",
+        "title": "描述",
         "flex": "4" 
       },
       {
-        "field":"company",
-        "title": "公司",
-        "flex": "4" 
+        "field":"email",
+        "title": "状态",
+        "flex": "2" 
       },
       {
         "field":"created_at",
