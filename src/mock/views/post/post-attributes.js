@@ -49,7 +49,7 @@ export default {
           to:{
             name: 'page', 
             params: { 
-              pageId: 'water-vualr-view-post-attribute',
+              pageId: 'water-vualr-view-post-attribute-edit',
             }
           },
         },
@@ -67,7 +67,7 @@ export default {
       {
         "field":"slug",
         "title": "标识",
-        "flex": "4" 
+        "flex": "2" 
       },
       {
         "field":"name",
