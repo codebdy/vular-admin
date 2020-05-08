@@ -14,6 +14,8 @@ import productList from './actions/product-list'
 import postAttributes from './actions/post-attributes'
 
 import productListView from './views/product/product-list'
+import productEditView from './views/product/product-edit'
+
 import dashboardView from './views/dashboard'
 import mediasView from './views/medias'
 import inquiresView from './views/inquires'
@@ -117,8 +119,11 @@ Mock.mock('/api/view', 'post', (options)=>{
     return {pageData:notificationView, globals:{inquires:10, newArticles:2, notifications:3}}
   }
   
-  if(opBody.pageId === '\\Water\\Vular\\View\\ProductList'){
+  if(opBody.pageId === 'water-vular-view-product_list'){
     return {pageData:productListView, globals:{inquires:4, newArticles:2, notifications:3}}
+  }
+  if(opBody.pageId === 'water-vualr-view-product-edit'){
+    return {pageData:productEditView, globals:{inquires:4, newArticles:2, notifications:3}}
   }
 
   if(opBody.pageId ==='water-vualr-view-post-edit'){

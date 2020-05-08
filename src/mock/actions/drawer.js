@@ -102,29 +102,31 @@ export default [
     name:"vular-menu-item-group",
     prependIcon:'mdi-diamond-outline',
     //appendIcon: 'home',
-    title:'产品管理',
+    title:'商品管理',
     active: false,
     children: [
       {
         id:"10",
         name:"vular-menu-item",
-        title:'产品列表',
-        action:{
-          name:"openPage",
-          api:"/api/view",
-          view:'\\Water\\Vular\\View\\ProductList',
+        title:'商品列表',
+        to:{ 
+          name: 'module', 
+          params: { 
+            pageId: 'water-vular-view-product_list',
+            moduleId:'products', 
+          }
         }
       },
       {
         id:"11",
         name:"vular-menu-item",
-        title:'产品分类',
+        title:'商品分类',
         to:"product-category",
       },
       {
         id:"12",
         name:"vular-menu-item",
-        title:'产品属性',
+        title:'商品属性',
       },
 
     ]          

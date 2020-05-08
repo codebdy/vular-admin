@@ -1,0 +1,20 @@
+export default {
+  name:"VularFormCard",
+  props:{
+    title:"内容",
+  },
+  children:[
+    {
+      name:"vular-input",
+      props:{
+        field:"content",
+        vInput:{
+          name:"VularTinymce",
+          props:{
+            height:"700px",
+          },
+        },
+      },
+    },
+  ]
+}

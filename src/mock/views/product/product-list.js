@@ -1,20 +1,26 @@
 export default {
   "name" : "vular-list-page",
   "props" : {
-    "title" : "产品列表",
+    "title" : "商品列表",
     "vularId" : "product-list-1",
     defaultModel:{
       keywords:'',
       page:1,
       pagination:'',
+      //fliters
       cagegory:'none',
       attribute:'none',
       readings:'none',
       status:'none',
     },
     "addNewAction":{
-      "name":"openPage",
-      "api":"post-edit"
+      name:"openPage",
+      to:{
+        name: 'page', 
+        params: { 
+          pageId: 'water-vualr-view-product-edit',
+        }
+      },
     },
     "queryAction":{
       "name" : "doAction",
@@ -64,7 +70,15 @@ export default {
         "icon": "mdi-pencil",
         "title": "编辑",
         "shortcut": true,
-        "action":"action_id2"
+        "action": {
+          name:"openPage",
+          to:{
+            name: 'page', 
+            params: { 
+              pageId: 'water-vualr-view-product-edit',
+            }
+          },
+        },
       },
       {
         "icon": "mdi-eye-outline",
@@ -98,7 +112,7 @@ export default {
           "cat6" : "Category6"
         },
         "blankTitle":"全部分类",
-        "blankValue":"",
+        "blankValue":"none",
         "field":"cagegory"
       },
       {
@@ -113,7 +127,7 @@ export default {
           "attr6" : "Attribute6"
         },
         "blankTitle":"全部属性",
-        "blankValue":"",
+        "blankValue":"none",
         "field":"attribute"
       },
       {
@@ -124,7 +138,7 @@ export default {
           "sales3" : "一般"
         },
         "blankTitle":"全部",
-        "blankValue":"",
+        "blankValue":"none",
         "field":"readings"
       },
       {
@@ -136,7 +150,7 @@ export default {
           "ststus4" : "被拒绝"
         },
         "blankTitle":"全部",
-        "blankValue":"",
+        "blankValue":"none",
         "field":"status"
       }
     ],
