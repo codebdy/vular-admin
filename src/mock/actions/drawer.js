@@ -86,7 +86,13 @@ export default [
         id:"8",
         name:"vular-menu-item",
         title:'文章属性',
-        to:"post-attributes",
+        to:{ 
+          name: 'module', 
+          params: { 
+            pageId: 'water-vular-view-post_attributes',
+            moduleId:'post-attributes', 
+          }
+        }
       },
 
     ]          

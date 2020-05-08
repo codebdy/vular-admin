@@ -5,7 +5,8 @@
     "close":"Close",
     "clear":"Clear",
     "confirm":"Confirm",
-    "error" : "Error"
+    "error" : "Error",
+    "operateSuccess" : "Operate Success!"
   },
 
   "notification":{

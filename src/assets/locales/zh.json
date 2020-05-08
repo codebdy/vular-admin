@@ -5,7 +5,8 @@
     "close":"关闭",
     "clear":"清空",
     "confirm":"确定",
-    "error" : "错误"
+    "error" : "错误",
+    "operateSuccess" : "操作成功！"
   },
 
   "list":{

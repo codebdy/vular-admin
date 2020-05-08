@@ -36,7 +36,21 @@
 
     <router-view/>
     <ErrorDialog></ErrorDialog>
-    <VularAppFab></VularAppFab>
+    <v-snackbar
+      v-model="successSnackbar"
+      color="success"
+      top
+      :timeout="3000"
+    >
+      {{successMessage ? successMessage : $t('base.operateSuccess')}}
+      <v-btn
+        text
+        @click="successSnackbar = false"
+      >
+        {{$t("base.close")}}
+      </v-btn>
+    </v-snackbar>
+    <AppFab></AppFab>
     <v-footer
       :inset="$store.state.vularApp.footer.inset"
       :dark = "$store.state.vularApp.footer.dark"
@@ -54,7 +68,7 @@
 <script>
   import VularAppDrawer from "./drawer/VularAppDrawer.vue"
   import VularAppbar from "./VularAppbar.vue"
-  import VularAppFab from "./VularAppFab"
+  import AppFab from "./tools/AppFab"
   import DebugDialog from "./tools/DebugDialog.vue"
   import ErrorDialog from "./tools/ErrorDialog.vue"
 
@@ -64,7 +78,7 @@
       VularAppbar,
       DebugDialog,
       ErrorDialog,
-      VularAppFab
+      AppFab
     },
     data: () => ({
       page:{
@@ -73,8 +87,8 @@
           title:"仪表盘",
         }
       },
-
-      //loading:false,
+      successSnackbar:false,
+      successMessage:'',
     }),
 
     computed:{

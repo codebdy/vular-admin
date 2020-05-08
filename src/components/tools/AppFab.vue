@@ -20,7 +20,7 @@
 
 <script>
   export default {
-    name: "vular-app-fab",
+    name: "app-fab",
     components: {
     },
     props: {
