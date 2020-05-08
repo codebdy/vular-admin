@@ -16,7 +16,13 @@
         {{title}}
       </h1>
       <v-row>
-        <v-col md="7">
+        <v-col 
+          :cols="cols" 
+          :sm="sm"
+          :md="md"
+          :lg="lg"
+          :xl="xl"
+        >
           <v-card class="mt-5"
             flat
             :color="$store.state.vularApp.content.card.color" 
@@ -62,9 +68,14 @@
     props: {
       vularId: {default: ''},
       title: {default:''},
-      operateButtons:{defalut:()=>{return[]}},
-      loadAction:{defalut:null},
-      layout:{defalut:()=>{return[]}},
+      operateButtons:{default:()=>{return[]}},
+      loadAction:{default:null},
+      layout:{default:()=>{return[]}},
+      cols:{default:undefined},
+      sm:{default:undefined},
+      md:{default:undefined},
+      lg:{default:undefined},
+      xl:{default:undefined},
     },
 
     data: () => ({

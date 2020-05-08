@@ -11,6 +11,7 @@ export default {
           modelName:"/Water/Vular/Model/Notifications",
         }
       },
+      md:'5',
       operateButtons:[
         {
           props:{
@@ -53,15 +54,13 @@ export default {
         {
           name:"vular-input",
           props:{
-            field:"title",
+            rules:"required",
+            field:"slug",
             vInput:{
-              name:"vular-label",
+              name:"v-text-field",
               props:{
-                label:"",
-                styles:{
-                  'font-weight':'bold',
-                  'font-size':'16px',
-                }
+                label:"标识",
+                outlined:true,
               },
             },
           },
@@ -70,34 +69,17 @@ export default {
         {
           name:"vular-input",
           props:{
-            field:"created_at",
+            rules:"",
+            field:"name",
             vInput:{
-              name:"vular-label",
+              name:"v-text-field",
               props:{
-                label:"",
-                styles:{
-                  "margin-top":"10px",
-                }
+                label:"名称",
+                outlined:true,
               },
             },
           },
-        },
-
-        {
-          name:"vular-input",
-          props:{
-            field:"content",
-            vInput:{
-              name:"vular-label",
-              props:{
-                label:"",
-                styles:{
-                  "margin-top":"10px",
-                }
-              },
-            },
-          },
-        },
+        }
       ],
     }
 }

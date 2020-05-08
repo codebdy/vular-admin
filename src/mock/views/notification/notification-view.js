@@ -3,6 +3,7 @@ export default {
     props : {
       title:'查看通知',
       vularId : "notification-view-1",
+      md:'6',
       loadAction:{
         "name" : "doAction",
         "api" : "/api/action",
