@@ -162,13 +162,13 @@ export default {
       },
       {
         "field":"title",
-        "title": "标题",
+        "title": "商品名",
         "width":"",
         "flex": "4" 
       },
       {
         "field":"author",
-        "title": "作者",
+        "title": "分类",
         "width":"",
         "flex": "2" 
       },

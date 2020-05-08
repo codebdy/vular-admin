@@ -39,14 +39,6 @@ import VularTreePage from "./components/VularTreePage.vue"
 import VularTinymce from "./components/tinymce"
 
 import ThemeSettings from "./components/pages/theme/ThemeSettings"
-import InquiryListPage from "./components/pages/inquiry/InquiryListPage"
-import PostListPage from "./components/pages/post/PostListPage"
-import PostCategory from "./components/pages/post/PostCategory"
-import PostAttributes from "./components/pages/post/PostAttributes"
-import PostEditPage from "./components/pages/post/PostEditPage"
-import ProductEditPage from "./components/pages/product/ProductEditPage"
-import ProductCategory from "./components/pages/product/ProductCategory"
-import ProductModule from "./components/pages/product/ProductModule"
 
 import VularAppbarAccount from "./components/account/VularAppbarAccount"
 import VularNotifications from "./components/notifications/VularNotifications"
@@ -80,15 +72,6 @@ Vue.component('VularListPage', VularListPage)
 Vue.component('VularEditPage', VularEditPage)
 Vue.component('VularSimplePage', VularSimplePage)
 Vue.component('VularTreePage', VularTreePage)
-
-Vue.component('InquiryListPage', InquiryListPage)
-Vue.component('ProductModule', ProductModule)
-Vue.component('PostListPage', PostListPage)
-Vue.component('PostEditPage', PostEditPage)
-Vue.component('PostCategory', PostCategory)
-Vue.component('PostAttributes', PostAttributes)
-Vue.component('ProductCategory', ProductCategory)
-Vue.component('ProductEditPage', ProductEditPage)
 
 Vue.component('VularAppbarAccount', VularAppbarAccount)
 Vue.component('VularNotifications', VularNotifications)

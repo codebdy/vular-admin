@@ -12,7 +12,7 @@ export default {
         vInput:{
           name:"v-text-field",
           props:{
-            label:"标题",
+            label:"商品名",
             "prepend-icon":"mdi-format-title",
           },
         },
