@@ -1,5 +1,6 @@
 import customerContract from "./customer-contract-card"
 import factContract from "./factory-contract-layout"
+import ticheng from "./ticheng"
 
 export default {
   "name" : "vular-edit-page",
@@ -123,6 +124,8 @@ export default {
                   title:'规格',
                 }
               },
+
+              ticheng,
             ],
 
           },

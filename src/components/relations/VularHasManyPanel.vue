@@ -15,6 +15,7 @@
       <v-toolbar-title>{{title}} </v-toolbar-title>
     </v-toolbar>
     <div v-for="(item,index) in inputValue[field]">
+      <v-divider v-if="index > 0"></v-divider>
       <v-toolbar flat >
         <v-toolbar-title> {{title}} #{{index+1}}</v-toolbar-title>
         <v-spacer></v-spacer>
@@ -28,7 +29,7 @@
           v-for="(schema, index) in layout" 
           :schema = "schema"
           :key = "index" 
-          v-model="inputValue">
+          v-model="inputValue[field][index]">
         </VularNode>
       </v-card-text>
     </div>
