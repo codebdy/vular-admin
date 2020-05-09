@@ -156,14 +156,14 @@ export default [
         name:"vular-menu-item",
         title:'页面列表',
       },
-      {
+      /*{
         name:"vular-menu-item",
         title:'页面分类',
       },
       {
         name:"vular-menu-item",
         title:'页面属性',
-      },
+      },*/
 
     ]          
   },
@@ -363,7 +363,7 @@ export default [
     id:"26",
     name:"vular-menu-item",
     prependIcon:'mdi-compare',
-    to:"theme-settings",
+    to:{name:"theme-settings"},
     title:'主题设置',
       chip:{
         title:'更美',

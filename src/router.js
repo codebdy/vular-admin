@@ -6,6 +6,7 @@ import VularModule from "./components/VularModule"
 import VularPageLoader from "./components/VularPageLoader.vue"
 //import VularEditPage from "./components/VularEditPage.vue"
 import VularMediasPage from "./components/VularMediasPage.vue"
+import ThemeSettings from "./components/pages/theme/ThemeSettings.vue"
 
 Vue.use(Router)
 
@@ -15,6 +16,7 @@ Vue.component('VularModule', VularModule)
 Vue.component('VularPageLoader', VularPageLoader)
 //Vue.component('VularEditPage', VularEditPage)
 Vue.component('VularMediasPage', VularMediasPage)
+Vue.component('ThemeSettings', ThemeSettings)
 
 export default new Router({
   routes: [
@@ -59,6 +61,12 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: VularLogin
-    }
+    },
+    {
+      path: '/theme-settings',
+      name: 'theme-settings',
+      component: ThemeSettings
+    },
+
   ]
 })
