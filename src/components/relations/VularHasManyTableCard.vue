@@ -10,44 +10,6 @@
 
       <v-spacer></v-spacer>
 
-            <v-dialog v-model="dialog" max-width="500px">
-              <template v-slot:activator="{ on }">
-                <v-btn color="primary" dark rounded v-on="on"><v-icon left>mdi-plus</v-icon> 新建</v-btn>
-              </template>
-              <v-card>
-                <v-card-title>
-                  <span class="headline">{{ formTitle }}</span>
-                </v-card-title>
-
-                <v-card-text>
-                  <v-container>
-                    <v-row>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-text-field v-model="editedItem.name" label="Dessert name"></v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-text-field v-model="editedItem.calories" label="Calories"></v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-text-field v-model="editedItem.fat" label="Fat (g)"></v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-text-field v-model="editedItem.carbs" label="Carbs (g)"></v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-text-field v-model="editedItem.protein" label="Protein (g)"></v-text-field>
-                      </v-col>
-                    </v-row>
-                  </v-container>
-                </v-card-text>
-
-                <v-card-actions class="pa-5 media-alt-dialog-actions">
-                  <v-spacer></v-spacer>
-                  <v-btn class="mr-5" outlined rounded @click="close">{{$t('media.cancel')}}</v-btn>
-                  <v-btn color="primary" class="mr-5" rounded @click="save">{{$t('media.confirm')}}</v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
     </v-toolbar>
     <v-divider ></v-divider>
     <v-card-text class="pa-0">
@@ -89,6 +51,51 @@
         </template>
       </v-data-table>
     </v-card-text>
+    <v-divider></v-divider>
+    <v-card-actions>
+      <v-spacer></v-spacer>
+      <v-btn 
+        icon
+        color="primary" @click="dialog = true">
+        <v-icon>mdi-plus</v-icon>
+      </v-btn>
+      <v-spacer></v-spacer>
+    </v-card-actions>
+    <v-dialog v-model="dialog" max-width="500px">
+              <v-card>
+                <v-card-title>
+                  <span class="headline">{{ formTitle }}</span>
+                </v-card-title>
+
+                <v-card-text>
+                  <v-container>
+                    <v-row>
+                      <v-col cols="12" sm="6" md="4">
+                        <v-text-field v-model="editedItem.name" label="Dessert name"></v-text-field>
+                      </v-col>
+                      <v-col cols="12" sm="6" md="4">
+                        <v-text-field v-model="editedItem.calories" label="Calories"></v-text-field>
+                      </v-col>
+                      <v-col cols="12" sm="6" md="4">
+                        <v-text-field v-model="editedItem.fat" label="Fat (g)"></v-text-field>
+                      </v-col>
+                      <v-col cols="12" sm="6" md="4">
+                        <v-text-field v-model="editedItem.carbs" label="Carbs (g)"></v-text-field>
+                      </v-col>
+                      <v-col cols="12" sm="6" md="4">
+                        <v-text-field v-model="editedItem.protein" label="Protein (g)"></v-text-field>
+                      </v-col>
+                    </v-row>
+                  </v-container>
+                </v-card-text>
+
+                <v-card-actions class="pa-5 media-alt-dialog-actions">
+                  <v-spacer></v-spacer>
+                  <v-btn class="mr-5" outlined rounded @click="close">{{$t('media.cancel')}}</v-btn>
+                  <v-btn color="primary" class="mr-5" rounded @click="save">{{$t('media.confirm')}}</v-btn>
+                </v-card-actions>
+              </v-card>
+    </v-dialog>
   </v-card>
 </template>
 

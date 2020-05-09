@@ -1,4 +1,5 @@
 import customerContract from "./customer-contract-card"
+import factContract from "./factory-contract-layout"
 
 export default {
   "name" : "vular-edit-page",
@@ -111,6 +112,9 @@ export default {
                 name:"VularHasManyPanel",
                 props:{
                   title:"工厂合同",
+                  layout:[
+                    factContract
+                  ]
                 },
               },
               {

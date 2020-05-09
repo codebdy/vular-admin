@@ -4,17 +4,21 @@
     v-if="inputValue == 'loading'" 
   >
   </v-skeleton-loader>
-  <v-card class="mt-5"
+  <v-card 
     v-else
+    class="mt-5"
+    flat
+    :color="$store.state.vularApp.content.card.color" 
+    :style="$store.state.vularApp.content.card.style"
   >
-    <v-toolbar v-if="items && items.length == 0" flat >
+    <v-toolbar v-if="!inputValue[this.field] || inputValue[this.field].length == 0" flat >
       <v-toolbar-title>{{title}} </v-toolbar-title>
     </v-toolbar>
-    <div v-for="(item,index) in items">
-      <v-toolbar light flat >
+    <div v-for="(item,index) in inputValue[field]">
+      <v-toolbar flat >
         <v-toolbar-title> {{title}} #{{index+1}}</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn light icon @click="remove(index)">
+        <v-btn icon @click="onRemove(index)">
           <v-icon>mdi-delete</v-icon>
         </v-btn>
       </v-toolbar>
@@ -28,15 +32,16 @@
         </VularNode>
       </v-card-text>
     </div>
-    <v-btn 
-      fab
-      bottom
-      right
-      absolute
-      small
-      color="info" @click="add">
-      <v-icon>mdi-plus</v-icon>
-    </v-btn>
+    <v-divider></v-divider>
+    <v-card-actions>
+      <v-spacer></v-spacer>
+      <v-btn 
+        icon
+        color="primary" @click="onAdd">
+        <v-icon>mdi-plus</v-icon>
+      </v-btn>
+      <v-spacer></v-spacer>
+    </v-card-actions>
   </v-card>
 </template>
 
@@ -54,7 +59,7 @@
     data: function () {
       return {
         valid: false,
-        items:[],
+        //items:[],
       }
     },
     computed:{
@@ -73,17 +78,20 @@
 
     methods: {
 
-      add(){
+      onAdd(){
         var item = {}
-        for(var i = 0; i <this.flexs.length; i++){
-          item[this.flexs[i].field.field] = null
+        if(!this.inputValue[this.field]){
+          this.$set(this.inputValue, this.field, [] )
         }
-        this.items.push(item)
+        //for(var i = 0; i <this.flexs.length; i++){
+        //  item[this.flexs[i].field.field] = null
+        //}
+        this.inputValue[this.field].push(item)
       },
 
-      remove(i){
+      onRemove(i){
         if(confirm('Are you sure to delete?')){
-          this.items.splice(i,1)
+          this.inputValue[this.field].splice(i,1)
         }
       },
 
