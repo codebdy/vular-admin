@@ -200,6 +200,62 @@ export default [
     to:"orders",
   },*/
   {
+    id:"25",
+    name:"vular-subheader",
+    title:"系统管理"
+  },
+  {
+    id:"31",
+    name:"vular-menu-item-group",
+    prependIcon:'mdi-account-supervisor-circle',
+    //appendIcon: 'home',
+    title:'用户管理',
+    active: false,
+    children: [
+      {
+        id:"32",
+        name:"vular-menu-item",
+        title:'管理员',
+        to:{ 
+          name: 'module', 
+          params: { 
+            pageId: 'water-vular-view-admin_list',
+            moduleId:'admins', 
+          }
+        }
+      },
+      {
+        id:"33",
+        name:"vular-menu-item",
+        title:'角色',
+        to:{ 
+          name: 'module', 
+          params: { 
+            pageId: 'water-vular-view-role_list',
+            moduleId:'roles', 
+          }
+        }
+      },
+
+    ]          
+  },
+  {
+    id:"26",
+    name:"vular-menu-item",
+    prependIcon:'mdi-compare',
+    to:{name:"theme-settings"},
+    title:'主题设置',
+      chip:{
+        title:'更美',
+        props:{
+          dark:true,
+          color:'red',
+          'x-small':true,
+        }
+      }
+  },
+
+  {
     id:"19",
     name:"vular-subheader",
     title:"菜单演示"
@@ -319,59 +375,5 @@ export default [
 
     ]          
   },
-  {
-    id:"25",
-    name:"vular-subheader",
-    title:"系统管理"
-  },
-  {
-    id:"31",
-    name:"vular-menu-item-group",
-    prependIcon:'mdi-account-supervisor-circle',
-    //appendIcon: 'home',
-    title:'用户管理',
-    active: false,
-    children: [
-      {
-        id:"32",
-        name:"vular-menu-item",
-        title:'管理员',
-        to:{ 
-          name: 'module', 
-          params: { 
-            pageId: 'water-vular-view-admin_list',
-            moduleId:'admins', 
-          }
-        }
-      },
-      {
-        id:"33",
-        name:"vular-menu-item",
-        title:'角色',
-        to:{ 
-          name: 'module', 
-          params: { 
-            pageId: 'water-vular-view-role_list',
-            moduleId:'roles', 
-          }
-        }
-      },
-
-    ]          
-  },
-  {
-    id:"26",
-    name:"vular-menu-item",
-    prependIcon:'mdi-compare',
-    to:{name:"theme-settings"},
-    title:'主题设置',
-      chip:{
-        title:'更美',
-        props:{
-          dark:true,
-          color:'red',
-          'x-small':true,
-        }
-      }
-  },
+  
 ]
