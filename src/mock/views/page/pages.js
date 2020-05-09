@@ -197,39 +197,27 @@ export default {
     "columns":[
       {
         "field":"title",
-        "title": "合同号",
+        "title": "名称",
         "width":"",
         "flex": "3" 
       },
       {
         "field":"customer",
-        "title": "客户",
+        "title": "slug",
         "width":"",
         "flex": "3" 
-      },
-      {
-        "field":"amount",
-        "title": "合同金额",
-        "width":"",
-        "flex": "3" 
-      },
-      {
-        "field":"date",
-        "title": "收款比例",
-        "width":"",
-        "flex": "2"
-      },
-      {
-        "field":"date",
-        "title": "已付提成",
-        "width":"",
-        "flex": "2"
       },
       {
         "field":"status",
         "title": "状态",
         "width":"",
-        "flex": "1" 
+        "flex": "2" 
+      },
+      {
+        "field":"created_at",
+        "title": "日期",
+        "width":"",
+        "flex": "2" 
       }
     ],
     "actionsColumn":{

@@ -23,6 +23,8 @@ import ordersView from './views/order/orders'
 import orderEditView from './views/order/order-edit'
 import orderList from './actions/order-list'
 
+import pagesView from './views/page/pages'
+
 import dashboardView from './views/dashboard'
 import mediasView from './views/medias'
 import inquiresView from './views/inquires'
@@ -138,6 +140,10 @@ Mock.mock('/api/view', 'post', (options)=>{
 
   if(opBody.pageId === 'water-vualr-view-orders'){
     return {pageData:ordersView, globals:{inquires:4, newArticles:2, notifications:3}}
+  }
+
+  if(opBody.pageId === 'water-vular-view-page_list'){
+    return {pageData:pagesView, globals:{inquires:4, newArticles:2, notifications:3}}
   }
 
   if(opBody.pageId === 'water-vualr-view-order-edit'){

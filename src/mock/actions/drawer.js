@@ -155,6 +155,13 @@ export default [
       {
         name:"vular-menu-item",
         title:'页面列表',
+        to:{ 
+          name: 'module', 
+          params: { 
+            pageId: 'water-vular-view-page_list',
+            moduleId:'posts', 
+          }
+        }
       },
       /*{
         name:"vular-menu-item",
@@ -375,5 +382,5 @@ export default [
 
     ]          
   },
-  
+
 ]
