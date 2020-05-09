@@ -24,6 +24,7 @@ import orderEditView from './views/order/order-edit'
 import orderList from './actions/order-list'
 
 import pagesView from './views/page/pages'
+import pageEditView from './views/page/page-edit'
 
 import dashboardView from './views/dashboard'
 import mediasView from './views/medias'
@@ -146,6 +147,11 @@ Mock.mock('/api/view', 'post', (options)=>{
     return {pageData:pagesView, globals:{inquires:4, newArticles:2, notifications:3}}
   }
 
+  if(opBody.pageId === 'water-vular-view-page_edit'){
+    return {pageData:pageEditView, globals:{inquires:4, newArticles:2, notifications:3}}
+  }
+
+  
   if(opBody.pageId === 'water-vualr-view-order-edit'){
     return {pageData:orderEditView, globals:{inquires:4, newArticles:2, notifications:3}}
   }

@@ -18,7 +18,7 @@ export default {
       to:{
         name: 'page', 
         params: { 
-          pageId: 'water-vualr-view-order-edit',
+          pageId: 'water-vular-view-page_edit',
         }
       },
     },
@@ -115,7 +115,7 @@ export default {
           to:{
             name: 'page', 
             params: { 
-              pageId: 'water-vualr-view-order-edit',
+              pageId: 'water-vular-view-page_edit',
             }
           },
         },

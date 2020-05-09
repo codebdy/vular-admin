@@ -159,7 +159,7 @@ export default [
           name: 'module', 
           params: { 
             pageId: 'water-vular-view-page_list',
-            moduleId:'posts', 
+            moduleId:'pages', 
           }
         }
       },
