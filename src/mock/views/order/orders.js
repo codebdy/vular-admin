@@ -2,7 +2,7 @@ export default {
   "name" : "vular-list-page",
   "props" : {
     "title" : "订单列表",
-    "vularId" : "inquiry-list-1",
+    "vularId" : "post-list-1",
     defaultModel:{
       keywords:'',
       page:1,
@@ -15,16 +15,20 @@ export default {
     },
     "addNewAction":{
       name:"openPage",
-      api:"/api/view",
-      view:'\\Water\\Vular\\View\\PostEdit',
+      to:{
+        name: 'page', 
+        params: { 
+          pageId: 'water-vualr-view-post-edit',
+        }
+      },
     },
     "queryAction":{
       "name" : "doAction",
       "api" : "/api/action",
-      "belongsTo" : "post-list-1",
+      //"belongsTo" : "post-list-1",
       params : {
         actionName:"/Water/Vular/Actions/Query",
-        modelName:"/Water/Vular/Model/Posts",
+        modelName:"/Water/Vular/Model/Orders",
       }
     },
     "canSelect" : true,
@@ -37,7 +41,7 @@ export default {
         "action": {
           "name" : "doAction",
           "api" : "/api/action",
-          "belongsTo" : "post-list-1",
+          //"belongsTo" : "post-list-1",
           params : {
             actionName:"/Water/Vular/Actions/BatchDelete",
             modelName:"/Water/Vular/Model/Posts",
@@ -51,7 +55,7 @@ export default {
         "action": {
           "name" : "doAction",
           "api" : "/api/action",
-          "belongsTo" : "post-list-1",
+          //"belongsTo" : "post-list-1",
           params : {
             actionName:"/Water/Vular/Actions/BatchDownload",
             modelName:"/Water/Vular/Model/Posts",
@@ -65,7 +69,7 @@ export default {
         "action": {
           "name" : "doAction",
           "api" : "/api/action",
-          "belongsTo" : "post-list-1",
+          //"belongsTo" : "post-list-1",
           params : {
             actionName:"/Water/Vular/Actions/BatchPublics",
             modelName:"/Water/Vular/Model/Posts",
@@ -79,7 +83,7 @@ export default {
         "action": {
           "name" : "doAction",
           "api" : "/api/action",
-          "belongsTo" : "post-list-1",
+          //"belongsTo" : "post-list-1",
           params : {
             actionName:"/Water/Vular/Actions/BatchConfirm",
             modelName:"/Water/Vular/Model/Posts",
@@ -93,7 +97,7 @@ export default {
         "action": {
           "name" : "doAction",
           "api" : "/api/action",
-          "belongsTo" : "post-list-1",
+          //"belongsTo" : "post-list-1",
           params : {
             actionName:"/Water/Vular/Actions/BatchDuplicate",
             modelName:"/Water/Vular/Model/Posts",
@@ -108,11 +112,12 @@ export default {
         "shortcut": true,
         "action": {
           name:"openPage",
-          api:"/api/view",
-          view:'\\Water\\Vular\\View\\PostEdit',
-          params : {
-            modelName:"/Water/Vular/Model/Posts",
-          }
+          to:{
+            name: 'page', 
+            params: { 
+              pageId: 'water-vualr-view-post-edit',
+            }
+          },
         },
       },
       {
@@ -191,25 +196,32 @@ export default {
     ],
     "columns":[
       {
-        "field":"avatar",
-        "title": "",
-        "width":"80px"
-      },
-      {
         "field":"title",
-        "title": "标题",
+        "title": "合同号",
         "width":"",
-        "flex": "4" 
+        "flex": "3" 
       },
       {
-        "field":"author",
-        "title": "作者",
+        "field":"customer",
+        "title": "客户",
         "width":"",
-        "flex": "2" 
+        "flex": "3" 
+      },
+      {
+        "field":"amount",
+        "title": "合同金额",
+        "width":"",
+        "flex": "3" 
       },
       {
         "field":"date",
-        "title": "更新时间",
+        "title": "收款比例",
+        "width":"",
+        "flex": "2"
+      },
+      {
+        "field":"date",
+        "title": "已付提成",
         "width":"",
         "flex": "2"
       },

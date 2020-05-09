@@ -177,9 +177,15 @@ export default [
     name:"vular-menu-item",
     prependIcon: 'mdi-currency-usd-circle-outline',
     title:'订单管理',
-    to:"orders",
+    to:{ 
+      name: 'module', 
+      params: { 
+        pageId: 'water-vualr-view-orders',
+        moduleId:'orders', 
+      }
+    }
   },
-  {
+  /*{
     id:"16",
     name:"vular-menu-item",
     prependIcon: 'mdi-account-supervisor-outline',
@@ -192,7 +198,7 @@ export default [
     prependIcon: 'mdi-factory',
     title:'供应商管理',
     to:"orders",
-  },
+  },*/
   {
     id:"19",
     name:"vular-subheader",

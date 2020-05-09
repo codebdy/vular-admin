@@ -13,15 +13,19 @@ import articleList from './actions/article-list'
 import productList from './actions/product-list'
 import postAttributes from './actions/post-attributes'
 
+
 import productListView from './views/product/product-list'
 import productEditView from './views/product/product-edit'
 import productCategoriesVeiw from './views/product/product-categories'
 import productAttributesView from './views/product/product-attributes'
 
+import ordersView from './views/order/orders'
+import orderList from './actions/order-list'
+
+
 import dashboardView from './views/dashboard'
 import mediasView from './views/medias'
 import inquiresView from './views/inquires'
-import ordersView from './views/orders'
 
 import adminsView from './views/user/admins'
 import rolesView from './views/user/roles'
@@ -55,6 +59,12 @@ Mock.mock('/api/action', 'post', (options)=>{
     //console.log('request product list')
     return {pageData:JSON.parse(JSON.stringify(productList)), globals:{inquires:12, newArticles:7, notifications:4}}
   }
+
+  if(opBody.params.actionName=="/Water/Vular/Actions/Query" && opBody.params.modelName == "/Water/Vular/Model/Orders"){
+    //console.log('request product list')
+    return {pageData:JSON.parse(JSON.stringify(orderList)), globals:{inquires:12, newArticles:7, notifications:4}}
+  }
+
 
   if(opBody.params.actionName=="/Water/Vular/Actions/Query" && opBody.params.modelName == "/Water/Vular/Model/Notifications"){
     //console.log('request product list')
@@ -124,6 +134,10 @@ Mock.mock('/api/view', 'post', (options)=>{
 
   if(opBody.pageId === 'water-vualr-view-post-attribute-edit'){
     return {pageData:postAttributeEditView, globals:{inquires:4, newArticles:2, notifications:3}}
+  }
+
+  if(opBody.pageId === 'water-vualr-view-orders'){
+    return {pageData:ordersView, globals:{inquires:4, newArticles:2, notifications:3}}
   }
 
   if(opBody.pageId ==='water-vualr-view-notification-list'){
