@@ -5,21 +5,21 @@
       'font-family': $store.state.vularApp.content.fontFamily
     }"
   >
-    
-    <VularEditPageHeader 
+    <VularEditPageHeader
       :title="title" 
       :breadcrumbs="breadcrumbs" 
       :titleField="titleField" 
       :saveButton = "saveButton"
       :cancelButton = "cancelButton"
       :menuItems = "menuItems"
+      :isSimpleHeader = "isSimpleHeader"
       v-model="model"
       @heightPercent = "onHeaderHeightPercent"
       @action = "onAction"
     >
     </VularEditPageHeader>
       <div class="header-image-container"
-        v-if="this.$store.state.vularApp.content.breadcurmbsImage"
+        v-if="!isSimpleHeader"
         :style="{
           width : headerImageWidth,
           left : $vuetify.application.left + 'px',
@@ -86,6 +86,7 @@
       cancelButton:{default:null},
       menuItems:{default:()=>{ return[] }},
       loadAction:{default:null},
+      isSimpleHeader:{default:false},
     },
     data () {
       return {

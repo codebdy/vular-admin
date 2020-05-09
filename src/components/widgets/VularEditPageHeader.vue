@@ -131,6 +131,7 @@ import VularPageHeader from "./VularPageHeader"
       saveButton:{default:null},
       cancelButton:{default:null},
       menuItems:{default:()=>{ return[] }},
+      isSimpleHeader:{default:false},
     },
     data: () => ({
     }),
@@ -150,7 +151,7 @@ import VularPageHeader from "./VularPageHeader"
       },
 
       dark(){
-        return this.heightPercent >= 0.5 && this.$store.state.vularApp.content.breadcurmbsImage
+        return this.heightPercent >= 0.5 && !this.isSimpleHeader
       }
     },
 

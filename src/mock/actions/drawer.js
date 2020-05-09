@@ -100,7 +100,7 @@ export default [
   {
     id:"9",
     name:"vular-menu-item-group",
-    prependIcon:'mdi-diamond-outline',
+    prependIcon:'mdi-cart-outline',
     //appendIcon: 'home',
     title:'商品管理',
     active: false,
@@ -147,7 +147,7 @@ export default [
   {
     id:"13",
     name:"vular-menu-item-group",
-    prependIcon:'mdi-semantic-web',
+    prependIcon:'mdi-text-box-outline',
     //appendIcon: 'home',
     title:'页面管理',
     active: false,

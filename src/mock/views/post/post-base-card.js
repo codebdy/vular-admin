@@ -71,9 +71,10 @@ export default {
                 rules:"required",
                 field:"create_at",
                 vInput:{
-                  name:"vular-date-field",
+                  name:"v-text-field",
                   props:{
                     label:"创作时间",
+                    type:"date",
                     "prepend-icon":"mdi-calendar",
                   },
                 },
@@ -103,7 +104,7 @@ export default {
                   name:"v-text-field",
                   props:{
                     label:"来源",
-                    "prepend-icon":"mdi-account-outline",
+                    "prepend-icon":"mdi-semantic-web",
                   },
                 },
               },

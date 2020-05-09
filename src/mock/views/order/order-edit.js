@@ -1,9 +1,4 @@
-import postBaseCard from "./post-base-card"
-import contentCard from "./post-content-card"
-import seoCard from "./post-seo-card"
-import appearCard from "./post-appearance-card"
-import categoryCard from "./post-category-card"
-import additionCard from "./post-addition-card"
+import customerContract from "./customer-contract-card"
 
 export default {
   "name" : "vular-edit-page",
@@ -16,21 +11,22 @@ export default {
     medias:[],
   },*/
   props:{
-    title : "文章编辑",
+    title : "订单编辑",
     breadcrumbs : [
       {
-        title : "文章列表",
+        title : "订单列表",
         action:{
           name:"openPage",
           to:{
             name: 'page', 
             params: { 
-              pageId: 'water-vular-view-post_list',
+              pageId: 'water-vualr-view-orders',
             }
           },
         },
       }
     ],
+    isSimpleHeader:true,
     titleField:'title',
     loadAction:{
       "name" : "doAction",
@@ -56,7 +52,7 @@ export default {
             to:{
               name: 'page', 
               params: { 
-                pageId: 'water-vular-view-post_list',
+                pageId: 'water-vualr-view-orders',
               }
             },
           },
@@ -72,7 +68,7 @@ export default {
         to:{
           name: 'page', 
           params: { 
-            pageId: 'water-vular-view-post_list',
+            pageId: 'water-vualr-view-orders',
           }
         },
       },
@@ -106,35 +102,14 @@ export default {
             name:"v-col",
             props:{
               cols:"12",
-              md:"8",
+              md:"12",
             },
 
             children:[
-              postBaseCard,
-              seoCard,
-              contentCard
+              customerContract,
             ],
 
           },
-          {
-            name:"v-col",
-            props:{
-              cols:"12",
-              md:"4",
-            },
-            children:[
-              {
-                name:'VularMediaSelectCard',
-                props:{
-                  cols:"3",
-                  field:"medias",
-                },
-              },
-              appearCard,
-              categoryCard,
-              additionCard
-            ]
-          }
         ]
       },
     ],
