@@ -29,6 +29,7 @@ import VularLabel from "./components/form/VularLabel.vue"
 import VularToManySelect from "./components/relations/VularToManySelect.vue"
 import VularHasOneDialog from "./components/relations/VularHasOneDialog.vue"
 import VularHasManyTableCard from "./components/relations/VularHasManyTableCard.vue"
+import VularHasManyPanel from "./components/relations/VularHasManyPanel.vue"
 
 import VularListPage from "./components/VularListPage.vue"
 import VularEditPage from "./components/VularEditPage.vue"
@@ -65,6 +66,7 @@ Vue.component('VularTreeEditor', VularTreeEditor)
 Vue.component('VularToManySelect', VularToManySelect)
 Vue.component('VularHasOneDialog', VularHasOneDialog)
 Vue.component('VularHasManyTableCard', VularHasManyTableCard)
+Vue.component('VularHasManyPanel', VularHasManyPanel)
 
 Vue.component('VularListPage', VularListPage)
 Vue.component('VularEditPage', VularEditPage)

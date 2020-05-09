@@ -108,6 +108,12 @@ export default {
             children:[
               customerContract,
               {
+                name:"VularHasManyPanel",
+                props:{
+                  title:"工厂合同",
+                },
+              },
+              {
                 name:'VularHasManyTableCard',
                 props:{
                   title:'规格',
