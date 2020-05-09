@@ -328,8 +328,8 @@ export default {
                 vInput:{
                   name:"v-select",
                   props:{
-                    label:"币种",
-                    "prepend-icon":"mdi-cash-usd-outline",
+                    label:"第一次收汇金额",
+                    "prepend-icon":"mdi-currency-usd",
                   },
                 },
               },
@@ -353,8 +353,8 @@ export default {
                 vInput:{
                   name:"v-select",
                   props:{
-                    label:"币种",
-                    "prepend-icon":"mdi-cash-usd-outline",
+                    label:"结汇汇率",
+                    "prepend-icon":"mdi-finance",
                   },
                 },
               },
@@ -404,8 +404,8 @@ export default {
                 vInput:{
                   name:"v-select",
                   props:{
-                    label:"币种",
-                    "prepend-icon":"mdi-cash-usd-outline",
+                    label:"第二次收汇金额",
+                    "prepend-icon":"mdi-currency-usd",
                   },
                 },
               },
@@ -429,8 +429,8 @@ export default {
                 vInput:{
                   name:"v-select",
                   props:{
-                    label:"币种",
-                    "prepend-icon":"mdi-cash-usd-outline",
+                    label:"结汇汇率",
+                    "prepend-icon":"mdi-finance",
                   },
                 },
               },

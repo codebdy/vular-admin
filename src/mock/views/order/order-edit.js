@@ -107,6 +107,12 @@ export default {
 
             children:[
               customerContract,
+              {
+                name:'VularHasManyTableCard',
+                props:{
+                  title:'规格',
+                }
+              },
             ],
 
           },
