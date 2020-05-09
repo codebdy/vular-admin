@@ -71,7 +71,7 @@ export default {
             rules:"",
             field:"name",
             vInput:{
-              name:"v-text-area",
+              name:"v-textarea",
               props:{
                 label:"描述",
               },
