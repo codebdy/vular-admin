@@ -1,0 +1,34 @@
+export default {
+  name:"VularFormCard",
+  props:{
+    title:"基本信息",
+  },
+  children:[
+    {
+      name:"vular-input",
+      props:{
+        rules:"required|max:50",
+        field:"title",
+        vInput:{
+          name:"v-text-field",
+          props:{
+            label:"名称",
+          },
+        },
+      },
+    },
+    {
+      name:"vular-input",
+      props:{
+        rules:"required",
+        field:"slug",
+        vInput:{
+          name:"v-text-field",
+          props:{
+            label:"Slug",
+          },
+        },
+      },
+    },
+  ],
+}
