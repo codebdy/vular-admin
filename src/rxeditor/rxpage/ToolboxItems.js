@@ -15,21 +15,6 @@ export default [
   },
 
   {
-    "title" : "组件",
-    "smallTitle" : "通用",
-    "items":[
-      {
-        "title":"回到顶部",
-        "code":"<div class='container'></div>"
-      },
-      {
-        "title":"在线联络",
-        "code":"<div class='row'></div>"
-      }
-    ]
-  },
-
-  {
     "title" : "栅格",
     "smallTitle" : "Bootstrap 4",
     "items":[

@@ -4,6 +4,7 @@
       'full-screen' : fullScreen,
       'page-preview' : state.preview
     }"
+    style="height: 700px;" 
   >
     <div class="rx-toolbar">
       <div class="left">
@@ -682,7 +683,7 @@ export default {
     width: 100%;
     height: 100%;
     background: rgba(73,76,69,0.7);
-    z-index: 1;
+    /*z-index: 1;*/
   }
 
 
