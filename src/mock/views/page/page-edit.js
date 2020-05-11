@@ -109,6 +109,9 @@ export default{
                 children:[
                   {
                     name:'PageEditor',
+                    props:{
+                      field:'page',
+                    }
                   }
                 ],
               },

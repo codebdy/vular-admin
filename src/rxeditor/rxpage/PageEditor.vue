@@ -281,6 +281,7 @@ export default {
       </div>
       ` 
     }, 
+    field:'',
     breakpoints : {
       default : ()=>{ 
         this.xs = '490'
@@ -328,6 +329,9 @@ export default {
       set:function(val) {
         this.$emit('input', val);
       },
+    },
+    code(){
+      return this.inputValue[this.field];
     },
     width(){
       if(this.state.preview && this.state.screenWidth === 'xl'){
@@ -420,8 +424,8 @@ export default {
         this.commandProxy.requestHtmlCode()
       }
       else{
-        if(this.oldHtmlCode != this.inputValue){
-          this.commandProxy.loadHtml(this.inputValue)
+        if(this.oldHtmlCode != this.code){
+          this.commandProxy.loadHtml(this.code)
         }
       }
     },
@@ -450,7 +454,7 @@ export default {
     },
 
     sentHtmlToCanvas(){
-      this.commandProxy.loadHtml(this.inputValue)
+      this.commandProxy.loadHtml(this.code)
       this.setInlineCssAndJs()
     },
 
@@ -563,6 +567,14 @@ export default {
       window.$rxbus= new Vue()
     }
   },
+
+  watch:{
+    inputValue(val){
+      if(val != 'loading'){
+        this.initFrame()
+      }
+    }
+  }
 
 
 }
