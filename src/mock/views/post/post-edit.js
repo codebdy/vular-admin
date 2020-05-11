@@ -51,18 +51,18 @@ export default {
         },
 
         successAction:{
-          action:{
-            name:"openPage",
-            to:{
-              name: 'page', 
-              params: { 
-                pageId: 'water-vular-view-post_list',
-              }
-            },
+          name:"openPage",
+          to:{
+            name: 'page', 
+            params: { 
+              pageId: 'water-vular-view-post_list',
+            }
           },
         },
 
-        validate:true,
+        //validate:true,
+        tipSuccess:true,
+        successMessage:"保存成功",
       },
     },
 

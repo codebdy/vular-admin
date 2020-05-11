@@ -95,6 +95,13 @@ Mock.mock('/api/action', 'post', (options)=>{
     return {pageData:JSON.parse(JSON.stringify(oneNotification)), globals:{inquires:12, newArticles:4, notifications:2}}
   }
 
+  if(opBody.params.actionName=="/Water/Vular/Actions/Save"){
+    //console.log('request product list')
+    return {pageData:JSON.parse(JSON.stringify({})), globals:{inquires:12, newArticles:4, notifications:2}}
+  }
+
+  
+
   if(opBody.params.actionName == "/Water/Vular/Actions/Load" 
     && opBody.params.modelName == "/Water/Vular/Model/Posts"){
     if(!opBody.data){

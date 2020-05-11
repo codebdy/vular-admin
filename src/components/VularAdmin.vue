@@ -125,6 +125,10 @@
             if(action.successAction){
               $bus.$emit('VularAction', action.successAction, vularId)
             }
+            if(action.tipSuccess){
+              this.successMessage = action.successMessage
+              this.successSnackbar = true
+            }
           })
           .catch((error)=>{
             $bus.$emit('ActionError', vularId, error)
