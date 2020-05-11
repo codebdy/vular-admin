@@ -35,21 +35,45 @@
         select: null,
       }
     },
+    created(){
+      $bus.$on('dispatchModel', this.onDispatchModel)
+      $bus.$on('ActionError', this.onActionError)
+    },
+    destroyed() {
+      $bus.$off('dispatchModel', this.onDispatchModel)
+      $bus.$off('ActionError', this.onActionError)
+    },
+
     watch: {
       search (val) {
         val && val !== this.select && this.querySelections(val)
       },
     },
     methods: {
+      onDispatchModel(vularId, model){
+        if(vularId == this.vularId){
+          this.items = model
+          this.loading = false
+        }
+      },
+
+      onActionError(vularId, error){
+        if(vularId == this.vularId){
+          this.loading = false
+        }
+      },
+
       querySelections (v) {
         //console.log('querySelections:' + v)
         this.loading = true
-        let action = this.queryAction
+        $bus.$emit('VularAction', this.queryAction, this.vularId)
+        /*let action = this.queryAction
         $axios.post(action.api, {params: action.params, data : {keywords:v}})
         .then((res)=>{
+          console.log(action, res.data)
           this.loading = false
           this.items = res.data
-        })
+        })*/
 
 
         // Simulated ajax query

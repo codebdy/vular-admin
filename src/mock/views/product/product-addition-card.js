@@ -24,9 +24,8 @@ export default {
             queryAction:{
               "name" : "doAction",
               "api" : "/api/action",
-              "belongsTo" : "to-many-slect-1",
               params : {
-                actionName:"/Water/Vular/Actions/SelectQuery",
+                actionName:"/Water/Vular/Actions/Query",
                 modelName:"/Water/Vular/Model/Products",
               },
             },
