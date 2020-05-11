@@ -17,7 +17,7 @@ import textResetColor from "./general/text/reset-color"
 import textDecoration from "./general/text/decoration"
 import textLead from "./general/text/lead"
 
-import borderColor from "./general/border/Color"
+import borderColor from "./general/border/color"
 import borderAdd from "./general/border/add"
 import borderRemove from "./general/border/remove"
 import borderRadius from "./general/border/radius"

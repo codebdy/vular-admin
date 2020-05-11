@@ -240,7 +240,7 @@ import {Config} from "./Config"
 import MiniWidget from './components/MiniWidget.vue'
 import WidgetTabs from '../shell/components/tabs/WidgetTabs.vue'
 import Tab from '../shell/components/tabs/Tab.vue'
-import Toolbox from '../shell/components/Toolbox/Toolbox.vue'
+import Toolbox from '../shell/components/toolbox/Toolbox.vue'
 import toolboxItems from './ToolboxItems'
 import {IFrameCommandProxy} from "../shell/components/page/IFrameCommandProxy"
 import {HtmlBeautify} from "../shell/basic/HtmlBeautify"
