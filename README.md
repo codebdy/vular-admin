@@ -2,6 +2,7 @@
 
 Vular 前端界面
 演示地址：https://vular.cn/admin-ui/
+自动部署，最新演示：https://vular.now.sh/  
 
 ## dev
 
