@@ -107,6 +107,9 @@ export default{
                   title:"内容",
                 },
                 children:[
+                  {
+                    name:'PageEditor',
+                  }
                 ],
               },
               seoCard

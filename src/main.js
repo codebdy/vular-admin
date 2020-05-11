@@ -37,6 +37,7 @@ import VularSimplePage from "./components/VularSimplePage.vue"
 import VularTreePage from "./components/VularTreePage.vue"
 
 import VularTinymce from "./components/tinymce"
+import PageEditor from './rxeditor/rxpage/PageEditor.vue'
 
 import ThemeSettings from "./components/pages/theme/ThemeSettings"
 
@@ -75,6 +76,8 @@ Vue.component('VularTreePage', VularTreePage)
 
 Vue.component('VularAppbarAccount', VularAppbarAccount)
 Vue.component('VularNotifications', VularNotifications)
+
+Vue.component('PageEditor', PageEditor)
 
 window.$bus= new Vue();
 window.$axios = axios

@@ -15,7 +15,7 @@
           @click="resizeScreen('xl')"
           title = "XL"
         >
-          <i class="fas fa-tv"></i>
+          <i class="mdi mdi-television"></i>
         </div>
         <div class="rx-icon-button"
           :class="{
@@ -25,7 +25,7 @@
           @click="resizeScreen('lg')"
           title = "LG"
         >
-          <i class="fas fa-desktop"></i>
+          <i class="mdi mdi-television"></i>
         </div>
         <div class="rx-icon-button"
           :class="{
@@ -35,7 +35,7 @@
           @click="resizeScreen('md')"
           title = "MD"
         >
-          <i class="fas fa-laptop"></i>
+          <i class="mdi mdi-laptop-mac"></i>
         </div>
         <div class="rx-icon-button"
           :class="{
@@ -45,7 +45,7 @@
           @click="resizeScreen('sm')"
           title = "SM"
         >
-          <i class="fas fa-tablet-alt"></i>
+          <i class="mdi mdi-tablet-ipad"></i>
         </div>
         <div class="rx-icon-button"
           :class="{
@@ -55,7 +55,7 @@
           @click="resizeScreen('xs')"
           title = "XS"
         >
-          <i class="fas fa-mobile-alt"></i>
+          <i class="mdi mdi-cellphone-iphone"></i>
         </div>
 
       </div>
@@ -65,13 +65,13 @@
           :class="{active:toolbox}"
           @click ="toolbox = !toolbox"
         >
-          <i class="fas fa-tools"></i>
+          <i class="mdi mdi-hammer-wrench"></i>
         </div>
         <div class="rx-icon-button" 
           :title="$t('page-toolbar.options')"
           :class="{active:optionbox}"
           @click = "optionbox = !optionbox">
-          <i class="fas fa-paint-brush"></i>
+          <i class="mdi mdi-brush"></i>
         </div>
         <!--div class="rx-icon-button small" title = "">
           <i class="fas fa-project-diagram"></i>
@@ -84,7 +84,7 @@
           :title="$t('page-toolbar.outline')"
           @click="outlineClick"
         >
-          <i class="far fa-square"></i>
+          <i class="mdi mdi-border-none-variant"></i>
         </div>
         <div class="rx-icon-button" 
           :class = "{
@@ -94,7 +94,7 @@
           :title="$t('page-toolbar.margin-x')"
           @click = "marginXClick"
         >
-          <i class="fas fa-arrows-alt-h"></i>
+          <i class="mdi mdi-arrow-left-right"></i>
         </div>
         <div class="rx-icon-button" 
           :class = "{
@@ -104,7 +104,7 @@
           :title="$t('page-toolbar.margin-y')"
           @click = "marginYClick"
         >
-          <i class="fas fa-arrows-alt-v"></i>
+          <i class="mdi mdi-arrow-up-down"></i>
         </div>
         <div class="rx-icon-button" 
           :title="state.preview ? $t('page-toolbar.cancel-preview') : $t('page-toolbar.preview')"
@@ -114,7 +114,7 @@
           }"
           @click = "previewClick"
         >
-          <i class="fas fa-eye"></i>
+          <i class="mdi mdi-eye-outline"></i>
         </div>
         <div class="rx-icon-button" 
           :title="$t('page-toolbar.code')"
@@ -124,7 +124,7 @@
           }"
           @click = "codeClick"
         >
-          <i class="fas fa-code"></i>
+          <i class="mdi mdi-xml"></i>
         </div>
         <div class="rx-icon-button small"
           :title="$t('page-toolbar.undo')"
@@ -133,7 +133,7 @@
           }"
           @click = "undoClick"
         >
-          <i class="fas fa-undo"></i>
+          <i class="mdi mdi-undo"></i>
         </div>
         <div class="rx-icon-button small"
           :title="$t('page-toolbar.redo')"
@@ -142,15 +142,14 @@
           }"
           @click = "redoClick"
         >
-          <i class="fas fa-redo"></i>
+          <i class="mdi mdi-redo"></i>
         </div>
         <div class="rx-icon-button ex-big"
           :title="$t('page-toolbar.fullscreen')"
           :class="{active : fullScreen}"
           @click = "fullScreen = !fullScreen"
         >
-          <i class="fas fa-arrows-alt" 
-            style="transform:rotate(45deg);font-size:18px;"
+          <i class="mdi mdi-fullscreen" 
           ></i>
         </div>
         <div class="rx-icon-button big" 
@@ -159,12 +158,12 @@
             'disabled' : state.preview
           }"
         >
-          <i class="fas fa-layer-group" ></i>
+          <i class="mdi mdi-layers" ></i>
         </div>
         <div class="rx-icon-button ex-big" 
           :title="$t('page-toolbar.help')"
         >
-          <i class="fas fa-question-circle" ></i>
+          <i class="mdi mdi-help-circle" ></i>
         </div>
       </div>
     </div>

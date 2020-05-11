@@ -6,8 +6,8 @@ Vue.use(VueI18n)
 
 //引入语言资源文件
 const locales = {
-  zh: require('./zh.json'),
-  en: require('./en.json'),
+  zh: Object.assign(require('./zh.json'), require('../../rxeditor/assets/locales/zh.json')),
+  en: Object.assign(require('./en.json'), require('../../rxeditor/assets/locales/en.json'))
 }
 
 //构建vuei18n实例，后面会export 这个实例
