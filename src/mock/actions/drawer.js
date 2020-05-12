@@ -214,6 +214,41 @@ export default [
   {
     id:"31",
     name:"vular-menu-item-group",
+    prependIcon:'mdi-auto-fix',
+    //appendIcon: 'home',
+    title:'系统订制',
+    active: false,
+    children: [
+      {
+        id:"38",
+        name:"vular-menu-item",
+        title:'页面',
+        to:{ 
+          name: 'module', 
+          params: { 
+            pageId: 'water-vular-pagelist',
+            moduleId:'building', 
+          }
+        }
+      },
+      {
+        id:"38",
+        name:"vular-menu-item",
+        title:'导航菜单',
+        to:{ 
+          name: 'module', 
+          params: { 
+            pageId: 'water-vular-menus',
+            moduleId:'building', 
+          }
+        }
+      },
+
+    ]          
+  },
+  {
+    id:"39",
+    name:"vular-menu-item-group",
     prependIcon:'mdi-account-supervisor-circle',
     //appendIcon: 'home',
     title:'用户管理',
