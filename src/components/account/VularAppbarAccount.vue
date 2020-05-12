@@ -50,6 +50,7 @@
               >
                 <v-text-field
                   outlined
+                  dense
                   type="password"
                   :label="$t('account.old-password')"
                   :error-messages="errors"
@@ -62,6 +63,7 @@
               >
                 <v-text-field
                   outlined
+                  dense
                   type="password"
                   :label="$t('account.new-password')"
                   :error-messages="errors"
@@ -74,6 +76,7 @@
               >
                 <v-text-field
                   outlined
+                  dense
                   type="password"
                   :label="$t('account.re-new-password')"
                   :error-messages="errors"

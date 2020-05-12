@@ -19,6 +19,7 @@
           style="padding-top:0px;"
           class="mt-n1"
           v-model="keywords"
+          dense
           :clearable = "!!inputValue.formModel.keywords"
           @click:clear = "onClearKeywords"
           @focus="searchBoxFocused = true"

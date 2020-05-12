@@ -13,6 +13,8 @@ export default {
           name:"v-text-field",
           props:{
             label:"标题",
+            outlined:true,
+            dense:true,
             "prepend-icon":"mdi-format-title",
           },
         },
@@ -27,6 +29,8 @@ export default {
           name:"v-text-field",
           props:{
             label:"Slug",
+            outlined:true,
+            dense:true,
             "prepend-icon":"mdi-identifier",
           },
         },
@@ -51,6 +55,8 @@ export default {
                   name:"v-text-field",
                   props:{
                     label:"作者",
+                    outlined:true,
+                    dense:true,
                     "prepend-icon":"mdi-account-outline",
                   },
                 },
@@ -75,6 +81,8 @@ export default {
                   props:{
                     label:"创作时间",
                     type:"date",
+                    outlined:true,
+                    dense:true,
                     "prepend-icon":"mdi-calendar",
                   },
                 },
@@ -104,6 +112,8 @@ export default {
                   name:"v-text-field",
                   props:{
                     label:"来源",
+                    outlined:true,
+                    dense:true,
                     "prepend-icon":"mdi-semantic-web",
                   },
                 },
@@ -127,6 +137,8 @@ export default {
                   name:"v-text-field",
                   props:{
                     label:"来源网址",
+                    outlined:true,
+                    dense:true,
                     "prepend-icon":"mdi-file-link-outline",
                   },
                 },
@@ -147,6 +159,8 @@ export default {
           name:"v-textarea",
           props:{
             label:"简介",
+            outlined:true,
+            dense:true,
             "prepend-icon":"mdi-card-text-outline",
           },
         },
@@ -163,6 +177,8 @@ export default {
           props:{
             label:"标签",
             "prepend-icon":"mdi-tag-multiple-outline",
+            outlined:true,
+            dense:true,
             multiple: true,
             hint:"可添加多个标签，回车分割",
             attach: true,

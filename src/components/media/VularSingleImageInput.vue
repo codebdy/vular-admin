@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>{{label}}</div>
-    <div class="viewer">
+    <div class="viewer" style="padding-bottom:20px;">
       <v-hover
         v-slot:default="{ hover }"
         v-if="image"

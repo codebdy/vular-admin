@@ -60,6 +60,8 @@ export default {
               name:"v-text-field",
               props:{
                 label:"登录名",
+                outlined:true,
+                dense:true,
               },
             },
           },
@@ -74,6 +76,8 @@ export default {
               name:"v-text-field",
               props:{
                 label:"姓名",
+                outlined:true,
+                dense:true,
               },
             },
           },
@@ -87,6 +91,8 @@ export default {
               name:"v-text-field",
               props:{
                 label:"邮箱",
+                outlined:true,
+                dense:true,
               },
             },
           },
@@ -113,6 +119,8 @@ export default {
               name:"v-text-field",
               props:{
                 label:"密码",
+                outlined:true,
+                dense:true,
               },
             },
           },
@@ -126,6 +134,8 @@ export default {
               name:"v-select",
               props:{
                 label:"角色",
+                outlined:true,
+                dense:true,
                 items:['普通人','超级管理员'],
               },
             },
