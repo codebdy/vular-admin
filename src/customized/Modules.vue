@@ -76,26 +76,37 @@
         </v-row>
       </VularFormCard>
       <VularFormCard title="页面">
-        <v-simple-table>
-          <template v-slot:default>
-            <thead>
-              <tr>
-                <th class="text-left">#</th>
-                <th class="text-left">标题</th>
-                <th class="text-left">图标</th>
-                <th class="text-left">模板</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="item in desserts" :key="item.name">
-                <td>{{ item.id }}</td>
-                <td>{{ item.title }}</td>
-                <td><v-icon v-text="item.icon"></v-icon></td>
-                <td>{{ item.template }}</td>
-              </tr>
-            </tbody>
+        <v-data-table
+          hide-default-footer
+          disable-sort
+          :headers = "headers"
+          :items="desserts"
+        >
+          <template v-slot:item.icon="{ item }">
+            <v-icon v-text="item.icon"></v-icon>
           </template>
-        </v-simple-table>
+          <template v-slot:item.actions="{ item }">
+            <v-btn icon small>
+              <v-icon small>mdi-pencil</v-icon>
+            </v-btn>
+            <v-btn icon small>
+              <v-icon small>mdi-pencil-ruler</v-icon>
+            </v-btn>
+            <v-btn icon small>
+              <v-icon small>mdi-trash-can-outline</v-icon>
+            </v-btn>
+          </template>
+        </v-data-table>
+        <v-divider></v-divider>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn 
+            icon
+            color="primary">
+            <v-icon>mdi-plus</v-icon>
+          </v-btn>
+          <v-spacer></v-spacer>
+        </v-card-actions>
       </VularFormCard>
     </v-container>
     <div class="bottom-nav" 
@@ -124,6 +135,30 @@
     },
 
     data: () => ({
+        headers: [
+          {
+            text:'#',
+            value:'id',
+            sortable: false,
+            width:'100px',
+          },
+          {
+            text: '标题',
+            value: 'title',
+          },
+          {
+            text: '图标',
+            value: 'icon',
+          },
+          {
+            text: '模板',
+            value: 'template',
+          },
+          {
+            value: 'actions',
+            width:'150px',
+          },
+        ],
         desserts: [
           {
             id:"1",
