@@ -64,6 +64,10 @@ export default new Router({
           path: 'themes',
           name: 'customized-themes',
         },
+        {
+          path: 'settings',
+          name: 'customized-settings',
+        },
       ],
     },
     {
