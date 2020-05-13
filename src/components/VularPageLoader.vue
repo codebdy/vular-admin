@@ -1,18 +1,10 @@
 <template>
-  <v-content 
-    :style="{
-      background: $store.state.vularApp.content.color + ' url(' + $store.state.vularApp.content.src +')',
-      'font-family': $store.state.vularApp.content.fontFamily
-    }"
-    v-if="loading"
-  >
-      <v-container>
-        <v-skeleton-loader
-          type="table-heading, list-item-two-line, image, table-tfoot" 
-        >
-        </v-skeleton-loader>
-      </v-container>
-  </v-content>
+  <v-container v-if="loading">
+    <v-skeleton-loader
+      type="table-heading, list-item-two-line, image, table-tfoot" 
+    >
+    </v-skeleton-loader>
+  </v-container>
   <VularNode v-else-if="page" :schema = "page"></VularNode>
 </template>
 

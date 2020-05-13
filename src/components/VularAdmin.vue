@@ -34,7 +34,14 @@
 
     <VularAppbar></VularAppbar>
 
-    <router-view/>
+    <v-content 
+      :style="{
+        background: $store.state.vularApp.content.color + ' url(' + $store.state.vularApp.content.src +')',
+        'font-family': $store.state.vularApp.content.fontFamily
+      }"
+    >
+      <router-view/>
+    </v-content>
     <ErrorDialog></ErrorDialog>
     <v-snackbar
       v-model="successSnackbar"

@@ -1,10 +1,5 @@
 <template>
-  <v-content 
-    :style="{
-      background: $store.state.vularApp.content.color + ' url(' + $store.state.vularApp.content.src +')',
-      'font-family': $store.state.vularApp.content.fontFamily
-    }"
-  >
+  <div>
     <VularEditPageHeader
       :title="title" 
       :breadcrumbs="breadcrumbs" 
@@ -46,7 +41,7 @@
           </v-form>
         </ValidationObserver>
       </v-container>
-  </v-content>
+  </div>
 </template>
 
 <script>

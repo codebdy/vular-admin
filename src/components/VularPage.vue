@@ -1,10 +1,5 @@
 <template>
-  <v-content 
-    :style="{
-      background: $store.state.vularApp.content.color + ' url(' + $store.state.vularApp.content.src +')',
-      'font-family': $store.state.vularApp.content.fontFamily
-    }"
-  >
+  <div>
     <VularPageHeader 
       :title="title"
       :titleIcon = "titleIcon"
@@ -23,7 +18,7 @@
     >
       <slot></slot>
     </v-container>
-  </v-content>
+  </div>
 
 </template>
 

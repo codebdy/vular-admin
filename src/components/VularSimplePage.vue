@@ -1,61 +1,54 @@
 <template>
-  <v-content 
-    :style="{
-      background: $store.state.vularApp.content.color + ' url(' + $store.state.vularApp.content.src +')',
-      'font-family': $store.state.vularApp.content.fontFamily
-    }"
-  >
-    <v-container class="mt-5">
-      <h1 class="page-title">
-        <v-btn class="mr-5" fab dark color="primary"
-          width="46" height="46"
-          @click="onBack"
+  <v-container class="mt-5">
+    <h1 class="page-title">
+      <v-btn class="mr-5" fab dark color="primary"
+        width="46" height="46"
+        @click="onBack"
+      >
+        <v-icon dark>mdi-arrow-left</v-icon>
+      </v-btn>
+      {{title}}
+    </h1>
+    <v-row>
+      <v-col 
+        :cols="cols" 
+        :sm="sm"
+        :md="md"
+        :lg="lg"
+        :xl="xl"
+      >
+        <v-card class="mt-5"
+          flat
+          :color="$store.state.vularApp.content.card.color" 
+          :style="$store.state.vularApp.content.card.style"
         >
-          <v-icon dark>mdi-arrow-left</v-icon>
-        </v-btn>
-        {{title}}
-      </h1>
-      <v-row>
-        <v-col 
-          :cols="cols" 
-          :sm="sm"
-          :md="md"
-          :lg="lg"
-          :xl="xl"
-        >
-          <v-card class="mt-5"
-            flat
-            :color="$store.state.vularApp.content.card.color" 
-            :style="$store.state.vularApp.content.card.style"
-          >
-            <v-card-text class="pa-5">
-              <ValidationObserver ref="observer" v-slot="{ validate, reset }">
-                <v-form>
-                  <VularNode
-                    v-for="(schema, index) in layout" 
-                    :schema = "schema"
-                    :key = "index" 
-                    v-model="model">
-                  </VularNode>          
-                </v-form>
-              </ValidationObserver>
-            </v-card-text>
-            <v-divider></v-divider>
-            <v-card-actions class="pa-5">
-              <v-spacer></v-spacer>
+          <v-card-text class="pa-5">
+            <ValidationObserver ref="observer" v-slot="{ validate, reset }">
+              <v-form>
+                <VularNode
+                  v-for="(schema, index) in layout" 
+                  :schema = "schema"
+                  :key = "index" 
+                  v-model="model">
+                </VularNode>          
+              </v-form>
+            </ValidationObserver>
+          </v-card-text>
+          <v-divider></v-divider>
+          <v-card-actions class="pa-5">
+            <v-spacer></v-spacer>
 
-              <v-btn
-                v-for="(btn, index) in operateButtons"
-                :key="index"
-                v-bind="btn.props"
-                @click="onAction(btn.action)" 
-              >{{btn.text}}</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
-  </v-content>
+            <v-btn
+              v-for="(btn, index) in operateButtons"
+              :key="index"
+              v-bind="btn.props"
+              @click="onAction(btn.action)" 
+            >{{btn.text}}</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
