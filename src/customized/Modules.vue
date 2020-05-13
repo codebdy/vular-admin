@@ -45,8 +45,32 @@
       </v-list>      
     </v-navigation-drawer>
     <v-container fluid style="padding-bottom: 100px;">
+      <h2>编辑模块</h2>
       <VularFormCard title="基础信息">
-        dd<br>dd<br>dd<br>dd<br>dd<br>dd<br>
+        <v-row>
+          <v-col cols="12" md="6">
+            <v-text-field
+              name="name"
+              label="ID标识"
+              outlined
+              value="1"
+              disabled
+              dense
+            ></v-text-field>
+            <v-text-field
+              name="name"
+              label="名称"
+              outlined
+              dense
+            ></v-text-field>
+            <v-select
+              name="name"
+              label="入口页面"
+              outlined
+              dense
+            ></v-select>
+          </v-col>
+        </v-row>
       </VularFormCard>
       <VularFormCard title="页面">
         dd<br>dd<br>dd<br>dd<br>dd<br>dd<br>
@@ -109,7 +133,7 @@
   .bottom-nav{
     position: fixed;
     bottom: 0;
-    border-top:#dbdfef solid 1px; 
+    border-top:rgba(0,0,0, 0.1) solid 1px; 
     box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
     display: flex;
     flex-flow: row;
