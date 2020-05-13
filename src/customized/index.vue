@@ -26,7 +26,9 @@
         <v-toolbar-title>Vular定制</v-toolbar-title>
 
         <v-spacer></v-spacer>
-
+        <v-btn icon href="https://github.com/vularsoft/vular-admin">
+          <v-icon>mdi-github</v-icon>
+        </v-btn>
         <VularAppbarAccount :user="{
             avatar:'/images/100.jpg',
           }"
