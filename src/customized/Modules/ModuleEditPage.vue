@@ -71,7 +71,7 @@
     data: () => ({
         headers: [
           {
-            text:'#',
+            text:'ID',
             value:'id',
             sortable: false,
             width:'100px',
@@ -95,13 +95,13 @@
         ],
         desserts: [
           {
-            id:"1",
+            id:"12",
             title: '文章列表',
             icon:'mdi-view-list',
             template:'vular-list-page',
           },
           {
-            id:"2",
+            id:"23",
             title: '文章编辑',
             icon:'mdi-image',
             template:'vular-edit-page',

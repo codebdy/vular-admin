@@ -3,7 +3,7 @@
         <v-row justify="space-between" class="my-12" align="center">
           <v-col cols="12" md="7" lg="6" xl="5">
             <div>
-              <h1 class="display-3 font-weight-bold">
+              <h1 class="display-1 font-weight-bold">
                 欢迎使用Vular
               </h1>
 

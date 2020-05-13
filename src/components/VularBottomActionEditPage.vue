@@ -10,8 +10,8 @@
       }"
     >
       <v-spacer></v-spacer>
-      <v-btn x-large color="primary" dark width="200">
-        <b>保存</b>
+      <v-btn x-large color="primary" class="font-weight-bold" dark width="200">
+        保存
       </v-btn>
     </div>
   </v-container>
