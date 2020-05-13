@@ -10,13 +10,17 @@ import ThemeSettings from "./components/pages/theme/ThemeSettings.vue"
 
 import VularAdmin from "./components/VularAdmin.vue"
 import VularCustomized from './customized'
-import CustomizedModules from './customized/Modules.vue'
+import CustomizedModules from './customized/Modules'
+import CustomizedWelcomePage from './customized/Modules/WelcomePage'
+import CustomizedModuleEditPage from './customized/Modules/ModuleEditPage'
 
 Vue.use(Router)
 
 Vue.component('VularAdmin', VularAdmin)
-Vue.component('VularCustomized',VularCustomized);
-Vue.component('CustomizedModules',CustomizedModules);
+Vue.component('VularCustomized',VularCustomized)
+Vue.component('CustomizedModules',CustomizedModules)
+Vue.component('CustomizedWelcomePage',CustomizedWelcomePage)
+Vue.component('CustomizedModuleEditPage',CustomizedModuleEditPage)
 
 Vue.component('VularLogin', VularLogin)
 Vue.component('Dashboard', Dashboard)
@@ -37,7 +41,7 @@ export default new Router({
       path: '/customized',
       name:'customized',
       component: VularCustomized,
-      redirect:'/customized/modules/index',
+      redirect:'/customized/modules/welcome',
       children:[
         {
           path: 'modules',
@@ -45,14 +49,14 @@ export default new Router({
           component: CustomizedModules,
           children: [
             {
-              path: 'index',
-              name: 'customized-modules-index',
-              component: CustomizedModules,
+              path: 'welcome',
+              name: 'customized-modules-welcome',
+              component: CustomizedWelcomePage,
             },
             {
               path: 'module/:moduleId',
               name: 'customized-module',
-              //component: VularPageLoader,
+              component: CustomizedModuleEditPage,
             },
           ]
         },
