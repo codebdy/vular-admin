@@ -1,6 +1,6 @@
 <template>
   <v-container fluid style="padding-bottom: 100px;">
-    <h2>编辑模块</h2>
+    <h2>{{title}}</h2>
     <slot></slot>
     <div class="bottom-nav" 
       :style="{
@@ -23,6 +23,7 @@
     components: {
     },
     props: {
+      title:{default:""}
     },
 
     data: () => ({

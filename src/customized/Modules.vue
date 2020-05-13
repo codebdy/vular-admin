@@ -45,7 +45,7 @@
       </v-list>      
     </v-navigation-drawer>
 
-    <VularBottomActionEditPage>
+    <VularBottomActionEditPage title="编辑模块">
       <VularFormCard title="基础信息">
         <v-row>
           <v-col cols="12" md="6">
