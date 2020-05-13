@@ -10,11 +10,13 @@ import ThemeSettings from "./components/pages/theme/ThemeSettings.vue"
 
 import VularAdmin from "./components/VularAdmin.vue"
 import VularCustomized from './customized'
+import CustomizedModules from './customized/Modules.vue'
 
 Vue.use(Router)
 
 Vue.component('VularAdmin', VularAdmin)
 Vue.component('VularCustomized',VularCustomized);
+Vue.component('CustomizedModules',CustomizedModules);
 
 Vue.component('VularLogin', VularLogin)
 Vue.component('Dashboard', Dashboard)
@@ -35,6 +37,33 @@ export default new Router({
       path: '/customized',
       name:'customized',
       component: VularCustomized,
+      redirect:'/customized/modules/index',
+      children:[
+        {
+          path: 'modules',
+          name: 'customized-modules',
+          children: [
+            {
+              path: 'index',
+              name: 'customized-modules-index',
+              component: CustomizedModules,
+            },
+            {
+              path: 'module/:moduleId',
+              name: 'customized-module',
+              //component: VularPageLoader,
+            },
+          ]
+        },
+        {
+          path: 'menus',
+          name: 'customized-menus',
+        },
+        {
+          path: 'themes',
+          name: 'customized-themes',
+        },
+      ],
     },
     {
       path:'/admin',
