@@ -174,7 +174,7 @@ export default {
     flex: 1;
     overflow-y: auto; 
     overflow-x:hidden;
-    margin-right: 2px;
+    /*margin-right: 2px;*/
   }
 
 </style>

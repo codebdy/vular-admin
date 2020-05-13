@@ -12,7 +12,7 @@
         </v-list-item-content>
         <v-btn
           dark
-          x-small
+          small
           absolute
           bottom
           right
@@ -44,7 +44,7 @@
         </v-list-item>
       </v-list>      
     </v-navigation-drawer>
-    <v-container fluid>
+    <v-container fluid style="padding-bottom: 100px;">
       <VularFormCard title="基础信息">
         dd<br>dd<br>dd<br>dd<br>dd<br>dd<br>
       </VularFormCard>
@@ -55,6 +55,19 @@
         dd<br>dd<br>dd<br>dd<br>dd<br>dd<br>
       </VularFormCard>
     </v-container>
+    <div class="bottom-nav" 
+      :style="{
+        left:($vuetify.application.left + $vuetify.application.right) + 'px', 
+        width:'calc(100vw - '+ ($vuetify.application.left + $vuetify.application.right) + 'px)',
+        background:$store.state.vularApp.content.card.color,
+      }"
+    >
+      <v-spacer></v-spacer>
+      <v-btn x-large color="primary" dark width="200">
+        <b>保存</b>
+      </v-btn>
+    </div>
+
   </div>
 
 </template>
@@ -92,12 +105,22 @@
   }
 </script>
 
-<style>
+<style scoped>
+  .bottom-nav{
+    position: fixed;
+    bottom: 0;
+    border-top:#dbdfef solid 1px; 
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+    display: flex;
+    flex-flow: row;
+    padding:10px 30px;
+    padding-left:0; 
+  }
+
   .modules-drawer-list{
     flex: 1;
     overflow-y: auto; 
     overflow-x:hidden;
-    margin-right: 2px;
   }
 
   .modules-drawer ::-webkit-scrollbar {
