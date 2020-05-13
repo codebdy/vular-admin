@@ -47,6 +47,7 @@ export default new Router({
           path: 'modules',
           name: 'customized-modules',
           component: CustomizedModules,
+          redirect:'/customized/modules/welcome',
           children: [
             {
               path: 'welcome',
