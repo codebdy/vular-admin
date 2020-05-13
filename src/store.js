@@ -17,6 +17,9 @@ new Vuex.Store({
     //pages schema cache
     pagesCache:new Map,
     globals:{},
+    customizedApp:{
+      modulesDrawer:true,
+    },
   },
 
   mutations:{
@@ -56,6 +59,10 @@ new Vuex.Store({
 
     globals(state, globals){
       state.globals = globals
+    },
+
+    showCustuomizedModulesDrawer(state){
+      state.customizedApp.modulesDrawer = true
     }
   },
  

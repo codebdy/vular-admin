@@ -4,10 +4,11 @@
         app
         color="#1B1B28"
         dark
-        shrink-on-scroll
         prominent
-        src="https://picsum.photos/1920/1080?random"
-        fade-img-on-scroll
+        dense
+        clipped-left
+        clipped-right
+        height="48"
       >
         <template v-slot:img="{ props }">
           <v-img
@@ -32,6 +33,11 @@
         />
 
         <template v-slot:extension>
+          <v-app-bar-nav-icon
+            v-if="!$store.state.customizedApp.modulesDrawer"
+            @click="showDrawer"
+          />
+
           <v-tabs align-with-title>
             <v-tab :to="{name:'customized-modules-index'}">模块</v-tab>
             <v-tab :to="{name:'customized-menus'}">菜单</v-tab>
@@ -39,7 +45,12 @@
           </v-tabs>
         </template>
       </v-app-bar>
-      <v-content>
+      <v-content 
+        :style="{
+          background: $store.state.vularApp.content.color,
+          'font-family': $store.state.vularApp.content.fontFamily
+        }"
+      >
         <router-view/>
       </v-content>
   </v-app>
@@ -60,6 +71,9 @@
     },
 
     methods: {
+      showDrawer(){
+        this.$store.commit('showCustuomizedModulesDrawer')
+      }
     }
   }
 </script>

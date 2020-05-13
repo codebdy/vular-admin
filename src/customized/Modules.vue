@@ -1,45 +1,61 @@
 <template>
-  <v-navigation-drawer permanent class="modules-drawer">
-    <v-list-item>
-      <v-list-item-content>
-        <v-list-item-title class="title">
-          模块
-        </v-list-item-title>
-      </v-list-item-content>
-      <v-btn
-        dark
-        x-small
-        absolute
-        bottom
-        right
-        fab
-        color="primary"
-      >
-        <v-icon>mdi-plus</v-icon>
-      </v-btn>
-    </v-list-item>
-
-    <v-divider></v-divider>
-
-    <v-list
-      dense
-      nav
-      class="modules-drawer-list"
-      :style="{
-        height:'calc(100vh - ' + ($vuetify.application.top + 50) + 'px)'
-      }"
+  <div style="flex: 1">
+    <v-navigation-drawer 
+      class="modules-drawer" app clipped
+      v-model="$store.state.customizedApp.modulesDrawer"
     >
-      <v-list-item
-        v-for="item in items"
-        :key="item.title"
-        link
-      >
-         <v-list-item-content>
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title class="title">
+            模块
+          </v-list-item-title>
         </v-list-item-content>
+        <v-btn
+          dark
+          x-small
+          absolute
+          bottom
+          right
+          fab
+          color="primary"
+        >
+          <v-icon>mdi-plus</v-icon>
+        </v-btn>
       </v-list-item>
-    </v-list>      
-  </v-navigation-drawer>
+
+      <v-divider></v-divider>
+
+      <v-list
+        dense
+        nav
+        class="modules-drawer-list"
+        :style="{
+          height:'calc(100vh - ' + ($vuetify.application.top + 50) + 'px)'
+        }"
+      >
+        <v-list-item
+          v-for="item in items"
+          :key="item.title"
+          link
+        >
+           <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>      
+    </v-navigation-drawer>
+    <v-container fluid>
+      <VularFormCard title="基础信息">
+        dd<br>dd<br>dd<br>dd<br>dd<br>dd<br>
+      </VularFormCard>
+      <VularFormCard title="页面">
+        dd<br>dd<br>dd<br>dd<br>dd<br>dd<br>
+        dd<br>dd<br>dd<br>dd<br>dd<br>dd<br>
+        dd<br>dd<br>dd<br>dd<br>dd<br>dd<br>
+        dd<br>dd<br>dd<br>dd<br>dd<br>dd<br>
+      </VularFormCard>
+    </v-container>
+  </div>
 
 </template>
 

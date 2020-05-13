@@ -1,6 +1,6 @@
 <template>
   <v-card
-    class="mt-5"
+    :class="mt"
     flat
     :color="$store.state.vularApp.content.card.color" 
     :style="$store.state.vularApp.content.card.style"
@@ -34,6 +34,7 @@
       title:{default: ''},
       collapsable:{default: true},
       pa:{default: ''},
+      mt:{default:'mt-5'},
     },
 
     data: () => ({
