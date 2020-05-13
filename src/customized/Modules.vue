@@ -62,21 +62,40 @@
               label="名称"
               outlined
               dense
+              value="文章管理"
             ></v-text-field>
             <v-select
               name="name"
               label="入口页面"
               outlined
               dense
+              item-text="title"
+              :items="desserts"
             ></v-select>
           </v-col>
         </v-row>
       </VularFormCard>
       <VularFormCard title="页面">
-        dd<br>dd<br>dd<br>dd<br>dd<br>dd<br>
-        dd<br>dd<br>dd<br>dd<br>dd<br>dd<br>
-        dd<br>dd<br>dd<br>dd<br>dd<br>dd<br>
-        dd<br>dd<br>dd<br>dd<br>dd<br>dd<br>
+        <v-simple-table>
+          <template v-slot:default>
+            <thead>
+              <tr>
+                <th class="text-left">#</th>
+                <th class="text-left">标题</th>
+                <th class="text-left">图标</th>
+                <th class="text-left">模板</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="item in desserts" :key="item.name">
+                <td>{{ item.id }}</td>
+                <td>{{ item.title }}</td>
+                <td><v-icon v-text="item.icon"></v-icon></td>
+                <td>{{ item.template }}</td>
+              </tr>
+            </tbody>
+          </template>
+        </v-simple-table>
       </VularFormCard>
     </v-container>
     <div class="bottom-nav" 
@@ -105,6 +124,20 @@
     },
 
     data: () => ({
+        desserts: [
+          {
+            id:"1",
+            title: '文章列表',
+            icon:'mdi-view-list',
+            template:'vular-list-page',
+          },
+          {
+            id:"2",
+            title: '文章编辑',
+            icon:'mdi-image',
+            template:'vular-edit-page',
+          },
+        ],
         items: [
           { title: '仪表盘', icon: 'mdi-view-dashboard' },
           { title: '系统设置', icon: 'mdi-image' },
