@@ -55,6 +55,9 @@
 
     data: () => ({
     }),
+    created(){
+      console.log(this.$vuetify)
+    },
 
     methods: {
     }
