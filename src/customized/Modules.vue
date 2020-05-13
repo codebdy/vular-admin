@@ -51,19 +51,23 @@
           <v-col cols="12" md="6">
             <v-text-field
               name="name"
+              label="名称"
+              outlined
+              dense
+              value="文章管理"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12" md="6">
+            <v-text-field
+              name="name"
               label="ID标识"
               outlined
               value="1"
               disabled
               dense
             ></v-text-field>
-            <v-text-field
-              name="name"
-              label="名称"
-              outlined
-              dense
-              value="文章管理"
-            ></v-text-field>
+          </v-col>
+          <v-col cols="12" md="6">
             <v-select
               name="name"
               label="入口页面"
@@ -72,6 +76,15 @@
               item-text="title"
               :items="desserts"
             ></v-select>
+          </v-col>
+          <v-col cols="12" md="6">
+            <v-text-field
+              name="name"
+              label="权限点"
+              outlined
+              dense
+              value="auth-posts"
+            ></v-text-field>
           </v-col>
         </v-row>
       </VularFormCard>
