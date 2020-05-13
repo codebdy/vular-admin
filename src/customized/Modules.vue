@@ -7,7 +7,7 @@
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="title">
-            模块
+            {{$t('custumized.modules')}}
           </v-list-item-title>
         </v-list-item-content>
         <v-btn
@@ -65,25 +65,6 @@
               value="1"
               disabled
               dense
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12" md="6">
-            <v-select
-              name="name"
-              label="入口页面"
-              outlined
-              dense
-              item-text="title"
-              :items="desserts"
-            ></v-select>
-          </v-col>
-          <v-col cols="12" md="6">
-            <v-text-field
-              name="name"
-              label="权限点"
-              outlined
-              dense
-              value="auth-posts"
             ></v-text-field>
           </v-col>
         </v-row>

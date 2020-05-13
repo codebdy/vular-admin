@@ -70,5 +70,9 @@
     "old-password":"Old Password",
     "new-password":"New Password",
     "re-new-password":"Input Password Again"
+  },
+
+  "custumized":{
+    "modules":"Modules"
   }
 }

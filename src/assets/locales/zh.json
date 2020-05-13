@@ -71,6 +71,10 @@
     "old-password":"原密码",
     "new-password":"新密码",
     "re-new-password":"重新输入新密码"
+  },
+
+  "custumized":{
+    "modules":"模块"
   }
 
 }
