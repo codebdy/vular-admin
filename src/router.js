@@ -42,6 +42,7 @@ export default new Router({
         {
           path: 'modules',
           name: 'customized-modules',
+          component: CustomizedModules,
           children: [
             {
               path: 'index',
