@@ -34,6 +34,7 @@ import VularListPage from "./components/VularListPage.vue"
 import VularEditPage from "./components/VularEditPage.vue"
 import VularSimplePage from "./components/VularSimplePage.vue"
 import VularTreePage from "./components/VularTreePage.vue"
+import VularBottomActionEditPage from "./components/VularBottomActionEditPage.vue"
 
 import VularTinymce from "./components/tinymce"
 import PageEditor from './rxeditor/rxpage/PageEditor.vue'
@@ -71,6 +72,7 @@ Vue.component('VularListPage', VularListPage)
 Vue.component('VularEditPage', VularEditPage)
 Vue.component('VularSimplePage', VularSimplePage)
 Vue.component('VularTreePage', VularTreePage)
+Vue.component('VularBottomActionEditPage', VularBottomActionEditPage)
 
 Vue.component('VularAppbarAccount', VularAppbarAccount)
 Vue.component('VularNotifications', VularNotifications)

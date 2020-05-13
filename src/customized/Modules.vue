@@ -44,8 +44,8 @@
         </v-list-item>
       </v-list>      
     </v-navigation-drawer>
-    <v-container fluid style="padding-bottom: 100px;">
-      <h2>编辑模块</h2>
+
+    <VularBottomActionEditPage>
       <VularFormCard title="基础信息">
         <v-row>
           <v-col cols="12" md="6">
@@ -121,19 +121,8 @@
           <v-spacer></v-spacer>
         </v-card-actions>
       </VularFormCard>
-    </v-container>
-    <div class="bottom-nav" 
-      :style="{
-        left:($vuetify.application.left + $vuetify.application.right) + 'px', 
-        width:'calc(100vw - '+ ($vuetify.application.left + $vuetify.application.right) + 'px)',
-        background:$store.state.vularApp.content.card.color,
-      }"
-    >
-      <v-spacer></v-spacer>
-      <v-btn x-large color="primary" dark width="200">
-        <b>保存</b>
-      </v-btn>
-    </div>
+      
+    </VularBottomActionEditPage>
 
   </div>
 
@@ -202,7 +191,6 @@
           { title: '用户管理', icon: 'mdi-help-box' },
           { title: '角色管理', icon: 'mdi-help-box' },
         ],
-        right: null,
     }),
 
     methods: {
@@ -211,17 +199,6 @@
 </script>
 
 <style scoped>
-  .bottom-nav{
-    position: fixed;
-    bottom: 0;
-    border-top:rgba(0,0,0, 0.1) solid 1px; 
-    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
-    display: flex;
-    flex-flow: row;
-    padding:10px 30px;
-    padding-left:0; 
-  }
-
   .modules-drawer-list{
     flex: 1;
     overflow-y: auto; 

@@ -1,6 +1,20 @@
 <template>
-  <v-fab-transition>
-  </v-fab-transition>
+  <v-container fluid style="padding-bottom: 100px;">
+    <h2>编辑模块</h2>
+    <slot></slot>
+    <div class="bottom-nav" 
+      :style="{
+        left:($vuetify.application.left + $vuetify.application.right) + 'px', 
+        width:'calc(100vw - '+ ($vuetify.application.left + $vuetify.application.right) + 'px)',
+        background:$store.state.vularApp.content.card.color,
+      }"
+    >
+      <v-spacer></v-spacer>
+      <v-btn x-large color="primary" dark width="200">
+        <b>保存</b>
+      </v-btn>
+    </div>
+  </v-container>
 </template>
 
 <script>
@@ -18,3 +32,16 @@
     }
   }
 </script>
+
+<style scoped>
+  .bottom-nav{
+    position: fixed;
+    bottom: 0;
+    border-top:rgba(0,0,0, 0.1) solid 1px; 
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+    display: flex;
+    flex-flow: row;
+    padding:10px 30px;
+    padding-left:0; 
+  }
+</style>
