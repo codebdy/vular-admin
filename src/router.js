@@ -8,7 +8,13 @@ import VularPageLoader from "./components/VularPageLoader.vue"
 import VularMediasPage from "./components/VularMediasPage.vue"
 import ThemeSettings from "./components/pages/theme/ThemeSettings.vue"
 
+import VularAdmin from "./components/VularAdmin.vue"
+import VularCustomized from './customized'
+
 Vue.use(Router)
+
+Vue.component('VularAdmin', VularAdmin)
+Vue.component('VularCustomized',VularCustomized);
 
 Vue.component('VularLogin', VularLogin)
 Vue.component('Dashboard', Dashboard)
@@ -21,51 +27,53 @@ Vue.component('ThemeSettings', ThemeSettings)
 export default new Router({
   routes: [
     {
-      path: '/',
-      redirect: {name:'dashboard'}
+      path:'/',
+      name:'admin',
+      redirect:'/admin/dashboard',
     },
     {
-      path: '/module/:moduleId',
-      name: 'module',
-      component: VularModule,
-      redirect:'/module/:moduleId/page/:pageId/data/:data?',
-      children: [
+      path: '/customized',
+      name:'customized',
+      component: VularCustomized,
+    },
+    {
+      path:'/admin',
+      component: VularAdmin,
+      children:[
         {
-          path: 'page/:pageId/data/:data?',
-          name: 'page',
-          component: VularPageLoader,
+          path: 'module/:moduleId',
+          name: 'module',
+          component: VularModule,
+          redirect:'module/:moduleId/page/:pageId/data/:data?',
+          children: [
+            {
+              path: 'page/:pageId/data/:data?',
+              name: 'page',
+              component: VularPageLoader,
+            },
+          ]
         },
-        /*{
-          path: 'edit/:pageId/:id',
-          name: 'editPage',
-          component: VularEditPage
-        },*/
-        /*{
-          path: 'list/:index/detail/:detailIndex',
-          name: 'detail',
-          component: detail
-        }*/
+        {
+          path: 'dashboard',
+          name: 'dashboard',
+          component: Dashboard
+        },
+        {
+          path: 'medias',
+          name: 'medias',
+          component: VularMediasPage
+        },
+        {
+          path: 'login',
+          name: 'login',
+          component: VularLogin
+        },
+        {
+          path: 'theme-settings',
+          name: 'theme-settings',
+          component: ThemeSettings
+        },
       ]
-    },
-    {
-      path: '/dashboard',
-      name: 'dashboard',
-      component: Dashboard
-    },
-    {
-      path: '/medias',
-      name: 'medias',
-      component: VularMediasPage
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: VularLogin
-    },
-    {
-      path: '/theme-settings',
-      name: 'theme-settings',
-      component: ThemeSettings
     },
 
   ]

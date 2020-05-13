@@ -19,6 +19,9 @@
         <span class="hidden-sm-and-down">{{$store.state.vularApp.logo.title}}</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
+      <v-btn icon :to="{name:'customized'}"><v-icon>mdi-cog-outline</v-icon></v-btn>
+
+
       <v-skeleton-loader
         type="chip"
         v-if="loading" 

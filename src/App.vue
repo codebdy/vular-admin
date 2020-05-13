@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <VularAdmin />
+    <router-view/>
   </div>
 </template>
 

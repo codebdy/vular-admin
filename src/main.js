@@ -13,7 +13,6 @@ import router from './router'
 import "./mock"
 
 import VularNode from './VularNode'
-import VularAdmin from "./components/VularAdmin.vue"
 import VularMediaWidget from "./components/media/VularMediaWidget.vue"
 import VularMediaSelectCard from "./components/media/VularMediaSelectCard.vue"
 import VularSingleImageInput from "./components/media/VularSingleImageInput.vue"
@@ -50,7 +49,6 @@ import VularNotifications from "./components/notifications/VularNotifications"
 //Vue.component(VeHistogram.name, VeHistogram)
 //Vue.component(VePie.name, VePie)
 Vue.component('VularNode',VularNode);
-Vue.component('VularAdmin', VularAdmin)
 Vue.component('VularMediaWidget', VularMediaWidget)
 Vue.component('VularMediaSelectCard', VularMediaSelectCard)
 Vue.component('VularSingleImageInput', VularSingleImageInput)
