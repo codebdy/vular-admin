@@ -74,15 +74,22 @@
 </script>
 
 <style scoped>
-  ::-webkit-scrollbar {
-    display: none;
-  }
-
   ::-webkit-scrollbar{
     display: block;
     width: 0.4rem;
     height: 0.4rem;
   }
+
+  .left-drawer ::-webkit-scrollbar {
+    display: none;
+  }
+
+  .left-drawer:hover ::-webkit-scrollbar{
+    display: block;
+    width: 0.4rem;
+    height: 0.4rem;
+  }
+
   ::-webkit-scrollbar-track {
     border-radius: 0;
   }
