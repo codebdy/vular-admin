@@ -90,7 +90,23 @@
           </template>
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title>表头</v-list-item-title>
+              <v-list-item-title>表单卡片</v-list-item-title>
+            </v-list-item-content>
+            <v-list-item-icon>
+              <v-icon small>mdi-arrow-all</v-icon>
+            </v-list-item-icon>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>输入框</v-list-item-title>
+            </v-list-item-content>
+            <v-list-item-icon>
+              <v-icon small>mdi-arrow-all</v-icon>
+            </v-list-item-icon>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>文本框</v-list-item-title>
             </v-list-item-content>
             <v-list-item-icon>
               <v-icon small>mdi-arrow-all</v-icon>
@@ -108,7 +124,7 @@
             v-model="pageType"
           ></v-select>
         </div>
-        <v-btn icon v-if="pageType"><v-icon>mdi-cog-outline</v-icon></v-btn>
+        <v-btn icon v-if="pageType"><v-icon>mdi-file-cog-outline</v-icon></v-btn>
         <v-spacer></v-spacer>
         <v-btn icon><v-icon>mdi-layers</v-icon></v-btn>
         <v-btn icon><v-icon>mdi-eye-outline</v-icon></v-btn>
