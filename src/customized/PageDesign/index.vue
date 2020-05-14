@@ -18,25 +18,80 @@
         nav
         class="drawer-body"
       >
-        <v-list-item
-          v-for="(item,index) in items"
-          :key="index"
-          link
-        >
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
 
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+        <v-list-group
+          prepend-icon="mdi-format-list-checks"
+          no-action
+        >
+          <template v-slot:activator>
+            <v-list-item-content>
+              <v-list-item-title>列表页</v-list-item-title>
+            </v-list-item-content>
+          </template>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>表头</v-list-item-title>
+            </v-list-item-content>
+            <v-list-item-icon>
+              <v-icon small>mdi-arrow-all</v-icon>
+            </v-list-item-icon>
+          </v-list-item>
+        </v-list-group>
+        <v-list-group
+          prepend-icon="mdi-view-dashboard-outline"
+          no-action
+        >
+          <template v-slot:activator>
+            <v-list-item-content>
+              <v-list-item-title>布局</v-list-item-title>
+            </v-list-item-content>
+          </template>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>表头</v-list-item-title>
+            </v-list-item-content>
+            <v-list-item-icon>
+              <v-icon small>mdi-arrow-all</v-icon>
+            </v-list-item-icon>
+          </v-list-item>
+        </v-list-group>
+        <v-list-group
+          prepend-icon="mdi-form-select"
+          no-action
+        >
+          <template v-slot:activator>
+            <v-list-item-content>
+              <v-list-item-title>表单</v-list-item-title>
+            </v-list-item-content>
+          </template>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>表头</v-list-item-title>
+            </v-list-item-content>
+            <v-list-item-icon>
+              <v-icon small>mdi-arrow-all</v-icon>
+            </v-list-item-icon>
+          </v-list-item>
+        </v-list-group>
       </v-list>
     </div>
     <div class="canvars">
       <div style="height: 1000px;">dd</div>
     </div>
-    <div class="right-drawer"></div>
+    <div class="right-drawer">
+      <div class="drawer-title">
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title class="title">
+              属性
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </div>
+
+      <v-divider></v-divider>
+      
+    </div>
   </div>
 </template>
 
@@ -49,23 +104,6 @@
     },
 
     data: () => ({
-      items: [
-        { title: '导航标题区', icon: 'mdi-subtitles-outline' },
-        { title: '列表过滤区', icon: 'mdi-filter-outline' },
-        { title: '批量操作区', icon: 'mdi-table-edit' },
-        { title: '表格列', icon: 'mdi-view-column' },
-        { title: '表格列', icon: 'mdi-view-column' },
-        { title: '表格列', icon: 'mdi-view-column' },
-        { title: '表格列', icon: 'mdi-view-column' },
-        { title: '表格列', icon: 'mdi-view-column' },
-        { title: '表格列', icon: 'mdi-view-column' },
-        { title: '表格列', icon: 'mdi-view-column' },
-        { title: '表格列', icon: 'mdi-view-column' },
-        { title: '表格列', icon: 'mdi-view-column' },
-        { title: '表格列', icon: 'mdi-view-column' },
-        { title: '表格列', icon: 'mdi-view-column' },
-        { title: '行操作区', icon: 'mdi-playlist-edit' },
-      ],
     }),
 
     methods: {
@@ -110,7 +148,7 @@
   }
 
   .left-drawer{
-    width: 200px;
+    width: 238px;
     border-right:solid rgba(0,0,0, 0.1) 1px;
     display: flex;
     flex-flow: column;
