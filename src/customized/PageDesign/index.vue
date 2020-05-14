@@ -113,7 +113,34 @@
             </v-list-item-icon>
           </v-list-item>
         </v-list-group>
+        <v-list-group
+          prepend-icon="mdi-puzzle-outline"
+          no-action
+        >
+          <template v-slot:activator>
+            <v-list-item-content>
+              <v-list-item-title>自定义组件</v-list-item-title>
+            </v-list-item-content>
+          </template>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>社交优化对话框</v-list-item-title>
+            </v-list-item-content>
+            <v-list-item-icon>
+              <v-icon small>mdi-arrow-all</v-icon>
+            </v-list-item-icon>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>SEO对话框</v-list-item-title>
+            </v-list-item-content>
+            <v-list-item-icon>
+              <v-icon small>mdi-arrow-all</v-icon>
+            </v-list-item-icon>
+          </v-list-item>
+        </v-list-group>
       </v-list>
+      <v-divider></v-divider>
       <div class="drawer-title">
         <v-list-item>
           <v-list-item-content>
@@ -121,6 +148,17 @@
               页面组件
             </v-list-item-title>
           </v-list-item-content>
+          <v-btn
+            dark
+            small
+            absolute
+            bottom
+            right
+            fab
+            color="primary"
+          >
+            <v-icon>mdi-plus</v-icon>
+          </v-btn>
         </v-list-item>
       </div>
 
@@ -134,6 +172,11 @@
         <v-list-item link>
           <v-list-item-content>
             <v-list-item-title>主页面</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item link>
+          <v-list-item-content>
+            <v-list-item-title>社交优化对话框</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
