@@ -195,13 +195,9 @@
         <v-spacer></v-spacer>
         <v-btn icon><v-icon>mdi-layers</v-icon></v-btn>
         <v-btn icon><v-icon>mdi-eye-outline</v-icon></v-btn>
-        <v-btn icon>
-          <v-icon>mdi-code-json</v-icon> 
-        </v-btn>
         <v-btn icon><v-icon>mdi-undo</v-icon></v-btn>
         <v-btn icon><v-icon>mdi-redo</v-icon></v-btn>
         <v-btn icon><v-icon>mdi-delete-outline</v-icon></v-btn>
-        <v-btn icon><v-icon>mdi-content-save-move-outline</v-icon></v-btn>
       </div>
       <div class="canvars"
         :style="{
