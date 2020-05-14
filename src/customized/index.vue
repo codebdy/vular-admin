@@ -4,11 +4,12 @@
         app
         color="#1B1B28"
         dark
+        shrink-on-scroll
         prominent
-        dense
+        src="https://picsum.photos/1920/1080?random"
+        fade-img-on-scroll
         clipped-left
         clipped-right
-        height="48"
       >
         <template v-slot:img="{ props }">
           <v-img

@@ -85,7 +85,7 @@
         >
           <template v-slot:activator>
             <v-list-item-content>
-              <v-list-item-title>表单</v-list-item-title>
+              <v-list-item-title>组件</v-list-item-title>
             </v-list-item-content>
           </template>
           <v-list-item>
@@ -145,7 +145,7 @@
         <v-list-item>
           <v-list-item-content>
             <v-list-item-title class="title">
-              页面组件
+              页面部件
             </v-list-item-title>
           </v-list-item-content>
           <v-btn
