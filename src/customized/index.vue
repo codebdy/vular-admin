@@ -44,6 +44,7 @@
             <v-tab :to="{name:'customized-modules'}">模块</v-tab>
             <v-tab :to="{name:'customized-menus'}">菜单</v-tab>
             <v-tab :to="{name:'customized-themes'}">主题</v-tab>
+            <v-tab :to="{name:'customized-themes'}">模板</v-tab>
             <v-tab :to="{name:'customized-settings'}">设置</v-tab>
           </v-tabs>
         </template>

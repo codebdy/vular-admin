@@ -19,17 +19,17 @@
         class="drawer-body"
       >
         <v-list-group
-          prepend-icon="mdi-layers-outline"
+          prepend-icon="mdi-page-layout-header-footer"
           no-action
         >
           <template v-slot:activator>
             <v-list-item-content>
-              <v-list-item-title>页面</v-list-item-title>
+              <v-list-item-title>页面布局</v-list-item-title>
             </v-list-item-content>
           </template>
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title>通用列表</v-list-item-title>
+              <v-list-item-title>固定页眉</v-list-item-title>
             </v-list-item-content>
             <v-list-item-icon>
               <v-icon small>mdi-arrow-all</v-icon>
@@ -37,7 +37,7 @@
           </v-list-item>
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title>通用表单</v-list-item-title>
+              <v-list-item-title>固定页脚</v-list-item-title>
             </v-list-item-content>
             <v-list-item-icon>
               <v-icon small>mdi-arrow-all</v-icon>
@@ -45,23 +45,7 @@
           </v-list-item>
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title>简易表单</v-list-item-title>
-            </v-list-item-content>
-            <v-list-item-icon>
-              <v-icon small>mdi-arrow-all</v-icon>
-            </v-list-item-icon>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-content>
-              <v-list-item-title>底部操作表单</v-list-item-title>
-            </v-list-item-content>
-            <v-list-item-icon>
-              <v-icon small>mdi-arrow-all</v-icon>
-            </v-list-item-icon>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-content>
-              <v-list-item-title>详情查看</v-list-item-title>
+              <v-list-item-title>页面内容</v-list-item-title>
             </v-list-item-content>
             <v-list-item-icon>
               <v-icon small>mdi-arrow-all</v-icon>
@@ -70,35 +54,25 @@
         </v-list-group>
 
         <v-list-group
-          prepend-icon="mdi-format-list-checks"
-          no-action
-        >
-          <template v-slot:activator>
-            <v-list-item-content>
-              <v-list-item-title>列表页</v-list-item-title>
-            </v-list-item-content>
-          </template>
-          <v-list-item>
-            <v-list-item-content>
-              <v-list-item-title>表头</v-list-item-title>
-            </v-list-item-content>
-            <v-list-item-icon>
-              <v-icon small>mdi-arrow-all</v-icon>
-            </v-list-item-icon>
-          </v-list-item>
-        </v-list-group>
-        <v-list-group
           prepend-icon="mdi-view-dashboard-outline"
           no-action
         >
           <template v-slot:activator>
             <v-list-item-content>
-              <v-list-item-title>布局</v-list-item-title>
+              <v-list-item-title>栅格</v-list-item-title>
             </v-list-item-content>
           </template>
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title>表头</v-list-item-title>
+              <v-list-item-title>行</v-list-item-title>
+            </v-list-item-content>
+            <v-list-item-icon>
+              <v-icon small>mdi-arrow-all</v-icon>
+            </v-list-item-icon>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>列</v-list-item-title>
             </v-list-item-content>
             <v-list-item-icon>
               <v-icon small>mdi-arrow-all</v-icon>
@@ -131,10 +105,12 @@
           <v-icon>mdi-code-json</v-icon> 
         </v-btn>
         <v-spacer></v-spacer>
+        <v-btn icon><v-icon>mdi-layers</v-icon></v-btn>
         <v-btn icon><v-icon>mdi-eye-outline</v-icon></v-btn>
         <v-btn icon><v-icon>mdi-undo</v-icon></v-btn>
         <v-btn icon><v-icon>mdi-redo</v-icon></v-btn>
         <v-btn icon><v-icon>mdi-delete-outline</v-icon></v-btn>
+        <v-btn icon><v-icon>mdi-content-save-move-outline</v-icon></v-btn>
       </div>
       <div class="canvars"
         :style="{
@@ -142,7 +118,24 @@
           'font-family': $store.state.vularApp.content.fontFamily
         }"
       >
-        <VularListPage></VularListPage>
+
+        <div
+          style="padding: 20px; outline: #5d78ff dashed 1px;"
+        >
+          
+        </div>
+        <div
+          style="padding: 20px; outline: #5d78ff dashed 1px; height: 400px;"
+        >
+          
+        </div>
+        <div
+          style="padding: 20px; outline: #5d78ff dashed 1px;"
+        >
+          
+        </div>
+
+
       </div>
     </div>
     <div class="right-drawer">
