@@ -101,12 +101,20 @@
     </div>
     <div class="center-area">
       <div flat dense absolute class="canvars-toolbar">
-        <v-btn icon>
-          <v-icon>mdi-code-json</v-icon> 
-        </v-btn>
+        <div style="width: 150px; padding-left:6px;">
+          <v-select
+            :items="['列表页','表单页','列表对话框','表单对话框']"
+            :label="!pageType ? '页面类型' : ''"
+            v-model="pageType"
+          ></v-select>
+        </div>
+        <v-btn icon v-if="pageType"><v-icon>mdi-cog-outline</v-icon></v-btn>
         <v-spacer></v-spacer>
         <v-btn icon><v-icon>mdi-layers</v-icon></v-btn>
         <v-btn icon><v-icon>mdi-eye-outline</v-icon></v-btn>
+        <v-btn icon>
+          <v-icon>mdi-code-json</v-icon> 
+        </v-btn>
         <v-btn icon><v-icon>mdi-undo</v-icon></v-btn>
         <v-btn icon><v-icon>mdi-redo</v-icon></v-btn>
         <v-btn icon><v-icon>mdi-delete-outline</v-icon></v-btn>
@@ -125,7 +133,7 @@
           
         </div>
         <div
-          style="padding: 20px; outline: #5d78ff dashed 1px; height: 400px;"
+          style="padding: 20px; outline: #5d78ff dashed 1px; min-height: 400px;"
         >
           
         </div>
@@ -164,6 +172,7 @@
     },
 
     data: () => ({
+      pageType:'',
     }),
 
     methods: {
