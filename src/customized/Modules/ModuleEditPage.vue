@@ -65,10 +65,6 @@
             <v-toolbar-title>文章列表页设计</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-toolbar-items>
-             <v-btn text>
-                <v-icon class="mr-2">mdi-code-json</v-icon> 
-                代码
-              </v-btn>
               <v-btn dark text @click="dialog = false">
                 <v-icon class="mr-2">mdi-content-save-outline</v-icon> 
                 {{$t('base.save')}}

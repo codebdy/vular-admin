@@ -18,6 +18,56 @@
         nav
         class="drawer-body"
       >
+        <v-list-group
+          prepend-icon="mdi-layers-outline"
+          no-action
+        >
+          <template v-slot:activator>
+            <v-list-item-content>
+              <v-list-item-title>页面</v-list-item-title>
+            </v-list-item-content>
+          </template>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>通用列表</v-list-item-title>
+            </v-list-item-content>
+            <v-list-item-icon>
+              <v-icon small>mdi-arrow-all</v-icon>
+            </v-list-item-icon>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>通用表单</v-list-item-title>
+            </v-list-item-content>
+            <v-list-item-icon>
+              <v-icon small>mdi-arrow-all</v-icon>
+            </v-list-item-icon>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>简易表单</v-list-item-title>
+            </v-list-item-content>
+            <v-list-item-icon>
+              <v-icon small>mdi-arrow-all</v-icon>
+            </v-list-item-icon>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>底部操作表单</v-list-item-title>
+            </v-list-item-content>
+            <v-list-item-icon>
+              <v-icon small>mdi-arrow-all</v-icon>
+            </v-list-item-icon>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>详情查看</v-list-item-title>
+            </v-list-item-content>
+            <v-list-item-icon>
+              <v-icon small>mdi-arrow-all</v-icon>
+            </v-list-item-icon>
+          </v-list-item>
+        </v-list-group>
 
         <v-list-group
           prepend-icon="mdi-format-list-checks"
@@ -75,8 +125,20 @@
         </v-list-group>
       </v-list>
     </div>
-    <div class="canvars">
-      <div style="height: 1000px;">dd</div>
+    <div class="center-area">
+      <div flat dense absolute class="canvars-toolbar">
+        <v-btn icon>
+          <v-icon>mdi-code-json</v-icon> 
+        </v-btn>
+        <v-spacer></v-spacer>
+        <v-btn icon><v-icon>mdi-eye-outline</v-icon></v-btn>
+        <v-btn icon><v-icon>mdi-undo</v-icon></v-btn>
+        <v-btn icon><v-icon>mdi-redo</v-icon></v-btn>
+        <v-btn icon><v-icon>mdi-delete-outline</v-icon></v-btn>
+      </div>
+      <div class="canvars">
+        <div style="height: 1000px;">dd</div>
+      </div>
     </div>
     <div class="right-drawer">
       <div class="drawer-title">
@@ -165,8 +227,26 @@
     height: 0;
   }
 
+  .center-area{
+    flex: 1; 
+    display: flex;
+    flex-flow: column;
+    position: relative;
+  }
+  .canvars-toolbar{
+    height:51px;
+    width: 100%;
+    left:0;
+    top:0;
+    border-bottom:solid rgba(0,0,0, 0.1) 1px; 
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    padding: 0 4px;
+  }
   .canvars{
     flex: 1; overflow-y: auto;
+    padding: 10px;
   }
 
   .right-drawer{
