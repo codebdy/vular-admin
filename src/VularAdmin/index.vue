@@ -74,7 +74,7 @@
 </template>
 
 <script>
-  import VularAppDrawer from "./drawer/VularAppDrawer.vue"
+  import VularAppDrawer from "./Drawer"
   import VularAppbar from "./VularAppbar.vue"
   import AppFab from "./tools/AppFab"
   import DebugDialog from "./tools/DebugDialog.vue"

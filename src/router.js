@@ -2,17 +2,17 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import VularLogin from "./components/VularLogin.vue"
 import Dashboard from "./components/pages/dashboard/Dashboard"
-import VularModule from "./components/VularModule"
-import VularPageLoader from "./components/VularPageLoader.vue"
+import VularModule from "./VularAdmin/VularModule"
+import VularPageLoader from "./VularAdmin/VularPageLoader.vue"
 //import VularEditPage from "./components/VularEditPage.vue"
 import VularMediasPage from "./components/VularMediasPage.vue"
 import ThemeSettings from "./components/pages/theme/ThemeSettings.vue"
 
-import VularAdmin from "./components/VularAdmin.vue"
-import VularCustomized from './customized'
-import CustomizedModules from './customized/Modules'
-import CustomizedWelcomePage from './customized/Modules/WelcomePage'
-import CustomizedModuleEditPage from './customized/Modules/ModuleEditPage'
+import VularAdmin from "./VularAdmin"
+import VularCustomized from './Customized'
+import CustomizedModules from './Customized/Modules'
+import CustomizedWelcomePage from './Customized/Modules/WelcomePage'
+import CustomizedModuleEditPage from './Customized/Modules/ModuleEditPage'
 
 Vue.use(Router)
 

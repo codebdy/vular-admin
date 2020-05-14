@@ -136,8 +136,13 @@
         <v-btn icon><v-icon>mdi-redo</v-icon></v-btn>
         <v-btn icon><v-icon>mdi-delete-outline</v-icon></v-btn>
       </div>
-      <div class="canvars">
-        <div style="height: 1000px;">dd</div>
+      <div class="canvars"
+        :style="{
+          background: $store.state.vularApp.content.color,
+          'font-family': $store.state.vularApp.content.fontFamily
+        }"
+      >
+        <VularListPage></VularListPage>
       </div>
     </div>
     <div class="right-drawer">
@@ -245,8 +250,10 @@
     padding: 0 4px;
   }
   .canvars{
-    flex: 1; overflow-y: auto;
+    flex: 1; 
+    overflow-y: auto;
     padding: 10px;
+    position: relative;
   }
 
   .right-drawer{
