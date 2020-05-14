@@ -7,10 +7,13 @@
                 欢迎使用Vular
               </h1>
 
-              <p class="title mt-5 grey--text">
+              <p class="title mt-5">
                 简洁高效，快速构建系统
               </p>
             </div>
+            <p class="title mt-5">
+              请在PC端使用Vular订制功能
+            </p>
           </v-col>
 
         </v-row>
