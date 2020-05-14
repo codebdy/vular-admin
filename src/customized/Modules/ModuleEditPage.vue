@@ -37,7 +37,7 @@
             <v-btn icon small>
               <v-icon small>mdi-pencil</v-icon>
             </v-btn>
-            <v-btn icon small>
+            <v-btn icon small @click="dialog=true">
               <v-icon small>mdi-pencil-ruler</v-icon>
             </v-btn>
             <v-btn icon small>
@@ -56,57 +56,74 @@
           <v-spacer></v-spacer>
         </v-card-actions>
       </VularFormCard>
-      
+      <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
+        <v-card tile>
+          <v-toolbar dark color="primary">
+            <v-btn icon dark @click="dialog = false">
+              <v-icon>mdi-close</v-icon>
+            </v-btn>
+            <v-toolbar-title>文章列表页设计</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-toolbar-items>
+              <v-btn dark text @click="dialog = false">{{$t('base.save')}}</v-btn>
+            </v-toolbar-items>
+          </v-toolbar>
+          <ListDesign></ListDesign>
+        </v-card>
+      </v-dialog>      
     </VularBottomActionEditPage>
 </template>
 
 <script>
+  import ListDesign from './ListDesign'
   export default {
     name: "module-edit-page",
     components: {
+      ListDesign
     },
     props: {
     },
 
     data: () => ({
-        headers: [
-          {
-            text:'ID',
-            value:'id',
-            sortable: false,
-            width:'100px',
-          },
-          {
-            text: '标题',
-            value: 'title',
-          },
-          {
-            text: '图标',
-            value: 'icon',
-          },
-          {
-            text: '模板',
-            value: 'template',
-          },
-          {
-            value: 'actions',
-            width:'150px',
-          },
-        ],
-        desserts: [
-          {
-            id:"12",
-            title: '文章列表',
-            icon:'mdi-view-list',
-            template:'vular-list-page',
-          },
-          {
-            id:"23",
-            title: '文章编辑',
-            icon:'mdi-image',
-            template:'vular-edit-page',
-          },
-        ],
+      dialog:false,
+      headers: [
+        {
+          text:'ID',
+          value:'id',
+          sortable: false,
+          width:'100px',
+        },
+        {
+          text: '标题',
+          value: 'title',
+        },
+        {
+          text: '图标',
+          value: 'icon',
+        },
+        {
+          text: '模板',
+          value: 'template',
+        },
+        {
+          value: 'actions',
+          width:'150px',
+        },
+      ],
+      desserts: [
+        {
+          id:"12",
+          title: '文章列表',
+          icon:'mdi-view-list',
+          template:'vular-list-page',
+        },
+        {
+          id:"23",
+          title: '文章编辑',
+          icon:'mdi-image',
+          template:'vular-edit-page',
+        },
+      ],
     }),
 
     methods: {

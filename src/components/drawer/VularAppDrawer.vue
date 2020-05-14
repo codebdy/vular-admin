@@ -116,8 +116,7 @@ export default {
 
 <style>
   .drawer-content ::-webkit-scrollbar {
-    width: 0.2rem;
-    height: 0.2rem;
+    display: none;
   }
   .drawer-content ::-webkit-scrollbar-track {
     border-radius: 0;
@@ -128,12 +127,18 @@ export default {
     transition: all .2s;
   }
 
+  .drawer-content:hover ::-webkit-scrollbar{
+    display: block;
+    width: 0.4rem;
+    height: 0.4rem;
+  }
+
   .drawer-content ::-webkit-scrollbar-thumb:hover {
     background: rgba(0,0,0, 0.4);
   }
 
   .theme--dark .drawer-content ::-webkit-scrollbar-thumb {
-    border-radius: 0;
+    border-radius: 0.2rem;
     background: rgba(255,255,255, 0.2);
     transition: all .2s;
   }

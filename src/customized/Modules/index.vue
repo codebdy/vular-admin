@@ -96,14 +96,19 @@
   }
 
   .modules-drawer ::-webkit-scrollbar {
-    width: 0.2rem;
-    height: 0.2rem;
+    display: none;
+  }
+
+  .modules-drawer:hover ::-webkit-scrollbar{
+    display: block;
+    width: 0.4rem;
+    height: 0.4rem;
   }
   .modules-drawer ::-webkit-scrollbar-track {
     border-radius: 0;
   }
   .modules-drawer ::-webkit-scrollbar-thumb {
-    border-radius: 0;
+    border-radius: 0.2rem;
     background: rgba(0,0,0, 0.2);
     transition: all .2s;
   }
