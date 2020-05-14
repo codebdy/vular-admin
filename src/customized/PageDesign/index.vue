@@ -5,7 +5,7 @@
         <v-list-item>
           <v-list-item-content>
             <v-list-item-title class="title">
-              页面组件
+              工具箱
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
@@ -113,6 +113,30 @@
             </v-list-item-icon>
           </v-list-item>
         </v-list-group>
+      </v-list>
+      <div class="drawer-title">
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title class="title">
+              页面组件
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </div>
+
+      <v-divider></v-divider>
+
+      <v-list
+        dense
+        nav
+        class="drawer-body"
+      >
+        <v-list-item link>
+          <v-list-item-content>
+            <v-list-item-title>主页面</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
       </v-list>
     </div>
     <div class="center-area">

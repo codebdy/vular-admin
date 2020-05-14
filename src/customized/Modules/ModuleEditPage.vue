@@ -108,7 +108,7 @@
           value: 'icon',
         },
         {
-          text: '模板',
+          text: '页面类型',
           value: 'template',
         },
         {
@@ -121,13 +121,13 @@
           id:"12",
           title: '文章列表',
           icon:'mdi-view-list',
-          template:'vular-list-page',
+          template:'列表页',
         },
         {
           id:"23",
           title: '文章编辑',
           icon:'mdi-image',
-          template:'vular-edit-page',
+          template:'表单页',
         },
       ],
     }),
