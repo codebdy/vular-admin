@@ -57,11 +57,7 @@
         </v-card-actions>
       </VularFormCard>
       <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
-        <v-card tile style="display: flex; flex-flow: column; height: 0;"
-          :style="{
-            background: $store.state.vularApp.content.color,
-          }"
-        >
+        <v-card tile style="display: flex; flex-flow: column; height: 0;">
           <v-toolbar dark color="primary" style="flex-grow: 0;">
             <v-btn icon dark @click="dialog = false">
               <v-icon>mdi-close</v-icon>
@@ -69,13 +65,9 @@
             <v-toolbar-title>文章列表页设计</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-toolbar-items>
-              <v-btn text>
-                <v-icon class="mr-2">mdi-xml</v-icon> 
-                VUE
-              </v-btn>
              <v-btn text>
                 <v-icon class="mr-2">mdi-code-json</v-icon> 
-                JSON
+                代码
               </v-btn>
               <v-btn dark text @click="dialog = false">
                 <v-icon class="mr-2">mdi-content-save-outline</v-icon> 
@@ -85,7 +77,7 @@
           </v-toolbar>
           <div style="flex:1; border:solid 1px;display: flex; overflow-y: auto;"
           >
-            <ListDesign></ListDesign>
+            <PageDesign></PageDesign>
           </div>
         </v-card>
       </v-dialog>      
@@ -93,11 +85,11 @@
 </template>
 
 <script>
-  import ListDesign from './ListDesign'
+  import PageDesign from '../PageDesign'
   export default {
     name: "module-edit-page",
     components: {
-      ListDesign
+      PageDesign
     },
     props: {
     },
