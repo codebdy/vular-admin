@@ -1,5 +1,17 @@
 <template>
-  <VularPage :title="title" :titleIcon="titleIcon" v-model="page">
+  <div style="padding-top: 90px;">
+    <VularPageHeader>
+      <template v-slot="{heightPercent}">
+        <VularPageHeaderTitle
+          :heightPercent="heightPercent"
+        >
+          <h1 class="page-title">
+            <v-icon color="primary">{{titleIcon}}</v-icon>
+            {{title}}
+          </h1>
+        </VularPageHeaderTitle>
+      </template>
+    </VularPageHeader>
       <v-row
         justify="start">
         <v-col md="6">
@@ -17,7 +29,7 @@
           </v-card>
         </v-col>
       </v-row>
-  </VularPage>
+  </div>
 </template>
 
 <script>
