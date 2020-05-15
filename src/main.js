@@ -6,7 +6,7 @@ import vuetify from './plugins/vuetify' // path to vuetify export
 //import VeHistogram from 'v-charts/lib/histogram.common'
 //import VePie from 'v-charts/lib/pie.common'
 
-import store from './store'    
+import store from './store'
 import axios from 'axios'
 import router from './router'
 
@@ -18,6 +18,7 @@ import VularMediaSelectCard from "./components/media/VularMediaSelectCard.vue"
 import VularSingleImageInput from "./components/media/VularSingleImageInput.vue"
 import VularPage from "./components/VularPage.vue"
 import VularPageHeader from "./components/widgets/VularPageHeader"
+import VularPageHeaderTitle from "./components/widgets/VularPageHeaderTitle"
 import VularEditPageHeader from "./components/widgets/VularEditPageHeader"
 import VularListHead from "./components/widgets/VularListHead"
 import VularListBody from "./components/widgets/VularListBody"
@@ -46,7 +47,7 @@ import VularNotifications from "./components/notifications/VularNotifications"
 //Vue.component(VeLine.name, VeLine)
 //Vue.component(VeHistogram.name, VeHistogram)
 //Vue.component(VePie.name, VePie)
-Vue.component('VularNode',VularNode);
+Vue.component('VularNode', VularNode);
 Vue.component('VularMediaWidget', VularMediaWidget)
 Vue.component('VularMediaSelectCard', VularMediaSelectCard)
 Vue.component('VularSingleImageInput', VularSingleImageInput)
@@ -54,6 +55,7 @@ Vue.component('VularTinymce', VularTinymce)
 Vue.component('VularPage', VularPage)
 Vue.component('VularPageHeader', VularPageHeader)
 Vue.component('VularEditPageHeader', VularEditPageHeader)
+Vue.component('VularPageHeaderTitle', VularPageHeaderTitle)
 Vue.component('VularListHead', VularListHead)
 Vue.component('VularListBody', VularListBody)
 Vue.component('VularFormCard', VularFormCard)
@@ -74,14 +76,14 @@ Vue.component('VularBottomActionEditPage', VularBottomActionEditPage)
 Vue.component('VularAppbarAccount', VularAppbarAccount)
 Vue.component('VularNotifications', VularNotifications)
 
-window.$bus= new Vue();
+window.$bus = new Vue();
 window.$axios = axios
 
 new Vue({
-  el: '#app',
-  i18n,
-  router,
-  store,
-  vuetify,
-  render: h => h(App)
+    el: '#app',
+    i18n,
+    router,
+    store,
+    vuetify,
+    render: h => h(App)
 })

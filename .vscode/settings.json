@@ -1,0 +1,15 @@
+{
+    "emmet.includeLanguages": {
+        "vue-html":"html",
+        "vue":"html"
+    },
+    "files.associations": {
+        "*.vue": "html"
+    }, 
+    "emmet.excludeLanguages": [
+
+        "markdown"
+    ],
+    "editor.tabSize": 2,
+    "eslint.format.enable": true
+}

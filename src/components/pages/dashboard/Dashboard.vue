@@ -1,5 +1,17 @@
 <template>
-  <VularPage :title="'仪表盘'" :titleIcon="'mdi-speedometer'" v-model="page">
+  <div>
+    <VularPageHeader>
+      <template v-slot="{heightPercent}">
+        <VularPageHeaderTitle
+          :heightPercent="heightPercent"
+        >
+          <h1 class="page-title">
+            <v-icon color="primary">mdi-speedometer</v-icon>
+            仪表盘
+          </h1>
+        </VularPageHeaderTitle>
+      </template>
+    </VularPageHeader>
       <v-row
         justify="start"
       >
@@ -81,7 +93,7 @@
         </v-col>
       </v-row>
 
-  </VularPage>
+  </div>
 </template>
 
 <script>
