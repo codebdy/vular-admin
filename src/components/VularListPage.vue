@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="padding-top: 218px;">
     <VularPageHeader>
       <template v-slot="{heightPercent}">
         <VularPageHeaderTitle
