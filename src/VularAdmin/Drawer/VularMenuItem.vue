@@ -2,6 +2,7 @@
    <v-list-item link :to="schema.to" color="primary">
       <v-list-item-icon
         v-if="schema.prependIcon"
+        key="with-badge"
       >
         <v-badge
           :color="schema.badge.props.color"
@@ -12,6 +13,7 @@
         </v-badge>
       <v-icon
         v-else
+        key="no-badge"
         v-text="schema.prependIcon"
       ></v-icon>
     </v-list-item-icon>

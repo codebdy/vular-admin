@@ -14,8 +14,18 @@
         v-if="collapsable"
         @click = "showBody = !showBody"
       >
-        <v-icon v-if="showBody">mdi-chevron-up</v-icon>
-        <v-icon v-else>mdi-chevron-down</v-icon>
+        <v-icon 
+          v-if="showBody"
+          key="mdi-chevron-up"
+        >
+          mdi-chevron-up
+        </v-icon>
+        <v-icon 
+          v-else
+          key="mdi-chevron-down"
+        >
+          mdi-chevron-down
+        </v-icon>
       </v-btn>
     </v-toolbar>
     <v-divider v-show="showBody"></v-divider>

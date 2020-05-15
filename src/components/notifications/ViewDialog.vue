@@ -3,10 +3,16 @@
       <v-card>
         <v-skeleton-loader
             type="article"
-            v-if="loading" 
+            v-if="loading"
+            key="loading" 
           >
         </v-skeleton-loader>
-        <v-card-text v-else-if="item" style="max-height: calc(100vh - 300px);" class="pa-5">
+        <v-card-text 
+          v-else-if="item" 
+          key="card-text"
+          style="max-height: calc(100vh - 300px);" 
+          class="pa-5"
+        >
           <h3>{{item.title}}</h3>
           <p class="mt-5" v-html="item.content"></p>
           <p class="mt-5">{{item.created_at}}</p>

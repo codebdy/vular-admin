@@ -4,11 +4,13 @@
   >
     <VularLogin 
       v-if="!$store.state.loggedIn"
+      key="no-login"
     ></VularLogin>
   </v-app>
   <v-app id="admin-app" 
     :style="{'font-family': $store.state.vularApp.fontFamily}"
     v-else
+    key="logged-in"
   >
     <v-navigation-drawer
       v-model="$store.state.vularApp.drawer.model"

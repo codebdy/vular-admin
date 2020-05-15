@@ -9,12 +9,15 @@
           :color="badge.props.color"
           dot
           v-if="badge"
+          key="with-badge"
         >
-        <v-icon v-text="schema.prependIcon"></v-icon>
-      </v-badge>
-      <v-icon
-        v-else
-        v-text="schema.prependIcon"></v-icon>
+          <v-icon v-text="schema.prependIcon"></v-icon>
+        </v-badge>
+        <v-icon
+          v-else
+          key="no-badge"
+          v-text="schema.prependIcon">
+        </v-icon>
       </v-list-item-icon>
       <v-list-item-content>
         <v-list-item-title v-text="schema.title"></v-list-item-title>

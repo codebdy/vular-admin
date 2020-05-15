@@ -35,11 +35,15 @@
           >
             {{column.title}}
           </div>
-          <div v-if="!row[column.field] || typeof(row[column.field]) == 'string'">
+          <div 
+            v-if="!row[column.field] || typeof(row[column.field]) == 'string'"
+            key="string-col"
+          >
             {{row[column.field]}}
           </div>
           <VularNode
             v-else
+            key="object-col"
             :schema = "row[column.field]"
           >
           </VularNode>

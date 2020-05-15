@@ -1,14 +1,17 @@
 <template>
   <v-skeleton-loader
     type="card-heading"
-    v-if="inputValue == 'loading'" 
+    v-if="inputValue == 'loading'"
+    key="loading" 
   >
   </v-skeleton-loader>
 
-  <ValidationProvider v-slot="{ errors }" 
+  <ValidationProvider 
+    v-slot="{ errors }" 
+    v-else
+    key="input"
     :name="vInput.props.label" 
     :rules="rules"
-    v-else
   >
     <component
       :is="vInput.name" 

@@ -118,12 +118,14 @@
           </v-menu>
           <v-btn icon 
             v-if="!isList"
+            :key="mdi-view-grid-outline"
             @click="isList = !isList"
           >
             <v-icon size="21">mdi-view-grid-outline</v-icon>
           </v-btn>
           <v-btn icon  
             v-else
+            key="mdi-format-list-checkbox"
             @click="isList = !isList"
           >
             <v-icon :size="toolIconSize">mdi-format-list-checkbox</v-icon>

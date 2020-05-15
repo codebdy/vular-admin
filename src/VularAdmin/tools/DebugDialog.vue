@@ -41,8 +41,17 @@
                 @click="onAction(error)"
               >
                 Action:
-                <v-icon v-if="error.showAction">mdi-menu-down</v-icon>
-                <v-icon v-else>mdi-menu-right</v-icon>
+                <v-icon 
+                  v-if="error.showAction"
+                  key="mdi-menu-down"
+                >
+                  mdi-menu-down</v-icon>
+                <v-icon 
+                  v-else
+                  key="mdi-menu-right"
+                >
+                  mdi-menu-right
+                </v-icon>
               </v-btn>
               <pre v-if="error.showAction">{{error.action}}</pre>
             </div>
@@ -51,8 +60,14 @@
                   @click="onActionData(error)"
                 >
                   Action Data:
-                  <v-icon v-if="error.showActionData">mdi-menu-down</v-icon>
-                  <v-icon v-else>mdi-menu-right</v-icon>
+                  <v-icon 
+                    v-if="error.showActionData"
+                    key="mdi-menu-down"
+                  >mdi-menu-down</v-icon>
+                  <v-icon 
+                    v-else
+                    key="mdi-menu-right"
+                  >mdi-menu-right</v-icon>
                 </v-btn>
               <pre v-if="error.showActionData">{{error.data}}</pre>
             </div>
@@ -60,8 +75,18 @@
               <v-btn text small class="ml-n3"
                 @click="onRequest(error)"
               >Request 
-                <v-icon v-if="error.showRequest">mdi-menu-down</v-icon>
-                <v-icon v-else>mdi-menu-right</v-icon>
+                <v-icon 
+                  v-if="error.showRequest"
+                  key="mdi-menu-down"
+                >
+                  mdi-menu-down
+                </v-icon>
+                <v-icon 
+                  v-else
+                  key="mdi-menu-right"
+                >
+                  mdi-menu-right
+                </v-icon>
               </v-btn>
               <pre v-if="error.showRequest" style="color:green;">{{error.error.request}}</pre>
             </div>

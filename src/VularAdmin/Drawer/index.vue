@@ -23,11 +23,13 @@
 
       <v-skeleton-loader
         type="list-item-avatar, list-item-avatar, list-item-avatar, list-item-avatar, list-item-avatar, list-item-avatar, list-item-avatar, list-item-avatar, list-item-avatar"
-        v-if="loading" 
+        v-if="loading"
+        key="loading" 
       >
       </v-skeleton-loader>
       <v-list class="drawer-list"
         v-else
+        key="drawer-list"
       >
       <component     
         v-for="schema in items"

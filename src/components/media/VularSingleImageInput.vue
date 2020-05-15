@@ -5,6 +5,7 @@
       <v-hover
         v-slot:default="{ hover }"
         v-if="image"
+        key = "image"
       >
         <v-img
           aspect-ratio="1"
@@ -24,6 +25,7 @@
 
       <MediaAddCell @selectMedias= "onSelectMedias"
         v-else
+        key="media-add-cell"
         single="true"
       >
       </MediaAddCell>

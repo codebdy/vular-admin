@@ -3,10 +3,19 @@
     <v-menu offset-y origin="center center" :nudge-bottom="10" transition="scale-transition">
       <template v-slot:activator="{ on }">
         <v-btn icon v-on="on">
-          <v-avatar v-if="user && user.avatar" size="30px">
+          <v-avatar 
+            v-if="user && user.avatar"
+            key="avatar" 
+            size="30px"
+          >
             <img :src="user.avatar" :alt="user.name" />
           </v-avatar>
-          <v-icon v-else>mdi-account-outline</v-icon>
+          <v-icon 
+            v-else
+            key="icon"
+          >
+            mdi-account-outline
+          </v-icon>
         </v-btn>
       </template>
       <v-list>

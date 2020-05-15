@@ -58,12 +58,14 @@
         </v-btn>
         <v-btn dark fab x-small depressed class="image-button ml-1"
           v-if="inputValue.editing"
+          key="mdi-pencil-remove-outline"
           @click.stop = "onStopEdit"
         >
           <v-icon size="13" dark>mdi-pencil-remove-outline</v-icon>
         </v-btn>
         <v-btn dark fab x-small depressed class="image-button ml-1"
           v-else
+          key="mdi-pencil-outline"
           @click.stop = "onEdit"
         >
           <v-icon size="13" dark>mdi-pencil-outline</v-icon>

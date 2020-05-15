@@ -24,7 +24,8 @@
 
       <v-skeleton-loader
         type="chip"
-        v-if="loading" 
+        v-if="loading"
+        key="loading" 
       >
       </v-skeleton-loader>
       <VularNode

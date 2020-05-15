@@ -3,11 +3,20 @@
     <v-menu offset-y origin="center center" :nudge-bottom="10" transition="scale-transition" v-model="poped">
       <template v-slot:activator="{ on }">
         <v-btn icon v-on="on">
-          <v-badge color="red" overlap v-if="badge">
+          <v-badge color="red" overlap 
+            v-if="badge"
+            key="badge"
+          >
             <span slot="badge">{{badge}}</span>
             <v-icon medium>mdi-bell-outline</v-icon>
           </v-badge>
-          <v-icon v-else medium>mdi-bell-outline</v-icon>
+          <v-icon 
+            v-else 
+            key="no-badge"
+            medium
+          >
+            mdi-bell-outline
+          </v-icon>
         </v-btn>
       </template>
       <v-card class="elevation-0">
@@ -19,17 +28,28 @@
           <v-skeleton-loader
             type="list-item-avatar-two-line, list-item-avatar-two-line, list-item-avatar-two-line, list-item-avatar-two-line"
             style="width: 300px;"
-            v-if="loading" 
+            v-if="loading"
+            key="loading" 
           >
           </v-skeleton-loader>
-          <v-list v-else two-line subheader class="pa-0">
+          <v-list 
+            v-else
+            key="v-list" 
+            two-line subheader class="pa-0"
+          >
             <template v-for="(item, index) in items">
               <v-list-item :key="item.id" link
                 @click="onClick(item)"
               >
                 <v-list-item-avatar>
-                  <v-icon v-if="item.unread">mdi-email-outline</v-icon>
-                  <v-icon v-else>mdi-email-open-outline</v-icon>
+                  <v-icon 
+                    v-if="item.unread"
+                    key="not-read-icon"
+                  >mdi-email-outline</v-icon>
+                  <v-icon 
+                    v-else
+                    key="read-icon"
+                  >mdi-email-open-outline</v-icon>
                 </v-list-item-avatar>
                 <v-list-item-content>
                   <v-list-item-title :class="{'font-weight-bold' : item.unread}"  v-text="item.title"></v-list-item-title>

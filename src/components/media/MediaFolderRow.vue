@@ -34,12 +34,14 @@
     <div class="image-toolbar">
       <v-btn icon
         v-if="inputValue.editing"
+        key="mdi-pencil-remove-outline"
         @click.stop = "onStopEdit"
       >
         <v-icon>mdi-pencil-remove-outline</v-icon>
       </v-btn>
       <v-btn icon
         v-else
+        key="mdi-pencil-outline"
         @click.stop = "onEdit"
       >
         <v-icon>mdi-pencil-outline</v-icon>

@@ -77,10 +77,12 @@
           <v-skeleton-loader
             type="table-tbody"
             v-if="loading"
+            key="loading"
           >
           </v-skeleton-loader>
           <VularListBody 
             v-else
+            key="list-body"
             :columns="columns"
             :rowActions = "rowActions" 
             :canSelect = "canSelect"
@@ -135,7 +137,7 @@
       editPath:{default: ''},
       transshapeBreakPoint:{defalut: 'sm'},
       addNewAction:{default:null},
-      reload: false,
+      //reload: false,
     },
     data () {
       return {
@@ -170,17 +172,16 @@
     created(){
       $bus.$on('dispatchModel', this.onDispatchModel)
       $bus.$on('ActionError', this.onActionError)
-      $bus.$on('reload', this.onReload)
+      //$bus.$on('reload', this.onReload)
     },
     mounted () {
       this.model.formModel = Object.assign({}, this.defaultModel)
       this.checkTransshape()
-
     },
     destroyed() {
       $bus.$off('dispatchModel', this.onDispatchModel)
       $bus.$off('ActionError', this.onActionError)
-      $bus.$on('reload', this.onReload)
+      //$bus.$on('reload', this.onReload)
     },
 
     methods: {
@@ -201,11 +202,11 @@
         }
       },
 
-      onReload(vularId){
-        if(vularId == this.vularId){
-          this.query()
-        }
-      },
+      //onReload(vularId){
+      //  if(vularId == this.vularId){
+      //    this.query()
+      //  }
+      //},
 
       query(){
         if(this.queryAction){

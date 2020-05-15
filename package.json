@@ -34,6 +34,8 @@
     "babel-preset-stage-3": "^6.24.1",
     "cross-env": "^5.0.5",
     "deepmerge": "^4.2.2",
+    "eslint": "^7.0.0",
+    "eslint-plugin-vue": "^6.2.2",
     "fibers": "^4.0.2",
     "file-loader": "^1.1.4",
     "mockjs": "^1.1.0",

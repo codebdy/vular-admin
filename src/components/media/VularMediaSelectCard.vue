@@ -2,12 +2,14 @@
   <v-skeleton-loader
     type="card-heading"
     v-if="inputValue == 'loading'" 
+    key="loading"
     color="transparent"
     class="mt-5"
   >
   </v-skeleton-loader>
   <v-card
     v-else
+    :key="card"
     class="mt-5 media-select"
     flat
     :color="$store.state.vularApp.content.card.color" 

@@ -1,11 +1,18 @@
 <template>
-  <v-container v-if="loading">
+  <v-container 
+    v-if="loading" 
+    key="loading"
+  >
     <v-skeleton-loader
       type="table-heading, list-item-two-line, image, table-tfoot" 
     >
     </v-skeleton-loader>
   </v-container>
-  <VularNode v-else-if="page" :schema = "page"></VularNode>
+  <VularNode 
+    v-else-if="page" 
+    :schema = "page"
+    :key = "page.props.vularId"
+  ></VularNode>
 </template>
 
 <script>
@@ -27,9 +34,9 @@
         let page = this.$store.state.pagesCache.get(this.$route.params.pageId)
         if(page){
           this.page = page
-          this.$nextTick(() => {
-             $bus.$emit('reload', page.props.vularId)
-          })         
+          //this.$nextTick(() => {
+             //$bus.$emit('reload', page.props.vularId)
+          //})         
           //console.log('从缓存中取页面')
           return
         }
