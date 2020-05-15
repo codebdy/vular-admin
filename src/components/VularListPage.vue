@@ -40,21 +40,21 @@
           
         </VularListHead>
       </template>
-    </VularPageHeader>
+</VularPageHeader>
 
-      <v-row align="center" justify="center" class="pt-0 mt-0">
-          <v-col cols="12" class="pt-0 mt-0">
-              <v-card flat style="padding-top:10px;" :color="$store.state.vularApp.content.card.color" :style="$store.state.vularApp.content.card.style">
-                  <v-skeleton-loader type="table-tbody" v-if="loading" key="loading">
-                  </v-skeleton-loader>
-                  <VularListBody v-else key="list-body" :columns="columns" :rowActions="rowActions" :canSelect="canSelect" :transshape="transshape" :actionsColumn="actionsColumn" v-model="model.rows"></VularListBody>
-                  <v-card-actions justify="start">
-                      <v-pagination :length="15" :total-visible="7" circle color="primary" :page="model.formModel.page" v-model="model.formModel.page"></v-pagination>
-                  </v-card-actions>
+<v-row align="center" justify="center" class="pt-0 mt-0">
+    <v-col cols="12" class="pt-0 mt-0">
+        <v-card flat style="padding-top:10px;" :color="$store.state.vularApp.content.card.color" :style="$store.state.vularApp.content.card.style">
+            <v-skeleton-loader type="table-tbody" v-if="loading" key="loading">
+            </v-skeleton-loader>
+            <VularListBody v-else key="list-body" :columns="columns" :rowActions="rowActions" :canSelect="canSelect" :transshape="transshape" :actionsColumn="actionsColumn" v-model="model.rows"></VularListBody>
+            <v-card-actions justify="start">
+                <v-pagination :length="15" :total-visible="7" circle color="primary" :page="model.formModel.page" v-model="model.formModel.page"></v-pagination>
+            </v-card-actions>
 
-              </v-card>
-          </v-col>
-      </v-row>
+        </v-card>
+    </v-col>
+</v-row>
 
 </div>
 </template>
