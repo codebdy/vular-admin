@@ -26,11 +26,15 @@
         style="transition: height 0.3s"
         class="d-flex flex-row align-center"
       >
-        <template v-for="(crumb, i) in breadcrumbs">
+        <template v-for="crumb in breadcrumbs">
           <v-btn text rounded class="ml-n4"
+            :key="crumb.title"
             :dark="dark" 
             @click="onBreadcrumbClick(crumb)">{{crumb.title}}</v-btn>
-          <v-icon :dark="dark">mdi-chevron-right</v-icon>
+          <v-icon 
+            :dark="dark"
+            :key="crumb.title + 'icon'"
+          >mdi-chevron-right</v-icon>
         </template>
         <v-chip rounded :dark="dark" color="transparent">{{title}}</v-chip>
       </div>
@@ -46,11 +50,14 @@
         <template
           v-if="!large && !this.$vuetify.breakpoint.xs"
         >
-          <template v-for="(crumb, i) in breadcrumbs">
+          <template 
+            v-for="crumb in breadcrumbs"
+          >
             <v-btn text rounded  class="ml-n4"
+              :Key="crumb.title"
               @click="onBreadcrumbClick(crumb)"
             >{{crumb.title}}</v-btn>
-            <v-icon>mdi-chevron-right</v-icon>
+            <v-icon :key="crumb.title + 'icon'">mdi-chevron-right</v-icon>
           </template>
           <v-chip rounded color="transparent"
           >{{title}}</v-chip>

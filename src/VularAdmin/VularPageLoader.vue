@@ -46,7 +46,7 @@
 
       load(){
         this.loading = true
-        $axios.post('/api/view', this.$route.params)
+        window.$axios.post('/api/view', this.$route.params)
         .then((res)=>{
           this.$store.commit("globals", res.data.globals)
           let page = res.data.pageData

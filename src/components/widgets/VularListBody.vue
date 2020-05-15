@@ -21,7 +21,7 @@
           ></v-checkbox>
         </li>
         <li 
-          v-for="(column, index) in columns"
+          v-for="column in columns"
           :key="column.field"
           :style="{
             flex: transshape ? '' : column.flex,
@@ -53,22 +53,23 @@
             width: !transshape ? actionsColumn.width :'',
           }"
         >
-          <v-tooltip top
-            v-for="(action, index) in rowActions"
-            v-if="hover && action.shortcut"
-            :key="index"
-          >
-            <template v-slot:activator="{ on }">
-              <v-btn icon color="primary" 
-                v-on="on"
-                :key = "index"
-                @click = "onRowAction(action, row)"
-              >
-                <v-icon small v-text="action.icon"></v-icon>
-              </v-btn>
-            </template>
-            <span>{{action.title}}</span>
-          </v-tooltip>
+          <template if="hover">
+            <v-tooltip top
+              v-for="(action, index) in rowShortcutActions"
+              :key="index"
+            >
+              <template v-slot:activator="{ on }">
+                <v-btn icon color="primary" 
+                  v-on="on"
+                  :key = "index"
+                  @click = "onRowAction(action, row)"
+                >
+                  <v-icon small v-text="action.icon"></v-icon>
+                </v-btn>
+              </template>
+              <span>{{action.title}}</span>
+            </v-tooltip>
+          </template>
           <v-menu offset-y v-if="popedActions.length > 0">
             <template v-slot:activator="{ on }">
               <v-btn icon color="primary"
@@ -129,6 +130,17 @@
         },
       },
 
+      rowShortcutActions(){
+        let actions = []
+        this.rowActions.forEach(action=>{
+          if(action.shortcut){
+            actions.push(action)
+          }
+        })
+
+        return actions
+      },
+
       popedActions(){
         let actions = []
         this.rowActions.forEach(action=>{
@@ -145,7 +157,7 @@
       onRowAction(actionCtrl, row){
         let action = Object.assign({}, actionCtrl.action)
         action.to.params.data = row.id
-        $bus.$emit("VularAction", action, this.vularId)
+        window.$bus.$emit("VularAction", action, this.vularId)
       },
     },
   }

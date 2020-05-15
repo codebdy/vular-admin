@@ -33,7 +33,7 @@
           <template v-slot:item.icon="{ item }">
             <v-icon v-text="item.icon"></v-icon>
           </template>
-          <template v-slot:item.actions="{ item }">
+          <template v-slot:item.actions="{  }">
             <v-btn icon small>
               <v-icon small>mdi-pencil</v-icon>
             </v-btn>

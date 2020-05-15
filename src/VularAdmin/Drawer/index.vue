@@ -81,7 +81,7 @@ export default {
     init(){
       this.loading = true
       let api = '/api/drawer'
-      $axios.get(api)
+      window.$axios.get(api)
       .then((res)=>{
         this.items = res.data
         this.loading = false

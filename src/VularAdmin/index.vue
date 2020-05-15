@@ -16,7 +16,6 @@
       v-model="$store.state.vularApp.drawer.model"
       :clipped="$store.state.vularApp.drawer.clipped"
       :floating="$store.state.vularApp.drawer.floating"
-      :mini-variant="$store.state.vularApp.drawer.mini"
       :mini-variant-width = "$store.state.vularApp.drawer.miniVariantWidth"
       :permanent="$store.state.vularApp.drawer.type === 'permanent'"
       :temporary="$store.state.vularApp.drawer.type === 'temporary'"
@@ -110,30 +109,29 @@
     created(){
       console.log(this.$vuetify)
 
-      $bus.$on('VularAction', this.onVularAction)
+      window.$bus.$on('VularAction', this.onVularAction)
     },
 
     mounted() {
     },
 
     destroyed() {
-      $bus.$off('VularAction', this.onVularAction)
+      window.$bus.$off('VularAction', this.onVularAction)
     },
 
     methods: {
       onVularAction(action, vularId, data){
-        let self = this
         if(action.name === 'openPage'){
           this.$router.push(action.to).catch(err => {err})
         }
 
         if(action.name === 'doAction'){
-          $axios.post(action.api, {params: action.params, data : data})
+          window.$axios.post(action.api, {params: action.params, data : data})
           .then((res)=>{
             this.$store.commit("globals", res.data.globals)
-            $bus.$emit('dispatchModel', vularId, res.data.pageData)
+            window.$bus.$emit('dispatchModel', vularId, res.data.pageData)
             if(action.successAction){
-              $bus.$emit('VularAction', action.successAction, vularId)
+              window.$bus.$emit('VularAction', action.successAction, vularId)
             }
             if(action.tipSuccess){
               this.successMessage = action.successMessage
@@ -141,7 +139,7 @@
             }
           })
           .catch((error)=>{
-            $bus.$emit('ActionError', vularId, error)
+            window.$bus.$emit('ActionError', vularId, error)
             this.$store.commit('error', {
               error:error,
               action:action,

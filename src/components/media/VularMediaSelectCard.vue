@@ -9,7 +9,7 @@
   </v-skeleton-loader>
   <v-card
     v-else
-    :key="card"
+    key="card"
     class="mt-5 media-select"
     flat
     :color="$store.state.vularApp.content.card.color" 
@@ -79,7 +79,7 @@
           <v-row no-gutters>
             <v-col
               v-for="(media,index) in feachureRightMedias"
-              :key="media.src"
+              :key="media.src + index"
               sm="3"
               class="image-col"
             >
@@ -103,8 +103,8 @@
         </v-col>
         <v-col
           class="image-col"
-          v-for="(media,index) in secondRowMedias"
-          :key="media.src"
+          v-for="(media, index) in secondRowMedias"
+          :key="media.src + index"
           :cols="colWidth ? colWidth : 4"
           :sm="colWidth ? colWidth : 2"
         >
@@ -177,6 +177,7 @@
         if(this.inputValue[this.field] && this.inputValue[this.field].length > 0 && this.hasFeathureRow){
           return this.inputValue[this.field][0]
         }
+        return ""
       },
 
       feachureRightMedias(){

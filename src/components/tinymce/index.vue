@@ -71,7 +71,7 @@ export default {
   computed: {
   },
   mounted() {
-    $bus.$on('selectImage', this.onSelectImage)
+    window.$bus.$on('selectImage', this.onSelectImage)
     this.init()
   },
   activated() {
@@ -81,11 +81,11 @@ export default {
   },
   deactivated() {
     this.destroyTinymce()
-    $bus.$off('selectImage', this.onSelectImage)
+    window.$bus.$off('selectImage', this.onSelectImage)
   },
   destroyed() {
     this.destroyTinymce()
-    $bus.$off('selectImage', this.onSelectImage)
+    window.$bus.$off('selectImage', this.onSelectImage)
   },
   methods: {
     init() {
@@ -172,7 +172,7 @@ export default {
     },
 
     onSelectMedias(medias){
-      $bus.$emit('selectedImages', medias, this.id)
+      window.$bus.$emit('selectedImages', medias, this.id)
     },
   }
 }

@@ -43,7 +43,6 @@ export default {
         "icon": "mdi-pencil",
         "title": "编辑",
         "shortcut": true,
-        "action":"action_id1",
         "action": {
           name:"openPage",
           to:{

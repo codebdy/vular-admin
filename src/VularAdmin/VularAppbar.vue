@@ -64,7 +64,7 @@
       init(){
         this.loading = true
         let api = '/api/appbar'
-        $axios.get(api)
+        window.$axios.get(api)
         .then((res)=>{
           this.tools = res.data
           this.loading = false

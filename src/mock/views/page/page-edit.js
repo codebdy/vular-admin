@@ -108,7 +108,7 @@ export default{
                 },
                 children:[
                   {
-                    name:'PageEditor',
+                    name:'v-textarea',
                     props:{
                       field:'page',
                     }

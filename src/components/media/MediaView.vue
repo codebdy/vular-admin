@@ -58,6 +58,6 @@
   };
 </script>
 
-<style">
+<style>
   
 </style>

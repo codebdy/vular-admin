@@ -23,7 +23,7 @@
           :style="$store.state.vularApp.content.card.style"
         >
           <v-card-text class="pa-5">
-            <ValidationObserver ref="observer" v-slot="{ validate, reset }">
+            <ValidationObserver ref="observer" v-slot="{ }">
               <v-form>
                 <VularNode
                   v-for="(schema, index) in layout" 
@@ -76,9 +76,9 @@
     }),
 
     created(){
-      $bus.$on('dispatchModel', this.onDispatchModel)
-      $bus.$on('ActionError', this.onActionError)
-      $bus.$on('reload', this.onReload)
+      window.$bus.$on('dispatchModel', this.onDispatchModel)
+      window.$bus.$on('ActionError', this.onActionError)
+      window.$bus.$on('reload', this.onReload)
     },
 
     mounted() {
@@ -88,9 +88,9 @@
     },
 
     destroyed() {
-      $bus.$off('dispatchModel', this.onDispatchModel)
-      $bus.$off('ActionError', this.onActionError)
-      $bus.$off('reload', this.onReload)
+      window.$bus.$off('dispatchModel', this.onDispatchModel)
+      window.$bus.$off('ActionError', this.onActionError)
+      window.$bus.$off('reload', this.onReload)
     },
 
     methods: {
@@ -99,13 +99,13 @@
       },
 
       onAction(action){
-          $bus.$emit('VularAction', action, this.vularId)
+          window.$bus.$emit('VularAction', action, this.vularId)
       },
 
       load(){
         let data = this.$route.params.data
         this.model = 'loading'
-        $bus.$emit('VularAction', this.loadAction, this.vularId, data)
+        window.$bus.$emit('VularAction', this.loadAction, this.vularId, data)
       },
 
       onReload(vularId){
@@ -120,7 +120,7 @@
         }
       },
 
-      onActionError(vularId, error){
+      onActionError(vularId){
         if(vularId == this.vularId){
           this.model = {}
         }

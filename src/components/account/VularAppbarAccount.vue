@@ -51,7 +51,7 @@
           {{$t('account.change-password')}}
         </v-card-title>
         <v-card-text style="max-height: 100vh;" class="pa-5">
-          <ValidationObserver ref="observer" v-slot="{ validate, reset }">
+          <ValidationObserver ref="observer" v-slot="{ }">
             <v-form>
               <ValidationProvider v-slot="{ errors }" 
                 :name="$t('account.old-password')" 

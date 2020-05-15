@@ -30,7 +30,7 @@
         </div>
       </div>
       <v-container fluid style="margin-top:120px;">
-        <ValidationObserver ref="observer" v-slot="{ validate, reset }">
+        <ValidationObserver ref="observer" v-slot="{ }">
           <v-form>
             <VularNode
               v-for="(schema, index) in layout" 
@@ -51,7 +51,7 @@
   import { messages as enMessages } from 'vee-validate/dist/locale/en.json';
   import { messages as zhMessages } from 'vee-validate/dist/locale/zh_CN.json';
 
-  var messages = i18n.locale==='zh' ? zhMessages : enMessages
+  var messages = window.i18n.locale==='zh' ? zhMessages : enMessages
   Object.keys(rules).forEach(rule => {
     extend(rule, {
       ...rules[rule], // copies rule configuration
@@ -120,8 +120,8 @@
       },
     },
     created(){
-      $bus.$on('dispatchModel', this.onDispatchModel)
-      $bus.$on('ActionError', this.onActionError)
+      window.$bus.$on('dispatchModel', this.onDispatchModel)
+      window.$bus.$on('ActionError', this.onActionError)
     },
     
     mounted() {
@@ -130,8 +130,8 @@
       this.load()
     },
     destroyed() {
-      $bus.$off('dispatchModel', this.onDispatchModel)
-      $bus.$off('ActionError', this.onActionError)
+      window.$bus.$off('dispatchModel', this.onDispatchModel)
+      window.$bus.$off('ActionError', this.onActionError)
     },
 
     methods: {
@@ -144,7 +144,7 @@
           this.$refs.observer.validate()
           return
         }
-        $bus.$emit('VularAction', action)
+        window.$bus.$emit('VularAction', action)
       },
 
       onDispatchModel(vularId, model){
@@ -153,7 +153,7 @@
         }
       },
 
-      onActionError(vularId, error){
+      onActionError(vularId){
         if(vularId == this.vularId){
           this.model = {}
         }
@@ -162,7 +162,7 @@
       load(){
         let data = this.$route.params.data
         this.model = 'loading'
-        $bus.$emit('VularAction', this.loadAction, this.vularId, data)
+        window.$bus.$emit('VularAction', this.loadAction, this.vularId, data)
       },
       
     },

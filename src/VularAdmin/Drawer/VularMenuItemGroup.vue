@@ -36,15 +36,18 @@
         >{{schema.badge.title}}</v-chip>
       </div>
     </template>
-    <component
-      v-if="schema.children"     
-      v-for="subSchema in schema.children"
-      :key="subSchema.title"
-      :is="subSchema.name" 
-      :schema="subSchema"
-      :drawer="drawer"
+    <template
+      v-if="schema.children" 
     >
-    </component>
+      <component
+        v-for="subSchema in schema.children"
+        :key="subSchema.title"
+        :is="subSchema.name" 
+        :schema="subSchema"
+        :drawer="drawer"
+      >
+      </component>
+    </template>
     <div>
     </div>
   </v-list-group>
@@ -85,6 +88,8 @@ export default {
       if(badge && (!schema.active || this.drawer.mini)){
         return badge
       }
+
+      return ""
     }
   },
 

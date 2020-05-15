@@ -10,7 +10,7 @@
         <v-card-title>{{title}}</v-card-title>
         <v-divider></v-divider>
         <v-card-text style="max-height: calc(100vh -300px)">
-          <ValidationObserver ref="observer" v-slot="{ validate, reset }">
+          <ValidationObserver ref="observer" v-slot="{ }">
             <v-form>
               <VularNode
                 v-for="(schema, index) in layout" 
@@ -32,13 +32,11 @@
 </template>
 <script>
   import { ValidationObserver } from 'vee-validate'
-  import { ValidationProvider } from 'vee-validate'
-
+  
   export default {
     name: "vular-has-one-dialog",
     components: {
-      ValidationObserver,
-      ValidationProvider
+      ValidationObserver
     },
     props: {
       title:{default: '1 to 1 Dialog'},

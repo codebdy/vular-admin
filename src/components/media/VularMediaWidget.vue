@@ -118,7 +118,7 @@
           </v-menu>
           <v-btn icon 
             v-if="!isList"
-            :key="mdi-view-grid-outline"
+            key="mdi-view-grid-outline"
             @click="isList = !isList"
           >
             <v-icon size="21">mdi-view-grid-outline</v-icon>
@@ -168,8 +168,7 @@
       <v-card-text style="flex:1; overflow-y: auto; position: relative;">
         <v-row>
           <MediaFolderCell
-            v-if="!isList && !currentFolder"
-            v-for = "(folder, index) in folders"
+            v-for = "(folder, index) in showedFolders"
             :key = "folder.id"
             v-model="folders[index]"
             :folders = "folders"
@@ -183,7 +182,7 @@
           >
           </MediaFolderCell>
           <MediaFolderRow
-            v-else-if = "!currentFolder"
+            v-for = "(folder,index) in folderRows"
             :key = "folder.id"
             v-model="folders[index]"
             :folders = "folders"
@@ -198,8 +197,7 @@
             
           </MediaFolderRow>
           <MediaCell
-            v-if = "!isList && ((!currentFolder && !media.belongsTo) || (currentFolder && currentFolder.id == media.belongsTo))"
-            v-for = "(media, index) in medias"
+            v-for = "(media, index) in showedMedias"
             :key = "media.src"
             v-model="medias[index]"
             @select = "onSelect"
@@ -211,7 +209,7 @@
           >
           </MediaCell>
           <MediaRow
-            v-else-if = "(!currentFolder && !media.belongsTo) || (currentFolder &&currentFolder.id == media.belongsTo)"
+            v-for = "media in showedMediaRows"
             :key = "media.src"
             v-model="medias[index]"
             @select = "onSelect"
@@ -275,7 +273,7 @@
       MediaFolderRow,
     },
     props: {
-      inMediasPage:false,
+      inMediasPage:{default:false},
       acceptMatch:{
         type:String,
         default:'image/*',
@@ -434,6 +432,47 @@
         return this.$vuetify.breakpoint.xs || this.$vuetify.breakpoint.sm || this.$vuetify.breakpoint.md
       },
 
+      showedFolders(){
+        if(!this.isList && !this.currentFolder){
+          return this.folders
+        }
+        return []
+      },
+
+      folderRows(){
+        if(this.isList && !this.currentFolder){
+          return this.folders
+        }
+
+        return []
+      },
+
+      showedMedias(){
+        let medias = []
+        if(!this.isList){
+          this.medias.forEach(media=>{
+            if((!this.currentFolder && !media.belongsTo) 
+              || (this.currentFolder && this.currentFolder.id == media.belongsTo)){
+                medias.push(media)
+            }
+          })
+        }
+        return medias
+
+      },
+
+      showedMediaRows(){
+        let medias = []
+        if(this.isList){
+          this.medias.forEach(media=>{
+            if((!this.currentFolder && !media.belongsTo) || (this.currentFolder && this.currentFolder.id == media.belongsTo)){
+              medias.push(media)
+            }
+          })
+        }
+        return medias
+      },
+
       searchboxWidth(){
         if(!this.searchboxFocused){
           if(this.isSmall){
@@ -448,6 +487,8 @@
           }
           return 350
         }
+
+        return ''
       },
 
       currentFolder(){

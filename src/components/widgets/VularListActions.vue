@@ -29,11 +29,12 @@
       </div>
       <div v-if="!collopsed">
         <template 
-          v-for="(filter, index) in filters"
-          v-if="filter.shortcut"
+          v-for="(filter, index) in shortcutFilters"
         >
           {{filter.title}}
-          <v-menu offset-y>
+          <v-menu offset-y
+            :key="index"
+          >
             <template v-slot:activator="{ on }">
               <v-btn
                 :color="inputValue.formModel[filter.field] === filter.blankValue ? '' : 'primary'"
@@ -49,7 +50,7 @@
             </template>
             <v-list>
               <v-list-item link color="primary" 
-                v-model="filter.blankValue === inputValue.formModel[filter.field]"
+                
                 @click = "onFilter(filter, filter.blankValue)"
               >
                 <v-list-item-content>
@@ -59,7 +60,7 @@
               <v-list-item link color="primary"
                 v-for="(label, value) in filter.rules"
                 :key = 'value'
-                v-model="value === inputValue.formModel[filter.field]"
+                
                 @click = "onFilter(filter, value)"
               >
                 <v-list-item-content>
@@ -90,12 +91,18 @@
           <v-list class="pt-0 vular-filter-list" :color="$store.state.vularApp.content.card.color">
             <template 
               v-for="(filter, index) in popFilters"
+              
             >
               <v-subheader 
-                :style="{background: $store.state.vularApp.content.color}">
+                :style="{background: $store.state.vularApp.content.color}"
+                :key="index"
+              >
               {{filter.title}}
               </v-subheader>
-              <v-radio-group class="px-3" v-model="inputValue.formModel[filter.field]">
+              <v-radio-group class="px-3" 
+                v-model="inputValue.formModel[filter.field]"
+                :key="index + 'radio-group'"
+              >
                 <v-radio
                   :label="filter.blankTitle"
                   :value="filter.blankValue"
@@ -121,8 +128,7 @@
     </template>
     <template v-else>
       <v-btn text rounded color="primary" class="mx-3"
-        v-for="(action, index) in batchActions"
-        v-if="action.shortcut && !collopsed"
+        v-for="(action, index) in notPopedBatchActions"
         :key = "index"
         :small="isStick"
         @click="onBatchAction(action)"
@@ -187,6 +193,26 @@
         set:function(val) {
           this.$emit('input', val);
         },
+      },
+
+      shortcutFilters(){
+        let filters = []
+        this.filters.forEach(filter=>{
+          if(filter.shortcut){
+            filters.push(filter)
+          }
+        })
+        return filters
+      },
+
+      notPopedBatchActions(){
+        let actions = []
+        this.batchActions.forEach(action=>{
+          if(action.shortcut && !this.collopsed){
+            actions.push(action)
+          }
+        })
+        return actions
       },
 
       popBatchActions(){
@@ -296,7 +322,7 @@
       },
 
       onBatchAction(actionCtrl){
-        $bus.$emit("VularAction", actionCtrl.action, this.vularId, this.selectedRows)
+        window.$bus.$emit("VularAction", actionCtrl.action, this.vularId, this.selectedRows)
       },
     },
   }

@@ -36,12 +36,12 @@
       }
     },
     created(){
-      $bus.$on('dispatchModel', this.onDispatchModel)
-      $bus.$on('ActionError', this.onActionError)
+      window.$bus.$on('dispatchModel', this.onDispatchModel)
+      window.$bus.$on('ActionError', this.onActionError)
     },
     destroyed() {
-      $bus.$off('dispatchModel', this.onDispatchModel)
-      $bus.$off('ActionError', this.onActionError)
+      window.$bus.$off('dispatchModel', this.onDispatchModel)
+      window.$bus.$off('ActionError', this.onActionError)
     },
 
     watch: {
@@ -57,16 +57,16 @@
         }
       },
 
-      onActionError(vularId, error){
+      onActionError(vularId){
         if(vularId == this.vularId){
           this.loading = false
         }
       },
 
-      querySelections (v) {
+      querySelections () {
         //console.log('querySelections:' + v)
         this.loading = true
-        $bus.$emit('VularAction', this.queryAction, this.vularId)
+        window.$bus.$emit('VularAction', this.queryAction, this.vularId)
         /*let action = this.queryAction
         $axios.post(action.api, {params: action.params, data : {keywords:v}})
         .then((res)=>{

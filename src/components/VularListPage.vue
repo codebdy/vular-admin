@@ -170,23 +170,23 @@
       },
     },
     created(){
-      $bus.$on('dispatchModel', this.onDispatchModel)
-      $bus.$on('ActionError', this.onActionError)
-      //$bus.$on('reload', this.onReload)
+      window.$bus.$on('dispatchModel', this.onDispatchModel)
+      window.$bus.$on('ActionError', this.onActionError)
+      //window.$bus.$on('reload', this.onReload)
     },
     mounted () {
       this.model.formModel = Object.assign({}, this.defaultModel)
       this.checkTransshape()
     },
     destroyed() {
-      $bus.$off('dispatchModel', this.onDispatchModel)
-      $bus.$off('ActionError', this.onActionError)
-      //$bus.$on('reload', this.onReload)
+      window.$bus.$off('dispatchModel', this.onDispatchModel)
+      window.$bus.$off('ActionError', this.onActionError)
+      //window.$bus.$on('reload', this.onReload)
     },
 
     methods: {
       onAddNew(){
-        $bus.$emit('VularAction', this.addNewAction)
+        window.$bus.$emit('VularAction', this.addNewAction)
       },
 
       onDispatchModel(vularId, model){
@@ -196,7 +196,7 @@
         }
       },
 
-      onActionError(vularId, error){
+      onActionError(vularId){
         if(vularId == this.vularId){
           this.loading = false
         }
@@ -211,7 +211,7 @@
       query(){
         if(this.queryAction){
           this.loading = true
-          $bus.$emit('VularAction', this.queryAction, this.vularId,  this.model.formModel)
+          window.$bus.$emit('VularAction', this.queryAction, this.vularId,  this.model.formModel)
         }
       },
 
@@ -287,16 +287,16 @@
         deep: true,        
       },
 
-      "$vuetify.breakpoint.xs": function(val){
+      "$vuetify.breakpoint.xs": function(){
         this.checkTransshape()
       },
-      "$vuetify.breakpoint.sm":function(val){
+      "$vuetify.breakpoint.sm":function(){
         this.checkTransshape()
       },
-      "$vuetify.breakpoint.md":function (val){
+      "$vuetify.breakpoint.md":function (){
         this.checkTransshape()
       },
-      "$vuetify.breakpoint.lg":function (val){
+      "$vuetify.breakpoint.lg":function (){
         this.checkTransshape()
       },
 

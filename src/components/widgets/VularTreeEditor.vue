@@ -5,7 +5,7 @@
       hoverable
       :items="items"
     >
-      <template v-slot:label="{ item, active }">
+      <template v-slot:label="{ item }">
         <v-hover v-slot:default = "{hover}">
           <div 
             class="tree-item"

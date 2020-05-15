@@ -1,11 +1,11 @@
 var path = require('path')
 var webpack = require('webpack')
-const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
+//const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 
 module.exports = {
   entry: {
-    build: './src/main.js',
-    core : './src/rxeditor/core.js'
+    build: './src/main.js'
+    //core : './src/rxeditor/core.js'
   },
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -62,13 +62,13 @@ module.exports = {
               indentedSyntax: true // optional
             },
             // Requires sass-loader@^8.0.0
-            options: {
+            /*options: {
               implementation: require('sass'),
               sassOptions: {
                 fiber: require('fibers'),
                 indentedSyntax: true // optional
               },
-            },
+            },*/
           },
         ],
       },
@@ -79,8 +79,16 @@ module.exports = {
             limit: 10000,
             name: '[name].[hash:7].[ext]'
         }
+      },
+      {
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          // enforce: 'pre',//是否在loader前监测，vue中我设为否
+          include: [path.join(__dirname, 'src')],
+          options: {
+              formatter: require('eslint-friendly-formatter')//错误输出格式
+          }
       }
-
     ]
   },
   resolve: {

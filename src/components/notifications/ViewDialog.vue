@@ -32,7 +32,6 @@
         </v-card-actions>
       </v-card>
     </v-dialog>    
-  </v-fab-transition>
 </template>
 
 <script>
@@ -62,13 +61,13 @@
     },
 
     created(){
-      $bus.$on('dispatchModel', this.onDispatchModel)
-      $bus.$on('ActionError', this.onActionError)
+      window.$bus.$on('dispatchModel', this.onDispatchModel)
+      window.$bus.$on('ActionError', this.onActionError)
     },
 
     destroyed() {
-      $bus.$off('dispatchModel', this.onDispatchModel)
-      $bus.$off('ActionError', this.onActionError)
+      window.$bus.$off('dispatchModel', this.onDispatchModel)
+      window.$bus.$off('ActionError', this.onActionError)
     },
 
     methods: {
@@ -79,7 +78,7 @@
         }
       },
 
-      onActionError(vularId, error){
+      onActionError(vularId){
         if(vularId == this.vularId){
          this.loading = false
         }
@@ -90,7 +89,7 @@
       inputValue(val){
         if(this.viewAction && val){
           this.loading = true
-          $bus.$emit('VularAction', this.viewAction, this.vularId, this.notification)
+          window.$bus.$emit('VularAction', this.viewAction, this.vularId, this.notification)
         }
       } 
     }    

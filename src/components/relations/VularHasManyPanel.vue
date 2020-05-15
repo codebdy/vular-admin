@@ -16,7 +16,10 @@
     <v-toolbar v-if="!inputValue[this.field] || inputValue[this.field].length == 0" flat >
       <v-toolbar-title>{{title}} </v-toolbar-title>
     </v-toolbar>
-    <div v-for="(item,index) in inputValue[field]">
+    <div 
+      v-for="(item,index) in inputValue[field]"
+      :key="index"
+    >
       <v-divider v-if="index > 0"></v-divider>
       <v-toolbar flat >
         <v-toolbar-title> {{title}} #{{index+1}}</v-toolbar-title>

@@ -37,7 +37,7 @@
             key="v-list" 
             two-line subheader class="pa-0"
           >
-            <template v-for="(item, index) in items">
+            <template v-for="item in items">
               <v-list-item :key="item.id" link
                 @click="onClick(item)"
               >
@@ -56,7 +56,7 @@
                   <v-list-item-subtitle v-text="item.timeLabel"></v-list-item-subtitle>
                 </v-list-item-content>
                </v-list-item>
-               <v-divider></v-divider>
+               <v-divider :key="item.id + 'divider'"></v-divider>
             </template>
           </v-list>
           
@@ -105,13 +105,13 @@
     },
 
     created(){
-      $bus.$on('dispatchModel', this.onDispatchModel)
-      $bus.$on('ActionError', this.onActionError)
+      window.$bus.$on('dispatchModel', this.onDispatchModel)
+      window.$bus.$on('ActionError', this.onActionError)
     },
 
     destroyed() {
-      $bus.$off('dispatchModel', this.onDispatchModel)
-      $bus.$off('ActionError', this.onActionError)
+      window.$bus.$off('dispatchModel', this.onDispatchModel)
+      window.$bus.$off('ActionError', this.onActionError)
     },
 
     methods: {
@@ -122,7 +122,7 @@
         }
       },
 
-      onActionError(vularId, error){
+      onActionError(vularId){
         if(vularId == this.vularId){
           this.loading = false
         }
@@ -135,7 +135,7 @@
 
       onVeiwAll(){
         if(this.viewAllAction){
-          $bus.$emit('VularAction', this.viewAllAction, this.vularId)
+          window.$bus.$emit('VularAction', this.viewAllAction, this.vularId)
         }
       },
     },
@@ -144,7 +144,7 @@
         handler(val){
           if(this.queryAction && val){
             this.loading = true
-            $bus.$emit('VularAction', this.queryAction, this.vularId)
+            window.$bus.$emit('VularAction', this.queryAction, this.vularId)
           }
         },
         deep: true,        

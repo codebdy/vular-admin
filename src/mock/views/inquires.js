@@ -57,7 +57,6 @@ export default {
         "icon": "mdi-eye-outline",
         "title": "查看",
         "shortcut": true,
-        "action":"action_id1",
         "action": {
           name:"openPage",
           to:{

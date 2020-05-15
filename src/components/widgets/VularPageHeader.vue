@@ -114,7 +114,7 @@
     },
 
     methods: {
-      onScroll(e){
+      onScroll(){
         if(this.persistent){
           return
         }

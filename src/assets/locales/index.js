@@ -6,8 +6,8 @@ Vue.use(VueI18n)
 
 //引入语言资源文件
 const locales = {
-  zh: Object.assign(require('./zh.json'), require('../../rxeditor/assets/locales/zh.json')),
-  en: Object.assign(require('./en.json'), require('../../rxeditor/assets/locales/en.json'))
+  zh: require('./zh.json'),
+  en: require('./en.json'),
 }
 
 //构建vuei18n实例，后面会export 这个实例
@@ -17,11 +17,12 @@ const i18n = new VueI18n({
 })
 
 //获取浏览器语言环境，截取lang的前2位字符，是因为浏览器语言返回值可能是：
-//zh-cn Chinese(PRC) 
+//zh-cn Chinese(PRC)
 //zh-tw Chinese(Taiwan Region)
-//zh-hk Chinese(Hong Kong SAR, PRC) 
-//zh-sg Chinese(Singapore) 
-//en-us English(United States) 
+//zh-hk Chinese(Hong Kong SAR, PRC)
+//zh-sg Chinese(Singapore)
+//en-us English(United States)
+// eslint-disable-next-line no-irregular-whitespace
 //en English
 function getDefaultLang(){
   let lang = navigator.language || navigator.userLanguage
