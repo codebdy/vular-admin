@@ -20,7 +20,7 @@
           <v-spacer></v-spacer>
           <v-btn rounded color="primary" dark
             v-if="addNewAction" 
-            :small="page.header.isStick"
+            :small="heightPercent < 0.5"
             @click="onAddNew"
           >
             <v-icon left>mdi-plus</v-icon> {{$t('list.add-new')}}
@@ -31,12 +31,12 @@
           :filters="filters" 
           :columns="columns" 
           :canSelect="canSelect" 
-          :heightPercent="page.header.heightPercent" 
+          :heightPercent="heightPercent" 
           :transshape="transshape" 
           :queryAction="queryAction" 
           v-model="model" 
-          @selectAll="onSelectAll" 
-          @listHeaderHeight="onListHeaderHeight">
+          @selectAll="onSelectAll"
+        > 
           
         </VularListHead>
       </template>
@@ -131,13 +131,6 @@
         },
         data() {
             return {
-                page: {
-                    header: {
-                        isStick: false,
-                        listHeaderHeight: '',
-                        heightPercent: 1,
-                    },
-                },
                 selectedRows: [],
                 transshape: false,
                 model: {
@@ -209,10 +202,6 @@
                 this.model.rows.forEach(row => {
                     this.$set(row, 'selected', selected)
                 })
-            },
-
-            onListHeaderHeight(height) {
-                this.page.header.listHeaderHeight = height
             },
 
             checkXs() {
