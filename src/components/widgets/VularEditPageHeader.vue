@@ -68,7 +68,6 @@
         <v-text-field
           :dark="dark"
           v-model="inputValue[titleField]"
-          :style="{'font-size': titleFontSize + 'px'}"
         ></v-text-field>
         <v-spacer></v-spacer>
         <v-menu offset-y
@@ -133,6 +132,12 @@ import VularPageHeader from "./VularPageHeader"
       breadcrumbs : {default: ()=>{
         return []
       }},
+      titleIcon: {
+          default: ''
+      },
+      title: {
+          default: ''
+      },
       titleField : {},
       value:{default:()=>{ return{} }},
       saveButton:{default:null},
