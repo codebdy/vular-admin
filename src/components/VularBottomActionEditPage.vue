@@ -4,7 +4,7 @@
     <slot></slot>
     <div class="bottom-nav" 
       :style="{
-        left:($vuetify.application.left + $vuetify.application.right) + 'px', 
+        left:($vuetify.application.left) + 'px', 
         width:'calc(100vw - '+ ($vuetify.application.left + $vuetify.application.right) + 'px)',
         background:$store.state.vularApp.content.card.color,
       }"

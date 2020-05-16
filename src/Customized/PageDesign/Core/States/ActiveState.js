@@ -1,27 +1,26 @@
 import ElementState from "./ElementState"
 
-export default class ActiveState extends ElementState{
-  constructor(element) {
-    super(element)
-  }
+export default class ActiveState extends ElementState {
+    constructor(element) {
+        super(element)
+    }
 
-  rebuildClass(veiwClass){
-    veiwClass['mouse-over'] = true
-    return veiwClass;
-  }
+    rebuildClass(veiwClass) {
+        veiwClass['mouse-over'] = true
+        return veiwClass;
+    }
 
-  rebuildLabelClass(veiwLabelClass){
-    veiwLabelClass['mouse-over-label'] = true
-    return veiwLabelClass;
-  }
+    rebuildLabelClass(veiwLabelClass) {
+        veiwLabelClass['mouse-over-label'] = true
+        return veiwLabelClass;
+    }
 
-  mouseout(event){
-    this.element.toNormalState()
-  }
+    mouseout() {
+        this.element.toNormalState()
+    }
 
-  click(event){
-    this.element.toFocusState()
-  }
+    click() {
+        this.element.toFocusState()
+    }
 
 }
-

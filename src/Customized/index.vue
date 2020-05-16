@@ -4,11 +4,8 @@
         app
         color="#1B1B28"
         dark
-        prominent
-        dense
         clipped-left
         clipped-right
-        height="48"
       >
         <template v-slot:img="{ props }">
           <v-img
@@ -34,27 +31,96 @@
           }"
         />
 
-        <template v-slot:extension>
-          <v-app-bar-nav-icon
-            v-if="!$store.state.customizedApp.modulesDrawer"
-            @click="showDrawer"
-          />
-
-          <v-tabs align-with-title>
-            <v-tab :to="{name:'customized-modules'}">模块</v-tab>
-            <v-tab :to="{name:'customized-menus'}">菜单</v-tab>
-            <v-tab :to="{name:'customized-themes'}">主题</v-tab>
-            <v-tab :to="{name:'customized-themes'}">模板</v-tab>
-            <v-tab :to="{name:'customized-settings'}">设置</v-tab>
-          </v-tabs>
-        </template>
       </v-app-bar>
+
+      <v-navigation-drawer 
+        class="pa-0" app clipped
+        :mini-variant="true"
+        dark
+        color="#1B1B28"
+      >
+        <div style="height: 100%; display: flex; flex-flow: column; justify-content: space-between;">
+          <v-list color= "transparent" dark class="pa-0">
+            <v-list-item color="primary" :to="{name:'customized-modules'}">
+              <v-list-item-icon>
+                <v-tooltip right>
+                  <template v-slot:activator="{ on }">
+                    <v-icon v-on="on">mdi-square-edit-outline</v-icon>
+                  </template>
+                  <span>模块</span>
+                </v-tooltip>              
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item color="primary" :to="{name:'customized-menus'}">
+              <v-list-item-icon>
+                <v-tooltip right>
+                  <template v-slot:activator="{ on }">
+                    <v-icon v-on="on">mdi-share-variant</v-icon>
+                  </template>
+                  <span>菜单</span>
+                </v-tooltip>              
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title>菜单</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item color="primary" :to="{name:'customized-themes'}">
+              <v-list-item-icon>
+                <v-tooltip right>
+                  <template v-slot:activator="{ on }">
+                    <v-icon v-on="on">mdi-layers-outline</v-icon>
+                  </template>
+                  <span>模板</span>
+                </v-tooltip>              
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title>模板</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            
+          </v-list>
+          <div>
+            <v-list-item color="primary" :to="{name:'customized-settings'}">
+              <v-list-item-icon>
+                <v-tooltip right>
+                  <template v-slot:activator="{ on }">
+                    <v-icon v-on="on">mdi-cog-outline</v-icon>
+                  </template>
+                  <span>设置</span>
+                </v-tooltip>              
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title>设置</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item color="primary" link>
+              <v-list-item-icon>
+                <v-tooltip right>
+                  <template v-slot:activator="{ on }">
+                    <v-icon color="red" v-on="on">mdi-android-debug-bridge</v-icon>
+                  </template>
+                  <span>调试</span>
+                </v-tooltip>              
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title>调试</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            
+          </div>
+        </div>
+    </v-navigation-drawer>
+
       <v-content 
         :style="{
           background: $store.state.vularApp.content.color,
           'font-family': $store.state.vularApp.content.fontFamily
         }"
       >
+        
         <router-view/>
       </v-content>
   </v-app>

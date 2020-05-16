@@ -1,7 +1,7 @@
 <template>
   <div style="flex: 1">
     <v-navigation-drawer 
-      class="modules-drawer" app clipped
+      class="modules-drawer" app right clipped
       v-model="$store.state.customizedApp.modulesDrawer"
     >
       <v-list-item>
