@@ -61,7 +61,7 @@
               <v-list-item-icon>
                 <v-tooltip right>
                   <template v-slot:activator="{ on }">
-                    <v-icon v-on="on">mdi-share-variant</v-icon>
+                    <v-icon v-on="on">mdi-source-branch</v-icon>
                   </template>
                   <span>菜单</span>
                 </v-tooltip>              
@@ -83,9 +83,6 @@
                 <v-list-item-title>模板</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
-            
-          </v-list>
-          <div>
             <v-list-item color="primary" :to="{name:'customized-settings'}">
               <v-list-item-icon>
                 <v-tooltip right>
@@ -99,6 +96,9 @@
                 <v-list-item-title>设置</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
+            
+          </v-list>
+          <div>
             <v-list-item color="primary" link>
               <v-list-item-icon>
                 <v-tooltip right>
