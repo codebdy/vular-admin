@@ -19,40 +19,29 @@
         class="drawer-body"
       >
         <v-list-group
-          prepend-icon="mdi-page-layout-header-footer"
+          v-for="itemGroup in toolboxGroups"
+          :key="itemGroup.title" 
+          :prepend-icon="itemGroup.icon" 
           no-action
         >
           <template v-slot:activator>
             <v-list-item-content>
-              <v-list-item-title>页面布局</v-list-item-title>
+              <v-list-item-title>{{itemGroup.title}}</v-list-item-title>
             </v-list-item-content>
           </template>
-          <v-list-item>
+          <v-list-item
+            v-for="item in itemGroup.items"
+            :key="item.title"
+            class="toolbox-item"
+          >
             <v-list-item-content>
-              <v-list-item-title>固定页眉</v-list-item-title>
-            </v-list-item-content>
-            <v-list-item-icon>
-              <v-icon small>mdi-arrow-all</v-icon>
-            </v-list-item-icon>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-content>
-              <v-list-item-title>固定页脚</v-list-item-title>
-            </v-list-item-content>
-            <v-list-item-icon>
-              <v-icon small>mdi-arrow-all</v-icon>
-            </v-list-item-icon>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-content>
-              <v-list-item-title>页面内容</v-list-item-title>
+              <v-list-item-title>{{item.title}}</v-list-item-title>
             </v-list-item-content>
             <v-list-item-icon>
               <v-icon small>mdi-arrow-all</v-icon>
             </v-list-item-icon>
           </v-list-item>
         </v-list-group>
-
         <v-list-group
           prepend-icon="mdi-view-dashboard-outline"
           no-action
@@ -114,7 +103,7 @@
           </v-list-item>
         </v-list-group>
         <v-list-group
-          prepend-icon="mdi-puzzle-outline"
+          prepend-icon="mdi-toy-brick-outline"
           no-action
         >
           <template v-slot:activator>
@@ -193,7 +182,7 @@
         </div>
         <v-btn icon v-if="pageType"><v-icon>mdi-file-cog-outline</v-icon></v-btn>
         <v-spacer></v-spacer>
-        <v-btn icon><v-icon>mdi-layers</v-icon></v-btn>
+        <v-btn icon><v-icon>mdi-layers-outline</v-icon></v-btn>
         <v-btn icon><v-icon>mdi-eye-outline</v-icon></v-btn>
         <v-btn icon><v-icon>mdi-undo</v-icon></v-btn>
         <v-btn icon><v-icon>mdi-redo</v-icon></v-btn>
@@ -251,6 +240,27 @@
     },
 
     data: () => ({
+      toolboxGroups:[
+        {
+          title:'页面布局',
+          icon:"mdi-page-layout-header-footer",
+          items:[
+          {
+              title:"固定页眉",
+              node:'',
+            },
+            {
+              title:"固定页脚",
+              node:'',
+            },
+            {
+              title:"页面内容",
+              node:'',
+            },
+          ],
+        }
+
+      ],
       pageType:'',
     }),
 
@@ -311,6 +321,18 @@
     flex:1;
     overflow-y: auto;
     height: 0;
+  }
+
+  .toolbox-item{
+    user-select: none; 
+    -moz-user-select: none; 
+    -webkit-user-select: none;
+    cursor:move;
+  }
+
+  .toolbox-item:hover{
+    background: rgba(0,0,0, 0.05); 
+
   }
 
   .center-area{
