@@ -29,11 +29,11 @@ export default class Element {
     this.normalState = new NormalState(this)
     this.activeState = new ActiveState(this)
     this.focusState = new FocusState(this)
-    this.dragoverState = new DragoverState(this)
+    //this.dragoverState = new DragoverState(this)
     this.draggedState = new DraggedState(this)
-    this.disableState = new DisableState(this)
-    this.editState = new EditState(this)
-    this.previewState = new PreviewState(this)
+   // this.disableState = new DisableState(this)
+    //this.editState = new EditState(this)
+    //this.previewState = new PreviewState(this)
     this.state = this.normalState
   }
 
@@ -121,16 +121,6 @@ export default class Element {
     //if(this.parent){
     //  window.$editorBus.$emit('removeChild', {parent:this.parent, child:this})
     //}
-    if(this.parent){
-      for (var i = 0; i < this.parent.children.length; i++) {
-        if(this.parent.children[i]._vid == this._vid){
-          let node = this.parent.children.splice(i, 1)
-          //console.log(node.viewInEditor)
-          break
-        }
-      }
-      this.sendChangeStateMessage()
-    }
 
   }
 
@@ -197,7 +187,7 @@ export default class Element {
     this.state.drop(event)
   }
 
-  dragleave(event){
+  dragleave(){
     //this.state.dragleave(event)
   }
 
@@ -246,32 +236,4 @@ export default class Element {
     return this.children;
   }
 
-//----------------------------------------
-
-//--------------state change-----------------
-  toActiveState(){
-    this.setState(new ActiveState(this))
-    return this;
-  }
-
-  toDraggedState(){
-    this.setState(new DraggedState(this))
-    return this;
-  }
-
-  toFocusState(){
-    this.setState(new FocusState(this))
-    return this;
-  }
-
-  toNormalState(){
-    this.setState(new NormalState(this))
-    return this;
-  }
-
-  toPlaceholderState(){
-    this.isPlaceholder = true
-    this.setState(new PlaceholderState(this))
-    return this;
-  }
 }

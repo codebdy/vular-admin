@@ -232,6 +232,8 @@
 </template>
 
 <script>
+  import Canvas from "./Core/Elements/Canvas.js"
+
   export default {
     name: "page-design",
     components: {
@@ -259,8 +261,8 @@
             },
           ],
         }
-
       ],
+      canvas: new Canvas,
       pageType:'',
     }),
 
