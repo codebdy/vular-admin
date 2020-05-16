@@ -30,11 +30,14 @@
             avatar:'/images/100.jpg',
           }"
         />
-
+        <v-app-bar-nav-icon
+          v-if="!$store.state.customizedApp.modulesDrawer"
+          @click="showDrawer"
+        />
       </v-app-bar>
 
       <v-navigation-drawer 
-        class="pa-0" app clipped
+        class="pa-0" app clipped permanent
         :mini-variant="true"
         dark
         color="#1B1B28"
