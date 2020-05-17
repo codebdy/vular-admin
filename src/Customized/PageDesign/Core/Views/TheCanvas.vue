@@ -26,15 +26,16 @@
   }
 </script>
 
-<style scoped>
+<style>
   .canvas-element{
-    padding: 10px;
-    padding: 20px; outline: #5d78ff dashed 1px;
     flex: 1; 
     overflow-y: auto;
-    padding: 10px;
     position: relative;
     display: flex;
     flex-flow: column;
+  }
+
+  .element-outline{
+    outline: #5d78ff dashed 1px;
   }
 </style>

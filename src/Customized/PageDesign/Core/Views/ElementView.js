@@ -1,4 +1,3 @@
-import '../stylus/element.styl'
 import TheCanvas from "./TheCanvas"
 import ThePageHeader from "./ThePageHeader"
 import ThePageFooter from "./ThePageFooter"
@@ -17,7 +16,9 @@ export default {
   data: function () {
     return {
       children:this.value.children,
-      classes:{},
+      classes:{
+        'element-outline':true,
+      },
       styles:{},
       nodProps:{key:this.value._vid},
     }
