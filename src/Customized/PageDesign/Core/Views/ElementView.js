@@ -41,7 +41,10 @@ export default {
         this.inputValue.dragover(event)
         event.stopPropagation()
       }
-
+      on.drop = event =>{
+        this.inputValue.drop(event)
+        event.stopPropagation()
+      }
       /*on.mousemove = event=>{
         this.inputValue.mouseover(event)
         event.stopPropagation()
@@ -55,10 +58,7 @@ export default {
       on.dragleave = event =>{
         this.inputValue.dragleave(event)
       }
-      on.drop = event =>{
-        this.inputValue.drop(event)
-        event.stopPropagation()
-      }
+
       on.dragstart = this.dragstart
       on.dragend = this.dragend
 

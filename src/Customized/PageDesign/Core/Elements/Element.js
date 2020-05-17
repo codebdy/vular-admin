@@ -1,3 +1,4 @@
+import {add/*, remove, first, last, insertBefore,insertAfter, contains, after, before*/} from "../../../../basic/vular-array"
 import ActiveState from "../States/ActiveState"
 import DraggedState from "../States/DraggedState"
 import FocusState from "../States/FocusState"
@@ -38,6 +39,10 @@ export default class Element {
     this.state = this.normalState
   }
 
+  clone(){
+    return new Element(this.name, this.title, this.designName)
+  }
+
   changeToState(stateName){
     if(this.state === this[stateName]) return
     let oldState = this.state
@@ -51,6 +56,9 @@ export default class Element {
       && !this.hasChild(this.editorState.draggedElement)
   }
 
+  addChild(child){
+    add(child, this.children)
+  }
 
 //-------------events--------------
   mouseover(event){

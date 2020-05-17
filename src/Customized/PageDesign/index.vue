@@ -257,7 +257,8 @@
 
     methods: {
       onToolboxItemDragstart(item){
-        console.log(item)
+        //console.log(item)
+        window.draggedElement = item.node.clone()
       },
 
       onToolbxItemDragend(){

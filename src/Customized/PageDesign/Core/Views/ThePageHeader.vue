@@ -2,7 +2,9 @@
   <div 
     class="header-element"
   >
-    <slot></slot>
+    <slot>
+      <div class="place-holder">{{$t('design.page-header')}}</div>
+    </slot>
   </div>
 </template>
 
@@ -23,4 +25,7 @@
 </script>
 
 <style scoped>
+  .header-element .place-holder{
+    padding:10px;
+  }
 </style>

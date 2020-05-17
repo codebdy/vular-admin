@@ -35,6 +35,6 @@
     padding: 10px;
     position: relative;
     display: flex;
-    flex-flow: row;
+    flex-flow: column;
   }
 </style>
