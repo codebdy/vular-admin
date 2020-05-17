@@ -4,7 +4,7 @@
 
 <script>
   export default {
-    name: "canvas",
+    name: "the-canvas",
     components: {
     },
     props: {

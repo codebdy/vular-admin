@@ -1,10 +1,10 @@
 import '../stylus/element.styl'
-import Canvas from "./Canvas"
+import TheCanvas from "./TheCanvas"
 
 export default {
   name: 'element-view',
   components: {
-    Canvas,
+    TheCanvas,
   },
 
   props:['value'],
