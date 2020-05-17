@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="footer-element"
+    class="content-element"
   >
     <slot></slot>
   </div>
@@ -8,7 +8,7 @@
 
 <script>
   export default {
-    name: "the-footer",
+    name: "the-page-content",
     components: {
     },
     props: {

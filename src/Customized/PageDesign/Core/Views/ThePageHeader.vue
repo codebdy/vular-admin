@@ -8,7 +8,7 @@
 
 <script>
   export default {
-    name: "the-header",
+    name: "the-page-header",
     components: {
     },
     props: {

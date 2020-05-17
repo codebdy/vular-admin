@@ -1,10 +1,16 @@
 import '../stylus/element.styl'
 import TheCanvas from "./TheCanvas"
+import ThePageHeader from "./ThePageHeader"
+import ThePageFooter from "./ThePageFooter"
+import ThePageContent from "./ThePageContent"
 
 export default {
   name: 'element-view',
   components: {
     TheCanvas,
+    ThePageHeader,
+    ThePageFooter,
+    ThePageContent,
   },
 
   props:['value'],
@@ -23,7 +29,7 @@ export default {
   computed: {
     inputValue: {
       get:function() {
-          return this.value;
+        return this.value;
       },
       set:function(val) {
         this.$emit('input', val);
