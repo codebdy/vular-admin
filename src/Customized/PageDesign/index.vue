@@ -172,7 +172,7 @@
       </v-list>
     </div>
     <div class="center-area">
-      <div flat dense absolute class="canvars-toolbar">
+      <div flat dense absolute class="canvas-toolbar">
         <div style="width: 150px; padding-left:6px;">
           <v-select
             :items="['列表页','表单页','列表对话框','表单对话框']"
@@ -188,29 +188,20 @@
         <v-btn icon><v-icon>mdi-redo</v-icon></v-btn>
         <v-btn icon><v-icon>mdi-delete-outline</v-icon></v-btn>
       </div>
-      <div class="canvars"
+      <div class="canvas"
         :style="{
           background: $store.state.vularApp.content.color,
           'font-family': $store.state.vularApp.content.fontFamily
         }"
       >
-
         <div
           style="padding: 20px; outline: #5d78ff dashed 1px;"
         >
+        <ElementView
+          v-model="canvas"
+        />
           
         </div>
-        <div
-          style="padding: 20px; outline: #5d78ff dashed 1px; min-height: 400px;"
-        >
-          
-        </div>
-        <div
-          style="padding: 20px; outline: #5d78ff dashed 1px;"
-        >
-          
-        </div>
-
 
       </div>
     </div>
@@ -233,10 +224,12 @@
 
 <script>
   import Canvas from "./Core/Elements/Canvas.js"
+  import ElementView from "./Core/Views/ElementView"
 
   export default {
     name: "page-design",
     components: {
+      ElementView
     },
     props: {
     },
@@ -343,7 +336,7 @@
     flex-flow: column;
     position: relative;
   }
-  .canvars-toolbar{
+  .canvas-toolbar{
     height:51px;
     width: 100%;
     left:0;
@@ -354,7 +347,7 @@
     align-items: center;
     padding: 0 4px;
   }
-  .canvars{
+  .canvas{
     flex: 1; 
     overflow-y: auto;
     padding: 10px;

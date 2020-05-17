@@ -204,7 +204,7 @@ export default class Element {
 //---------------render sytles-------------
   getClass(){
     let veiwClass = Object.assign({}, this.class, this.editClass)
-    veiwClass = this.state.rebuildClass(veiwClass)
+    //veiwClass = this.state.rebuildClass(veiwClass)
     return veiwClass;
   }
 
@@ -216,13 +216,6 @@ export default class Element {
 
   getStyle(){
     let veiwStyle = Object.assign({}, this.style, this.editStyle)
-    if(this.withEditPadding){
-      veiwStyle.padding = this.editorState.editPadding
-    }
-    if(this.state.isShowLabel()){
-      veiwStyle.position = "relative"
-    }
-    veiwStyle = this.state.rebuildStyle(veiwStyle)
     return veiwStyle;
   }
 
