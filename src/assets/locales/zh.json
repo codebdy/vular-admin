@@ -75,6 +75,15 @@
 
   "custumized":{
     "modules":"模块"
+  },
+
+  "design":{
+    "design-title":"{0}设计",
+    "toolbox":"工具箱",
+    "page-layout":"页面布局",
+    "page-header":"固定页眉",
+    "page-content":"页面内容",
+    "page-footer":"固定页脚"
   }
 
 }

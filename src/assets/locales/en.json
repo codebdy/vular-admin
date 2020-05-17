@@ -74,5 +74,13 @@
 
   "custumized":{
     "modules":"Modules"
+  },
+
+  "design":{
+    "design-title":"{0} Design",
+    "toolbox":"Page Layout",
+    "page-header":"Page Header",
+    "page-content":"Page Content",
+    "page-footer":"Page Footer"
   }
 }

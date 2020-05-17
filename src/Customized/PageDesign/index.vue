@@ -5,7 +5,7 @@
         <v-list-item>
           <v-list-item-content>
             <v-list-item-title class="title">
-              工具箱
+              {{$t('design.toolbox')}}
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
@@ -221,31 +221,33 @@
     },
     props: {
     },
-
-    data: () => ({
-      toolboxGroups:[
-        {
-          title:'页面布局',
-          icon:"mdi-page-layout-header-footer",
-          items:[
+    data: function () {
+      return {
+        toolboxGroups:[
           {
-              title:"固定页眉",
-              node:'',
-            },
+            title: this.$t('design.page-layout'),
+            icon:"mdi-page-layout-header-footer",
+            items:[
             {
-              title:"固定页脚",
-              node:'',
-            },
-            {
-              title:"页面内容",
-              node:'',
-            },
-          ],
-        }
-      ],
-      canvas: new Canvas,
-      pageType:'',
-    }),
+                title:this.$t('design.page-header'),
+                node:'',
+              },
+              {
+                title:this.$t('design.page-footer'),
+                node:'',
+              },
+              {
+                title:this.$t('design.page-content'),
+                node:'',
+              },
+            ],
+          }
+        ],
+        canvas: new Canvas,
+        pageType:'',
+      }
+    },
+
 
     methods: {
     }

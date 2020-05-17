@@ -62,7 +62,7 @@
             <v-btn icon dark @click="dialog = false">
               <v-icon>mdi-close</v-icon>
             </v-btn>
-            <v-toolbar-title>文章列表页设计</v-toolbar-title>
+            <v-toolbar-title>{{$t('design.design-title').replace('{0}', pageTitle)}}</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-toolbar-items>
               <v-btn dark text @click="dialog = false">
@@ -91,6 +91,7 @@
     },
 
     data: () => ({
+      pageTitle:"文章列表页",
       dialog:false,
       headers: [
         {
