@@ -35,6 +35,7 @@
             class="toolbox-item"
             draggable="true"
             @dragstart="onToolboxItemDragstart(item)"
+            @dragend = "onToolbxItemDragend()"
           >
             <v-list-item-content>
               <v-list-item-title>{{item.title}}</v-list-item-title>
@@ -208,18 +209,21 @@
       <v-divider></v-divider>
       
     </div>
+    <TheCursor/>
   </div>
 </template>
 
 <script>
   import Canvas from "./Core/Elements/Canvas.js"
+  import TheCursor from "./Core/Views/TheCursor.vue"
   import ElementView from "./Core/Views/ElementView"
   import PageLayoutElement from "./Core/Elements/PageLayoutElement.js"
 
   export default {
     name: "page-design",
     components: {
-      ElementView
+      ElementView,
+      TheCursor
     },
     props: {
     },
@@ -254,6 +258,10 @@
     methods: {
       onToolboxItemDragstart(item){
         console.log(item)
+      },
+
+      onToolbxItemDragend(){
+        window.$bus.$emit('hideCursor')
       },
     }
   }

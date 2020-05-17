@@ -1,7 +1,7 @@
-import ActiveState from "../states/ActiveState"
-import DraggedState from "../states/DraggedState"
-import FocusState from "../states/FocusState"
-import NormalState from "../states/NormalState"
+import ActiveState from "../States/ActiveState"
+import DraggedState from "../States/DraggedState"
+import FocusState from "../States/FocusState"
+import NormalState from "../States/NormalState"
 
 export default class Element {
   constructor(name, title, designName) {

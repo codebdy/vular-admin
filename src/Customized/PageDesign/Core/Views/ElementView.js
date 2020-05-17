@@ -19,10 +19,7 @@ export default {
       children:this.value.children,
       classes:{},
       styles:{},
-      nodProps:{},
-      labelClass:{},
-      isShowLabel:false,
-      hasToolbar:false,
+      nodProps:{key:this.value._vid},
     }
   },
 

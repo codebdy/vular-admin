@@ -6,6 +6,7 @@ export default class ElementState {
   }
 
   dragover(event){
+    window.$bus.$emit('showCursor', event, 'in')
     event.preventDefault()
   }
 }
