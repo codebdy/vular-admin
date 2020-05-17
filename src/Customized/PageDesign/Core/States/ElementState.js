@@ -5,4 +5,7 @@ export default class ElementState {
     this.element = element
   }
 
+  dragover(event){
+    event.preventDefault()
+  }
 }

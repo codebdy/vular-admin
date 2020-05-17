@@ -40,6 +40,10 @@ export default {
   methods: {
     getOn(){
       var on = {}
+      on.dragover =  event => {
+        this.inputValue.dragover(event)
+        event.stopPropagation()
+      }
 
       /*on.mousemove = event=>{
         this.inputValue.mouseover(event)
@@ -50,10 +54,6 @@ export default {
         this.inputValue.mouseout(event)
       },
 
-      on.dragover =  event => {
-        this.inputValue.dragover(event)
-        event.stopPropagation()
-      }
 
       on.dragleave = event =>{
         this.inputValue.dragleave(event)

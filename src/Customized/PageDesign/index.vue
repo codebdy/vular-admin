@@ -34,6 +34,7 @@
             :key="item.title"
             class="toolbox-item"
             draggable="true"
+            @dragstart="onToolboxItemDragstart(item)"
           >
             <v-list-item-content>
               <v-list-item-title>{{item.title}}</v-list-item-title>
@@ -213,6 +214,7 @@
 <script>
   import Canvas from "./Core/Elements/Canvas.js"
   import ElementView from "./Core/Views/ElementView"
+  import PageLayoutElement from "./Core/Elements/PageLayoutElement.js"
 
   export default {
     name: "page-design",
@@ -230,7 +232,7 @@
             items:[
             {
                 title:this.$t('design.page-header'),
-                node:'',
+                node: new PageLayoutElement('ThePageHeader', this.$t('design.page-header')),
               },
               {
                 title:this.$t('design.page-footer'),
@@ -250,6 +252,9 @@
 
 
     methods: {
+      onToolboxItemDragstart(item){
+        console.log(item)
+      },
     }
   }
 </script>
