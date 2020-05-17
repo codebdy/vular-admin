@@ -122,7 +122,8 @@ export default {
     })
 
     var vNode = createElement(
-      self.inputValue.name, {
+      self.inputValue.designName, 
+      {
         'class': self.classes,
         style: self.styles,
         props: self.nodProps,

@@ -4,9 +4,10 @@ import FocusState from "../states/FocusState"
 import NormalState from "../states/NormalState"
 
 export default class Element {
-  constructor(name, title) {
+  constructor(name, title, designName) {
     this.seedId()
     this.name = name
+    this.designName = designName ? designName : name
     this.title = title
     this.props = {}
     this.styles = {}

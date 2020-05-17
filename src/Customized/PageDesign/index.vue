@@ -33,6 +33,7 @@
             v-for="item in itemGroup.items"
             :key="item.title"
             class="toolbox-item"
+            draggable="true"
           >
             <v-list-item-content>
               <v-list-item-title>{{item.title}}</v-list-item-title>
@@ -188,22 +189,9 @@
         <v-btn icon><v-icon>mdi-redo</v-icon></v-btn>
         <v-btn icon><v-icon>mdi-delete-outline</v-icon></v-btn>
       </div>
-      <div class="canvas"
-        :style="{
-          background: $store.state.vularApp.content.color,
-          'font-family': $store.state.vularApp.content.fontFamily
-        }"
-      >
-        <div
-          style="padding: 20px; outline: #5d78ff dashed 1px;"
-        >
-        <ElementView
-          v-model="canvas"
-        />
-          
-        </div>
-
-      </div>
+      <ElementView
+        v-model="canvas"
+      />
     </div>
     <div class="right-drawer">
       <div class="drawer-title">
@@ -346,12 +334,6 @@
     flex-flow: row;
     align-items: center;
     padding: 0 4px;
-  }
-  .canvas{
-    flex: 1; 
-    overflow-y: auto;
-    padding: 10px;
-    position: relative;
   }
 
   .right-drawer{
