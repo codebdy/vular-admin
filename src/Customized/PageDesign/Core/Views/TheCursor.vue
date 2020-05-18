@@ -89,7 +89,7 @@
     content: '';
     width: 0; 
     height: 0;
-    top: 0.25rem;
+    top: 0.15rem;
     left: calc(50% - 2px);
     border-width: 4px;
     border-style: solid;

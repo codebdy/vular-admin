@@ -38,19 +38,22 @@ export default {
   methods: {
     getOn(){
       var on = {}
-      on.dragover =  event => {
-        this.inputValue.dragover(event)
-        event.stopPropagation()
-      }
+      //on.dragover =  event => {
+      //  this.inputValue.dragover(event)
+      //  event.stopPropagation()
+      //}
       on.drop = event =>{
         this.inputValue.drop(event)
         event.stopPropagation()
       }
-      /*on.mousemove = event=>{
+      on.mousemove = event=>{
         this.inputValue.mouseover(event)
-        event.stopPropagation()
-      },
+      }
+      on.mouseup = event=>{
+        this.inputValue.mouseup(event)
+      }
 
+      /*
       on.mouseout = event=>{
         this.inputValue.mouseout(event)
       },

@@ -66,6 +66,10 @@ export default class Element {
     this.state.mouseover(event)
   }
 
+  mouseup(event){
+    this.state.mouseup(event)
+  }
+
   mouseout(event){
     this.state.mouseout(event)
   }
@@ -78,17 +82,17 @@ export default class Element {
     this.state.unfocus()
   }
 
-  dragstart(event){
-    this.state.dragstart(event)
-  }
+  //dragstart(event){
+  //  this.state.dragstart(event)
+  //}
 
-  dragover(event){
-    this.state.dragover(event)
-  }
+  //dragover(event){
+  //  this.state.dragover(event)
+  //}
 
-  drop(event){
-    this.state.drop(event)
-  }
+  //drop(event){
+  //  this.state.drop(event)
+  //}
 
   dragleave(){
     //this.state.dragleave(event)

@@ -68,9 +68,11 @@
 <style scoped>
   .mouse-follower{
     position:fixed;
-    background: #222;
+    background: #546bde;
     color:#fff;
-    padding:5px;
+    padding:5px 10px;
     pointer-events: none;
+    border-radius: 3px;
+    font-size: 12px;
   }
 </style>
