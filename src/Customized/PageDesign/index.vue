@@ -189,14 +189,30 @@
           group
           v-model="withHeader"
         >
-          <v-btn icon :value="true"><v-icon>mdi-page-layout-header</v-icon></v-btn>
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on }">
+              <v-btn icon 
+                :value="true"
+                v-on="on"
+              ><v-icon>mdi-page-layout-header</v-icon></v-btn>
+            </template>
+            <span>{{$t('design.page-header')}}</span>
+          </v-tooltip>
         </v-btn-toggle>
         <v-btn-toggle
           dense
           group
           v-model="withFooter"
         >
-          <v-btn icon :value="true"><v-icon>mdi-page-layout-footer</v-icon></v-btn>
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on }">
+            <v-btn icon 
+            :value="true"
+            v-on="on"
+            ><v-icon>mdi-page-layout-footer</v-icon></v-btn>
+          </template>
+          <span>{{$t('design.page-footer')}}</span>
+        </v-tooltip>
         </v-btn-toggle>
           <v-btn icon tile><v-icon>mdi-eye-outline</v-icon></v-btn>
           <v-btn icon tile><v-icon>mdi-undo</v-icon></v-btn>
