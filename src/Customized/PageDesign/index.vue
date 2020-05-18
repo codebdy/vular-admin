@@ -44,32 +44,6 @@
           </v-list-item>
         </v-list-group>
         <v-list-group
-          prepend-icon="mdi-view-dashboard-outline"
-          no-action
-        >
-          <template v-slot:activator>
-            <v-list-item-content>
-              <v-list-item-title>栅格</v-list-item-title>
-            </v-list-item-content>
-          </template>
-          <v-list-item>
-            <v-list-item-content>
-              <v-list-item-title>行</v-list-item-title>
-            </v-list-item-content>
-            <v-list-item-icon>
-              <v-icon small>mdi-arrow-all</v-icon>
-            </v-list-item-icon>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-content>
-              <v-list-item-title>列</v-list-item-title>
-            </v-list-item-content>
-            <v-list-item-icon>
-              <v-icon small>mdi-arrow-all</v-icon>
-            </v-list-item-icon>
-          </v-list-item>
-        </v-list-group>
-        <v-list-group
           prepend-icon="mdi-form-select"
           no-action
         >
@@ -290,20 +264,16 @@
         withFooter:false,
         toolboxGroups:[
           {
-            title: this.$t('design.page-layout'),
-            icon:"mdi-page-layout-header-footer",
+            title: this.$t('design.grid'),
+            icon:"mdi-view-dashboard-outline",
             items:[
             {
-                title:this.$t('design.page-header'),
-                node: new PageLayoutElement('VularPageHeader', this.$t('design.page-header'), 'ThePageHeader'),
+                title:this.$t('design.row'),
+                node: new PageLayoutElement('VularPageHeader', this.$t('design.row'), 'ThePageHeader'),
               },
               {
-                title:this.$t('design.page-footer'),
-                node:new PageLayoutElement('VularPageFooter', this.$t('design.page-footer'), 'ThePageFooter'),
-              },
-              {
-                title:this.$t('design.page-content'),
-                node:'',
+                title:this.$t('design.column'),
+                node:new PageLayoutElement('VularPageFooter', this.$t('design.column'), 'ThePageFooter'),
               },
             ],
           }

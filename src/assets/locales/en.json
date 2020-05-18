@@ -81,6 +81,9 @@
     "toolbox":"Page Layout",
     "page-header":"Page Header",
     "page-content":"Page Content",
-    "page-footer":"Page Footer"
+    "page-footer":"Page Footer",
+    "grid":"Grid",
+    "row":"Row",
+    "column":"Column"
   }
 }

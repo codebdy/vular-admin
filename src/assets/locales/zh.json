@@ -83,7 +83,10 @@
     "page-layout":"页面布局",
     "page-header":"页眉",
     "page-content":"页面内容",
-    "page-footer":"页脚"
+    "page-footer":"页脚",
+    "grid":"栅格",
+    "row":"行",
+    "column":"列"
   }
 
 }
