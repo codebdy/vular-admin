@@ -203,16 +203,29 @@
           <v-btn icon tile><v-icon>mdi-redo</v-icon></v-btn>
           <v-btn icon tile><v-icon>mdi-delete-outline</v-icon></v-btn>
       </div>
-      <ElementView
-        v-if="withHeader"
-        key="header"
-        v-model="header"
-      />
-      <ElementView
-        v-if="withFooter"
-        key="footer"
-        v-model="footer"
-      />
+      <div  
+        :style="{
+          background: $store.state.vularApp.content.color,
+          'font-family': $store.state.vularApp.content.fontFamily
+        }"
+        class="canvas-element">
+        <ElementView
+          v-if="withHeader"
+          key="header"
+          v-model="header"
+        />
+        <div style="padding:0 0px; display: flex; flex-flow: row; flex:1;">
+          <ElementView
+            key="page-content"
+            v-model="pageContent"
+          />
+        </div>
+        <ElementView
+          v-if="withFooter"
+          key="footer"
+          v-model="footer"
+        />
+      </div>
     </div>
     <div class="right-drawer">
       <div class="drawer-title">
@@ -282,6 +295,7 @@
         canvas: new Canvas,
         header: new PageLayoutElement('VularPageHeader', this.$t('design.page-header'), 'ThePageHeader'),
         footer: new PageLayoutElement('VularPageFooter', this.$t('design.page-footer'), 'ThePageFooter'),
+        pageContent: new PageLayoutElement('VularPageContent', this.$t('design.page-footer'), 'ThePageContent'),
         pageType:'',
       }
     },
@@ -409,6 +423,31 @@
 
   .right-drawer{
     border-left:solid rgba(0,0,0, 0.1) 1px; width:260px; flex-grow: 0;
+  }
+</style>
+
+<style>
+  .canvas-element{
+    flex: 1; 
+    overflow-y: auto;
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    padding:1px;
+  }
+
+  .element-outline{
+    outline: #5d78ff dashed 1px;
+  }
+
+  .layout-place-holder{
+    padding:10px;
+    display: flex;
+    justify-content: center;
+    color:lightgrey;
+    font-size: 20px;
+    pointer-events: none;
+    user-select: none;
   }
 
 </style>

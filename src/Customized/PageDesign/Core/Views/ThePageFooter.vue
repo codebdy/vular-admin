@@ -1,9 +1,11 @@
 <template>
-  <v-row 
+  <div 
     class="footer-element"
   >
-    
-  </v-row>
+    <slot>
+      <div class="layout-place-holder">{{$t('design.page-footer')}}</div>
+    </slot>
+  </div>
 </template>
 
 <script>
@@ -23,5 +25,6 @@
 </script>
 
 <style scoped>
+
 
 </style>

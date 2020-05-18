@@ -1,16 +1,14 @@
 <template>
-  <div 
-    class="header-element"
+  <v-row 
+    align="center" justify="center" class="pt-0 mt-0"
   >
-    <slot>
-      <div class="layout-place-holder">{{$t('design.page-header')}}</div>
-    </slot>
-  </div>
+    <slot></slot>
+  </v-row>
 </template>
 
 <script>
   export default {
-    name: "the-page-header",
+    name: "vular-page-content",
     components: {
     },
     props: {
@@ -25,5 +23,4 @@
 </script>
 
 <style scoped>
-
 </style>

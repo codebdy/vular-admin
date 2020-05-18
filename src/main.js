@@ -17,6 +17,7 @@ import VularMediaWidget from "./components/media/VularMediaWidget.vue"
 import VularMediaSelectCard from "./components/media/VularMediaSelectCard.vue"
 import VularSingleImageInput from "./components/media/VularSingleImageInput.vue"
 import VularPage from "./components/VularPage.vue"
+import VularPageContent from "./components/VularPageContent.vue"
 import VularPageHeader from "./components/widgets/VularPageHeader"
 import VularPageHeaderTitle from "./components/widgets/VularPageHeaderTitle"
 import VularEditPageHeader from "./components/widgets/VularEditPageHeader"
@@ -53,6 +54,7 @@ Vue.component('VularMediaSelectCard', VularMediaSelectCard)
 Vue.component('VularSingleImageInput', VularSingleImageInput)
 Vue.component('VularTinymce', VularTinymce)
 Vue.component('VularPage', VularPage)
+Vue.component('VularPageContent', VularPageContent)
 Vue.component('VularPageHeader', VularPageHeader)
 Vue.component('VularEditPageHeader', VularEditPageHeader)
 Vue.component('VularPageHeaderTitle', VularPageHeaderTitle)

@@ -1,9 +1,12 @@
 <template>
-  <div 
-    class="content-element"
+  <v-row 
+    align="center" justify="center" class="pt-0 mt-0"
+    no-gutters
   >
-    <slot></slot>
-  </div>
+    <slot>
+      <div class="layout-place-holder">{{$t('design.page-content')}}</div>
+    </slot>
+  </v-row>
 </template>
 
 <script>
