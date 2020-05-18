@@ -31,5 +31,7 @@
     justify-content: center;
     color:lightgrey;
     font-size: 20px;
+    pointer-events: none;
+    user-select: none;
   }
 </style>

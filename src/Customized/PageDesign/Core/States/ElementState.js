@@ -10,8 +10,9 @@ export default class ElementState {
 
     if(draggedElement){
       window.$bus.$emit('followMouse', event)
-      if(this.element.canAccept(draggedElement)){
-        window.$bus.$emit('showCursor', event, 'in')
+      let position = this.judgePosition(event)
+      if(position){
+        window.$bus.$emit('showCursor', event, position)
       }
       else{
         window.$bus.$emit('hideCursor')
@@ -29,6 +30,33 @@ export default class ElementState {
     window.$bus.$emit('hideCursor')
     window.$bus.$emit('unFollowMouse')
     $store.commit('endDragElement')
+  }
+
+  judgePosition(event){
+    let draggedElement = $store.state.customizedApp.draggedElement
+
+    let clientWidth = event.srcElement.clientWidth
+    let clientHeight = event.srcElement.clientHeight
+    let offsetX = event.offsetX
+    let offsetY = event.offsetY
+    let ratioY = offsetY/clientHeight
+    let ratioX = offsetX/clientWidth
+
+    if(this.element.children.length === 0 && this.element.canAccept(draggedElement)){
+      return 'in'
+    }
+
+    if(this.element.parent && this.element.parent.canAccept(draggedElement)){
+      if(this.element.isCol()){
+        return ratioX > 0.5 ? 'right' : 'left'
+      }
+      else{
+        return ratioY > 0.5 ? 'bottom' : 'top'
+      }
+    }
+
+    return ''
+
   }
 
 }

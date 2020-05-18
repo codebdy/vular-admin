@@ -99,6 +99,13 @@ export default class Element {
     return false    
   }
 
+  isCol(){
+    if(this.nameEqual(this.name, 'VCol')){
+      return true
+    }
+    return false
+  }
+
   nameEqual(first, second){
     first = this.toLineName(first)
     second = this.toLineName(second)

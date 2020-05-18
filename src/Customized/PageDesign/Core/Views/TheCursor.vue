@@ -46,11 +46,42 @@
         let rect = event.target.getBoundingClientRect()
         if(position == 'in'){
           this.isShow = true
-          //this.theClass = 'vertical'
           this.left = rect.left + 'px'
           this.top = (rect.top + rect.height/2) +  'px'
           this.width = rect.width + 'px'
           this.height = 4 + 'px'
+        }
+        if(position == 'top'){
+          this.isShow = true
+          this.left = rect.left + 'px'
+          this.top = (rect.top - 2) +  'px'
+          this.width = rect.width + 'px'
+          this.height = 4 + 'px'
+        }
+        if(position == 'bottom'){
+          this.isShow = true
+          this.left = rect.left + 'px'
+          this.top = (rect.bottom + 2) +  'px'
+          this.width = rect.width + 'px'
+          this.height = 4 + 'px'
+          
+        }
+        if(position == 'left'){
+          this.isShow = true
+          this.theClass = 'vertical'
+          this.left = (rect.left-2) + 'px'
+          this.top = rect.top +  'px'
+          this.height = rect.height + 'px'
+          this.width = 4 + 'px'
+        }
+        if(position == 'right'){
+          this.isShow = true
+          this.theClass = 'vertical'
+          this.left = (rect.left + rect.height + 2) + 'px'
+          this.top = rect.top +  'px'
+          this.height = rect.height + 'px'
+          this.width = 4 + 'px'
+          
         }
       },
 
