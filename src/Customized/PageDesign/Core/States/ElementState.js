@@ -6,8 +6,11 @@ export default class ElementState {
   }
 
   mouseover(event){
-    window.$bus.$emit('showCursor', event, 'in')
-    event.preventDefault()
+    let draggedElement = $store.state.customizedApp.draggedElement
+    if(draggedElement){
+      window.$bus.$emit('showCursor', event, 'in')
+      event.preventDefault()
+    }
   }
 
   mouseup(event){
