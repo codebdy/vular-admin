@@ -20,8 +20,11 @@ export default {
         'element-outline':true,
       },
       styles:{},
-      nodProps:{
+      nodeProps:{
         key:this.value._vid,
+      },
+      nodeAttrs:{
+        
       },
     }
   },
@@ -92,6 +95,7 @@ export default {
     //$editorBus.$on('editorStateChange', this.editorStateChange)
     //$editorBus.$on('preview', this.preview)
     //$editorBus.$on('stateChange', this.stateChange)
+    this.nodeAttrs[`data-vid-${this.inputValue._vid}`] = ""
     this.inputValue.view = this
     this.inputValue.ref = 'view-dom'
   },
@@ -139,8 +143,8 @@ export default {
       {
         'class': self.classes,
         style: self.styles,
-        props: self.nodProps,
-        attrs: self.inputValue.attrs,
+        props: self.nodeProps,
+        attrs:  Object.assign(self.nodeAttrs, self.inputValue.attrs),
         domProps: self.inputValue.domProps,
         on: self.getOn(),
         nativeOn: self.getOn(),

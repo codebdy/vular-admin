@@ -184,13 +184,34 @@
         <v-btn icon v-if="pageType"><v-icon>mdi-file-cog-outline</v-icon></v-btn>
         <v-spacer></v-spacer>
         <v-btn icon><v-icon>mdi-layers-outline</v-icon></v-btn>
-        <v-btn icon><v-icon>mdi-eye-outline</v-icon></v-btn>
-        <v-btn icon><v-icon>mdi-undo</v-icon></v-btn>
-        <v-btn icon><v-icon>mdi-redo</v-icon></v-btn>
-        <v-btn icon><v-icon>mdi-delete-outline</v-icon></v-btn>
+        <v-btn-toggle
+          dense
+          group
+          v-model="withHeader"
+        >
+          <v-btn icon :value="true"><v-icon>mdi-page-layout-header</v-icon></v-btn>
+        </v-btn-toggle>
+        <v-btn-toggle
+          dense
+          group
+          v-model="withFooter"
+        >
+          <v-btn icon :value="true"><v-icon>mdi-page-layout-footer</v-icon></v-btn>
+        </v-btn-toggle>
+          <v-btn icon tile><v-icon>mdi-eye-outline</v-icon></v-btn>
+          <v-btn icon tile><v-icon>mdi-undo</v-icon></v-btn>
+          <v-btn icon tile><v-icon>mdi-redo</v-icon></v-btn>
+          <v-btn icon tile><v-icon>mdi-delete-outline</v-icon></v-btn>
       </div>
       <ElementView
-        v-model="canvas"
+        v-if="withHeader"
+        key="header"
+        v-model="header"
+      />
+      <ElementView
+        v-if="withFooter"
+        key="footer"
+        v-model="footer"
       />
     </div>
     <div class="right-drawer">
@@ -236,6 +257,8 @@
     },
     data: function () {
       return {
+        withHeader:true,
+        withFooter:false,
         toolboxGroups:[
           {
             title: this.$t('design.page-layout'),
@@ -257,6 +280,8 @@
           }
         ],
         canvas: new Canvas,
+        header: new PageLayoutElement('VularPageHeader', this.$t('design.page-header'), 'ThePageHeader'),
+        footer: new PageLayoutElement('VularPageFooter', this.$t('design.page-footer'), 'ThePageFooter'),
         pageType:'',
       }
     },

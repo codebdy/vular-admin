@@ -47,6 +47,7 @@ export default class ElementState {
     let ratioX = offsetX/clientWidth
 
     if(this.element.canAccept(draggedElement)){
+      //console.log(document.querySelector(`[data-vid-${this.element._vid}]`))
       //if(this.element.children.length === 0){
         return 'in'        
       //}

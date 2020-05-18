@@ -43,7 +43,6 @@
 
     methods: {
       onShow(event, position){
-        
         let rect = event.target.getBoundingClientRect()
         if(position == 'in'){
           this.isShow = true
