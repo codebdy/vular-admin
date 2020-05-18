@@ -33,7 +33,6 @@
             v-for="item in itemGroup.items"
             :key="item.title"
             class="toolbox-item"
-            draggable="true"
             @mousedown="onToolboxItemDragstart(item)"
           >
             <v-list-item-content>
@@ -261,12 +260,24 @@
         pageType:'',
       }
     },
+   
+    
+    mounted() {
+      document.addEventListener('mouseup', this.onMouseUp)
+    },
+    destroyed() {
+      document.removeEventListener('mouseup', this.onMouseUp)
+    },
 
 
     methods: {
       onToolboxItemDragstart(item){
         //console.log(item)
-        window.draggedElement = item.node.clone()
+        this.$store.commit('dragElement', item.node.clone())
+      },
+
+      onMouseUp(){
+        this.$store.commit('endDragElement')
       },
 
       //onToolboxItemDragend(){

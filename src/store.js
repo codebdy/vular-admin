@@ -19,6 +19,7 @@ new Vuex.Store({
     globals:{},
     customizedApp:{
       modulesDrawer:true,
+      draggedElement:null,
     },
   },
 
@@ -63,7 +64,15 @@ new Vuex.Store({
 
     showCustuomizedModulesDrawer(state){
       state.customizedApp.modulesDrawer = true
-    }
+    },
+
+    dragElement(state, element){
+      state.customizedApp.draggedElement = element
+    },
+
+    endDragElement(state){
+      state.customizedApp.draggedElement = null
+    },
   },
  
   actions: {
