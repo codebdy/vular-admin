@@ -34,8 +34,7 @@
             :key="item.title"
             class="toolbox-item"
             draggable="true"
-            @dragstart="onToolboxItemDragstart(item)"
-            @dragend = "onToolbxItemDragend()"
+            @mousedown="onToolboxItemDragstart(item)"
           >
             <v-list-item-content>
               <v-list-item-title>{{item.title}}</v-list-item-title>
@@ -210,12 +209,18 @@
       
     </div>
     <TheCursor/>
+    <TheMouseFollower/>
+    <TheToolbox/>
+    <TheLabel/>
   </div>
 </template>
 
 <script>
   import Canvas from "./Core/Elements/Canvas.js"
   import TheCursor from "./Core/Views/TheCursor.vue"
+  import TheToolbox from "./Core/Views/TheToolbox.vue"
+  import TheLabel from "./Core/Views/TheLabel.vue"
+  import TheMouseFollower from "./Core/Views/TheMouseFollower.vue"
   import ElementView from "./Core/Views/ElementView"
   import PageLayoutElement from "./Core/Elements/PageLayoutElement.js"
 
@@ -223,7 +228,10 @@
     name: "page-design",
     components: {
       ElementView,
-      TheCursor
+      TheCursor,
+      TheMouseFollower,
+      TheToolbox,
+      TheLabel
     },
     props: {
     },
@@ -261,9 +269,9 @@
         window.draggedElement = item.node.clone()
       },
 
-      onToolbxItemDragend(){
-        window.$bus.$emit('hideCursor')
-      },
+      //onToolboxItemDragend(){
+      //  window.$bus.$emit('hideCursor')
+      //},
     }
   }
 </script>

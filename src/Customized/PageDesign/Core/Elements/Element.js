@@ -57,6 +57,7 @@ export default class Element {
   }
 
   addChild(child){
+    child.parent = this
     add(child, this.children)
   }
 
