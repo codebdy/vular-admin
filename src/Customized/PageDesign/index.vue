@@ -209,6 +209,11 @@
             key="page-content"
             v-model="pageContent"
           />
+          <!--v-row style="background: red;">
+            <v-col style="background: blue;">
+
+            </v-col>
+          </v-row-->
         </div>
         <ElementView
           v-if="withFooter"
