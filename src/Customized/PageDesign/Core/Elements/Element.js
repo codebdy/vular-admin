@@ -7,8 +7,8 @@ import NormalState from "../States/NormalState"
 export default class Element {
   constructor(name, title, designName) {
     this.seedId()
-    this.name = name
-    this.designName = designName ? designName : name
+    this.name = this.toLineName(name)
+    this.designName = designName ? this.toLineName(designName) : name
     this.title = title
     this.props = {}
     this.styles = {}

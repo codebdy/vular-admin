@@ -1,7 +1,7 @@
 <template>
   <div 
     class="mouse-follower"
-    v-if="isShow"
+    v-if="isShow && followedElement"
     :style="{
       left:left,
       top:top,

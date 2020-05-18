@@ -80,7 +80,16 @@ export default {
 
      return on;
     },
-
+    
+    hasNativeOn(){
+      if(this.inputValue.designName ==='v-row'
+        ||this.inputValue.designName ==='v-col'){
+        return false
+      }
+  
+      return true
+    },
+  
   },
 
 
@@ -116,6 +125,7 @@ export default {
     //$editorBus.$off('stateChange', this.stateChange)
   },
 
+
   render: function (createElement) {
     const children = []
     const self = this
@@ -147,7 +157,7 @@ export default {
         attrs:  Object.assign(self.nodeAttrs, self.inputValue.attrs),
         domProps: self.inputValue.domProps,
         on: self.getOn(),
-        nativeOn: self.getOn(),
+        nativeOn: self.hasNativeOn() ?  self.getOn() : '',
         //directives:this.inputValue.directives,
         scopedSlots: self.inputValue.scopedSlots,
         slot: self.inputValue.slot,

@@ -245,7 +245,10 @@
   import TheLabel from "./Core/Views/TheLabel.vue"
   import TheMouseFollower from "./Core/Views/TheMouseFollower.vue"
   import ElementView from "./Core/Views/ElementView"
-  import PageLayoutElement from "./Core/Elements/PageLayoutElement.js"
+  import ElementPageLayout from "./Core/Elements/ElementPageLayout"
+  import ElementRow from "./Core/Elements/ElementRow"
+  import ElementColumn from "./Core/Elements/ElementColumn"
+  import ElementPageContent from "./Core/Elements/ElementPageContent"
 
   export default {
     name: "page-design",
@@ -269,19 +272,19 @@
             items:[
             {
                 title:this.$t('design.row'),
-                node: new PageLayoutElement('VularPageHeader', this.$t('design.row'), 'ThePageHeader'),
+                node: new ElementRow(),
               },
               {
                 title:this.$t('design.column'),
-                node:new PageLayoutElement('VularPageFooter', this.$t('design.column'), 'ThePageFooter'),
+                node:new ElementColumn(),
               },
             ],
           }
         ],
         canvas: new Canvas,
-        header: new PageLayoutElement('VularPageHeader', this.$t('design.page-header'), 'ThePageHeader'),
-        footer: new PageLayoutElement('VularPageFooter', this.$t('design.page-footer'), 'ThePageFooter'),
-        pageContent: new PageLayoutElement('VularPageContent', this.$t('design.page-footer'), 'ThePageContent'),
+        header: new ElementPageLayout('VularPageHeader', this.$t('design.page-header'), 'ThePageHeader'),
+        footer: new ElementPageLayout('VularPageFooter', this.$t('design.page-footer'), 'ThePageFooter'),
+        pageContent: new ElementPageContent(),
         pageType:'',
       }
     },
