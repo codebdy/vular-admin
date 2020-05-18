@@ -18,6 +18,11 @@ export default class Element {
     this.editClasses = []
     this.children = []
 
+    //空表示所有都接受，空数组表示都不接受
+    this.accepts = []
+    //空和空数组都表示所有都不排除
+    this.rejects = []
+
     this.initStates()
   }
 
@@ -51,9 +56,64 @@ export default class Element {
     this.stateChanged(oldState, this[stateName])
   }
 
-  accept(){
-    return !this.recursionConflict(this.editorState.draggedElement) 
-      && !this.hasChild(this.editorState.draggedElement)
+  canAccept(child){
+    let acceptedChildren = this.accepts
+    if(acceptedChildren  && acceptedChildren.length == 0){
+      return false
+    }
+
+    if(acceptedChildren && !this.containsInAccepted(child)){
+      return false
+    }
+
+    if(!acceptedChildren && this.containsInExcept(child)){
+      return false
+    }
+    return true
+  }
+
+
+  containsInAccepted(child){
+    let childName = child.name
+    let acceptedChildren = this.accepts
+    for(var i = 0; i < acceptedChildren.length; i++){
+      if(this.nameEqual(acceptedChildren[i], childName)){
+        return true
+      }
+    }
+
+    return false
+  }
+
+  containsInExcept(child){
+    let childName = child.name
+    let rejectChildren = this.rejects
+    if(rejectChildren){
+      for(var i = 0; i < rejectChildren.length; i++){
+        if(this.nameEqual(rejectChildren[i], childName)){
+          return true
+        }
+      }
+    }
+
+    return false    
+  }
+
+  nameEqual(first, second){
+    first = this.toLineName(first)
+    second = this.toLineName(second)
+    return first == second
+  }
+
+  toLineName(name){
+    if(name){
+      name = name.replace(/([A-Z])/g,"-$1").toLowerCase()
+      if(name[0] === '-'){
+        name = name.substr(1)
+      }
+    }
+
+    return name
   }
 
   addChild(child){
@@ -62,8 +122,8 @@ export default class Element {
   }
 
 //-------------events--------------
-  mouseover(event){
-    this.state.mouseover(event)
+  mousemove(event){
+    this.state.mousemove(event)
   }
 
   mouseup(event){

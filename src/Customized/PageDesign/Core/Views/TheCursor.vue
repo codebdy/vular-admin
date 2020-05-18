@@ -35,7 +35,6 @@
     },
     
     mounted() {
-      
     },
     destroyed() {
       window.$bus.$off('showCursor', this.onShow)
@@ -89,7 +88,7 @@
     content: '';
     width: 0; 
     height: 0;
-    top: 0.15rem;
+    top: 0.25rem;
     left: calc(50% - 2px);
     border-width: 4px;
     border-style: solid;

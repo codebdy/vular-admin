@@ -243,7 +243,7 @@
             items:[
             {
                 title:this.$t('design.page-header'),
-                node: new PageLayoutElement('ThePageHeader', this.$t('design.page-header')),
+                node: new PageLayoutElement('VularPageHeader', this.$t('design.page-header'), 'ThePageHeader'),
               },
               {
                 title:this.$t('design.page-footer'),

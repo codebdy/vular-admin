@@ -5,21 +5,29 @@ export default class ElementState {
     this.element = element
   }
 
-  mouseover(event){
+  mousemove(event){
     let draggedElement = $store.state.customizedApp.draggedElement
+
     if(draggedElement){
-      window.$bus.$emit('showCursor', event, 'in')
-      event.preventDefault()
+      window.$bus.$emit('followMouse', event)
+      if(this.element.canAccept(draggedElement)){
+        window.$bus.$emit('showCursor', event, 'in')
+      }
+      else{
+        window.$bus.$emit('hideCursor')
+      }
     }
+    event.stopPropagation()
   }
 
   mouseup(event){
     event.stopPropagation()
     let draggedElement = $store.state.customizedApp.draggedElement
-    if(draggedElement){
+    if(draggedElement && this.element.canAccept(draggedElement)){
       this.element.addChild(draggedElement)
-      window.$bus.$emit('hideCursor')
     }
+    window.$bus.$emit('hideCursor')
+    window.$bus.$emit('unFollowMouse')
     $store.commit('endDragElement')
   }
 

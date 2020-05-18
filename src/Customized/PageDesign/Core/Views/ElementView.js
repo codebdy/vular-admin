@@ -47,7 +47,7 @@ export default {
         event.stopPropagation()
       }
       on.mousemove = event=>{
-        this.inputValue.mouseover(event)
+        this.inputValue.mousemove(event)
       }
       on.mouseup = event=>{
         this.inputValue.mouseup(event)

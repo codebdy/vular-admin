@@ -2,7 +2,6 @@
   <div 
     class="mouse-follower"
     v-if="isShow"
-    :key="followedElement._vid"
     :style="{
       left:left,
       top:top,
@@ -37,31 +36,26 @@
     
     
     mounted() {
-      document.addEventListener('mousemove', this.onMouseMove)
+      window.$bus.$on('followMouse', this.onFollowMouse)
+      window.$bus.$on('unFollowMouse', this.onUnFollowMouse)
     },
     destroyed() {
-      document.removeEventListener('mousemove', this.onMouseMove)
+      window.$bus.$off('followMouse', this.onFollowMouse)
+      window.$bus.$off('unFollowMouse', this.onUnFollowMouse)
     },
 
     methods: {
-      onMouseMove(event){
-        if(this.followedElement){
-          this.isShow = true
-          this.left = event.clientX + 'px'
-          this.top = event.clientY + 'px'
-        }
+      onFollowMouse(event){
+        this.isShow = true
+        this.left = event.clientX + 'px'
+        this.top = event.clientY + 'px'
+
+      },
+
+      onUnFollowMouse(){
+        this.isShow = false
       },
     },
-
-    watch:{
-      "$store.state.customizedApp.draggedElement":{
-        handler(val){
-          if(!val){
-            this.isShow = false
-          }
-        }
-      }
-    }
   }
 </script>
 

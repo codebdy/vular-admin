@@ -27,5 +27,9 @@
 <style scoped>
   .header-element .place-holder{
     padding:10px;
+    display: flex;
+    justify-content: center;
+    color:lightgrey;
+    font-size: 20px;
   }
 </style>
