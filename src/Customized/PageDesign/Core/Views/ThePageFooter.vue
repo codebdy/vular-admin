@@ -1,9 +1,9 @@
 <template>
-  <div 
+  <v-row 
     class="footer-element"
   >
-    <slot></slot>
-  </div>
+    
+  </v-row>
 </template>
 
 <script>
@@ -23,4 +23,5 @@
 </script>
 
 <style scoped>
+
 </style>

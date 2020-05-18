@@ -43,11 +43,12 @@
 
     methods: {
       onShow(event, position){
+        
         let rect = event.target.getBoundingClientRect()
         if(position == 'in'){
           this.isShow = true
           this.left = rect.left + 'px'
-          this.top = (rect.top + rect.height/2) +  'px'
+          this.top = (event.clientY) +  'px'
           this.width = rect.width + 'px'
           this.height = 4 + 'px'
         }
@@ -61,7 +62,7 @@
         if(position == 'bottom'){
           this.isShow = true
           this.left = rect.left + 'px'
-          this.top = (rect.bottom + 2) +  'px'
+          this.top = (rect.bottom - 2) +  'px'
           this.width = rect.width + 'px'
           this.height = 4 + 'px'
           
@@ -104,6 +105,7 @@
     pointer-events: none;
     transition: width 0.3s, height 0.3s;
     will-change: auto;
+    z-index: 9;
   }
 
   .the-cursor.vertical{

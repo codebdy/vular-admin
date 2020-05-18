@@ -20,7 +20,9 @@ export default {
         'element-outline':true,
       },
       styles:{},
-      nodProps:{key:this.value._vid},
+      nodProps:{
+        key:this.value._vid,
+      },
     }
   },
 
@@ -53,10 +55,12 @@ export default {
         this.inputValue.mouseup(event)
       }
 
-      /*
       on.mouseout = event=>{
         this.inputValue.mouseout(event)
-      },
+      }
+
+      /*
+      ,
 
 
       on.dragleave = event =>{
@@ -88,6 +92,8 @@ export default {
     //$editorBus.$on('editorStateChange', this.editorStateChange)
     //$editorBus.$on('preview', this.preview)
     //$editorBus.$on('stateChange', this.stateChange)
+    this.inputValue.view = this
+    this.inputValue.ref = 'view-dom'
   },
 
   mounted(){

@@ -68,5 +68,6 @@
     pointer-events: none;
     border-radius: 3px;
     font-size: 12px;
+    z-index: 10;
   }
 </style>

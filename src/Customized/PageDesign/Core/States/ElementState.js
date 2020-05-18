@@ -12,7 +12,7 @@ export default class ElementState {
       window.$bus.$emit('followMouse', event)
       let position = this.judgePosition(event)
       if(position){
-        window.$bus.$emit('showCursor', event, position)
+          window.$bus.$emit('showCursor', event, position)
       }
       else{
         window.$bus.$emit('hideCursor')
@@ -32,6 +32,10 @@ export default class ElementState {
     $store.commit('endDragElement')
   }
 
+  mouseout(){
+    window.$bus.$emit('hideCursor')
+  }
+
   judgePosition(event){
     let draggedElement = $store.state.customizedApp.draggedElement
 
@@ -42,8 +46,17 @@ export default class ElementState {
     let ratioY = offsetY/clientHeight
     let ratioX = offsetX/clientWidth
 
-    if(this.element.children.length === 0 && this.element.canAccept(draggedElement)){
-      return 'in'
+    if(this.element.canAccept(draggedElement)){
+      //if(this.element.children.length === 0){
+        return 'in'        
+      //}
+      //else if(ratioY < 0.1){
+      //  return 'inBefore'
+      //}
+      //else{
+      //  return 'inAfter'
+      //}
+
     }
 
     if(this.element.parent && this.element.parent.canAccept(draggedElement)){

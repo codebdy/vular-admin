@@ -207,10 +207,10 @@
       <v-divider></v-divider>
       
     </div>
-    <TheCursor/>
-    <TheMouseFollower/>
     <TheToolbox/>
     <TheLabel/>
+    <TheCursor/>
+    <TheMouseFollower/>
   </div>
 </template>
 
@@ -247,7 +247,7 @@
               },
               {
                 title:this.$t('design.page-footer'),
-                node:'',
+                node:new PageLayoutElement('VularPageFooter', this.$t('design.page-footer'), 'ThePageFooter'),
               },
               {
                 title:this.$t('design.page-content'),
@@ -264,9 +264,11 @@
     
     mounted() {
       document.addEventListener('mouseup', this.onMouseUp)
+      document.addEventListener('mousemove', this.onMouseMove)
     },
     destroyed() {
       document.removeEventListener('mouseup', this.onMouseUp)
+      document.removeEventListener('mousemove', this.onMouseMove)
     },
 
 
@@ -278,6 +280,15 @@
 
       onMouseUp(){
         this.$store.commit('endDragElement')
+      },
+
+      onMouseMove(){
+        let draggedElement = this.$store.state.customizedApp.draggedElement
+
+        if(draggedElement){
+          window.$bus.$emit('followMouse', event)
+        }
+
       },
 
       //onToolboxItemDragend(){
