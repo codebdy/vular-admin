@@ -19,7 +19,7 @@ export default {
       classes:{
         'element-outline':true,
       },
-      styles:{},
+      styles:{'padding':'20px'},
       nodeProps:{
         key:this.value._vid,
       },
