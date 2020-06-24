@@ -3,7 +3,7 @@
 Vular 前端界面
 演示地址：https://vular.cn/admin-ui/   不是最新版     
  
-已改用React重构代码，本项目不再维护  
+已改用React重构代码，本项目不再维护，新代码地址：https://github.com/rxwater/rxdrag  
 QQ交流群：957619750 
 
 ## dev
